@@ -14,7 +14,8 @@
 
       <div class="flex items-center gap-4">
         <a [routerLink]="['/']" fragment="contact"
-          class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex">
+          class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex"
+          (click)="trackCta('nav_free_call_desktop')">
           Get a FREE consulting call
         </a>
         <button type="button" id="nav-toggle"
@@ -38,7 +39,7 @@
           (click)="closeMobileMenu()">Case Studies</a>
         <a [routerLink]="['/']" fragment="contact"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
-          (click)="closeMobileMenu()">
+          (click)="closeMobileMenu(); trackCta('nav_free_call_mobile')">
           Get a FREE consulting call
         </a>
       </div>
@@ -71,11 +72,13 @@
 
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
           <a [routerLink]="['/']" fragment="contact"
-            class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
-            Book 30-Min Strategy
+            class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
+            (click)="trackCta('hero_free_call')">
+            Get a FREE consulting call
           </a>
           <a [routerLink]="['/']" fragment="cases"
-            class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
+            class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
+            (click)="trackCta('hero_view_cases')">
             View Case Studies
           </a>
         </div>
@@ -257,10 +260,11 @@
       </div>
 
       <!-- Google Calendar Appointment Scheduling begin -->
-      <iframe
+      <iframe #calendarIframe
         src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
         style="border: 0; display: block; width: 100%; height: 85vh; border-radius: 8px;" frameborder="0"
-        title="Book a 30-minute strategy call"></iframe>
+        title="Book a 30-minute strategy call"
+        (load)="onCalendarLoad()"></iframe>
       <!-- end Google Calendar Appointment Scheduling -->
 
     </section>

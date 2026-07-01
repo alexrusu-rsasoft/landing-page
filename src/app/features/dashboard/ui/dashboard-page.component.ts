@@ -1,13 +1,32 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, inject, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 
 @Component({
   selector: 'app-dashboard-page',
   imports: [RouterLink, RouterOutlet],
   templateUrl: './dashboard-page.component.html',
 })
-export class DashboardPageComponent {
+export class DashboardPageComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('calendarIframe') private calendarIframeRef!: ElementRef<HTMLIFrameElement>;
+
   protected readonly mobileMenuOpen = signal(false);
+  private readonly analytics = inject(AnalyticsService);
+
+  private intersectionObserver?: IntersectionObserver;
+  private calendarViewed = false;
+  private calendarEngaged = false;
+  private readonly onWindowBlur = (): void => this.handleWindowBlur();
+
+  ngAfterViewInit(): void {
+    this.setupIntersectionObserver();
+    window.addEventListener('blur', this.onWindowBlur);
+  }
+
+  ngOnDestroy(): void {
+    this.intersectionObserver?.disconnect();
+    window.removeEventListener('blur', this.onWindowBlur);
+  }
 
   protected toggleMobileMenu(): void {
     this.mobileMenuOpen.set(!this.mobileMenuOpen());
@@ -15,5 +34,49 @@ export class DashboardPageComponent {
 
   protected closeMobileMenu(): void {
     this.mobileMenuOpen.set(false);
+  }
+
+  protected trackCta(label: CtaLabel): void {
+    this.analytics.trackCtaClick(label);
+  }
+
+  protected onCalendarLoad(): void {
+    this.analytics.trackCalendarIframeLoaded();
+  }
+
+  /**
+   * Sets up an IntersectionObserver that fires `calendar_section_viewed`
+   * exactly once when at least 40% of the iframe enters the viewport.
+   */
+  private setupIntersectionObserver(): void {
+    const iframe = this.calendarIframeRef?.nativeElement;
+    if (!iframe) return;
+
+    this.intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !this.calendarViewed) {
+          this.calendarViewed = true;
+          this.analytics.trackCalendarViewed();
+          this.intersectionObserver?.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    this.intersectionObserver.observe(iframe);
+  }
+
+  /**
+   * When the window loses focus the user has clicked into the cross-origin
+   * iframe. We guard with `calendarViewed` so we only fire this if the
+   * calendar section was actually visible (avoids false positives from
+   * other browser blur events like alt-tab).
+   */
+  private handleWindowBlur(): void {
+    if (this.calendarViewed && !this.calendarEngaged) {
+      this.calendarEngaged = true;
+      this.analytics.trackCalendarEngaged();
+    }
   }
 }
