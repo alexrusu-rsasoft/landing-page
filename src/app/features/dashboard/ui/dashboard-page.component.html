@@ -13,9 +13,9 @@
       </nav>
 
       <div class="flex items-center gap-4">
-        <a [routerLink]="['/book-a-call']"
+        <a [routerLink]="['/']" fragment="contact"
           class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex">
-          Book 30-Min Strategy Call
+          Get a FREE consulting call
         </a>
         <button type="button" id="nav-toggle"
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-sm transition md:hidden"
@@ -36,10 +36,10 @@
           (click)="closeMobileMenu()">Core Expertise</a>
         <a [routerLink]="['/']" fragment="cases" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">Case Studies</a>
-        <a [routerLink]="['/book-a-call']"
+        <a [routerLink]="['/']" fragment="contact"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
           (click)="closeMobileMenu()">
-          Book 30-Min Strategy Call
+          Get a FREE consulting call
         </a>
       </div>
     </div>
@@ -70,9 +70,9 @@
         </div>
 
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <a [routerLink]="['/book-a-call']"
+          <a [routerLink]="['/']" fragment="contact"
             class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
-            Book 30-Min Strategy Call
+            Book 30-Min Strategy
           </a>
           <a [routerLink]="['/']" fragment="cases"
             class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
@@ -244,26 +244,25 @@
       </div>
     </section>
 
-    <section id="contact" class="mt-24 rounded-[32px] bg-slate-950 px-8 py-14 text-white sm:px-10 lg:px-14">
-      <div class="mx-auto max-w-4xl">
-        <div class="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
-          <div>
-            <p class="text-sm uppercase tracking-[0.32em] text-primary/80">Next engagement</p>
-            <h2 class="mt-4 text-3xl font-semibold tracking-tight">
-              Book your 30-minute strategy call and accelerate engineering impact.
-            </h2>
-          </div>
-          <div class="space-y-4">
-            <p class="text-sm leading-7 text-slate-300">
-              Discuss product strategy, team delivery, and platform architecture with senior
-              engineering leaders.
-            </p>
-            <a [routerLink]="['/book-a-call']"
-              class="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-950">Book
-              30-Min Strategy Call</a>
-          </div>
-        </div>
+    <section id="contact" class="mt-24 scroll-mt-20 space-y-8">
+      <div class="max-w-4xl">
+        <p class="text-sm uppercase tracking-[0.32em] text-primary">Book a Strategy Call</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+          Schedule your 30-minute strategy call.
+        </h2>
+        <p class="mt-4 text-base leading-8 text-slate-600">
+          Discuss product strategy, team delivery, and platform architecture with senior
+          engineering leaders.
+        </p>
       </div>
+
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
+        style="border: 0; display: block; width: 100%; height: 85vh; border-radius: 8px;" frameborder="0"
+        title="Book a 30-minute strategy call"></iframe>
+      <!-- end Google Calendar Appointment Scheduling -->
+
     </section>
   </main>
   <router-outlet />

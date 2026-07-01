@@ -7,15 +7,6 @@ export const routes: Routes = [
       import('./features/dashboard/ui/dashboard-page.component').then(
         (m) => m.DashboardPageComponent,
       ),
-    children: [
-      {
-        path: 'book-a-call',
-        loadComponent: () =>
-          import('./shared/ui/book-a-call-modal.component').then(
-            (m) => m.BookACallModalComponent,
-          ),
-      },
-    ],
   },
   {
     path: 'dashboard',
@@ -23,15 +14,6 @@ export const routes: Routes = [
       import('./features/dashboard/ui/dashboard-page.component').then(
         (m) => m.DashboardPageComponent,
       ),
-    children: [
-      {
-        path: 'book-a-call',
-        loadComponent: () =>
-          import('./shared/ui/book-a-call-modal.component').then(
-            (m) => m.BookACallModalComponent,
-          ),
-      },
-    ],
   },
   {
     path: 'compliance-tracker',
