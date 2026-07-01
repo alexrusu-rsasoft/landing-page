@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.35);
+  color: #f8fafc;
+}

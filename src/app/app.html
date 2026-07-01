@@ -1,0 +1,328 @@
+<div class="min-h-screen bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-30 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#hero" class="flex items-center gap-3" (click)="closeMenu()">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-400/10 text-sm font-semibold text-emerald-300">
+          RS
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-semibold tracking-[0.28em] text-white">RSA SOFT</span>
+          <span class="text-[11px] uppercase tracking-[0.24em] text-emerald-300">
+            {{ logoBadge() }}
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex">
+        <a
+          *ngFor="let item of navigationItems"
+          [href]="item.href"
+          class="text-sm font-medium text-slate-300 transition hover:text-emerald-300"
+        >
+          {{ item.label }}
+        </a>
+        <a
+          href="#proof"
+          class="rounded-full border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-emerald-400 hover:text-emerald-300"
+        >
+          Case Studies
+        </a>
+        <button
+          type="button"
+          class="rounded-full bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+          (click)="openBookingModal()"
+        >
+          Get Strategy Call
+        </button>
+      </nav>
+
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 md:hidden"
+        aria-label="Toggle navigation"
+        (click)="toggleMenu()"
+      >
+        <span class="text-lg text-slate-200">☰</span>
+      </button>
+    </div>
+
+    <div *ngIf="menuOpen()" class="border-t border-white/10 bg-slate-950/95 px-4 py-4 md:hidden">
+      <div class="flex flex-col gap-3">
+        <a
+          *ngFor="let item of navigationItems"
+          [href]="item.href"
+          class="rounded-2xl border border-white/10 px-4 py-3 text-sm font-medium text-slate-200"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+        <button
+          type="button"
+          class="rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-semibold text-slate-950"
+          (click)="openBookingModal()"
+        >
+          Get Strategy Call
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <section
+      id="hero"
+      class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 p-8 shadow-[0_0_90px_rgba(16,185,129,0.12)] sm:p-10 lg:p-16"
+    >
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(45,212,191,0.15),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.16),transparent_30%)]"></div>
+      <div class="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div class="max-w-3xl">
+          <p class="inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">
+            Senior Fullstack Delivery, Secure & AI-Augmented
+          </p>
+          <h1 class="mt-5 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Skaliere dein Senior Fullstack Team auf und bring deine Projekte an den Start.
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+            Ich helfe Tech-Leitern, Managern und Gründern, ihre Delivery-Teams mit compliant,
+            AI-augmentierten Experten zu staffen und zu skalieren. Eliminiere Delivery-Engpässe in
+            30 Tagen mit Outcome-basierten Squads statt Einzelkraft.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-emerald-300"
+              (click)="openBookingModal()"
+            >
+              Schedule 30-Min Delivery Call
+            </button>
+            <div class="text-sm text-slate-400">
+              <span class="block font-medium text-slate-300">Get a curated list of top experts in 24-48 hours</span>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            <span
+              *ngFor="let badge of stackBadges"
+              class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-sm text-slate-300"
+            >
+              {{ badge }}
+            </span>
+          </div>
+
+          <div class="mt-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
+            <span class="text-xl">🏆</span>
+            <span>#1 Ranked Software Agency in Net Profit & Turnover in our region.</span>
+          </div>
+        </div>
+
+        <div class="rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/30">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm uppercase tracking-[0.3em] text-emerald-300">Delivery Command Center</p>
+              <p class="mt-2 text-2xl font-semibold text-white">Predictable delivery in 30 days</p>
+            </div>
+            <div class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-sm font-medium text-emerald-300">
+              Live
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+              <p class="text-3xl font-semibold text-white">24-48h</p>
+              <p class="mt-2 text-sm text-slate-400">Curated expert matching</p>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+              <p class="text-3xl font-semibold text-white">100%</p>
+              <p class="mt-2 text-sm text-slate-400">Internal senior talent pool</p>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+              <p class="text-3xl font-semibold text-white">AI</p>
+              <p class="mt-2 text-sm text-slate-400">Execution acceleration</p>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+              <p class="text-3xl font-semibold text-white">0</p>
+              <p class="mt-2 text-sm text-slate-400">Micro-management overhead</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pain" class="mt-8 rounded-[2rem] border border-slate-800 bg-slate-900/70 p-8 sm:p-10">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">Why delivery fails</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          Warum die meisten Tech-Projekte beim Recruiting scheitern
+        </h2>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-3">
+        <article
+          *ngFor="let pain of painPoints"
+          class="rounded-[1.5rem] border border-slate-800 bg-slate-950/80 p-6 shadow-lg shadow-slate-950/20"
+        >
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">{{ pain.accent }}</p>
+          <h3 class="mt-3 text-xl font-semibold text-white">{{ pain.title }}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-400">{{ pain.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section
+      id="mechanism"
+      class="mt-8 rounded-[2rem] border border-emerald-400/20 bg-slate-900/70 p-8 sm:p-10"
+    >
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">The RSA SOFT Staffing Protocol</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          Die Evolution des Entwickler-Stundensatzes: Der AI-Expert Combo
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-slate-300">
+          Wir übernehmen die volle taktische Verantwortung für Teilprojekte, damit Ihr internes Team
+          sich auf Skalierung, Produktstrategie und Governance konzentrieren kann.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <article
+          *ngFor="let feature of mechanismFeatures"
+          class="rounded-[1.5rem] border border-slate-800 bg-slate-950/70 p-6"
+        >
+          <h3 class="text-xl font-semibold text-white">{{ feature.title }}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-400">{{ feature.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proof" class="mt-8 rounded-[2rem] border border-slate-800 bg-slate-950/60 p-8 sm:p-10">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">Social proof</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          Erprobte Qualität in anspruchsvollen Branchen
+        </h2>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <article
+          *ngFor="let card of proofCards"
+          class="rounded-[1.5rem] border border-slate-800 bg-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-emerald-400/30"
+        >
+          <h3 class="text-xl font-semibold text-white">{{ card.title }}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-400">{{ card.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="mt-8 rounded-[2rem] border border-slate-800 bg-slate-900/70 p-8 sm:p-10">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">Transformation roadmap</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          In 6 Schritten zum erfolgreichen Projektabschluss
+        </h2>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div
+          *ngFor="let step of roadmapSteps; let i = index"
+          class="rounded-[1.25rem] border border-slate-800 bg-slate-950/70 p-6"
+        >
+          <div class="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-400/10 text-sm font-semibold text-emerald-300">
+            {{ i + 1 }}
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-white">{{ step.title }}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-400">{{ step.description }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="mt-8 rounded-[2rem] border border-emerald-400/20 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 p-8 sm:p-10"
+    >
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium uppercase tracking-[0.32em] text-emerald-300">Final conversion</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+          Ready to stop settling for average agencies with no results?
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-slate-300">
+          Lass uns eine berechenbare Software-Delivery-Maschine für deine Abteilung aufbauen. Sichere
+          dir jetzt dein 30-minütiges technisches Alignment-Gespräch.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-emerald-300"
+          (click)="openBookingModal()"
+        >
+          Book Your Delivery Call
+        </button>
+        <p class="text-sm text-slate-400">Secure your 30-minute technical alignment call now.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-slate-950/80">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-400 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <p>© 2026 RSA SOFT. Built for delivery certainty.</p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          *ngFor="let link of footerLinks"
+          [href]="link.href"
+          target="_blank"
+          rel="noreferrer"
+          class="transition hover:text-emerald-300"
+        >
+          {{ link.label }}
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <router-outlet></router-outlet>
+
+  <div
+    *ngIf="isBookingModalOpen()"
+    class="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/85 px-4 py-6 backdrop-blur-sm sm:px-6 lg:px-8"
+    (click)="closeBookingModal()"
+  >
+    <div
+      class="relative flex max-h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-[0_0_120px_rgba(16,185,129,0.18)]"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="flex items-center justify-between border-b border-white/10 bg-slate-900/80 px-5 py-4 sm:px-6">
+        <div>
+          <p class="text-sm font-medium uppercase tracking-[0.3em] text-emerald-300">
+            Book a discovery call
+          </p>
+          <h2 class="mt-1 text-xl font-semibold text-white">Choose a time that works for you</h2>
+        </div>
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-slate-300 transition hover:border-emerald-400/40 hover:text-emerald-300"
+          aria-label="Close booking modal"
+          (click)="closeBookingModal()"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-hidden bg-slate-950/80 p-3 sm:p-4 lg:p-6">
+        <div class="flex h-full min-h-[70vh] flex-col rounded-[1.5rem] border border-slate-800 bg-slate-900/70 p-2 sm:p-3">
+          <div class="mb-3 rounded-[1.25rem] border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm text-slate-200">
+            This booking flow is handled directly in our Google Calendar, so you can reserve a time
+            without email back-and-forth.
+          </div>
+          <iframe
+            title="Book a call with RSA SOFT"
+            src="https://calendar.app.google/u2W4KHHoq5rvVB4X7"
+            class="min-h-[60vh] w-full rounded-[1.25rem] border-0"
+            loading="lazy"
+            allow="clipboard-write"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

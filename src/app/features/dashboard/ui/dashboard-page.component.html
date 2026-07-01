@@ -1,0 +1,335 @@
+<div class="min-h-screen bg-neutral-50">
+      <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a
+            [routerLink]="['/']"
+            fragment="top"
+            class="flex items-center gap-3 text-slate-950"
+            (click)="closeMobileMenu()"
+          >
+            <img
+              src="/RSA - Logo + Text  Horizzontal - Default.png"
+              alt="RSA SOFT logo"
+              class="h-10 w-auto object-contain"
+            />
+          </a>
+
+          <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
+            <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary"
+              >The Protocol</a
+            >
+            <a [routerLink]="['/']" fragment="expertise" class="transition hover:text-primary"
+              >Core Expertise</a
+            >
+            <a [routerLink]="['/']" fragment="cases" class="transition hover:text-primary"
+              >Case Studies</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-4">
+            <a
+              [routerLink]="['/book-a-call']"
+              class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex"
+            >
+              Book 30-Min Strategy Call
+            </a>
+            <button
+              type="button"
+              id="nav-toggle"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-sm transition md:hidden"
+              aria-label="Open menu"
+              (click)="toggleMobileMenu()"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          class="border-t border-slate-200 bg-white/98 px-6 py-4 md:hidden"
+          [class.hidden]="!mobileMenuOpen()"
+        >
+          <div class="flex flex-col gap-4 text-sm font-medium text-slate-700">
+            <a
+              [routerLink]="['/']"
+              fragment="protocol"
+              class="block transition hover:text-primary"
+              (click)="closeMobileMenu()"
+              >The Protocol</a
+            >
+            <a
+              [routerLink]="['/']"
+              fragment="expertise"
+              class="block transition hover:text-primary"
+              (click)="closeMobileMenu()"
+              >Core Expertise</a
+            >
+            <a
+              [routerLink]="['/']"
+              fragment="cases"
+              class="block transition hover:text-primary"
+              (click)="closeMobileMenu()"
+              >Case Studies</a
+            >
+            <a
+              [routerLink]="['/book-a-call']"
+              class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
+              (click)="closeMobileMenu()"
+            >
+              Book 30-Min Strategy Call
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main id="top" class="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+        <div class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <section class="space-y-8">
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
+            >
+              <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
+              Trusted by B2B leaders scaling engineering impact
+            </div>
+
+            <div class="space-y-6">
+              <p class="text-sm uppercase tracking-[0.32em] text-slate-500">
+                Enterprise software strategy
+              </p>
+              <h1
+                class="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl"
+              >
+                RSA SOFT crafts modern engineering teams and platform products built for high-growth
+                B2B organizations.
+              </h1>
+              <p class="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                We combine product-led engineering, scalable systems design, and elite delivery
+                discipline so your software organization moves faster, stays secure, and wins with
+                predictable execution.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                [routerLink]="['/book-a-call']"
+                class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
+              >
+                Book 30-Min Strategy Call
+              </a>
+              <a
+                [routerLink]="['/']"
+                fragment="cases"
+                class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
+              >
+                View Case Studies
+              </a>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+                <p class="text-sm text-slate-500">Time-to-market</p>
+                <p class="mt-3 text-2xl font-semibold text-slate-950">30% faster delivery</p>
+              </div>
+              <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+                <p class="text-sm text-slate-500">Engineering velocity</p>
+                <p class="mt-3 text-2xl font-semibold text-slate-950">$4.7M ARR enabled</p>
+              </div>
+              <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+                <p class="text-sm text-slate-500">Product impact</p>
+                <p class="mt-3 text-2xl font-semibold text-slate-950">
+                  Trusted by fast-scaling teams
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="relative overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(43,84,148,0.18),_transparent_38%),_linear-gradient(180deg,_rgb(255_255_255)_0%,_rgb(242_247_255)_100%)] px-6 py-10 shadow-2xl shadow-slate-200/40 sm:px-8 lg:py-16"
+          >
+            <div class="absolute inset-x-0 top-0 h-20 bg-primary/10 blur-3xl"></div>
+            <div class="relative space-y-8">
+              <div
+                class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/50"
+              >
+                <p class="text-sm uppercase tracking-[0.32em] text-primary">How we partner</p>
+                <p class="mt-4 text-lg font-semibold text-slate-950">
+                  From strategy to execution, we align engineering teams around measurable product
+                  outcomes.
+                </p>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <article
+                  class="rounded-3xl bg-slate-950/95 p-6 text-white shadow-xl shadow-slate-950/10"
+                >
+                  <p class="text-sm uppercase tracking-[0.32em] text-slate-400">Discovery</p>
+                  <p class="mt-4 text-xl font-semibold">Product-led systems strategy</p>
+                </article>
+                <article class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+                  <p class="text-sm uppercase tracking-[0.32em] text-slate-500">Delivery</p>
+                  <p class="mt-4 text-xl font-semibold text-slate-950">
+                    Responsive engineering execution
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section id="protocol" class="mt-20 space-y-8">
+          <div class="max-w-3xl">
+            <p class="text-sm uppercase tracking-[0.32em] text-primary">The Protocol</p>
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              A practical framework for building durable B2B software operations.
+            </h2>
+            <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
+              We align leadership, architecture, and execution by focusing on value streams,
+              engineering maturity, and product-market validation.
+            </p>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-3">
+            <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+              <h3 class="text-xl font-semibold text-slate-950">Focus</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Define the product outcomes that move revenue, retention, and enterprise trust.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+              <h3 class="text-xl font-semibold text-slate-950">Process</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Embed a consistent engineering cadence across design, delivery, and reliability.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+              <h3 class="text-xl font-semibold text-slate-950">Proof</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Use data-driven case studies to validate performance and long-term scalability.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="expertise" class="mt-20 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div class="space-y-6">
+            <p class="text-sm uppercase tracking-[0.32em] text-primary">Core Expertise</p>
+            <h2 class="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Engineering services built for ambitious B2B platforms.
+            </h2>
+            <p class="max-w-xl text-base leading-8 text-slate-600">
+              From API-first architecture to secure cloud platforms, RSA SOFT helps companies
+              accelerate digital transformation with modern, reliable software engineering
+              practices.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+              <h3 class="text-lg font-semibold text-slate-950">Platform engineering</h3>
+              <p class="mt-3 text-sm text-slate-600">
+                Optimize the stack for scale, observability, and developer efficiency.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+              <h3 class="text-lg font-semibold text-slate-950">Security & compliance</h3>
+              <p class="mt-3 text-sm text-slate-600">
+                Embed secure delivery practices across architecture and release pipelines.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+              <h3 class="text-lg font-semibold text-slate-950">Data & analytics</h3>
+              <p class="mt-3 text-sm text-slate-600">
+                Turn operational data into product insights and engineering improvements.
+              </p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+              <h3 class="text-lg font-semibold text-slate-950">Cloud modernisation</h3>
+              <p class="mt-3 text-sm text-slate-600">
+                Modernize infrastructure with resilient, cost-efficient cloud systems.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="cases" class="mt-20 space-y-8">
+          <div class="max-w-3xl">
+            <p class="text-sm uppercase tracking-[0.32em] text-primary">Case Studies</p>
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Selected outcomes for modern B2B teams.
+            </h2>
+          </div>
+
+          <div class="grid gap-6 xl:grid-cols-3">
+            <article
+              class="rounded-[28px] bg-gradient-to-br from-primary/10 via-slate-100 to-white p-8 shadow-lg shadow-slate-200/70"
+            >
+              <p class="text-sm uppercase tracking-[0.24em] text-primary">SaaS scale-up</p>
+              <h3 class="mt-4 text-2xl font-semibold text-slate-950">
+                Reduced platform release cycle by 40%
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                We rebuilt the integration layer for a mid-market SaaS provider and improved
+                deployment confidence with automated guardrails.
+              </p>
+            </article>
+            <article class="rounded-[28px] bg-white p-8 shadow-lg shadow-slate-200/70">
+              <p class="text-sm uppercase tracking-[0.24em] text-primary">Enterprise SaaS</p>
+              <h3 class="mt-4 text-2xl font-semibold text-slate-950">
+                Delivered secure API platform in 12 weeks
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                The modern API architecture supported GDPR-ready data flows and simplified partner
+                onboarding.
+              </p>
+            </article>
+            <article class="rounded-[28px] bg-white p-8 shadow-lg shadow-slate-200/70">
+              <p class="text-sm uppercase tracking-[0.24em] text-primary">Product ops</p>
+              <h3 class="mt-4 text-2xl font-semibold text-slate-950">
+                Established product-led delivery across engineering teams
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                We introduced product health metrics, cross-functional planning, and shorter
+                feedback loops.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          class="mt-24 rounded-[32px] bg-slate-950 px-8 py-14 text-white sm:px-10 lg:px-14"
+        >
+          <div class="mx-auto max-w-4xl">
+            <div class="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+              <div>
+                <p class="text-sm uppercase tracking-[0.32em] text-primary/80">Next engagement</p>
+                <h2 class="mt-4 text-3xl font-semibold tracking-tight">
+                  Book your 30-minute strategy call and accelerate engineering impact.
+                </h2>
+              </div>
+              <div class="space-y-4">
+                <p class="text-sm leading-7 text-slate-300">
+                  Discuss product strategy, team delivery, and platform architecture with senior
+                  engineering leaders.
+                </p>
+                <a
+                  [routerLink]="['/book-a-call']"
+                  class="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-950"
+                  >Book 30-Min Strategy Call</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <router-outlet />
+    </div>
