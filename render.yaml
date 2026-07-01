@@ -4,6 +4,9 @@ services:
     runtime: static
     buildCommand: npm ci && npm run build -- --configuration production
     staticPublishPath: dist/landing-page/browser
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.0
     routes:
       - type: rewrite
         source: /*
