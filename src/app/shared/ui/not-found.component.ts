@@ -5,14 +5,17 @@ import { RouterLink } from '@angular/router';
   selector: 'app-not-found',
   imports: [RouterLink],
   template: `
-    <section class="rounded-3xl border border-amber-500/30 bg-amber-500/10 p-8 text-center">
-      <h2 class="text-2xl font-semibold">Page not found</h2>
-      <p class="mt-3 text-slate-300">The route you requested could not be resolved.</p>
+    <section class="rounded-3xl p-8 text-center">
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl text-center">
+        Page not found
+      </h2>
+      <h3 class="mt-3">The route you requested could not be resolved.</h3>
       <a
-        routerLink="/dashboard"
-        class="mt-6 inline-flex rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-slate-950"
-        >Return home</a
+        [routerLink]="['/']"
+        class="mt-10 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
       >
+        Get a FREE consulting call
+      </a>
     </section>
   `,
 })
