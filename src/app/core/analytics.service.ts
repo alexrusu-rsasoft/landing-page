@@ -4,15 +4,24 @@ import { Injectable } from '@angular/core';
 declare const gtag: (...args: unknown[]) => void;
 
 export type CtaLabel =
-  | 'nav_free_call_desktop'
-  | 'nav_free_call_mobile'
-  | 'hero_free_call'
-  | 'hero_view_cases';
+  'nav_free_call_desktop' | 'nav_free_call_mobile' | 'hero_free_call' | 'hero_view_cases';
+
+export type ContactLabel =
+  | 'contact_phone'
+  | 'contact_email'
+  | 'contact_whatsapp'
+  | 'contact_telegram'
+  | 'contact_linkedin'
+  | 'contact_xing';
 
 @Injectable({ providedIn: 'root' })
 export class AnalyticsService {
   trackCtaClick(label: CtaLabel): void {
     this.send('cta_click', { event_category: 'engagement', event_label: label });
+  }
+
+  trackContactClick(label: ContactLabel): void {
+    this.send('contact_click', { event_category: 'engagement', event_label: label });
   }
 
   /** Fires once when the Google Calendar iframe scrolls into the viewport. */

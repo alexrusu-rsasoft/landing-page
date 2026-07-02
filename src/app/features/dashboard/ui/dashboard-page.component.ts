@@ -35,19 +35,19 @@ export class DashboardPageComponent implements AfterViewInit, OnDestroy {
     },
     {
       label: 'WhatsApp',
-      value: 'Start a voice call',
+      value: 'Call Alex Rusu on WhatsApp',
       href: 'https://call.whatsapp.com/voice/DOBSnSbUllHG7cl9enmSLe',
       icon: 'whatsapp',
     },
     {
       label: 'Telegram',
-      value: 'Open Telegram call',
+      value: 'Call Alex Rusu on Telegram',
       href: 'https://t.me/call/cEtJXUVLmmQXFDr_Tent8wQ2hB0',
       icon: 'telegram',
     },
     {
       label: 'LinkedIn',
-      value: 'alexrusu-rsa',
+      value: 'Alex Rusu',
       href: 'https://www.linkedin.com/in/alexrusu-rsa/',
       icon: 'linkedin',
     },
@@ -85,6 +85,10 @@ export class DashboardPageComponent implements AfterViewInit, OnDestroy {
 
   protected trackCta(label: CtaLabel): void {
     this.analytics.trackCtaClick(label);
+  }
+
+  protected trackContact(label: string): void {
+    this.analytics.trackContactClick(label as never);
   }
 
   protected onCalendarLoad(): void {

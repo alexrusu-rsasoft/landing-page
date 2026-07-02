@@ -265,6 +265,7 @@
           [href]="contact.href"
           target="_blank"
           rel="noreferrer"
+          (click)="trackContact(contact.label.toLowerCase())"
           class="group flex items-center gap-4 rounded-[24px] border border-slate-200/80 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
         >
           <div class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/10 transition group-hover:bg-primary group-hover:text-white">
