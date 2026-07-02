@@ -18,6 +18,7 @@ import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 })
 export class DashboardPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild('calendarIframe') private calendarIframeRef!: ElementRef<HTMLIFrameElement>;
+  readonly currentYear = new Date().getFullYear();
 
   protected readonly mobileMenuOpen = signal(false);
   protected readonly contactAlternatives = [
