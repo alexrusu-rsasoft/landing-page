@@ -13,11 +13,13 @@
       </nav>
 
       <div class="flex items-center gap-4">
+        @if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex"
           (click)="trackCta('nav_free_call_desktop')">
           Get a FREE consulting call
         </a>
+        }
         <button type="button" id="nav-toggle"
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-sm transition md:hidden"
           aria-label="Open menu" (click)="toggleMobileMenu()">
@@ -37,11 +39,13 @@
           (click)="closeMobileMenu()">Core Expertise</a>
         <a [routerLink]="['/']" fragment="cases" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">Case Studies</a>
+        @if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
           (click)="closeMobileMenu(); trackCta('nav_free_call_mobile')">
           Get a FREE consulting call
         </a>
+        }
       </div>
     </div>
   </header>

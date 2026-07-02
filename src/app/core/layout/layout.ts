@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { isActive, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AnalyticsService, CtaLabel } from '../analytics.service';
 
 @Component({
@@ -11,6 +11,14 @@ import { AnalyticsService, CtaLabel } from '../analytics.service';
 })
 export class Layout {
   readonly #analytics = inject(AnalyticsService);
+  readonly #router = inject(Router);
+
+  isContactPage = isActive('/contact', this.#router, {
+    paths: 'subset',
+    queryParams: 'ignored',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+  });
 
   readonly currentYear = new Date().getFullYear();
   protected readonly mobileMenuOpen = signal(false);
