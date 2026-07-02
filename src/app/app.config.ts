@@ -4,7 +4,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { routes } from './app.routes';
 import { AuthInterceptor } from './core/auth.interceptor';
-import { HttpHandler, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { HttpHandler, HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const interceptor = inject(AuthInterceptor);

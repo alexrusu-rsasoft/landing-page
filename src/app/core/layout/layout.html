@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-neutral-50">
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a [routerLink]="['/']" fragment="top" class="flex items-center gap-3 text-slate-950" (click)="closeMobileMenu()">
+        <img src="/RSA - Logo + Text  Horizzontal - Default.png" alt="RSA SOFT logo"
+          class="h-10 w-auto object-contain" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
+        <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary">The Protocol</a>
+        <a [routerLink]="['/']" fragment="expertise" class="transition hover:text-primary">Core Expertise</a>
+        <a [routerLink]="['/']" fragment="cases" class="transition hover:text-primary">Case Studies</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a [routerLink]="['/contact']"
+          class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 md:inline-flex"
+          (click)="trackCta('nav_free_call_desktop')">
+          Get a FREE consulting call
+        </a>
+        <button type="button" id="nav-toggle"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-sm transition md:hidden"
+          aria-label="Open menu" (click)="toggleMobileMenu()">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="border-t border-slate-200 bg-white/98 px-6 py-4 md:hidden"
+      [class.hidden]="!mobileMenuOpen()">
+      <div class="flex flex-col gap-4 text-sm font-medium text-slate-700">
+        <a [routerLink]="['/']" fragment="protocol" class="block transition hover:text-primary"
+          (click)="closeMobileMenu()">The Protocol</a>
+        <a [routerLink]="['/']" fragment="expertise" class="block transition hover:text-primary"
+          (click)="closeMobileMenu()">Core Expertise</a>
+        <a [routerLink]="['/']" fragment="cases" class="block transition hover:text-primary"
+          (click)="closeMobileMenu()">Case Studies</a>
+        <a [routerLink]="['/contact']"
+          class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
+          (click)="closeMobileMenu(); trackCta('nav_free_call_mobile')">
+          Get a FREE consulting call
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+    <router-outlet />
+  </main>
+  <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-400">
+    <p>© {{ currentYear }} RSA SOFT S.R.L. All rights reserved · #1 regional software agency.</p>
+  </footer>
+</div>

@@ -23,6 +23,10 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'contact',
+    loadComponent: () => import('./shared/ui/contact/contact').then((c) => c.Contact),
+  },
+  {
     path: '**',
     loadComponent: () => import('./shared/ui/not-found.component').then((m) => m.NotFoundComponent),
   },

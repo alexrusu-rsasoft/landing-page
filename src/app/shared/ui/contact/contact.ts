@@ -5,10 +5,12 @@ import {
   ElementRef,
   inject,
   OnDestroy,
+  signal,
   viewChild,
 } from '@angular/core';
 import { AnalyticsService } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
@@ -18,23 +20,25 @@ import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 })
 export class Contact implements AfterViewInit, OnDestroy {
   readonly #analytics = inject(AnalyticsService);
+  readonly #viewportScroller = inject(ViewportScroller);
 
   readonly calendarIfremRef = viewChild<ElementRef<HTMLIFrameElement>>('calendarIframe');
 
   protected readonly CONTACT_ALTERNATIVES = CONTACT_ALTERNATIVES;
-  private calendarViewed = false;
-  private calendarEngaged = false;
-  private intersectionObserver?: IntersectionObserver;
-  private readonly onWindowBlur = (): void => this.handleWindowBlur();
+  readonly #calendarViewed = signal(false);
+  readonly #calendarEngaged = signal(false);
+  #intersectionObserver?: IntersectionObserver;
+  readonly #onWindowBlur = (): void => this.handleWindowBlur();
 
   ngAfterViewInit(): void {
+    this.#viewportScroller.scrollToAnchor('contact');
     this.setupIntersectionObserver();
-    window.addEventListener('blur', this.onWindowBlur);
+    window.addEventListener('blur', this.#onWindowBlur);
   }
 
   ngOnDestroy(): void {
-    this.intersectionObserver?.disconnect();
-    window.removeEventListener('blur', this.onWindowBlur);
+    this.#intersectionObserver?.disconnect();
+    window.removeEventListener('blur', this.#onWindowBlur);
   }
 
   protected trackContact(label: string): void {
@@ -53,19 +57,19 @@ export class Contact implements AfterViewInit, OnDestroy {
     const iframe = this.calendarIfremRef()?.nativeElement;
     if (!iframe) return;
 
-    this.intersectionObserver = new IntersectionObserver(
+    this.#intersectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting && !this.calendarViewed) {
-          this.calendarViewed = true;
+        if (entry.isIntersecting && !this.#calendarViewed()) {
+          this.#calendarViewed.set(true);
           this.#analytics.trackCalendarViewed();
-          this.intersectionObserver?.disconnect();
+          this.#intersectionObserver?.disconnect();
         }
       },
       { threshold: 0.4 },
     );
 
-    this.intersectionObserver.observe(iframe);
+    this.#intersectionObserver.observe(iframe);
   }
 
   /**
@@ -75,8 +79,8 @@ export class Contact implements AfterViewInit, OnDestroy {
    * other browser blur events like alt-tab).
    */
   private handleWindowBlur(): void {
-    if (this.calendarViewed && !this.calendarEngaged) {
-      this.calendarEngaged = true;
+    if (this.#calendarViewed() && !this.#calendarEngaged()) {
+      this.#calendarEngaged.set(true);
       this.#analytics.trackCalendarEngaged();
     }
   }

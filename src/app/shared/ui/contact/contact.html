@@ -1,16 +1,61 @@
 <section id="contact" class="mt-24 scroll-mt-20 space-y-8">
   <div class="max-w-4xl">
-    <p class="text-sm uppercase tracking-[0.32em] text-primary">Book a Strategy Call</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-      Schedule your 30-minute strategy call.
-    </h2>
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">Book a call</p>
   </div>
 
-  <p class="mt-3 text-sm leading-7 text-slate-600">
+
+
+  <div
+    class="m-6 my-10 rounded-[12px] border border-red-200 bg-gradient-to-br from-red-50/60 to-red-50/10 p-4 shadow-xs sm:p-8">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+      <div class="space-y-3 max-w-2xl">
+        <div class="flex items-center gap-2.5">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+          </span>
+          <h3 class="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
+            Project on fire? Deadline was due yesterday?
+          </h3>
+        </div>
+
+        <p class="text-sm leading-relaxed text-slate-600">
+          Skip the calendar booking. If your software delivery is blocked and you need certified
+          <span class="font-semibold text-slate-950">Senior Angular/Fullstack experts</span> deployed immediately,
+          bypass the queue.
+          <span class="font-medium text-red-700 block sm:inline">We can onboard an autonomous squad in 24–48
+            hours.</span>
+        </p>
+      </div>
+
+      <div class="w-full shrink-0 lg:w-auto">
+        <a href="tel:+40747011397" (click)="trackContact('phone_hotline')"
+          class="group flex items-center justify-center gap-2.5 rounded-xl bg-red-600 px-5 py-3.5 text-sm font-semibold text-white shadow-xs transition duration-200 hover:-translate-y-0.5 hover:bg-red-500 hover:shadow-md hover:shadow-red-600/10 w-full lg:w-auto">
+          <svg viewBox="0 0 24 24" class="h-4 w-4 transform transition group-hover:scale-110" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.89.33 1.77.63 2.63a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l1.54-.34a2 2 0 0 1 2.11.45c.86.3 1.74.51 2.63.63A2 2 0 0 1 22 16.92Z" />
+          </svg>
+          Call Alex Directly: +40 747 011 397
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Google Calendar Appointment Scheduling begin -->
+  <iframe #calendarIframe
+    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
+    style="width: 100%; height: 75vh;" frameborder="0" title="Book a 30-minute strategy call"
+    (load)="onCalendarLoad()"></iframe>
+  <!-- end Google Calendar Appointment Scheduling -->
+
+  <p class="m-6 text-sm leading-7 text-slate-600">
     Prefer a direct channel? Reach out through one of these alternatives.
   </p>
 
-  <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  <div class="m-6 mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
     @for (contact of CONTACT_ALTERNATIVES; track $index) {
     <a [href]="contact.href" target="_blank" rel="noreferrer" (click)="trackContact(contact.label.toLowerCase())"
       class="group flex items-center gap-4 rounded-[24px] border border-slate-200/80 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
@@ -76,12 +121,5 @@
     </a>
     }
   </div>
-
-  <!-- Google Calendar Appointment Scheduling begin -->
-  <iframe #calendarIframe
-    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
-    style="border: 0; display: block; width: 100%; height: 85vh; border-radius: 8px;" frameborder="0"
-    title="Book a 30-minute strategy call" (load)="onCalendarLoad()"></iframe>
-  <!-- end Google Calendar Appointment Scheduling -->
 
 </section>
