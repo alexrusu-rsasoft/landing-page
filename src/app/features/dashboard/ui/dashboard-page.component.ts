@@ -1,11 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
-import { Contact } from '../../../shared/ui/contact/contact';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterLink, Contact],
+  imports: [RouterLink],
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent {
