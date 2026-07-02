@@ -1,16 +1,63 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, inject, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+  inject,
+  signal,
+} from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterLink, RouterOutlet],
+  imports: [NgFor, NgIf, RouterLink, RouterOutlet],
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild('calendarIframe') private calendarIframeRef!: ElementRef<HTMLIFrameElement>;
 
   protected readonly mobileMenuOpen = signal(false);
+  protected readonly contactAlternatives = [
+    {
+      label: 'Phone',
+      value: '+40 747 011 397',
+      href: 'tel:+40747011397',
+      icon: 'phone',
+    },
+    {
+      label: 'Email',
+      value: 'alex.rusu@rsasoft.ro',
+      href: 'mailto:alex.rusu@rsasoft.ro',
+      icon: 'mail',
+    },
+    {
+      label: 'WhatsApp',
+      value: 'Start a voice call',
+      href: 'https://call.whatsapp.com/voice/DOBSnSbUllHG7cl9enmSLe',
+      icon: 'whatsapp',
+    },
+    {
+      label: 'Telegram',
+      value: 'Open Telegram call',
+      href: 'https://t.me/call/cEtJXUVLmmQXFDr_Tent8wQ2hB0',
+      icon: 'telegram',
+    },
+    {
+      label: 'LinkedIn',
+      value: 'alexrusu-rsa',
+      href: 'https://www.linkedin.com/in/alexrusu-rsa/',
+      icon: 'linkedin',
+    },
+    {
+      label: 'XING',
+      value: 'Alex Rusu',
+      href: 'https://www.xing.com/profile/Alex_Rusu3',
+      icon: 'xing',
+    },
+  ];
   private readonly analytics = inject(AnalyticsService);
 
   private intersectionObserver?: IntersectionObserver;
@@ -61,7 +108,7 @@ export class DashboardPageComponent implements AfterViewInit, OnDestroy {
           this.intersectionObserver?.disconnect();
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     this.intersectionObserver.observe(iframe);
