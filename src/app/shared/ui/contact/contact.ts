@@ -56,7 +56,6 @@ export class Contact implements AfterViewInit, OnDestroy {
   });
 
   ngAfterViewInit(): void {
-    this.#viewportScroller.scrollToAnchor('contact');
     this.setupIntersectionObserver();
     window.addEventListener('blur', this.#onWindowBlur);
   }
