@@ -1,9 +1,7 @@
-<section id="contact" class="mt-24 scroll-mt-20 space-y-8">
+<section id="contact" class="">
   <div class="max-w-4xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">Book a call</p>
   </div>
-
-
 
   <div
     class="m-6 my-10 rounded-[12px] border border-red-200 bg-gradient-to-br from-red-50/60 to-red-50/10 p-4 shadow-xs sm:p-8">
@@ -47,7 +45,7 @@
   <!-- Google Calendar Appointment Scheduling begin -->
   <iframe #calendarIframe
     src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
-    style="width: 100%; height: 75vh;" frameborder="0" title="Book a 30-minute strategy call"
+    frameborder="0" title="Book a 30-minute strategy call" [style.height]="iframeHeight()" width="100%"
     (load)="onCalendarLoad()"></iframe>
   <!-- end Google Calendar Appointment Scheduling -->
 

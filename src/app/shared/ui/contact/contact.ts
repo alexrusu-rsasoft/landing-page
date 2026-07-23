@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   inject,
   OnDestroy,
@@ -11,6 +12,8 @@ import {
 import { AnalyticsService } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 import { ViewportScroller } from '@angular/common';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-contact',
@@ -21,14 +24,36 @@ import { ViewportScroller } from '@angular/common';
 export class Contact implements AfterViewInit, OnDestroy {
   readonly #analytics = inject(AnalyticsService);
   readonly #viewportScroller = inject(ViewportScroller);
+  readonly #breakpointObserver = inject(BreakpointObserver);
 
   readonly calendarIfremRef = viewChild<ElementRef<HTMLIFrameElement>>('calendarIframe');
+
+  readonly #screenState = toSignal(
+    this.#breakpointObserver.observe([
+      '(max-width: 390px)', // iPhone 12
+      '(max-width: 430px)', // iPhone 14 Pro Max
+    ]),
+  );
 
   protected readonly CONTACT_ALTERNATIVES = CONTACT_ALTERNATIVES;
   readonly #calendarViewed = signal(false);
   readonly #calendarEngaged = signal(false);
   #intersectionObserver?: IntersectionObserver;
   readonly #onWindowBlur = (): void => this.handleWindowBlur();
+
+  readonly iframeHeight = computed(() => {
+    const state = this.#screenState();
+
+    if (state?.breakpoints['(max-width: 390px)']) {
+      return '175vh'; // iPhone 12
+    }
+
+    if (state?.breakpoints['(max-width: 430px)']) {
+      return '150vh'; // iPhone 14 Pro Max
+    }
+
+    return '100vh'; // MacBook Pro 16" și ecrane mari
+  });
 
   ngAfterViewInit(): void {
     this.#viewportScroller.scrollToAnchor('contact');
