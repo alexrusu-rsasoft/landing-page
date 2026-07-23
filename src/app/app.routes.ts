@@ -16,11 +16,8 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'compliance-tracker',
-    loadComponent: () =>
-      import('./features/compliance-tracker/ui/compliance-tracker-page.component').then(
-        (m) => m.ComplianceTrackerPageComponent,
-      ),
+    path: 'calendar',
+    loadComponent: () => import('./features/calendar/calendar').then((c) => c.Calendar),
   },
   {
     path: 'contact',
