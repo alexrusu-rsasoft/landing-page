@@ -5,15 +5,20 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./features/dashboard/ui/dashboard-page.component').then(
-        (m) => m.DashboardPageComponent,
+        (c) => c.DashboardPageComponent,
       ),
   },
   {
     path: 'dashboard',
     loadComponent: () =>
       import('./features/dashboard/ui/dashboard-page.component').then(
-        (m) => m.DashboardPageComponent,
+        (c) => c.DashboardPageComponent,
       ),
+  },
+  {
+    path: 'work-with-alex',
+    loadComponent: () =>
+      import('./features/work-with-alex/work-with-alex').then((c) => c.WorkWithAlex),
   },
   {
     path: 'calendar',
@@ -25,6 +30,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    loadComponent: () => import('./shared/ui/not-found.component').then((m) => m.NotFoundComponent),
+    loadComponent: () => import('./shared/ui/not-found.component').then((c) => c.NotFoundComponent),
   },
 ];

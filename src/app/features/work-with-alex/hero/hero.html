@@ -1,0 +1,86 @@
+<!-- Section cu fundal integrat fluid (Seamless Gradient Background) -->
+<section id="hero" class="relative w-full overflow-hiddenpt-12 pb-20 sm:pt-16 sm:pb-28">
+
+  <!-- Ambient background glow central subtil -->
+  <div class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-7xl blur-3xl">
+  </div>
+
+  <!-- Containerul de conținut aliniat cu restul paginii -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+
+    <!-- Status Badge -->
+    <!-- Container de poziționare pentru Avatar + Badge -->
+    <div class="relative inline-flex flex-col items-center mb-6">
+
+      <!-- Badge-ul mutat deasupra și poziționat absolut -->
+      <div
+        class="absolute -top-3 z-10 inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-md px-4 py-1.5 text-sm font-semibold text-secondary shadow-sm border border-white/40">
+        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Open for opportunities</span>
+      </div>
+
+      <!-- Imaginea de Avatar (60x60 = w-60 h-60) -->
+      <img src="alex-rusu-avatar-image.png" alt="Alex George Rusu - Avatar"
+        class="w-60 h-60 rounded-full object-cover shadow-lg border-4 border-white aspect-square" />
+
+    </div>
+
+    <!-- Name & Titles -->
+    <div class="space-y-4 mb-10">
+      <h1 class="max-w-3xl mx-auto text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+        Alex-George Rusu
+      </h1>
+
+      <p class="text-lg sm:text-xl font-medium text-slate-700 tracking-wide">
+        Tech Lead Angular / Frontend
+      </p>
+
+      <p class="max-w-2xl mx-auto text-base leading-8 text-slate-600 sm:text-lg">
+        9+ years building performant, scalable web applications for
+        <strong class="font-semibold text-primary">Porsche</strong>,
+        <strong class="font-semibold text-primary">Daimler</strong>,
+        <strong class="font-semibold text-primary">KUKA</strong> &amp; more. German &amp; English fluent.
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <a href="#experience" mat-flat-button
+        class="!inline-flex !items-center !justify-center !rounded-full !bg-primary !px-8 !py-4 !text-sm !font-semibold !text-white !shadow-lg !shadow-primary/20 transition hover:!bg-slate-950">
+        View Experience
+      </a>
+      <a routerLink="/contact" mat-stroked-button
+        class="!inline-flex !items-center !justify-center !rounded-full !border !border-slate-300 !bg-white !px-8 !py-4 !text-sm !font-semibold !text-slate-900 transition hover:!border-slate-400">
+        Get a FREE consulting call
+      </a>
+    </div>
+
+    <!-- Quick Stats Cards (Optimizat Mobile-First) -->
+    <div class="grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-2xl mx-auto">
+
+      <!-- Card 1: Experience -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-3 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-xl sm:text-3xl font-semibold text-slate-950">9+</p>
+        <p class="mt-1 text-xs sm:text-sm text-slate-500 leading-tight">Years Experience</p>
+      </div>
+
+      <!-- Card 2: Projects -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-3 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-xl sm:text-3xl font-semibold text-slate-950">10+</p>
+        <p class="mt-1 text-xs sm:text-sm text-slate-500 leading-tight">Major Projects</p>
+      </div>
+
+      <!-- Card 3: Clients -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-3 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-xl sm:text-3xl font-semibold text-slate-950">5+</p>
+        <p class="mt-1 text-xs sm:text-sm text-slate-500 leading-tight">Enterprise Clients</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
