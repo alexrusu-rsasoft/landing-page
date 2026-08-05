@@ -1,0 +1,40 @@
+<!-- Section cu fundal integrat fluid (Seamless Gradient Background ca în Hero) -->
+<section id="why-choose-me" class="relative w-full overflow-hidden bg-slate-50/50">
+
+  <!-- Ambient background glow subtil -->
+  <div
+    class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-full max-w-7xl blur-3xl opacity-40 bg-gradient-to-b from-slate-200 to-transparent">
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+
+    <app-certifications />
+
+    <!-- Quick Stats Cards (Structură & Stil identic cu Hero Cards) -->
+    <div class="grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-2xl mx-auto pt-6 border-t border-slate-200/60">
+
+      <!-- Stat 1 -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-2xl sm:text-4xl font-bold text-slate-950">{{ yearsOfExperience() }}+</p>
+        <p class="mt-1 text-xs sm:text-sm font-medium text-slate-500 leading-tight">Years Experience</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-2xl sm:text-4xl font-bold text-slate-950">{{ numberOfProjects() }}+</p>
+        <p class="mt-1 text-xs sm:text-sm font-medium text-slate-500 leading-tight">Projects Delivered</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div
+        class="rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-center shadow-sm shadow-slate-200/70 border border-slate-100/80">
+        <p class="text-2xl sm:text-4xl font-bold text-slate-950">{{ numberOfClients }}</p>
+        <p class="mt-1 text-xs sm:text-sm font-medium text-slate-500 leading-tight">Unique Customers</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

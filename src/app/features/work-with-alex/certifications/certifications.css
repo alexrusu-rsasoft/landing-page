@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.cert-card {
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #06b6d4;
+    outline-offset: 2px;
+  }
+}
+
+/* Hover overlay with certificate image */
+.cert-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.cert-overlay-panel {
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 16px));
+  z-index: 1001;
+  pointer-events: none;
+  animation: overlay-enter 0.2s ease-out;
+}
+
+.cert-overlay-inner {
+  background: rgba(249, 250, 251, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  padding: 12px;
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 20px rgba(226, 232, 240, 0.4);
+  max-width: 400px;
+  width: max-content;
+}
+
+.cert-overlay-img {
+  width: 100%;
+  max-width: 376px;
+  min-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.cert-overlay-caption {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.cert-overlay-caption p:first-child {
+  color: #0f172a;
+}
+
+.cert-overlay-caption p:last-child {
+  color: #64748b;
+}
+
+@keyframes overlay-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 8px)) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 16px)) scale(1);
+  }
+}

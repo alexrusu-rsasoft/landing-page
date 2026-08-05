@@ -1,0 +1,38 @@
+/* Experience timeline small theme adjustments to match project visuals */
+
+/* Vertical timeline line subtle gradient */
+.experience-timeline-line {
+  background: linear-gradient(180deg, rgba(43, 84, 148, 0.18), rgba(148, 163, 184, 0.05));
+}
+
+/* Card hover to match other cards across the site */
+.experience-card {
+  /* Do not override utility classes (bg, rounded, padding) applied in the template */
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+.experience-card:hover {
+  transform: translateY(-4px);
+  /* Match the subtle elevated card shadow used across the app */
+  box-shadow:
+    0 10px 30px rgba(2, 6, 23, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  /* Use app primary color for hover border (primary: #2b5494 -> rgb(43,84,148)) */
+  border-color: rgba(43, 84, 148, 0.12);
+}
+
+/* Timeline dot sizing on larger screens */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+}
+
+/* Make date text slightly muted and monospace on small widths */
+.experience-date {
+  color: #64748b;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+}
