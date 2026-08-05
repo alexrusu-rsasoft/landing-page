@@ -6,10 +6,10 @@ import { ExperienceService } from '../experience';
   selector: 'app-hero',
   templateUrl: './hero.html',
   styleUrl: './hero.css',
-  imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Hero {
   readonly #service = inject(ExperienceService);
   readonly yearsOfExperience = this.#service.experienceInYears;
+  readonly isLoading = this.#service.isLoading;
 }

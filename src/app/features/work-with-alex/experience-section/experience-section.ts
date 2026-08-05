@@ -11,4 +11,5 @@ import { ExperienceService } from '../experience';
 export class ExperienceSection {
   readonly #service = inject(ExperienceService);
   readonly experiences = this.#service.experiences;
+  readonly isLoading = this.#service.isLoading;
 }

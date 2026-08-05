@@ -1,4 +1,4 @@
-<section id="experience" class="relative py-20 sm:py-28">
+<section id="experience" class="relative">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section header -->
@@ -17,7 +17,146 @@
     <div class="relative">
       <div class="absolute left-4 md:left-8 top-0 bottom-0 w-px experience-timeline-line"></div>
 
-      @for (exp of experiences(); track exp.company + exp.period.start; let i = $index) {
+      @if (isLoading()) {
+      <!-- Loading skeleton: show 3 placeholder cards -->
+      <div class="relative">
+        <div class="space-y-8">
+          <!-- Skeleton card 1 -->
+          <div class="relative pl-12 md:pl-20 group">
+            <div class="absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
+              style="width:12px;height:12px;border-radius:9999px"></div>
+            <div
+              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <div class="skeleton-pulse h-5 w-48 rounded-md mb-2"></div>
+                  <div class="skeleton-pulse h-3 w-32 rounded-md"></div>
+                </div>
+                <div class="text-sm experience-date flex items-center gap-1.5">
+                  <div class="skeleton-pulse h-3 w-24 rounded-md"></div>
+                </div>
+              </div>
+
+              <div class="text-slate-600 text-sm leading-relaxed mb-4">
+                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
+                <div class="skeleton-pulse h-3 w-3/4 rounded-md"></div>
+              </div>
+
+              <ul class="space-y-2 mb-5">
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-5/6 rounded-md"></div>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-2/3 rounded-md"></div>
+                </li>
+              </ul>
+
+              <div class="flex row flex-nowrap items-center justify-between gap-2">
+                <div class="flex flex-wrap gap-2">
+                  <div class="skeleton-pulse h-6 w-16 rounded-full"></div>
+                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
+                  <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
+                </div>
+                <div class="ml-4 flex items-center">
+                  <div class="skeleton-pulse h-8 w-24 rounded-md"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skeleton card 2 -->
+          <div class="relative pl-12 md:pl-20 group">
+            <div class="absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
+              style="width:12px;height:12px;border-radius:9999px"></div>
+            <div
+              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <div class="skeleton-pulse h-5 w-40 rounded-md mb-2"></div>
+                  <div class="skeleton-pulse h-3 w-28 rounded-md"></div>
+                </div>
+                <div class="text-sm experience-date flex items-center gap-1.5">
+                  <div class="skeleton-pulse h-3 w-20 rounded-md"></div>
+                </div>
+              </div>
+
+              <div class="text-slate-600 text-sm leading-relaxed mb-4">
+                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
+                <div class="skeleton-pulse h-3 w-2/3 rounded-md"></div>
+              </div>
+
+              <ul class="space-y-2 mb-5">
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-4/6 rounded-md"></div>
+                </li>
+              </ul>
+
+              <div class="flex row flex-nowrap items-center justify-between gap-2">
+                <div class="flex flex-wrap gap-2">
+                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
+                  <div class="skeleton-pulse h-6 w-16 rounded-full"></div>
+                </div>
+                <div class="ml-4 flex items-center">
+                  <div class="skeleton-pulse h-8 w-20 rounded-md"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skeleton card 3 -->
+          <div class="relative pl-12 md:pl-20 group">
+            <div class="absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
+              style="width:12px;height:12px;border-radius:9999px"></div>
+            <div
+              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <div class="skeleton-pulse h-5 w-44 rounded-md mb-2"></div>
+                  <div class="skeleton-pulse h-3 w-24 rounded-md"></div>
+                </div>
+                <div class="text-sm experience-date flex items-center gap-1.5">
+                  <div class="skeleton-pulse h-3 w-20 rounded-md"></div>
+                </div>
+              </div>
+
+              <div class="text-slate-600 text-sm leading-relaxed mb-4">
+                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
+                <div class="skeleton-pulse h-3 w-3/5 rounded-md"></div>
+              </div>
+
+              <ul class="space-y-2 mb-5">
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-4/6 rounded-md"></div>
+                </li>
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <div class="skeleton-pulse h-3 w-2/5 rounded-md"></div>
+                </li>
+              </ul>
+
+              <div class="flex row flex-nowrap items-center justify-between gap-2">
+                <div class="flex flex-wrap gap-2">
+                  <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
+                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
+                </div>
+                <div class="ml-4 flex items-center">
+                  <div class="skeleton-pulse h-8 w-16 rounded-md"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      } @else {
+      @for (exp of experiences(); track exp.company + exp?.start; let i = $index) {
       <div class="relative pl-12 md:pl-20 pb-14 last:pb-0 group">
         <div class="absolute left-7 top-8 timeline-dot rounded-full border-2" [class]="
                             exp.current
@@ -39,9 +178,9 @@
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
               <span>
-                {{ exp.period.start | date: 'MMMM yyyy' }} —
-                @if (exp.period.end) {
-                {{ exp.period.end | date: 'MMMM yyyy' }}
+                {{ exp?.start | date: 'MMMM yyyy' }} —
+                @if (exp?.end) {
+                {{ exp?.end | date: 'MMMM yyyy' }}
                 } @else {
                 Present
                 }
@@ -54,7 +193,7 @@
           <ul class="space-y-2 mb-5">
             @for (highlight of exp.highlights; track highlight) {
             <li class="flex items-start gap-2 text-sm text-slate-600">
-              <span class="text-cyan-400 mt-0.5 shrink-0">▹</span>
+              <span class="text-primary shrink-0">▹</span>
               <span class="leading-relaxed">{{ highlight }}</span>
             </li>
             }
@@ -78,6 +217,7 @@
           </div>
         </div>
       </div>
+      }
       }
 
     </div>

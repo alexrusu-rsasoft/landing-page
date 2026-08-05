@@ -1,5 +1,5 @@
 <!-- Section cu fundal integrat fluid (Seamless Gradient Background) -->
-<section id="hero" class="relative w-full overflow-hiddenpt-12">
+<section id="hero" class="relative w-full overflow-hidden pt-12">
 
   <!-- Ambient background glow central subtil -->
   <div class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-64 w-full max-w-7xl blur-3xl">
@@ -35,12 +35,19 @@
         Tech Lead Angular / Frontend
       </p>
 
-      <p class="max-w-2xl mx-auto text-base leading-8 text-slate-600 sm:text-lg">
-        {{ yearsOfExperience() }}+ years building performant, scalable web applications for
-        <strong class="font-semibold text-primary">Porsche</strong>,
-        <strong class="font-semibold text-primary">Daimler</strong>,
-        <strong class="font-semibold text-primary">KUKA</strong> &amp; more. German &amp; English fluent.
-      </p>
+      @if (isLoading()) {
+        <div class="max-w-2xl mx-auto flex flex-col gap-2">
+          <div class="skeleton-pulse h-5 w-full rounded-lg"></div>
+          <div class="skeleton-pulse h-5 w-3/4 mx-auto rounded-lg"></div>
+        </div>
+      } @else {
+        <p class="max-w-2xl mx-auto text-base leading-8 text-slate-600 sm:text-lg">
+          {{ yearsOfExperience() }}+ years building performant, scalable web applications for
+          <strong class="font-semibold text-primary">Porsche</strong>,
+          <strong class="font-semibold text-primary">Daimler</strong>,
+          <strong class="font-semibold text-primary">KUKA</strong> &amp; more. German &amp; English fluent.
+        </p>
+      }
     </div>
 
   </div>
