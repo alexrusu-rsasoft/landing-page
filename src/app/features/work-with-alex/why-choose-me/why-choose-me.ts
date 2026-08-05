@@ -13,5 +13,5 @@ export class WhyChooseMe {
   readonly isLoading = this.#service.isLoading;
   readonly yearsOfExperience = this.#service.experienceInYears;
   readonly numberOfProjects = this.#service.numberOfProjects;
-  readonly numberOfClients = computed(() => this.#service.experiences()?.length - 1 || 0);
+  readonly numberOfClients = computed(() => this.#service.experiences()?.length || 0);
 }
