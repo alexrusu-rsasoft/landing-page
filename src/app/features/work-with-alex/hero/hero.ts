@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ExperienceService } from '../experience';
 
 @Component({
   selector: 'app-hero',
@@ -8,4 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Hero {}
+export class Hero {
+  readonly #service = inject(ExperienceService);
+  readonly yearsOfExperience = this.#service.experienceInYears;
+}

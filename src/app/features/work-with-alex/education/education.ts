@@ -33,6 +33,8 @@ export class EducationSection {
   ];
 
   readonly certifications: Cert[] = [
+    { name: 'Senior Angular Developer', year: '2026' },
+    { name: 'Mid Angular Developer', year: '2026' },
     { name: 'AWS Certified Cloud Practitioner', year: '2025' },
     { name: 'Public Speaking – John Maxwell Team', year: '2017' },
     { name: 'Cybersecurity – Penetration Testing', year: '2017' },

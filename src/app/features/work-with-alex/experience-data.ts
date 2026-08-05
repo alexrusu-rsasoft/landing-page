@@ -2,36 +2,6 @@ import { ExperienceItem } from './experience-item';
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    title: 'Founder & Lead Angular Developer',
-    company: 'RSASoft',
-    period: {
-      start: new Date('2021-03-01'),
-    },
-    current: true,
-    description:
-      'Founded and led the company, managing 5 key customers and delivering tailored software solutions. Blending technical leadership with business management.',
-    highlights: [
-      'Led migrations to Angular 16–20 with standalone components & NgRx-SignalStore',
-      'Built full-stack reporting app automating accounting & invoicing (Angular 17 + NestJS)',
-      'Optimized RxJS pipelines for improved data processing efficiency',
-      'Deployed Angular on Render, NestJS + DB on Heroku',
-      'Managed end-to-end operations: sales, client interactions, project delivery',
-    ],
-    projects: ['Archimedes'],
-    tech: [
-      'Angular 15-20',
-      'NgRx-SignalStore',
-      'RxJS',
-      'NestJS',
-      'MongoDB Atlas',
-      'PostgreSQL',
-      'Jest',
-      'Heroku',
-      'Render',
-    ],
-    client: false,
-  },
-  {
     title: 'Lead Angular Developer',
     company: 'SKIY28 GmbH',
     period: {
@@ -43,7 +13,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Spearheaded development of a vulnerability securities management web app using Porsche Design System and agile practices.',
     highlights: [
       'Led entire frontend using Angular 16 & Porsche Design System',
-      'Directed migration from VanillaJS → Angular 15 → 16 → 17 → 18 → 19 → 20',
+      'Directed migration from VanillaJS → Angular 15 → 16 → 17 → 18 → 19 → 20 → 21',
       'Integrated SAML Authentication & NgRx Store for state management',
       'Developed lazy-loaded components for optimized performance',
       'Mentored junior developers in agile team of 6 using Scrum',
