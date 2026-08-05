@@ -1,11 +1,11 @@
 import { Service } from '@angular/core';
 import { ExperienceItem } from './experience-item';
 import { from, Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Service()
 export class ExperienceApi {
-  readonly #apiURL =
-    'https://script.google.com/macros/s/AKfycbxKhsSJpOdyaXT9AIz9N-wjgecoAqyf-rpUHm3GK4SGrSrlkvGx3lAPJiYmKCVdaBW_/exec';
+  readonly #apiURL = environment.experienceApiUrl;
 
   fetchExperiences(): Observable<ExperienceItem[]> {
     return from(
