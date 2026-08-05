@@ -29,6 +29,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Heroku',
       'Render',
     ],
+    client: false,
   },
   {
     title: 'Lead Angular Developer',
@@ -57,6 +58,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'SonarQube',
       'AWS',
     ],
+    client: true,
   },
   {
     title: 'Senior Angular Developer',
@@ -74,6 +76,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['XM - TradingPoint'],
     tech: ['Angular 19', 'NgRx Signals', 'Ionic', 'Capacitor', 'PWA', 'Nx Monorepo', 'Storybook'],
+    client: false,
   },
   {
     title: 'Senior Angular Developer',
@@ -91,6 +94,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['Agenda'],
     tech: ['Angular 16', 'PrimeNG', 'NgXs Store', 'Docker', 'Java', 'Elasticsearch'],
+    client: true,
   },
   {
     title: 'Senior Angular Developer',
@@ -107,6 +111,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['Atruvia'],
     tech: ['Angular', 'Angular Material', 'Jest', 'Cypress', 'Bootstrap'],
+    client: true,
   },
   {
     title: 'Product Manager',
@@ -124,6 +129,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['DVAG'],
     tech: ['GitLab CI', 'Jira', 'Confluence', 'Figma', 'Waydev'],
+    client: true,
   },
   {
     title: 'Angular Developer',
@@ -150,6 +156,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       'CSS',
       'Git',
     ],
+    client: true,
   },
   {
     title: 'Full Stack Developer',
@@ -166,6 +173,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['Porsche'],
     tech: ['Angular', 'Node.js', 'KOA', 'KOA Websockets', 'Redis'],
+    client: false,
   },
   {
     title: 'BI Consultant – Angular & Qlik, SAP',
@@ -183,5 +191,6 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     projects: ['Internship', 'Daimler', 'Porsche', 'Kuka'],
     tech: ['Angular', 'Qlik Sense', 'SAP Lumira', 'SAP BW', 'SAP ABAP', 'SAP UI5'],
+    client: false,
   },
 ];

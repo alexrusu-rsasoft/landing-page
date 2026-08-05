@@ -36,3 +36,19 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
   font-size: 0.875rem;
 }
+
+/* Company logo shown on experience cards */
+.experience-company-logo {
+  opacity: 0.6;
+  transition:
+    filter 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+  max-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .experience-company-logo {
+    max-height: 28px;
+  }
+}

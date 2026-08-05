@@ -60,11 +60,20 @@
             }
           </ul>
 
-          <div class="flex flex-wrap gap-2">
-            @for (tech of exp.tech; track tech) {
-            <span class="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20 font-mono">
-              {{ tech }}
-            </span>
+          <div class="flex row flex-nowrap items-center justify-between gap-2">
+            <div class="flex flex-wrap gap-2">
+              @for (tech of exp.tech; track tech) {
+              <span
+                class="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20 font-mono">
+                {{ tech }}
+              </span>
+              }
+            </div>
+            @if (exp.client) {
+            <div class="ml-4 flex items-center">
+              <img src="/RSA - Logo + Text  Horizzontal - Default.png" alt="{{ exp.company }} logo"
+                class="experience-company-logo h-8 w-auto object-contain" />
+            </div>
             }
           </div>
         </div>

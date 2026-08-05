@@ -7,6 +7,7 @@ export interface ExperienceItem {
   tech: string[];
   projects: string[];
   current?: boolean;
+  client: boolean;
 }
 
 interface Period {
