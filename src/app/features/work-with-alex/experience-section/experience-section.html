@@ -19,7 +19,7 @@
 
       @for (exp of experiences(); track exp.company + exp.period.start; let i = $index) {
       <div class="relative pl-12 md:pl-20 pb-14 last:pb-0 group">
-        <div class="absolute left-2.5 md:left-6.5 top-1 timeline-dot rounded-full border-2" [class]="
+        <div class="absolute left-7 top-8 timeline-dot rounded-full border-2" [class]="
                             exp.current
                                 ? 'bg-primary border-primary shadow-lg shadow-primary/50'
                                 : 'bg-white border-slate-300 group-hover:border-primary'
