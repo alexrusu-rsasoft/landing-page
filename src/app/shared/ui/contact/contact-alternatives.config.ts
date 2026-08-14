@@ -10,7 +10,7 @@ export const CONTACT_ALTERNATIVES = [
     id: 'linkedin',
     labelKey: 'contact.channels.linkedin',
     value: 'Alex Rusu',
-    href: 'https://www.linkedin.com/in/alexrusu-rsa/',
+    href: 'https://www.linkedin.com/company/rsa-soft',
     icon: 'linkedin',
   },
   {

@@ -62,7 +62,7 @@
   </main>
   <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-400">
     <div class="mb-4 flex items-center justify-center gap-3">
-      <a href="https://www.linkedin.com/in/alexrusu-rsa/" target="_blank" rel="noreferrer"
+      <a href="https://www.linkedin.com/company/rsa-soft" target="_blank" rel="noreferrer"
         [attr.aria-label]="'contact.channels.linkedin' | transloco"
         class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 ring-1 ring-slate-200 transition hover:text-primary hover:ring-primary/30">
         <img src="/linkedIn.ico" [attr.alt]="'contact.channels.linkedin' | transloco" class="h-4 w-4 object-contain" />
@@ -79,11 +79,15 @@
       </a>
     </div>
     <nav class="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-      <a [routerLink]="['/privacy-policy']" class="transition hover:text-primary">{{ 'footer.privacyPolicy' | transloco }}</a>
-      <a [routerLink]="['/cookie-policy']" class="transition hover:text-primary">{{ 'footer.cookiePolicy' | transloco }}</a>
+      <a [routerLink]="['/privacy-policy']" class="transition hover:text-primary">{{ 'footer.privacyPolicy' | transloco
+        }}</a>
+      <a [routerLink]="['/cookie-policy']" class="transition hover:text-primary">{{ 'footer.cookiePolicy' | transloco
+        }}</a>
       <a [routerLink]="['/terms']" class="transition hover:text-primary">{{ 'footer.terms' | transloco }}</a>
-      <a [routerLink]="['/legal-notice']" class="transition hover:text-primary">{{ 'footer.legalNotice' | transloco }}</a>
-      <button type="button" (click)="cookieConsent.reopen()" class="transition hover:text-primary">{{ 'footer.cookieSettings' | transloco }}</button>
+      <a [routerLink]="['/legal-notice']" class="transition hover:text-primary">{{ 'footer.legalNotice' | transloco
+        }}</a>
+      <button type="button" (click)="cookieConsent.reopen()" class="transition hover:text-primary">{{
+        'footer.cookieSettings' | transloco }}</button>
     </nav>
     <p>{{ 'footer.copyright' | transloco: { year: currentYear } }}</p>
   </footer>
