@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
@@ -21,6 +21,22 @@ export class CareersPage {
   protected readonly openings = this.#careers.openings;
   protected readonly isLoading = this.#careers.isLoading;
   protected readonly hasError = this.#careers.hasError;
+
+  protected readonly selectedOpening = signal<CareerOpening | null>(null);
+
+  protected openDetails(opening: CareerOpening): void {
+    this.selectedOpening.set(opening);
+    this.#analytics.trackCareersViewDetails(opening.opportunity);
+  }
+
+  protected closeDetails(): void {
+    this.selectedOpening.set(null);
+  }
+
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    this.closeDetails();
+  }
 
   protected trackCta(label: CtaLabel): void {
     this.#analytics.trackCtaClick(label);
