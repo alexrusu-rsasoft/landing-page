@@ -16,17 +16,14 @@
  *   5. Copy the generated /exec URL into src/environments/environment.ts
  *      and src/environments/environment.development.ts as careersApiUrl.
  */
-
 var SPREADSHEET_ID = '1BH0vui0--Mt8CX5at5gK1QJLcEIyRE4ubFR3vc0v0PY';
 
 // Column headers (as they appear in the sheet) that are safe to expose publicly.
-// Keys are the field names returned in the JSON response.
 var PUBLIC_FIELDS = {
   opportunity: 'Opportunity',
   level: 'Level',
   minYearsExperience: 'Min years of experience',
   urgency: 'Urgency',
-  stage: 'Stage', // kept in the payload for client-side filtering, not meant to be rendered
   fillUntil: 'Fill until',
   hourly: 'Hourly',
   notes: 'Notes',
@@ -50,19 +47,25 @@ function doGet() {
   });
 
   var results = [];
+
   for (var r = headerRowIndex + 1; r < values.length; r++) {
     var row = values[r];
 
     var opportunity = readCell(row, columnIndex, PUBLIC_FIELDS.opportunity);
     if (!opportunity) continue; // skip blank rows
 
-    var stage = readCell(row, columnIndex, PUBLIC_FIELDS.stage);
-    if (EXCLUDED_STAGES.indexOf(stage.toLowerCase()) !== -1) continue;
+    var stage = readCell(row, columnIndex, 'Stage');
+
+    // EXCLUDEM dacă Stage este GOL sau dacă este 'dead' / 'closed'
+    if (!stage || EXCLUDED_STAGES.indexOf(stage.toLowerCase()) !== -1) {
+      continue;
+    }
 
     var item = {};
     Object.keys(PUBLIC_FIELDS).forEach(function (key) {
       item[key] = readCell(row, columnIndex, PUBLIC_FIELDS[key]);
     });
+
     results.push(item);
   }
 
@@ -80,11 +83,17 @@ function readCell(row, columnIndex, headerName) {
   var idx = columnIndex[headerName];
   if (idx === undefined) return '';
   var value = row[idx];
+
   if (value === null || value === undefined) return '';
+
   if (Object.prototype.toString.call(value) === '[object Date]') {
     return Utilities.formatDate(value, Session.getScriptTimeZone(), 'yyyy-MM-dd');
   }
-  return String(value).trim();
+
+  // Înlocuim rândurile noi cu spațiu și eliminăm spațiile goale de la capete
+  return String(value)
+    .replace(/[\r\n]+/g, ' ')
+    .trim();
 }
 
 function jsonResponse(payload) {
