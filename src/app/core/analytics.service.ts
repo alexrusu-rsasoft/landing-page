@@ -4,7 +4,13 @@ import { Injectable } from '@angular/core';
 declare const gtag: (...args: unknown[]) => void;
 
 export type CtaLabel =
-  'nav_free_call_desktop' | 'nav_free_call_mobile' | 'hero_free_call' | 'hero_view_cases';
+  | 'nav_free_call_desktop'
+  | 'nav_free_call_mobile'
+  | 'hero_free_call'
+  | 'hero_view_protocol'
+  | 'proof_free_call'
+  | 'pricing_free_call'
+  | 'final_free_call';
 
 export type ContactLabel =
   | 'contact_phone'

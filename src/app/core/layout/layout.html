@@ -8,8 +8,8 @@
 
       <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
         <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary">The Protocol</a>
-        <a [routerLink]="['/']" fragment="expertise" class="transition hover:text-primary">Core Expertise</a>
-        <a [routerLink]="['/']" fragment="cases" class="transition hover:text-primary">Case Studies</a>
+        <a [routerLink]="['/']" fragment="proof" class="transition hover:text-primary">Proof</a>
+        <a [routerLink]="['/']" fragment="pricing" class="transition hover:text-primary">Pricing</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -35,10 +35,10 @@
       <div class="flex flex-col gap-4 text-sm font-medium text-slate-700">
         <a [routerLink]="['/']" fragment="protocol" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">The Protocol</a>
-        <a [routerLink]="['/']" fragment="expertise" class="block transition hover:text-primary"
-          (click)="closeMobileMenu()">Core Expertise</a>
-        <a [routerLink]="['/']" fragment="cases" class="block transition hover:text-primary"
-          (click)="closeMobileMenu()">Case Studies</a>
+        <a [routerLink]="['/']" fragment="proof" class="block transition hover:text-primary"
+          (click)="closeMobileMenu()">Proof</a>
+        <a [routerLink]="['/']" fragment="pricing" class="block transition hover:text-primary"
+          (click)="closeMobileMenu()">Pricing</a>
         @if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
