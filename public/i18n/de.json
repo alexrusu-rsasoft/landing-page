@@ -93,6 +93,7 @@
     "urgentMiddle": "sofort benötigen, umgehen Sie die Warteschlange.",
     "urgentAfter": "Wir können ein autonomes Team in 24–48 Stunden einsatzbereit machen.",
     "callDirectly": "Alex direkt anrufen: {{phone}}",
+    "calendarTransition": "Wählen Sie unten einen freien Termin für ein kostenloses, 30-minütiges Gespräch aus.",
     "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
     "channels": {
       "email": "E-Mail",
@@ -105,10 +106,11 @@
     "protocol": "Das Protokoll",
     "proof": "Nachweis",
     "pricing": "Preise",
+    "careers": "Karriere",
     "openMenu": "Menü öffnen"
   },
   "footer": {
-    "copyright": "© {{year}} RSA SOFT S.R.L. Alle Rechte vorbehalten · Regionale Softwareagentur Nr. 1.",
+    "copyright": "© {{year}} RSA SOFT S.R.L. Alle Rechte vorbehalten.",
     "privacyPolicy": "Datenschutzerklärung",
     "cookiePolicy": "Cookie-Richtlinie",
     "terms": "AGB",
@@ -250,6 +252,7 @@
       "p3": "Keiner davon passt.",
       "p4": "Währenddessen verzögert sich Ihre Roadmap und Ihr eigenes Team übernimmt die zusätzliche Last.",
       "ctaSecondary": "So funktioniert das Protokoll",
+      "urgentCta": "Projekt brennt? Jetzt anrufen",
       "stat1Label": "Zeit bis zur Besetzung",
       "stat1Value": "24 bis 48 Stunden",
       "stat2Label": "Nachweis für Bindung",
@@ -358,6 +361,77 @@
     "finalCta": {
       "title": "Jede Woche, in der die Stelle unbesetzt bleibt, ist eine weitere Woche, in der sich Ihr Sprint verzögert.",
       "subtitle": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt."
+    },
+    "faq": {
+      "eyebrow": "Häufige Fragen",
+      "title": "Was Sie noch wissen sollten, bevor Sie anrufen.",
+      "q1": "Wie schnell ist ein Entwickler tatsächlich einsatzbereit?",
+      "a1": "In der Regel 24 bis 48 Stunden nach dem Scope-Gespräch: Wir greifen auf bereits geprüfte Entwickler aus Ihrer Branche zurück, statt erst nach Vertragsabschluss mit der Suche zu beginnen.",
+      "q2": "Wie wird abgerechnet, und was kostet das wirklich?",
+      "a2": "Stündlich, zum Gehaltssatz des Entwicklers plus einer pauschalen Marge von 10 €/Stunde. Sie sehen beide Zahlen. Nichts ist zusätzlich eingerechnet, egal ob die Suche 48 Stunden oder 4 Wochen dauert.",
+      "q3": "Ist das nicht einfach eine weitere Agentur?",
+      "a3": "Der Unterschied ist Transparenz: Sie sehen den Satz des Entwicklers und unsere Marge getrennt, statt einen aufgeschlagenen Pauschalpreis. Kein Mittelsmann, der vom Gehalt des Entwicklers abzweigt, ohne dass Sie es sehen.",
+      "q4": "Auf welcher rechtlichen Basis läuft der Einsatz?",
+      "a4": "Jeder Staffing- oder Beratungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt, die vor Projektstart abgeschlossen wird.",
+      "q5": "Bleibt der Entwickler nur für die erste Sprint-Phase, oder langfristig?",
+      "a5": "So lange, wie Ihr Projekt es braucht. Der Referenzfall in unserem Nachweis-Abschnitt lief 4 Jahre im selben Team."
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "Wir stellen ein — Senior-Entwickler für DACH-Projekte in Automotive, Banking & Fintech",
+      "eyebrow": "RSA SOFT Karriere",
+      "title": "In Tagen, nicht Monaten, zu einem geprüften DACH-Projekt passen, ganz ohne Bewerbungs-Blackhole.",
+      "p1": "Sie senden Ihr Profil einmal. Wir gleichen es mit bereits von unseren Kunden geprüften Rollen ab, kein ATS-Blackhole, kein Recruiter, der 40 Keywords abhakt.",
+      "p2": "Jede Vermittlung wird transparent abgerechnet: Ihr Satz plus unsere pauschale Marge von 10 €/h. Sie wissen immer genau, was der Kunde zahlt.",
+      "ctaPrimary": "Offene Stellen ansehen",
+      "ctaSecondary": "Profil senden",
+      "stat1Label": "Zeit bis zum ersten Match",
+      "stat1Value": "24 bis 48 Stunden",
+      "stat2Label": "Unsere Marge",
+      "stat2Value": "10 €/h pauschal, immer offengelegt",
+      "stat3Label": "Längster Einsatz",
+      "stat3Value": "4 Jahre, gleicher Kunde",
+      "panelEyebrow": "So vermitteln wir Entwickler",
+      "panelLine1": "Kein Lebenslauf-Blackhole.",
+      "panelLine2": "Ein Protokoll, das sich um Sie dreht.",
+      "step1Time": "Tag 0",
+      "step1Text": "Sie senden Ihr Profil, wir vereinbaren ein kurzes Gespräch",
+      "step2Time": "Tag 0-2",
+      "step2Text": "Abgleich mit geprüften, aktiven DACH-Rollen",
+      "step3Time": "Ab Tag 2",
+      "step3Text": "Kundeninterview, dann Start, Satz vorab offengelegt"
+    },
+    "why": {
+      "eyebrow": "Warum Entwickler mit uns arbeiten",
+      "title": "Keine versteckten Abzüge. Kein Ghosting. Keine Drehtür-Verträge.",
+      "item1Title": "Transparente Marge",
+      "item1Text": "Sie sehen Ihren Satz und unsere pauschale Marge von 10 €/h. Nichts aufgeschlagen, nichts versteckt.",
+      "item2Title": "Nur geprüfte Kunden",
+      "item2Text": "Wir arbeiten ausschließlich mit etablierten DACH-Unternehmen aus Automotive, Banking und Fintech mit 500 Mio. € oder mehr Jahresumsatz.",
+      "item3Title": "Langfristige Einsätze",
+      "item3Text": "Einer unserer Entwickler blieb 4 Jahre auf einem einzigen Projekt. Wir vermitteln für den richtigen Fit, nicht um schnell eine Stelle zu besetzen.",
+      "item4Title": "Schneller, persönlicher Prozess",
+      "item4Text": "Ein Profil, ein kurzes Gespräch, echtes Feedback. Keine 40-Fragen-ATS-Formulare."
+    },
+    "openings": {
+      "eyebrow": "Offene Stellen",
+      "title": "Aktuelle Möglichkeiten",
+      "subtitle": "Live aus unserer aktiven Kunden-Pipeline. Bewerben Sie sich direkt oder senden Sie Ihr Profil, falls noch nichts passt.",
+      "yearsLabel": "{{years}}+ Jahre Erfahrung",
+      "rateLabel": "Satz",
+      "fillUntilLabel": "Bewerbung bis",
+      "applyCta": "Jetzt bewerben",
+      "applySubject": "Bewerbung: {{opportunity}}",
+      "applyBody": "Hallo Alex,\n\nich möchte mich für die Rolle „{{opportunity}}“ bewerben. Mein Lebenslauf ist angehängt.\n\n",
+      "errorText": "Die offenen Stellen konnten gerade nicht geladen werden. Senden Sie uns direkt Ihr Profil, wir vermitteln Sie zur passenden Möglichkeit.",
+      "emptyText": "Aktuell keine offenen Stellen. Senden Sie uns Ihr Profil, wir melden uns, sobald ein passendes Projekt verfügbar ist."
+    },
+    "finalCta": {
+      "title": "Nicht die passende Rolle dabei? Wir suchen laufend geprüfte, DACH-erfahrene Entwickler.",
+      "subtitle": "Senden Sie Ihr Profil einmal. Wir gleichen es mit jeder neuen Kundenanfrage ab.",
+      "cta": "Profil senden",
+      "subject": "Profileinreichung für zukünftige Rollen"
     }
   }
 }

@@ -31,6 +31,15 @@
         (click)="trackCta('hero_view_protocol')">
         {{ 'dashboard.hero.ctaSecondary' | transloco }}
       </a>
+      <a href="tel:+40747011397"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-6 py-4 text-sm font-semibold text-red-700 transition hover:border-red-300 hover:bg-red-100"
+        (click)="trackCta('hero_urgent_call')">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+        </span>
+        {{ 'dashboard.hero.urgentCta' | transloco }}
+      </a>
     </div>
 
     <div class="grid gap-4 sm:grid-cols-3">
@@ -200,7 +209,7 @@
         {{ 'dashboard.proof.videoCaption' | transloco }}
       </p>
       <div class="mt-5 aspect-video overflow-hidden rounded-2xl">
-        <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/zX4mr8UGlP8"
+        <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/zX4mr8UGlP8?modestbranding=1&rel=0"
           [title]="'dashboard.proof.videoTitle' | transloco"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -323,6 +332,30 @@
         <li>{{ 'dashboard.fit.nf3' | transloco }}</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="mt-20 scroll-mt-32 space-y-8">
+  <div class="max-w-3xl">
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.faq.eyebrow' | transloco }}</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+      {{ 'dashboard.faq.title' | transloco }}
+    </h2>
+  </div>
+
+  <div class="grid gap-4 max-w-3xl">
+    @for (i of [1, 2, 3, 4, 5]; track i) {
+    <details class="group rounded-2xl bg-white p-6 shadow-sm shadow-slate-200/70 open:shadow-md">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-slate-950">
+        {{ 'dashboard.faq.q' + i | transloco }}
+        <svg viewBox="0 0 24 24" class="h-5 w-5 flex-none text-primary transition group-open:rotate-45" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </summary>
+      <p class="mt-3 text-sm leading-7 text-slate-600">{{ 'dashboard.faq.a' + i | transloco }}</p>
+    </details>
+    }
   </div>
 </section>
 

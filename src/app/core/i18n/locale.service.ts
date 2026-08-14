@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { TranslocoService } from '@jsverse/transloco';
@@ -19,8 +20,11 @@ interface GeoIpResponse {
 export class LocaleService {
   private readonly http = inject(HttpClient);
   private readonly transloco = inject(TranslocoService);
+  private readonly document = inject(DOCUMENT);
 
   async initLocale(): Promise<void> {
+    this.transloco.langChanges$.subscribe((lang) => this.syncHtmlLang(lang));
+
     const storedLang = this.readStoredLang();
     if (storedLang) {
       this.transloco.setActiveLang(storedLang);
@@ -31,6 +35,10 @@ export class LocaleService {
     const lang = this.resolveLang(countryCode);
     this.transloco.setActiveLang(lang);
     this.storeLang(lang);
+  }
+
+  private syncHtmlLang(lang: string): void {
+    this.document.documentElement.lang = lang;
   }
 
   private async detectCountryCode(): Promise<string | null> {

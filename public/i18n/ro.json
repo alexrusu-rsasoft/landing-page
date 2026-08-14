@@ -93,6 +93,7 @@
     "urgentMiddle": "desfășurați imediat, sari peste coadă.",
     "urgentAfter": "Putem integra o echipă autonomă în 24–48 de ore.",
     "callDirectly": "Sună-l direct pe Alex: {{phone}}",
+    "calendarTransition": "Alege un interval liber mai jos pentru un apel gratuit de 30 de minute.",
     "alternativesIntro": "Preferi un canal direct? Contactează-mă prin una dintre aceste alternative.",
     "channels": {
       "email": "Email",
@@ -105,10 +106,11 @@
     "protocol": "Protocolul",
     "proof": "Dovezi",
     "pricing": "Prețuri",
+    "careers": "Cariere",
     "openMenu": "Deschide meniul"
   },
   "footer": {
-    "copyright": "© {{year}} RSA SOFT S.R.L. Toate drepturile rezervate · Agenția de software nr. 1 din regiune.",
+    "copyright": "© {{year}} RSA SOFT S.R.L. Toate drepturile rezervate.",
     "privacyPolicy": "Politica de Confidențialitate",
     "cookiePolicy": "Politica de Cookie-uri",
     "terms": "Termeni și Condiții",
@@ -250,6 +252,7 @@
       "p3": "Niciunul nu se potrivește.",
       "p4": "Între timp, roadmap-ul tău întârzie și propria ta echipă preia sarcina în plus.",
       "ctaSecondary": "Vezi cum funcționează Protocolul",
+      "urgentCta": "Proiectul arde? Sună acum",
       "stat1Label": "Timp până la ocupare",
       "stat1Value": "24 până la 48 de ore",
       "stat2Label": "Dovadă de retenție",
@@ -358,6 +361,77 @@
     "finalCta": {
       "title": "Fiecare săptămână în care postul rămâne neocupat e încă o săptămână în care sprintul tău întârzie.",
       "subtitle": "Nu ai 3 luni. Ai un sprint care începe luni."
+    },
+    "faq": {
+      "eyebrow": "Întrebări frecvente",
+      "title": "Ce mai trebuie să știi înainte să suni.",
+      "q1": "Cât de repede e un dezvoltator cu adevărat pregătit să înceapă?",
+      "a1": "De regulă 24-48 de ore după discuția de scoping: alegem dintre dezvoltatori deja verificați pentru industria ta, în loc să începem căutarea abia după semnarea contractului.",
+      "q2": "Cum se facturează și cât costă cu adevărat?",
+      "a2": "Pe oră, la tariful dezvoltatorului plus o marjă fixă de 10 €/oră. Vezi ambele cifre. Nimic în plus nu e inclus, indiferent dacă găsirea durează 48 de ore sau 4 săptămâni.",
+      "q3": "Nu e totuși tot o agenție?",
+      "a3": "Diferența e transparența: vezi separat tariful dezvoltatorului și marja noastră, nu un preț fix majorat. Niciun intermediar nu scade din plata dezvoltatorului fără să vezi asta.",
+      "q4": "Pe ce bază legală funcționează colaborarea?",
+      "a4": "Fiecare colaborare de staffing sau consultanță este reglementată printr-un acord scris separat, semnat înainte de începerea proiectului.",
+      "q5": "Dezvoltatorul rămâne doar pentru primul sprint sau pe termen lung?",
+      "a5": "Atât cât are nevoie proiectul tău. Cazul de referință din secțiunea de dovezi a durat 4 ani în aceeași echipă."
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "Angajăm — dezvoltatori Senior pentru proiecte DACH în automotive, banking & fintech",
+      "eyebrow": "Cariere RSA SOFT",
+      "title": "Ajungi la un proiect DACH verificat în zile, nu în luni de aplicații fără răspuns.",
+      "p1": "Trimiți profilul o singură dată. Îl potrivim cu roluri deja verificate de clienții noștri, fără ATS-uri care te ignoră, fără recrutori care bifează 40 de cuvinte cheie.",
+      "p2": "Fiecare plasare este facturată transparent: rata ta plus marja noastră fixă de 10 €/h. Știi mereu exact cât plătește clientul.",
+      "ctaPrimary": "Vezi rolurile disponibile",
+      "ctaSecondary": "Trimite-ți profilul",
+      "stat1Label": "Timp până la primul match",
+      "stat1Value": "24 până la 48 de ore",
+      "stat2Label": "Marja noastră",
+      "stat2Value": "10 €/h fix, mereu transparent",
+      "stat3Label": "Cea mai lungă colaborare",
+      "stat3Value": "4 ani, același client",
+      "panelEyebrow": "Cum plasăm dezvoltatori",
+      "panelLine1": "Nu o gaură neagră de CV-uri.",
+      "panelLine2": "Un protocol construit în jurul tău.",
+      "step1Time": "Ziua 0",
+      "step1Text": "Trimiți profilul, avem un apel scurt",
+      "step2Time": "Ziua 0-2",
+      "step2Text": "Potrivire cu roluri DACH active, deja verificate",
+      "step3Time": "Din ziua 2",
+      "step3Text": "Interviu cu clientul, apoi start, rata comunicată din start"
+    },
+    "why": {
+      "eyebrow": "De ce lucrează dezvoltatorii cu noi",
+      "title": "Fără comisioane ascunse. Fără ghosting. Fără contracte de tip ușă turnantă.",
+      "item1Title": "Marjă transparentă",
+      "item1Text": "Vezi rata ta și marja noastră fixă de 10 €/h. Nimic umflat, nimic ascuns.",
+      "item2Title": "Doar clienți verificați",
+      "item2Text": "Lucrăm doar cu companii DACH consacrate din automotive, banking și fintech, cu 500 mil. € sau mai mult venit anual.",
+      "item3Title": "Colaborări pe termen lung",
+      "item3Text": "Unul dintre dezvoltatorii noștri a rămas 4 ani pe același proiect. Plasăm pentru potrivire, nu doar ca să ocupăm rapid un loc.",
+      "item4Title": "Proces rapid și uman",
+      "item4Text": "Un profil, un apel scurt, feedback real. Fără formulare ATS cu 40 de întrebări."
+    },
+    "openings": {
+      "eyebrow": "Roluri disponibile",
+      "title": "Oportunități curente",
+      "subtitle": "Preluate live din pipeline-ul nostru activ de clienți. Aplică direct sau trimite-ți profilul dacă nimic nu se potrivește încă.",
+      "yearsLabel": "{{years}}+ ani experiență",
+      "rateLabel": "Rată",
+      "fillUntilLabel": "Aplică până la",
+      "applyCta": "Aplică acum",
+      "applySubject": "Aplicație: {{opportunity}}",
+      "applyBody": "Salut Alex,\n\nAș dori să aplic pentru rolul \"{{opportunity}}\". CV-ul este atașat.\n\n",
+      "errorText": "Nu am putut încărca rolurile disponibile momentan. Trimite-ne profilul tău direct și te vom potrivi cu oportunitatea potrivită.",
+      "emptyText": "Momentan nu există roluri disponibile. Trimite-ne profilul tău și te contactăm imediat ce apare un proiect potrivit."
+    },
+    "finalCta": {
+      "title": "Nu vezi rolul potrivit? Căutăm mereu dezvoltatori verificați, pregătiți pentru piața DACH.",
+      "subtitle": "Trimite-ți profilul o singură dată. Îl potrivim cu fiecare oportunitate nouă de client.",
+      "cta": "Trimite profilul",
+      "subject": "Trimitere profil pentru roluri viitoare"
     }
   }
 }

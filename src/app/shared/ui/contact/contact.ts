@@ -9,12 +9,16 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ViewportScroller } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
+
+const CALENDAR_BASE_URL =
+  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL';
 
 @Component({
   selector: 'app-contact',
@@ -27,8 +31,20 @@ export class Contact implements AfterViewInit, OnDestroy {
   readonly #analytics = inject(AnalyticsService);
   readonly #viewportScroller = inject(ViewportScroller);
   readonly #breakpointObserver = inject(BreakpointObserver);
+  readonly #transloco = inject(TranslocoService);
+  readonly #sanitizer = inject(DomSanitizer);
 
   readonly calendarIfremRef = viewChild<ElementRef<HTMLIFrameElement>>('calendarIframe');
+
+  readonly #activeLang = toSignal(this.#transloco.langChanges$, {
+    initialValue: this.#transloco.getActiveLang(),
+  });
+
+  readonly calendarSrc = computed<SafeResourceUrl>(() =>
+    this.#sanitizer.bypassSecurityTrustResourceUrl(
+      `${CALENDAR_BASE_URL}?gv=true&hl=${encodeURIComponent(this.#activeLang())}`,
+    ),
+  );
 
   readonly #screenState = toSignal(
     this.#breakpointObserver.observe([

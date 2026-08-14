@@ -25,6 +25,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/calendar/calendar').then((c) => c.Calendar),
   },
   {
+    path: 'careers',
+    loadComponent: () =>
+      import('./features/careers/careers-page/careers-page').then((c) => c.CareersPage),
+  },
+  {
     path: 'contact',
     loadComponent: () => import('./shared/ui/contact/contact').then((c) => c.Contact),
   },

@@ -1,0 +1,218 @@
+<section class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+  <div class="space-y-8">
+    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+      <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
+      {{ 'careers.hero.badge' | transloco }}
+    </div>
+
+    <div class="space-y-6">
+      <p class="text-sm uppercase tracking-[0.32em] text-slate-500">{{ 'careers.hero.eyebrow' | transloco }}</p>
+      <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+        {{ 'careers.hero.title' | transloco }}
+      </h1>
+      <div class="max-w-2xl space-y-2 text-base leading-8 text-slate-600 sm:text-lg">
+        <p>{{ 'careers.hero.p1' | transloco }}</p>
+        <p>{{ 'careers.hero.p2' | transloco }}</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+      <a [routerLink]="[]" fragment="openings"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
+        (click)="trackCta('careers_hero_view_roles')">
+        {{ 'careers.hero.ctaPrimary' | transloco }}
+      </a>
+      <a [href]="generalApplyHref"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
+        (click)="trackCta('careers_hero_send_profile')">
+        {{ 'careers.hero.ctaSecondary' | transloco }}
+      </a>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+        <p class="text-sm text-slate-500">{{ 'careers.hero.stat1Label' | transloco }}</p>
+        <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'careers.hero.stat1Value' | transloco }}</p>
+      </div>
+      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+        <p class="text-sm text-slate-500">{{ 'careers.hero.stat2Label' | transloco }}</p>
+        <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'careers.hero.stat2Value' | transloco }}</p>
+      </div>
+      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+        <p class="text-sm text-slate-500">{{ 'careers.hero.stat3Label' | transloco }}</p>
+        <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'careers.hero.stat3Value' | transloco }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="relative overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(43,84,148,0.18),_transparent_38%),_linear-gradient(180deg,_rgb(255_255_255)_0%,_rgb(242_247_255)_100%)] px-6 py-10 shadow-2xl shadow-slate-200/40 sm:px-8 lg:py-16">
+    <div class="absolute inset-x-0 top-0 h-20 bg-primary/10 blur-3xl"></div>
+    <div class="relative space-y-6">
+      <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/50">
+        <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'careers.hero.panelEyebrow' | transloco }}</p>
+        <p class="mt-4 text-lg font-semibold text-slate-950">{{ 'careers.hero.panelLine1' | transloco }}</p>
+        <p class="text-lg font-semibold text-slate-950">
+          <span class="text-primary">↳</span> {{ 'careers.hero.panelLine2' | transloco }}
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center gap-4 rounded-2xl bg-slate-950/95 p-5 text-white shadow-xl shadow-slate-950/10">
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'careers.hero.step1Time' | transloco }}</span>
+          <p class="text-sm font-semibold">{{ 'careers.hero.step1Text' | transloco }}</p>
+        </div>
+        <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'careers.hero.step2Time' | transloco }}</span>
+          <p class="text-sm font-semibold text-slate-950">{{ 'careers.hero.step2Text' | transloco }}</p>
+        </div>
+        <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'careers.hero.step3Time' | transloco }}</span>
+          <p class="text-sm font-semibold text-slate-950">{{ 'careers.hero.step3Text' | transloco }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="mt-20 scroll-mt-32 space-y-8">
+  <div class="max-w-3xl">
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'careers.why.eyebrow' | transloco }}</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+      {{ 'careers.why.title' | transloco }}
+    </h2>
+  </div>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <h3 class="text-base font-semibold text-slate-950">{{ 'careers.why.item1Title' | transloco }}</h3>
+      <p class="mt-2 text-sm leading-7 text-slate-600">{{ 'careers.why.item1Text' | transloco }}</p>
+    </div>
+    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <h3 class="text-base font-semibold text-slate-950">{{ 'careers.why.item2Title' | transloco }}</h3>
+      <p class="mt-2 text-sm leading-7 text-slate-600">{{ 'careers.why.item2Text' | transloco }}</p>
+    </div>
+    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <h3 class="text-base font-semibold text-slate-950">{{ 'careers.why.item3Title' | transloco }}</h3>
+      <p class="mt-2 text-sm leading-7 text-slate-600">{{ 'careers.why.item3Text' | transloco }}</p>
+    </div>
+    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <h3 class="text-base font-semibold text-slate-950">{{ 'careers.why.item4Title' | transloco }}</h3>
+      <p class="mt-2 text-sm leading-7 text-slate-600">{{ 'careers.why.item4Text' | transloco }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="openings" class="mt-20 scroll-mt-32 space-y-8">
+  <div class="max-w-3xl">
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'careers.openings.eyebrow' | transloco }}</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+      {{ 'careers.openings.title' | transloco }}
+    </h2>
+    <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg">{{ 'careers.openings.subtitle' | transloco }}</p>
+  </div>
+
+  @if (isLoading()) {
+  <div class="grid gap-6 lg:grid-cols-2">
+    @for (i of [1, 2, 3, 4]; track i) {
+    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <div class="skeleton-pulse h-5 w-3/4 rounded-md mb-3"></div>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
+        <div class="skeleton-pulse h-6 w-24 rounded-full"></div>
+      </div>
+      <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
+      <div class="skeleton-pulse h-3 w-5/6 rounded-md mb-2"></div>
+      <div class="skeleton-pulse h-3 w-2/3 rounded-md mb-5"></div>
+      <div class="skeleton-pulse h-10 w-32 rounded-full"></div>
+    </div>
+    }
+  </div>
+  } @else if (hasError()) {
+  <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
+    <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.errorText' | transloco }}</p>
+    <a [href]="generalApplyHref"
+      class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
+      (click)="trackCta('careers_hero_send_profile')">
+      {{ 'careers.hero.ctaSecondary' | transloco }}
+    </a>
+  </div>
+  } @else if (openings().length === 0) {
+  <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
+    <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.emptyText' | transloco }}</p>
+    <a [href]="generalApplyHref"
+      class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
+      (click)="trackCta('careers_hero_send_profile')">
+      {{ 'careers.hero.ctaSecondary' | transloco }}
+    </a>
+  </div>
+  } @else {
+  <div class="grid gap-6 lg:grid-cols-2">
+    @for (opening of openings(); track opening.opportunity + opening.fillUntil) {
+    <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80">
+      <h3 class="text-lg font-semibold text-slate-950">{{ opening.opportunity }}</h3>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        @if (opening.level) {
+        <span class="px-2.5 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
+          {{ opening.level }}
+        </span>
+        }
+        @if (opening.minYearsExperience) {
+        <span class="px-2.5 py-1 text-xs rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-medium">
+          {{ yearsLabel(opening) }}
+        </span>
+        }
+        @if (opening.urgency) {
+        <span class="px-2.5 py-1 text-xs rounded-full font-medium border"
+          [class]="isUrgent(opening)
+            ? 'bg-red-50 text-red-700 border-red-200'
+            : 'bg-slate-100 text-slate-700 border-slate-200'">
+          {{ opening.urgency }}
+        </span>
+        }
+      </div>
+
+      @if (opening.notes) {
+      <p class="mt-4 text-sm leading-7 text-slate-600">{{ opening.notes }}</p>
+      }
+
+      <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+        @if (opening.hourly) {
+        <span class="font-medium text-slate-950">{{ 'careers.openings.rateLabel' | transloco }}: {{ opening.hourly }}</span>
+        }
+        @if (opening.fillUntil) {
+        <span>{{ 'careers.openings.fillUntilLabel' | transloco }}: {{ opening.fillUntil }}</span>
+        }
+      </div>
+
+      <div class="mt-6">
+        <a [href]="applyHref(opening)"
+          class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
+          (click)="trackApply(opening)">
+          {{ 'careers.openings.applyCta' | transloco }}
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</section>
+
+<section class="mt-20 mb-4 scroll-mt-32">
+  <div class="rounded-[32px] bg-slate-950 px-8 py-16 text-center shadow-2xl shadow-slate-950/20 sm:px-16">
+    <h2 class="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      {{ 'careers.finalCta.title' | transloco }}
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-base leading-8 text-slate-300">
+      {{ 'careers.finalCta.subtitle' | transloco }}
+    </p>
+    <div class="mt-8 flex justify-center">
+      <a [href]="generalApplyHref"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950"
+        (click)="trackCta('careers_final_send_profile')">
+        {{ 'careers.finalCta.cta' | transloco }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -10,7 +10,13 @@ export type CtaLabel =
   | 'hero_view_protocol'
   | 'proof_free_call'
   | 'pricing_free_call'
-  | 'final_free_call';
+  | 'final_free_call'
+  | 'hero_urgent_call'
+  | 'nav_careers_desktop'
+  | 'nav_careers_mobile'
+  | 'careers_hero_view_roles'
+  | 'careers_hero_send_profile'
+  | 'careers_final_send_profile';
 
 export type ContactLabel =
   | 'contact_phone'
@@ -28,6 +34,10 @@ export class AnalyticsService {
 
   trackContactClick(label: ContactLabel): void {
     this.send('contact_click', { event_category: 'engagement', event_label: label });
+  }
+
+  trackCareersApplyClick(opportunity: string): void {
+    this.send('careers_apply_click', { event_category: 'careers', event_label: opportunity });
   }
 
   /** Fires once when the Google Calendar iframe scrolls into the viewport. */

@@ -93,6 +93,7 @@
     "urgentMiddle": "deployed immediately, bypass the queue.",
     "urgentAfter": "We can onboard an autonomous squad in 24–48 hours.",
     "callDirectly": "Call Alex Directly: {{phone}}",
+    "calendarTransition": "Pick an open slot below for a free, 30-minute call.",
     "alternativesIntro": "Prefer a direct channel? Reach out through one of these alternatives.",
     "channels": {
       "email": "Email",
@@ -105,10 +106,11 @@
     "protocol": "The Protocol",
     "proof": "Proof",
     "pricing": "Pricing",
+    "careers": "Careers",
     "openMenu": "Open menu"
   },
   "footer": {
-    "copyright": "© {{year}} RSA SOFT S.R.L. All rights reserved · #1 regional software agency.",
+    "copyright": "© {{year}} RSA SOFT S.R.L. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookie Policy",
     "terms": "Terms & Conditions",
@@ -250,6 +252,7 @@
       "p3": "None of them fit.",
       "p4": "Meanwhile your roadmap slips and your own team absorbs the extra load.",
       "ctaSecondary": "See How The Protocol Works",
+      "urgentCta": "Project on fire? Call now",
       "stat1Label": "Time to placement",
       "stat1Value": "24 to 48 hours",
       "stat2Label": "Proof of retention",
@@ -358,6 +361,77 @@
     "finalCta": {
       "title": "Every week that seat stays empty is another week your sprint slips.",
       "subtitle": "You don't have 3 months. You have a sprint that starts Monday."
+    },
+    "faq": {
+      "eyebrow": "Frequently asked",
+      "title": "What else you should know before you call.",
+      "q1": "How fast is a developer actually ready to start?",
+      "a1": "Usually 24 to 48 hours after the scope call: we draw from developers already vetted for your industry instead of starting the search after the contract is signed.",
+      "q2": "How does billing work, and what does it really cost?",
+      "a2": "Hourly, at the developer's rate plus a flat 10 €/hour margin. You see both numbers. Nothing extra is baked in, whether the search takes 48 hours or 4 weeks.",
+      "q3": "Isn't this just another agency?",
+      "a3": "The difference is transparency: you see the developer's rate and our margin separately instead of one marked-up flat fee. No middleman skimming off the developer's pay without you seeing it.",
+      "q4": "What's the legal basis for the engagement?",
+      "a4": "Every staffing or consulting engagement is governed by a separate written agreement signed before the project starts.",
+      "q5": "Does the developer only stick around for the first sprint, or longer-term?",
+      "a5": "As long as your project needs them. The reference case in our proof section ran 4 years on the same team."
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "We're hiring — Senior developers for DACH automotive, banking & fintech projects",
+      "eyebrow": "RSA SOFT Careers",
+      "title": "Get matched to a vetted DACH project in days, not months of ghosted applications.",
+      "p1": "You send your profile once. We match it against roles already vetted by our clients, no black-hole ATS, no recruiter chasing 40 keywords.",
+      "p2": "Every placement is billed transparently: your rate plus our flat €10/h margin. You always know exactly what the client pays.",
+      "ctaPrimary": "View Open Roles",
+      "ctaSecondary": "Send Us Your Profile",
+      "stat1Label": "Time to first match",
+      "stat1Value": "24 to 48 hours",
+      "stat2Label": "Our margin",
+      "stat2Value": "€10/h flat, always disclosed",
+      "stat3Label": "Longest embed",
+      "stat3Value": "4 years, same client",
+      "panelEyebrow": "How we place developers",
+      "panelLine1": "Not a resume black hole.",
+      "panelLine2": "A protocol built around you.",
+      "step1Time": "Day 0",
+      "step1Text": "You send your profile, we get on a short call",
+      "step2Time": "Day 0-2",
+      "step2Text": "Matched against vetted, active DACH roles",
+      "step3Time": "Day 2+",
+      "step3Text": "Client interview, then start, rate disclosed upfront"
+    },
+    "why": {
+      "eyebrow": "Why developers work with us",
+      "title": "No hidden cuts. No ghosting. No revolving-door contracts.",
+      "item1Title": "Transparent margin",
+      "item1Text": "You see your rate and our flat €10/h margin. Nothing padded, nothing hidden.",
+      "item2Title": "Vetted clients only",
+      "item2Text": "We only work with established DACH automotive, banking and fintech companies doing €500M+ a year.",
+      "item3Title": "Long-term embeds",
+      "item3Text": "One of our developers stayed on a single project for 4 years. We place for fit, not to fill a seat fast.",
+      "item4Title": "Fast, human process",
+      "item4Text": "One profile, one short call, real feedback. No 40-question ATS forms."
+    },
+    "openings": {
+      "eyebrow": "Open roles",
+      "title": "Current opportunities",
+      "subtitle": "Pulled live from our active client pipeline. Apply directly, or send your profile if nothing fits yet.",
+      "yearsLabel": "{{years}}+ yrs experience",
+      "rateLabel": "Rate",
+      "fillUntilLabel": "Apply before",
+      "applyCta": "Apply Now",
+      "applySubject": "Application: {{opportunity}}",
+      "applyBody": "Hi Alex,\n\nI'd like to apply for the \"{{opportunity}}\" role. My CV is attached.\n\n",
+      "errorText": "We couldn't load the open roles right now. Send us your profile directly and we'll match you to the right opportunity.",
+      "emptyText": "No open roles right now. Send us your profile and we'll reach out the moment a matching project opens up."
+    },
+    "finalCta": {
+      "title": "Don't see the right role? We're always looking for vetted DACH-ready developers.",
+      "subtitle": "Send your profile once. We'll match it against every new client opportunity.",
+      "cta": "Send Your Profile",
+      "subject": "Profile submission for future roles"
     }
   }
 }

@@ -7,9 +7,14 @@
       </a>
 
       <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-        <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary">{{ 'nav.protocol' | transloco }}</a>
-        <a [routerLink]="['/']" fragment="proof" class="transition hover:text-primary">{{ 'nav.proof' | transloco }}</a>
-        <a [routerLink]="['/']" fragment="pricing" class="transition hover:text-primary">{{ 'nav.pricing' | transloco }}</a>
+        <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary"
+          [class.text-primary]="activeSection() === 'protocol'">{{ 'nav.protocol' | transloco }}</a>
+        <a [routerLink]="['/']" fragment="proof" class="transition hover:text-primary"
+          [class.text-primary]="activeSection() === 'proof'">{{ 'nav.proof' | transloco }}</a>
+        <a [routerLink]="['/']" fragment="pricing" class="transition hover:text-primary"
+          [class.text-primary]="activeSection() === 'pricing'">{{ 'nav.pricing' | transloco }}</a>
+        <a [routerLink]="['/careers']" class="transition hover:text-primary"
+          (click)="trackCta('nav_careers_desktop')">{{ 'nav.careers' | transloco }}</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -39,6 +44,8 @@
           (click)="closeMobileMenu()">{{ 'nav.proof' | transloco }}</a>
         <a [routerLink]="['/']" fragment="pricing" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">{{ 'nav.pricing' | transloco }}</a>
+        <a [routerLink]="['/careers']" class="block transition hover:text-primary"
+          (click)="closeMobileMenu(); trackCta('nav_careers_mobile')">{{ 'nav.careers' | transloco }}</a>
         @if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
@@ -54,6 +61,23 @@
     <router-outlet />
   </main>
   <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-400">
+    <div class="mb-4 flex items-center justify-center gap-3">
+      <a href="https://www.linkedin.com/in/alexrusu-rsa/" target="_blank" rel="noreferrer"
+        [attr.aria-label]="'contact.channels.linkedin' | transloco"
+        class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 ring-1 ring-slate-200 transition hover:text-primary hover:ring-primary/30">
+        <img src="/linkedIn.ico" [attr.alt]="'contact.channels.linkedin' | transloco" class="h-4 w-4 object-contain" />
+      </a>
+      <a href="https://www.xing.com/profile/Alex_Rusu3" target="_blank" rel="noreferrer"
+        [attr.aria-label]="'contact.channels.xing' | transloco"
+        class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-500 ring-1 ring-slate-200 transition hover:text-primary hover:ring-primary/30">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 31 31" class="h-4 w-4" role="presentation">
+          <g fill-rule="evenodd" clip-rule="evenodd">
+            <path fill="#0698A0" d="m1.805 5.984 3.635 6.479L0 22.018h6.491l5.4-9.555-3.634-6.48z"></path>
+            <path fill="#B7DF4B" d="m21.122 0-10.49 18.642L17.396 31h6.582l-6.88-12.358L27.6 0z"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
     <nav class="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
       <a [routerLink]="['/privacy-policy']" class="transition hover:text-primary">{{ 'footer.privacyPolicy' | transloco }}</a>
       <a [routerLink]="['/cookie-policy']" class="transition hover:text-primary">{{ 'footer.cookiePolicy' | transloco }}</a>
