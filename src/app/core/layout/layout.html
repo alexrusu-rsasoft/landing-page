@@ -54,6 +54,13 @@
     <router-outlet />
   </main>
   <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-400">
+    <nav class="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+      <a [routerLink]="['/privacy-policy']" class="transition hover:text-primary">{{ 'footer.privacyPolicy' | transloco }}</a>
+      <a [routerLink]="['/cookie-policy']" class="transition hover:text-primary">{{ 'footer.cookiePolicy' | transloco }}</a>
+      <a [routerLink]="['/terms']" class="transition hover:text-primary">{{ 'footer.terms' | transloco }}</a>
+      <a [routerLink]="['/legal-notice']" class="transition hover:text-primary">{{ 'footer.legalNotice' | transloco }}</a>
+      <button type="button" (click)="cookieConsent.reopen()" class="transition hover:text-primary">{{ 'footer.cookieSettings' | transloco }}</button>
+    </nav>
     <p>{{ 'footer.copyright' | transloco: { year: currentYear } }}</p>
   </footer>
 </div>

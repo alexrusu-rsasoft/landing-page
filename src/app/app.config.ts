@@ -14,6 +14,7 @@ import { AuthInterceptor } from './core/auth.interceptor';
 import { HttpHandler, HttpInterceptorFn } from '@angular/common/http';
 import { TranslocoHttpLoader } from './core/i18n/transloco-loader';
 import { LocaleService } from './core/i18n/locale.service';
+import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const interceptor = inject(AuthInterceptor);
@@ -44,5 +45,6 @@ export const appConfig: ApplicationConfig = {
       loader: TranslocoHttpLoader,
     }),
     provideAppInitializer(() => inject(LocaleService).initLocale()),
+    provideAppInitializer(() => inject(CookieConsentService).init()),
   ],
 };

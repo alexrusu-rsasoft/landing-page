@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { Layout } from './core/layout/layout';
+import { CookieConsentBanner } from './core/cookie-consent/cookie-consent-banner';
 
 @Component({
   selector: 'app-root',
-  imports: [Layout],
+  imports: [Layout, CookieConsentBanner],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

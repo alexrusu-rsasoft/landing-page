@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { isActive, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../analytics.service';
+import { CookieConsentService } from '../cookie-consent/cookie-consent.service';
 
 @Component({
   selector: 'app-layout',
@@ -13,6 +14,7 @@ import { AnalyticsService, CtaLabel } from '../analytics.service';
 export class Layout {
   readonly #analytics = inject(AnalyticsService);
   readonly #router = inject(Router);
+  protected readonly cookieConsent = inject(CookieConsentService);
 
   isContactPage = isActive('/contact', this.#router, {
     paths: 'subset',
