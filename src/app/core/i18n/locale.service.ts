@@ -1,0 +1,84 @@
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpContext } from '@angular/common/http';
+import { TranslocoService } from '@jsverse/transloco';
+import { catchError, firstValueFrom, of, timeout } from 'rxjs';
+import { SKIP_AUTH_INTERCEPTOR } from '../auth.interceptor';
+
+const GERMAN_SPEAKING_COUNTRY_CODES = new Set(['DE', 'AT', 'CH', 'LI']);
+const ROMANIAN_COUNTRY_CODE = 'RO';
+const STORAGE_KEY = 'rsa-soft-lang';
+const GEO_IP_ENDPOINT = 'https://ipwho.is/';
+const GEO_IP_TIMEOUT_MS = 2500;
+
+interface GeoIpResponse {
+  success?: boolean;
+  country_code?: string;
+}
+
+@Injectable({ providedIn: 'root' })
+export class LocaleService {
+  private readonly http = inject(HttpClient);
+  private readonly transloco = inject(TranslocoService);
+
+  async initLocale(): Promise<void> {
+    const storedLang = this.readStoredLang();
+    if (storedLang) {
+      this.transloco.setActiveLang(storedLang);
+      return;
+    }
+
+    const countryCode = await this.detectCountryCode();
+    const lang = this.resolveLang(countryCode);
+    this.transloco.setActiveLang(lang);
+    this.storeLang(lang);
+  }
+
+  private async detectCountryCode(): Promise<string | null> {
+    const response = await firstValueFrom(
+      this.http
+        .get<GeoIpResponse>(GEO_IP_ENDPOINT, {
+          context: new HttpContext().set(SKIP_AUTH_INTERCEPTOR, true),
+        })
+        .pipe(
+          timeout(GEO_IP_TIMEOUT_MS),
+          catchError(() => of(null)),
+        ),
+    );
+    if (!response || response.success === false) return null;
+    return response.country_code ?? null;
+  }
+
+  private resolveLang(countryCode: string | null): string {
+    if (!countryCode) {
+      return this.resolveLangFromBrowser();
+    }
+
+    const normalized = countryCode.toUpperCase();
+    if (GERMAN_SPEAKING_COUNTRY_CODES.has(normalized)) return 'de';
+    if (normalized === ROMANIAN_COUNTRY_CODE) return 'ro';
+    return 'en';
+  }
+
+  private resolveLangFromBrowser(): string {
+    const browserLang = (navigator.language || 'en').toLowerCase();
+    if (browserLang.startsWith('de')) return 'de';
+    if (browserLang.startsWith('ro')) return 'ro';
+    return 'en';
+  }
+
+  private readStoredLang(): string | null {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  private storeLang(lang: string): void {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch {
+      // Storage unavailable (private browsing, disabled cookies). Non-fatal.
+    }
+  }
+}

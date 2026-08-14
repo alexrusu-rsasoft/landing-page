@@ -1,0 +1,233 @@
+{
+  "common": {
+    "freeCallCta": "Programează un apel de consultanță GRATUIT",
+    "calendarIframeTitle": "Programează un apel strategic de 30 de minute"
+  },
+  "notFound": {
+    "title": "Pagina nu a fost găsită",
+    "message": "Ruta solicitată nu a putut fi găsită."
+  },
+  "workWithAlex": {
+    "hero": {
+      "badge": "Deschis pentru colaborări",
+      "avatarAlt": "Alex George Rusu - Avatar",
+      "name": "Alex-George Rusu",
+      "title": "Tech Lead Angular / Frontend",
+      "bioIntro": "{{years}}+ ani de experiență în construirea de aplicații web performante și scalabile pentru",
+      "bioOutro": "& altele. Germană & engleză fluent."
+    },
+    "about": {
+      "badge": "👋 Despre mine",
+      "title": "Despre mine",
+      "subtitle": "Construiesc aplicații Angular mentenabile, performante și conduc echipe către soluții orientate spre produs.",
+      "p1": "Am petrecut ultimii nouă ani aprofundând Angular, unde am descoperit pasiunea pentru crearea de interfețe care nu sunt doar plăcute vizual, ci și ușor de folosit și eficiente pentru dezvoltatori.",
+      "p2Intro": "De-a lungul carierei, am lucrat la o serie de proiecte pentru clienți cunoscuți precum",
+      "andConnector": "și",
+      "p2Outro": "în timp ce îmi urmam studiile la linia germană a Facultății de Informatică de la Universitatea Babeș-Bolyai.",
+      "p3": "Deși mă simt confortabil să lucrez independent, am ajuns să apreciez puterea lucrului în echipă. Acum mă concentrez pe crearea unui mediu colaborativ în care toată lumea poate reuși și poate depăși limitele împreună.",
+      "locationLabel": "Locație",
+      "locationValue": "Cluj-Napoca, România / Remote",
+      "languagesLabel": "Limbi"
+    },
+    "languages": {
+      "german": "Germană",
+      "english": "Engleză",
+      "romanian": "Română",
+      "italian": "Italiană"
+    },
+    "levels": {
+      "fluent": "Fluent",
+      "native": "Nativ",
+      "basic": "Începător",
+      "expert": "expert",
+      "advanced": "avansat",
+      "intermediate": "intermediar"
+    },
+    "education": {
+      "badge": "🎓 Educație",
+      "title": "Educație & Certificări",
+      "certificationsTitle": "Certificări",
+      "organizationsTitle": "Organizații"
+    },
+    "experience": {
+      "badge": "📌 Experiență",
+      "title": "Traseu Profesional",
+      "subtitle": "Roluri selectate, realizări și tehnologii folosite de-a lungul carierei mele.",
+      "present": "Prezent",
+      "companyLogoAlt": "Logo {{company}}"
+    },
+    "skills": {
+      "badge": "🛠️ Competențe",
+      "title": "Competențe & Unelte",
+      "subtitle": "Tehnologiile de bază pe care le folosesc pentru a livra aplicații gata de producție.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "databases": "Baze de date",
+        "cloudDevops": "Cloud & DevOps",
+        "leadership": "Leadership",
+        "tools": "Unelte"
+      }
+    },
+    "whyChooseMe": {
+      "yearsExperience": "Ani de experiență",
+      "projectsDelivered": "Proiecte livrate",
+      "uniqueCustomers": "Clienți unici"
+    },
+    "featuredVideo": {
+      "title": "Video prezentat",
+      "iframeTitle": "Player video YouTube"
+    }
+  },
+  "certifications": {
+    "ariaLabel": "Certificare: {{name}} de la {{issuer}}",
+    "viewCredential": "Vezi certificarea",
+    "viewCredentialFor": "Vezi certificarea pentru {{name}}",
+    "certificateAlt": "Certificat {{name}}"
+  },
+  "contact": {
+    "eyebrow": "Programează un apel",
+    "urgentTitle": "Proiectul arde? Termenul era ieri?",
+    "urgentBefore": "Sari peste programarea în calendar. Dacă livrarea software-ului tău e blocată și ai nevoie de",
+    "urgentHighlight": "experți Senior Angular/Fullstack",
+    "urgentMiddle": "desfășurați imediat, sari peste coadă.",
+    "urgentAfter": "Putem integra o echipă autonomă în 24–48 de ore.",
+    "callDirectly": "Sună-l direct pe Alex: {{phone}}",
+    "alternativesIntro": "Preferi un canal direct? Contactează-mă prin una dintre aceste alternative.",
+    "channels": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "xing": "XING"
+    }
+  },
+  "nav": {
+    "logoAlt": "Logo RSA SOFT",
+    "protocol": "Protocolul",
+    "proof": "Dovezi",
+    "pricing": "Prețuri",
+    "openMenu": "Deschide meniul"
+  },
+  "footer": {
+    "copyright": "© {{year}} RSA SOFT S.R.L. Toate drepturile rezervate · Agenția de software nr. 1 din regiune."
+  },
+  "dashboard": {
+    "hero": {
+      "badge": "Pentru fondatori tehnici & CTO din companii DACH din automotive, banking & fintech",
+      "eyebrow": "Protocolul RSA SOFT de Staffing Rapid",
+      "title": "RSA SOFT ocupă un rol software specializat în echipa ta în 24 până la 48 de ore. Nu în 3 luni.",
+      "p1": "Postezi un rol.",
+      "p2": "Recrutorul tău găsește 40 de CV-uri.",
+      "p3": "Niciunul nu se potrivește.",
+      "p4": "Între timp, roadmap-ul tău întârzie și propria ta echipă preia sarcina în plus.",
+      "ctaSecondary": "Vezi cum funcționează Protocolul",
+      "stat1Label": "Timp până la ocupare",
+      "stat1Value": "24 până la 48 de ore",
+      "stat2Label": "Dovadă de retenție",
+      "stat2Value": "4 ani integrat, zero probleme de calitate",
+      "stat3Label": "Marja noastră",
+      "stat3Value": "10 €/oră fix. Nimic ascuns.",
+      "panelEyebrow": "Cum plasăm dezvoltatori",
+      "panelLine1": "Nu e o căutare de CV-uri.",
+      "panelLine2": "E un protocol.",
+      "step1Time": "Ora 0-2",
+      "step1Text": "Scop: stabilim un apel și clarificăm exact",
+      "step2Time": "Ora 2-24",
+      "step2Text": "Potrivire: din dezvoltatori deja verificați pentru industria ta",
+      "step3Time": "Ora 24-48",
+      "step3Text": "Plasare: un dezvoltator potrivit stack-ului tău, gata de start"
+    },
+    "objections": {
+      "eyebrow": "Obiecția pe care o auzim la fiecare apel",
+      "quote1": "„Nu lucrăm cu agenții.”",
+      "quote2": "„Compania noastră nu ia în calcul intermediarii.”",
+      "p1": "Auzim asta la aproape fiecare prim apel.",
+      "p2": "Iată convingerea din spatele ei.",
+      "item1": "Agențiile nu livrează calitate.",
+      "item2": "Agențiile sunt un intermediar care taie din salariul dezvoltatorului, deci dezvoltatorul nu e motivat.",
+      "item3": "Freelancerii sunt un risc legal și financiar.",
+      "item4": "Dezvoltatorii de la agenții nu rămân pe termen lung, sar din job în job.",
+      "reframe1": "Dezvoltatorul din acel proiect de 4 ani nu a sărit din job.",
+      "reframe2": "A devenit persoana pe care s-a bazat chiar echipa clientului.",
+      "reframe3": "Asta se întâmplă când marja e corectă și declarată, nu umflată și ascunsă, și când potrivirea e corectă din prima zi, nu grăbită doar ca să ocupi un post."
+    },
+    "protocol": {
+      "eyebrow": "Protocolul",
+      "title": "Cum funcționează Protocolul de Staffing Rapid.",
+      "scopeTime": "Ora 0-2",
+      "scopeTitle": "Scop",
+      "scopeText": "Ne spui rolul, stack-ul, cerința de nișă. Nu îți trimitem un chestionar, stabilim un apel și clarificăm exact.",
+      "matchTime": "Ora 2-24",
+      "matchTitle": "Potrivire",
+      "matchText": "Alegem din dezvoltatori deja verificați pentru roluri de nișă în industria ta, nu o căutare de la zero care începe după semnare.",
+      "placementTime": "Ora 24-48",
+      "placementTitle": "Plasare",
+      "placementText": "Primești un dezvoltator potrivit stack-ului tău, gata de start. Facturat pe oră, la rata salarială plus marja noastră de 10 €/oră. Fără facturi surpriză.",
+      "retentionTime": "Continuu",
+      "retentionTitle": "Retenție",
+      "retentionText": "Dacă potrivirea funcționează, dezvoltatorul rămâne integrat în echipa ta atât timp cât are nevoie proiectul. Angajamentul de 4 ani e dovada că nu e o ușă turnantă."
+    },
+    "proof": {
+      "eyebrow": "Dovezi, nu promisiuni",
+      "title": "Un dezvoltator. Un proiect enterprise din automotive. Patru ani.",
+      "p1": "Unul dintre dezvoltatorii noștri a fost integrat 4 ani într-un singur proiect enterprise din automotive.",
+      "p2": "A construit front-end-ul de la zero. Singurul dezvoltator front-end din echipă.",
+      "p3": "A livrat la timp, în buget, la standard de Senior. Zero probleme de calitate.",
+      "p4": "S-a adaptat la tranziția de la Kanban la Scrum și la migrarea de la on-premise la cloud.",
+      "p5": "A mentorat dezvoltatori juniori din proprie inițiativă. Nimeni nu i-a cerut asta.",
+      "p6": "Project lead-ul ne-a spus că vrea să-l aducă înapoi prin RSA SOFT pentru proiecte viitoare.",
+      "closing1": "Acesta e standardul la care plasăm dezvoltatori.",
+      "closing2": "Protocolul e cât de repede facem asta.",
+      "signatureName": "RSA SOFT",
+      "signatureRole": "Partener de Staffing Software",
+      "videoEyebrow": "Testimonial client",
+      "videoCaption": "Ascultă direct de la un client pentru care RSA SOFT a livrat.",
+      "videoTitle": "Testimonial client RSA SOFT"
+    },
+    "talent": {
+      "eyebrow": "Talent verificat",
+      "title": "Fiecare dezvoltator pe care îl plasăm are certificări reale, verificabile.",
+      "subtitle": "Nu doar o afirmație în CV. O certificare pe care o poți verifica."
+    },
+    "pricing": {
+      "eyebrow": "Cum facturăm",
+      "title": "O marjă fixă de 10 €/oră. Fără adaos ascuns peste.",
+      "exampleLabel": "Exemplu",
+      "ex1": "Un dezvoltator e externalizat pentru proiectul tău timp de 60 de ore.",
+      "ex2": "Costă 10 €/oră, salariul lui.",
+      "ex3": "RSA SOFT ia 10 €/oră marjă.",
+      "ex4": "Ești facturat 1.200 €.",
+      "note": "Asta e tot. Vezi rata dezvoltatorului. Vezi marja noastră. Nimic altceva nu e inclus ascuns.",
+      "speedNote": "Viteza nu te costă o taxă ascunsă. Rata rămâne aceeași indiferent dacă găsirea durează 48 de ore sau 4 săptămâni.",
+      "whatYouGetTitle": "Ce primești",
+      "wyg1": "Un dezvoltator potrivit stack-ului tău de nișă în 24 până la 48 de ore, nu luni.",
+      "wyg2": "Vizibilitate completă asupra a ceea ce plătești: rata salarială + marja de 10 €/h, nimic ascuns.",
+      "wyg3": "Fără risc legal al unei angajări directe eșuate.",
+      "wyg4": "Un dezvoltator care rămâne pe proiectul tău suficient de mult încât să-l cunoască la fel de bine ca propria ta echipă.",
+      "removesTitle": "Ce elimină asta din sarcinile tale",
+      "rm1": "Căutarea de luni de zile pentru personal specializat, de nișă.",
+      "rm2": "Riscul legal al unei angajări greșite.",
+      "rm3": "Ghicitul cât îți percepe de fapt o agenție peste rata dezvoltatorului.",
+      "rm4": "Riscul unui dezvoltator care renunță la jumătatea proiectului."
+    },
+    "fit": {
+      "eyebrow": "Pentru cine e",
+      "title": "Fondatori tehnici, CTO, Head of Software, Service Delivery Manageri și Directori.",
+      "p1": "La companii DACH cu 500 de milioane € sau mai mult pe an în automotive, banking sau fintech.",
+      "p2": "Ai nevoie de un rol specific ocupat. Un stack de nișă, un framework de nișă, o cerință de conformitate de nișă pentru care recrutorul tău intern nu are pipeline.",
+      "p3": "Nu ai 3 luni. Ai un sprint care începe luni.",
+      "goodFitTitle": "Potrivire bună",
+      "gf1": "Automotive, banking sau fintech, cu 500 de milioane € sau mai mult pe an.",
+      "gf2": "Profit în creștere, scalare cu software construit la comandă.",
+      "gf3": "Nevoie să livrezi mai repede, să automatizezi procese, să reduci costurile operaționale.",
+      "gf4": "Deschis către un specialist verificat integrat în echipa ta, nu doar angajări directe.",
+      "notFitTitle": "Nu se potrivește",
+      "nf1": "Buget redus.",
+      "nf2": "Angajează doar direct.",
+      "nf3": "Nu colaborează cu agenții."
+    },
+    "finalCta": {
+      "title": "Fiecare săptămână în care postul rămâne neocupat e încă o săptămână în care sprintul tău întârzie.",
+      "subtitle": "Nu ai 3 luni. Ai un sprint care începe luni."
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import {
+  HttpContextToken,
   HttpErrorResponse,
   HttpEvent,
   HttpHandler,
@@ -10,11 +11,18 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
+/** Requests to third-party APIs must opt out: custom auth headers trigger CORS preflight failures on origins that don't allowlist them. */
+export const SKIP_AUTH_INTERCEPTOR = new HttpContextToken<boolean>(() => false);
+
 @Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {
   private readonly storage = window.localStorage;
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    if (request.context.get(SKIP_AUTH_INTERCEPTOR)) {
+      return next.handle(request);
+    }
+
     const token = this.storage.getItem('access_token');
 
     const authenticatedRequest = token

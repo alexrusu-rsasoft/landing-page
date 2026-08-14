@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Certification {
   name: string;
@@ -11,6 +12,7 @@ interface Certification {
 
 @Component({
   selector: 'app-certifications',
+  imports: [TranslocoPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './certifications.html',
   styleUrl: './certifications.css',

@@ -1,24 +1,26 @@
 import { Component } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Skill {
   name: string;
   level: string;
 }
 interface Category {
-  title: string;
+  titleKey: string;
   icon: string;
   skills: Skill[];
 }
 
 @Component({
   selector: 'app-skills',
+  imports: [TranslocoPipe],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
 export class SkillsSection {
   readonly categories: Category[] = [
     {
-      title: 'Frontend',
+      titleKey: 'frontend',
       icon: 'code',
       skills: [
         { name: 'Angular (4–20)', level: 'expert' },
@@ -33,7 +35,7 @@ export class SkillsSection {
       ],
     },
     {
-      title: 'Backend',
+      titleKey: 'backend',
       icon: 'server',
       skills: [
         { name: 'NestJS', level: 'advanced' },
@@ -44,7 +46,7 @@ export class SkillsSection {
       ],
     },
     {
-      title: 'Databases',
+      titleKey: 'databases',
       icon: 'database',
       skills: [
         { name: 'MongoDB', level: 'advanced' },
@@ -54,7 +56,7 @@ export class SkillsSection {
       ],
     },
     {
-      title: 'Cloud & DevOps',
+      titleKey: 'cloudDevops',
       icon: 'cloud',
       skills: [
         { name: 'AWS', level: 'intermediate' },
@@ -66,7 +68,7 @@ export class SkillsSection {
       ],
     },
     {
-      title: 'Leadership',
+      titleKey: 'leadership',
       icon: 'leadership',
       skills: [
         { name: 'Scrum / Kanban', level: 'expert' },
@@ -77,7 +79,7 @@ export class SkillsSection {
       ],
     },
     {
-      title: 'Tools',
+      titleKey: 'tools',
       icon: 'tools',
       skills: [
         { name: 'Git / GitHub / GitLab', level: 'expert' },

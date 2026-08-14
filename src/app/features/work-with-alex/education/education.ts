@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Edu {
   degree: string;
@@ -13,6 +14,7 @@ interface Cert {
 
 @Component({
   selector: 'app-education',
+  imports: [TranslocoPipe],
   templateUrl: './education.html',
   styleUrl: './education.css',
 })

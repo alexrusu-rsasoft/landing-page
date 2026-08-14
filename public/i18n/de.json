@@ -1,0 +1,233 @@
+{
+  "common": {
+    "freeCallCta": "Kostenloses Beratungsgespräch vereinbaren",
+    "calendarIframeTitle": "30-minütiges Strategiegespräch buchen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "message": "Die angeforderte Route konnte nicht aufgelöst werden."
+  },
+  "workWithAlex": {
+    "hero": {
+      "badge": "Offen für neue Projekte",
+      "avatarAlt": "Alex George Rusu - Avatar",
+      "name": "Alex-George Rusu",
+      "title": "Tech Lead Angular / Frontend",
+      "bioIntro": "{{years}}+ Jahre Erfahrung im Bau performanter, skalierbarer Webanwendungen für",
+      "bioOutro": "& mehr. Deutsch & Englisch fließend."
+    },
+    "about": {
+      "badge": "👋 Über mich",
+      "title": "Über mich",
+      "subtitle": "Ich baue wartbare, performante Angular-Anwendungen und leite Teams zu produktfokussierten Lösungen.",
+      "p1": "In den letzten neun Jahren habe ich mich intensiv mit Angular beschäftigt und dabei meine Leidenschaft für Benutzeroberflächen entdeckt, die nicht nur optisch ansprechend, sondern auch einfach zu bedienen und für Entwickler effizient sind.",
+      "p2Intro": "Im Laufe meiner Karriere habe ich an einer Reihe von Projekten für namhafte Kunden gearbeitet, darunter",
+      "andConnector": "und",
+      "p2Outro": "während ich im deutschsprachigen Zweig der Fakultät für Informatik an der Babeș-Bolyai-Universität studiert habe.",
+      "p3": "Auch wenn ich gerne eigenständig arbeite, habe ich die Stärke von Teamarbeit schätzen gelernt. Heute konzentriere ich mich darauf, ein kollaboratives Umfeld zu schaffen, in dem jeder erfolgreich sein und gemeinsam Grenzen verschieben kann.",
+      "locationLabel": "Standort",
+      "locationValue": "Cluj-Napoca, Rumänien / Remote",
+      "languagesLabel": "Sprachen"
+    },
+    "languages": {
+      "german": "Deutsch",
+      "english": "Englisch",
+      "romanian": "Rumänisch",
+      "italian": "Italienisch"
+    },
+    "levels": {
+      "fluent": "Fließend",
+      "native": "Muttersprache",
+      "basic": "Grundkenntnisse",
+      "expert": "Experte",
+      "advanced": "Fortgeschritten",
+      "intermediate": "Mittel"
+    },
+    "education": {
+      "badge": "🎓 Ausbildung",
+      "title": "Ausbildung & Zertifizierungen",
+      "certificationsTitle": "Zertifizierungen",
+      "organizationsTitle": "Organisationen"
+    },
+    "experience": {
+      "badge": "📌 Erfahrung",
+      "title": "Beruflicher Werdegang",
+      "subtitle": "Ausgewählte Rollen, Highlights und eingesetzte Technologien aus meiner Laufbahn.",
+      "present": "Heute",
+      "companyLogoAlt": "{{company}} Logo"
+    },
+    "skills": {
+      "badge": "🛠️ Fähigkeiten",
+      "title": "Fähigkeiten & Tools",
+      "subtitle": "Kerntechnologien, mit denen ich produktionsreife Anwendungen liefere.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "databases": "Datenbanken",
+        "cloudDevops": "Cloud & DevOps",
+        "leadership": "Führung",
+        "tools": "Tools"
+      }
+    },
+    "whyChooseMe": {
+      "yearsExperience": "Jahre Erfahrung",
+      "projectsDelivered": "Abgeschlossene Projekte",
+      "uniqueCustomers": "Einzigartige Kunden"
+    },
+    "featuredVideo": {
+      "title": "Vorgestelltes Video",
+      "iframeTitle": "YouTube-Videoplayer"
+    }
+  },
+  "certifications": {
+    "ariaLabel": "Zertifizierung: {{name}} von {{issuer}}",
+    "viewCredential": "Zertifikat ansehen",
+    "viewCredentialFor": "Zertifikat für {{name}} ansehen",
+    "certificateAlt": "{{name}} Zertifikat"
+  },
+  "contact": {
+    "eyebrow": "Gespräch buchen",
+    "urgentTitle": "Projekt brennt? Deadline war schon gestern?",
+    "urgentBefore": "Überspringen Sie die Kalenderbuchung. Wenn Ihre Softwarelieferung blockiert ist und Sie zertifizierte",
+    "urgentHighlight": "Senior Angular/Fullstack-Experten",
+    "urgentMiddle": "sofort benötigen, umgehen Sie die Warteschlange.",
+    "urgentAfter": "Wir können ein autonomes Team in 24–48 Stunden einsatzbereit machen.",
+    "callDirectly": "Alex direkt anrufen: {{phone}}",
+    "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
+    "channels": {
+      "email": "E-Mail",
+      "linkedin": "LinkedIn",
+      "xing": "XING"
+    }
+  },
+  "nav": {
+    "logoAlt": "RSA SOFT Logo",
+    "protocol": "Das Protokoll",
+    "proof": "Nachweis",
+    "pricing": "Preise",
+    "openMenu": "Menü öffnen"
+  },
+  "footer": {
+    "copyright": "© {{year}} RSA SOFT S.R.L. Alle Rechte vorbehalten · Regionale Softwareagentur Nr. 1."
+  },
+  "dashboard": {
+    "hero": {
+      "badge": "Für Tech-Gründer & CTOs bei DACH-Unternehmen aus Automotive, Banking & Fintech",
+      "eyebrow": "RSA SOFT Quick Staffing Protokoll",
+      "title": "RSA SOFT besetzt eine spezialisierte Softwareposition in Ihrem Team in 24 bis 48 Stunden. Nicht in 3 Monaten.",
+      "p1": "Sie schreiben eine Stelle aus.",
+      "p2": "Ihr Recruiter findet 40 Lebensläufe.",
+      "p3": "Keiner davon passt.",
+      "p4": "Währenddessen verzögert sich Ihre Roadmap und Ihr eigenes Team übernimmt die zusätzliche Last.",
+      "ctaSecondary": "So funktioniert das Protokoll",
+      "stat1Label": "Zeit bis zur Besetzung",
+      "stat1Value": "24 bis 48 Stunden",
+      "stat2Label": "Nachweis für Bindung",
+      "stat2Value": "4 Jahre eingebettet, null Qualitätsprobleme",
+      "stat3Label": "Unsere Marge",
+      "stat3Value": "10 €/h pauschal. Nichts versteckt.",
+      "panelEyebrow": "So besetzen wir Entwicklerstellen",
+      "panelLine1": "Keine Lebenslaufsuche.",
+      "panelLine2": "Ein Protokoll.",
+      "step1Time": "Std. 0-2",
+      "step1Text": "Scope: Wir vereinbaren ein Gespräch und klären es exakt",
+      "step2Time": "Std. 2-24",
+      "step2Text": "Match: Aus bereits geprüften Entwicklern für Ihre Branche",
+      "step3Time": "Std. 24-48",
+      "step3Text": "Besetzung: Ein Entwickler passend zu Ihrem Stack, startbereit"
+    },
+    "objections": {
+      "eyebrow": "Der Einwand, den wir bei jedem Erstgespräch hören",
+      "quote1": "„Wir arbeiten nicht mit Agenturen.“",
+      "quote2": "„Unser Unternehmen zieht keine Vermittler in Betracht.“",
+      "p1": "Das hören wir in fast jedem Erstgespräch.",
+      "p2": "Das ist die Überzeugung dahinter.",
+      "item1": "Agenturen liefern keine Qualität.",
+      "item2": "Agenturen sind ein Mittelsmann, der vom Gehalt des Entwicklers abzweigt, wodurch der Entwickler nicht motiviert ist.",
+      "item3": "Freelancer sind ein rechtliches und finanzielles Risiko.",
+      "item4": "Agenturentwickler sind nicht langfristig dabei, sie wechseln ständig den Job.",
+      "reframe1": "Der Entwickler in diesem 4-Jahres-Einsatz hat nicht den Job gewechselt.",
+      "reframe2": "Er wurde zu der Person, auf die sich das Team des Kunden selbst verlassen hat.",
+      "reframe3": "Das passiert, wenn die Marge fair und offengelegt ist, statt aufgeschlagen und versteckt, und wenn das Match von Tag eins an stimmt, statt überstürzt eine Stelle zu besetzen."
+    },
+    "protocol": {
+      "eyebrow": "Das Protokoll",
+      "title": "So funktioniert das Quick Staffing Protokoll.",
+      "scopeTime": "Stunde 0-2",
+      "scopeTitle": "Scope",
+      "scopeText": "Sie nennen uns die Rolle, den Stack, die Nischenanforderung. Wir schicken keinen Fragebogen, wir vereinbaren ein Gespräch und klären es exakt.",
+      "matchTime": "Stunde 2-24",
+      "matchTitle": "Match",
+      "matchText": "Wir greifen auf Entwickler zurück, die bereits für Nischenrollen in Ihrer Branche geprüft sind, keine kalte Suche, die erst nach Vertragsabschluss beginnt.",
+      "placementTime": "Stunde 24-48",
+      "placementTitle": "Besetzung",
+      "placementText": "Sie erhalten einen Entwickler passend zu Ihrem Stack, startbereit. Abgerechnet stündlich, zum Gehaltssatz plus unserer Marge von 10 €/h. Keine Überraschungsrechnungen.",
+      "retentionTime": "Laufend",
+      "retentionTitle": "Bindung",
+      "retentionText": "Wenn der Fit passt, bleibt der Entwickler so lange in Ihrem Team eingebettet, wie das Projekt es braucht. Der 4-Jahres-Einsatz ist der Beweis, dass das keine Drehtür ist."
+    },
+    "proof": {
+      "eyebrow": "Nachweis, keine Versprechen",
+      "title": "Ein Entwickler. Ein Automotive-Großprojekt. Vier Jahre.",
+      "p1": "Einer unserer Entwickler war 4 Jahre lang in ein einzelnes Automotive-Großprojekt eingebettet.",
+      "p2": "Er hat das Frontend von Grund auf aufgebaut. Einziger Frontend-Entwickler im Team.",
+      "p3": "Geliefert pünktlich, im Budget, auf Senior-Niveau. Null Qualitätsprobleme.",
+      "p4": "Er hat sich an den Wechsel von Kanban zu Scrum sowie an die Migration von On-Premise zu Cloud angepasst.",
+      "p5": "Er hat aus eigener Initiative Junior-Entwickler mentoriert. Niemand hat ihn darum gebeten.",
+      "p6": "Der Projektleiter hat uns gesagt, dass er ihn über RSA SOFT für zukünftige Projekte zurückholen möchte.",
+      "closing1": "Das ist der Standard, zu dem wir Entwickler vermitteln.",
+      "closing2": "Das Protokoll ist, wie schnell wir das tun.",
+      "signatureName": "RSA SOFT",
+      "signatureRole": "Software-Staffing-Partner",
+      "videoEyebrow": "Kundenstimme",
+      "videoCaption": "Hören Sie es direkt von einem Kunden, für den RSA SOFT geliefert hat.",
+      "videoTitle": "RSA SOFT Kundenstimme"
+    },
+    "talent": {
+      "eyebrow": "Geprüfte Talente",
+      "title": "Jeder Entwickler, den wir vermitteln, verfügt über echte, überprüfbare Zertifikate.",
+      "subtitle": "Nicht nur eine Behauptung im Lebenslauf. Ein Zertifikat, das Sie prüfen können."
+    },
+    "pricing": {
+      "eyebrow": "So rechnen wir ab",
+      "title": "Eine pauschale Marge von 10 €/Stunde. Kein versteckter Aufschlag obendrauf.",
+      "exampleLabel": "Beispiel",
+      "ex1": "Ein Entwickler wird für 60 Stunden an Ihr Projekt vermittelt.",
+      "ex2": "Er kostet 10 €/Stunde, sein Gehalt.",
+      "ex3": "RSA SOFT nimmt 10 €/Stunde Marge.",
+      "ex4": "Ihnen werden 1.200 € berechnet.",
+      "note": "Das ist alles. Sie sehen den Satz des Entwicklers. Sie sehen unsere Marge. Nichts sonst ist eingerechnet.",
+      "speedNote": "Geschwindigkeit kostet Sie keinen versteckten Aufpreis. Der Satz bleibt gleich, egal ob die Suche 48 Stunden oder 4 Wochen dauert.",
+      "whatYouGetTitle": "Das bekommen Sie",
+      "wyg1": "Einen Entwickler passend zu Ihrem Nischen-Stack in 24 bis 48 Stunden, nicht in Monaten.",
+      "wyg2": "Volle Transparenz darüber, was Sie zahlen: Gehaltssatz + 10 €/h Marge, nichts versteckt.",
+      "wyg3": "Kein rechtliches Risiko einer fehlgeschlagenen Direktanstellung.",
+      "wyg4": "Einen Entwickler, der lange genug in Ihrem Projekt bleibt, um es so gut zu kennen wie Ihr eigenes Team.",
+      "removesTitle": "Das nehmen wir Ihnen ab",
+      "rm1": "Die monatelange Suche nach spezialisiertem Nischenpersonal.",
+      "rm2": "Das rechtliche Risiko einer Fehlanstellung.",
+      "rm3": "Das Rätselraten, was eine Agentur Ihnen tatsächlich zusätzlich zum Entwicklersatz berechnet.",
+      "rm4": "Das Risiko eines Entwicklers, der mitten im Projekt aussteigt."
+    },
+    "fit": {
+      "eyebrow": "Für wen das ist",
+      "title": "Tech-Gründer, CTOs, Head of Software, Service Delivery Manager und Directors.",
+      "p1": "Bei DACH-Unternehmen mit 500 Millionen € oder mehr Jahresumsatz in Automotive, Banking oder Fintech.",
+      "p2": "Sie müssen eine bestimmte Stelle besetzen. Ein Nischen-Stack, ein Nischen-Framework, eine Nischen-Compliance-Anforderung, für die Ihr interner Recruiter keine Pipeline hat.",
+      "p3": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt.",
+      "goodFitTitle": "Guter Fit",
+      "gf1": "Automotive, Banking oder Fintech, mit 500 Mio. € oder mehr Jahresumsatz.",
+      "gf2": "Wachsender Gewinn, Skalierung mit individuell entwickelter Software.",
+      "gf3": "Müssen schneller liefern, Prozesse automatisieren, Betriebskosten senken.",
+      "gf4": "Offen für einen geprüften Spezialisten, eingebettet in Ihr Team, nicht nur Direktanstellungen.",
+      "notFitTitle": "Kein Fit",
+      "nf1": "Geringes Budget.",
+      "nf2": "Stellen nur direkt ein.",
+      "nf3": "Arbeiten nicht mit Agenturen zusammen."
+    },
+    "finalCta": {
+      "title": "Jede Woche, in der die Stelle unbesetzt bleibt, ist eine weitere Woche, in der sich Ihr Sprint verzögert.",
+      "subtitle": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt."
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { ExperienceService } from '../experience';
 import { Certifications } from '../certifications/certifications';
 
 @Component({
   selector: 'app-why-choose-me',
-  imports: [Certifications],
+  imports: [Certifications, TranslocoPipe],
   templateUrl: './why-choose-me.html',
   styleUrl: './why-choose-me.css',
 })

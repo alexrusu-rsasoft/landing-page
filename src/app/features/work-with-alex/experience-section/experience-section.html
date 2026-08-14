@@ -5,12 +5,11 @@
     <div class="text-center mb-8 sm:mb-12">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
-        <span>📌 Experience</span>
+        <span>{{ 'workWithAlex.experience.badge' | transloco }}</span>
       </div>
 
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">Professional Timeline</h2>
-      <p class="max-w-2xl mx-auto text-sm text-slate-600 mt-2">Selected roles, highlights and technologies used
-        across my career.</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">{{ 'workWithAlex.experience.title' | transloco }}</h2>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600 mt-2">{{ 'workWithAlex.experience.subtitle' | transloco }}</p>
     </div>
 
     <!-- Timeline -->
@@ -182,7 +181,7 @@
                 @if (exp?.end) {
                 {{ exp?.end | date: 'MMMM yyyy' }}
                 } @else {
-                Present
+                {{ 'workWithAlex.experience.present' | transloco }}
                 }
               </span>
             </div>
@@ -210,7 +209,7 @@
             </div>
             @if (exp.client) {
             <div class="ml-4 flex items-center">
-              <img src="/RSA - Logo + Text  Horizzontal - Default.png" alt="{{ exp.company }} logo"
+              <img src="/RSA - Logo + Text  Horizzontal - Default.png" [attr.alt]="'workWithAlex.experience.companyLogoAlt' | transloco: { company: exp.company }"
                 class="experience-company-logo h-8 w-auto object-contain" />
             </div>
             }

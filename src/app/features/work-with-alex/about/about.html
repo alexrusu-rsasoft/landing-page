@@ -3,28 +3,26 @@
     <div class="text-center mb-8">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
-        <span>👋 About</span>
+        <span>{{ 'workWithAlex.about.badge' | transloco }}</span>
       </div>
 
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">About Me</h2>
-      <p class="max-w-2xl mx-auto text-sm text-slate-600 mt-2">I build maintainable, performant Angular
-        applications and lead teams to deliver product-focused solutions.</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">{{ 'workWithAlex.about.title' | transloco }}</h2>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600 mt-2">{{ 'workWithAlex.about.subtitle' | transloco }}</p>
     </div>
 
     <div class="grid md:grid-cols-5 gap-8 items-start">
       <div class="md:col-span-3 space-y-4 text-slate-700 leading-relaxed">
-        <p>I've spent the last nine years diving deep into <strong class="font-semibold text-primary">Angular</strong>,
-          where I've found my passion for creating user interfaces that aren't just visually appealing but also easy to
-          use and efficient for developers.</p>
-        <p>Throughout my career, I've worked on a range of projects for well-known clients like <strong
-            class="font-medium text-slate-900">Porsche</strong>, <strong
-            class="font-medium text-slate-900">Daimler</strong>, <strong class="font-medium text-slate-900">Emil
-            Frey</strong>, <strong class="font-medium text-slate-900">KUKA</strong>, <strong
-            class="font-medium text-slate-900">DVAG</strong>, <strong class="font-medium text-slate-900">TradingPoint
-            (XM)</strong>, and <strong class="font-medium text-slate-900">Atruvia</strong> — while pursuing my studies
-          in the German line of the Computer Science Faculty at Babeș-Bolyai University.</p>
-        <p>While I'm comfortable working independently, I've come to appreciate the power of teamwork. Now, I'm focused
-          on creating a collaborative atmosphere where everyone can succeed and push boundaries together.</p>
+        <p>{{ 'workWithAlex.about.p1' | transloco }}</p>
+        <p>{{ 'workWithAlex.about.p2Intro' | transloco }}
+          <strong class="font-medium text-slate-900">Porsche</strong>,
+          <strong class="font-medium text-slate-900">Daimler</strong>,
+          <strong class="font-medium text-slate-900">Emil Frey</strong>,
+          <strong class="font-medium text-slate-900">KUKA</strong>,
+          <strong class="font-medium text-slate-900">DVAG</strong>,
+          <strong class="font-medium text-slate-900">TradingPoint (XM)</strong>, {{ 'workWithAlex.about.andConnector' | transloco }}
+          <strong class="font-medium text-slate-900">Atruvia</strong>
+          {{ 'workWithAlex.about.p2Outro' | transloco }}</p>
+        <p>{{ 'workWithAlex.about.p3' | transloco }}</p>
       </div>
 
       <div class="md:col-span-2 space-y-4">
@@ -36,9 +34,9 @@
                 d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
-            <span class="text-sm font-medium text-slate-900">Location</span>
+            <span class="text-sm font-medium text-slate-900">{{ 'workWithAlex.about.locationLabel' | transloco }}</span>
           </div>
-          <p class="text-sm text-slate-600">Cluj-Napoca, Romania / Remote</p>
+          <p class="text-sm text-slate-600">{{ 'workWithAlex.about.locationValue' | transloco }}</p>
         </div>
 
         <div class="rounded-xl border border-slate-100/80 bg-white p-4 shadow-sm">
@@ -49,13 +47,13 @@
                 d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0A18.015 18.015 0 0110 14.85M10 14.85A18.02 18.02 0 015.824 9m4.176 5.85a18 18 0 003.065 7.005A16.21 16.21 0 0019 15m-3-3l3 3m0 0l-3 3">
               </path>
             </svg>
-            <span class="text-sm font-medium text-slate-900">Languages</span>
+            <span class="text-sm font-medium text-slate-900">{{ 'workWithAlex.about.languagesLabel' | transloco }}</span>
           </div>
           <div class="flex flex-wrap gap-2">
-            @for (lang of languages; track lang.name) {
-            <span class="px-2 py-1 text-xs rounded-md bg-slate-50 text-slate-700 border border-slate-200">{{ lang.name
+            @for (lang of languages; track lang.nameKey) {
+            <span class="px-2 py-1 text-xs rounded-md bg-slate-50 text-slate-700 border border-slate-200">{{ ('workWithAlex.languages.' + lang.nameKey) | transloco
               }} ·
-              {{ lang.level }}</span>
+              {{ ('workWithAlex.levels.' + lang.levelKey) | transloco }}</span>
             }
           </div>
         </div>

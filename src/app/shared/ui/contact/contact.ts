@@ -9,6 +9,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 import { ViewportScroller } from '@angular/common';
@@ -17,6 +18,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-contact',
+  imports: [TranslocoPipe],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

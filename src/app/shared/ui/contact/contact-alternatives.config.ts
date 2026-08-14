@@ -1,18 +1,21 @@
 export const CONTACT_ALTERNATIVES = [
   {
-    label: 'Email',
+    id: 'email',
+    labelKey: 'contact.channels.email',
     value: 'alex.rusu@rsasoft.ro',
     href: 'mailto:alex.rusu@rsasoft.ro',
     icon: 'mail',
   },
   {
-    label: 'LinkedIn',
+    id: 'linkedin',
+    labelKey: 'contact.channels.linkedin',
     value: 'Alex Rusu',
     href: 'https://www.linkedin.com/in/alexrusu-rsa/',
     icon: 'linkedin',
   },
   {
-    label: 'XING',
+    id: 'xing',
+    labelKey: 'contact.channels.xing',
     value: 'Alex Rusu',
     href: 'https://www.xing.com/profile/Alex_Rusu3',
     icon: 'xing',

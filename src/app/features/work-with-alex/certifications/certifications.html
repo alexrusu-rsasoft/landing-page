@@ -4,7 +4,7 @@
   <div
     class="cert-card rounded-2xl sm:rounded-3xl flex flex-col justify-between flex-1 min-w-[260px] max-w-sm bg-white p-6 shadow-sm shadow-slate-200/70 border border-slate-100/80 hover:border-slate-300 transition-all duration-300 cursor-pointer"
     (mouseenter)="showCert(cert, $event)" (mouseleave)="hideCert()" (focus)="showCert(cert, $event)" (blur)="hideCert()"
-    tabindex="0" [attr.aria-label]="'Certification: ' + cert.name + ' from ' + cert.issuer">
+    tabindex="0" [attr.aria-label]="'certifications.ariaLabel' | transloco: { name: cert.name, issuer: cert.issuer }">
     <div class="flex items-start gap-4 overflow-hidden">
       <div
         class="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-slate-900 font-semibold text-lg">
@@ -22,8 +22,8 @@
     @if (cert.credentialUrl) {
     <a [href]="cert.credentialUrl" target="_blank" rel="noopener noreferrer"
       class="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-slate-900 hover:text-slate-600 transition-colors whitespace-nowrap"
-      aria-label="View credential for {{ cert.name }}" (click)="$event.stopPropagation()">
-      <span>View Credential</span>
+      [attr.aria-label]="'certifications.viewCredentialFor' | transloco: { name: cert.name }" (click)="$event.stopPropagation()">
+      <span>{{ 'certifications.viewCredential' | transloco }}</span>
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
@@ -39,7 +39,7 @@
 <div class="cert-overlay" aria-hidden="true">
   <div class="cert-overlay-panel" [style.left.px]="modalPosition().x" [style.top.px]="modalPosition().y">
     <div class="cert-overlay-inner">
-      <img [src]="cert.imageUrl" [alt]="cert.name + ' certificate'" class="cert-overlay-img" loading="lazy" />
+      <img [src]="cert.imageUrl" [alt]="'certifications.certificateAlt' | transloco: { name: cert.name }" class="cert-overlay-img" loading="lazy" />
       <div class="cert-overlay-caption">
         <p class="text-sm font-semibold text-slate-100">{{ cert.name }}</p>
         <p class="text-xs text-slate-400">{{ cert.issuer }} · {{ cert.year }}</p>

@@ -1,6 +1,6 @@
 <section id="contact">
   <div class="max-w-4xl">
-    <p class="text-sm uppercase tracking-[0.32em] text-primary">Book a call</p>
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'contact.eyebrow' | transloco }}</p>
   </div>
 
   <div
@@ -14,16 +14,15 @@
             <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
           </span>
           <h3 class="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
-            Project on fire? Deadline was due yesterday?
+            {{ 'contact.urgentTitle' | transloco }}
           </h3>
         </div>
 
         <p class="text-sm leading-relaxed text-slate-600">
-          Skip the calendar booking. If your software delivery is blocked and you need certified
-          <span class="font-semibold text-slate-950">Senior Angular/Fullstack experts</span> deployed immediately,
-          bypass the queue.
-          <span class="font-medium text-red-700 block sm:inline">We can onboard an autonomous squad in 24–48
-            hours.</span>
+          {{ 'contact.urgentBefore' | transloco }}
+          <span class="font-semibold text-slate-950">{{ 'contact.urgentHighlight' | transloco }}</span>
+          {{ 'contact.urgentMiddle' | transloco }}
+          <span class="font-medium text-red-700 block sm:inline">{{ 'contact.urgentAfter' | transloco }}</span>
         </p>
       </div>
 
@@ -35,7 +34,7 @@
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.89.33 1.77.63 2.63a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l1.54-.34a2 2 0 0 1 2.11.45c.86.3 1.74.51 2.63.63A2 2 0 0 1 22 16.92Z" />
           </svg>
-          Call Alex Directly: +40 747 011 397
+          {{ 'contact.callDirectly' | transloco: { phone: '+40 747 011 397' } }}
         </a>
       </div>
 
@@ -45,17 +44,17 @@
   <!-- Google Calendar Appointment Scheduling begin -->
   <iframe #calendarIframe
     src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3PggS-kWzLqcvgiPYcwZyYi3YANL3y07u8ilKk5ZXJQsR7n_sKPfPO6cy-nXafhJ41PtPVMilL?gv=true"
-    frameborder="0" title="Book a 30-minute strategy call" [style.height]="iframeHeight()" width="100%"
+    frameborder="0" [title]="'common.calendarIframeTitle' | transloco" [style.height]="iframeHeight()" width="100%"
     (load)="onCalendarLoad()"></iframe>
   <!-- end Google Calendar Appointment Scheduling -->
 
   <p class="m-6 text-sm leading-7 text-slate-600">
-    Prefer a direct channel? Reach out through one of these alternatives.
+    {{ 'contact.alternativesIntro' | transloco }}
   </p>
 
   <div class="m-6 mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
     @for (contact of CONTACT_ALTERNATIVES; track $index) {
-    <a [href]="contact.href" target="_blank" rel="noreferrer" (click)="trackContact(contact.label.toLowerCase())"
+    <a [href]="contact.href" target="_blank" rel="noreferrer" (click)="trackContact(contact.id)"
       class="group flex items-center gap-4 rounded-[24px] border border-slate-200/80 bg-gradient-to-br from-white to-slate-50 p-4 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
       <div
         class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/10 transition group-hover:bg-primary group-hover:text-white">
@@ -93,7 +92,7 @@
         }
 
         @case ('linkedin') {
-        <img src="/linkedIn.ico" alt="LinkedIn" class="h-5 w-5 object-contain" />
+        <img src="/linkedIn.ico" [attr.alt]="'contact.channels.linkedin' | transloco" class="h-5 w-5 object-contain" />
         }
 
         @case ('xing') {
@@ -113,7 +112,7 @@
 
       </div>
       <div class="min-w-0">
-        <p class="text-sm font-semibold tracking-[0.02em] text-slate-900">{{ contact.label }}</p>
+        <p class="text-sm font-semibold tracking-[0.02em] text-slate-900">{{ contact.labelKey | transloco }}</p>
         <p class="mt-1 truncate text-sm text-slate-600 transition group-hover:text-slate-900">{{ contact.value }}</p>
       </div>
     </a>

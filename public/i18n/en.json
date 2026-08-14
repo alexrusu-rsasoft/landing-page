@@ -1,0 +1,233 @@
+{
+  "common": {
+    "freeCallCta": "Get a FREE consulting call",
+    "calendarIframeTitle": "Book a 30-minute strategy call"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The route you requested could not be resolved."
+  },
+  "workWithAlex": {
+    "hero": {
+      "badge": "Open for opportunities",
+      "avatarAlt": "Alex George Rusu - Avatar",
+      "name": "Alex-George Rusu",
+      "title": "Tech Lead Angular / Frontend",
+      "bioIntro": "{{years}}+ years building performant, scalable web applications for",
+      "bioOutro": "& more. German & English fluent."
+    },
+    "about": {
+      "badge": "👋 About",
+      "title": "About Me",
+      "subtitle": "I build maintainable, performant Angular applications and lead teams to deliver product-focused solutions.",
+      "p1": "I've spent the last nine years diving deep into Angular, where I've found my passion for creating user interfaces that aren't just visually appealing but also easy to use and efficient for developers.",
+      "p2Intro": "Throughout my career, I've worked on a range of projects for well-known clients like",
+      "andConnector": "and",
+      "p2Outro": "while pursuing my studies in the German line of the Computer Science Faculty at Babeș-Bolyai University.",
+      "p3": "While I'm comfortable working independently, I've come to appreciate the power of teamwork. Now, I'm focused on creating a collaborative atmosphere where everyone can succeed and push boundaries together.",
+      "locationLabel": "Location",
+      "locationValue": "Cluj-Napoca, Romania / Remote",
+      "languagesLabel": "Languages"
+    },
+    "languages": {
+      "german": "German",
+      "english": "English",
+      "romanian": "Romanian",
+      "italian": "Italian"
+    },
+    "levels": {
+      "fluent": "Fluent",
+      "native": "Native",
+      "basic": "Basic",
+      "expert": "expert",
+      "advanced": "advanced",
+      "intermediate": "intermediate"
+    },
+    "education": {
+      "badge": "🎓 Education",
+      "title": "Education & Certifications",
+      "certificationsTitle": "Certifications",
+      "organizationsTitle": "Organizations"
+    },
+    "experience": {
+      "badge": "📌 Experience",
+      "title": "Professional Timeline",
+      "subtitle": "Selected roles, highlights and technologies used across my career.",
+      "present": "Present",
+      "companyLogoAlt": "{{company}} logo"
+    },
+    "skills": {
+      "badge": "🛠️ Skills",
+      "title": "Skills & Tools",
+      "subtitle": "Core technologies I use to deliver production-grade applications.",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "databases": "Databases",
+        "cloudDevops": "Cloud & DevOps",
+        "leadership": "Leadership",
+        "tools": "Tools"
+      }
+    },
+    "whyChooseMe": {
+      "yearsExperience": "Years Experience",
+      "projectsDelivered": "Projects Delivered",
+      "uniqueCustomers": "Unique Customers"
+    },
+    "featuredVideo": {
+      "title": "Featured Video",
+      "iframeTitle": "YouTube video player"
+    }
+  },
+  "certifications": {
+    "ariaLabel": "Certification: {{name}} from {{issuer}}",
+    "viewCredential": "View Credential",
+    "viewCredentialFor": "View credential for {{name}}",
+    "certificateAlt": "{{name}} certificate"
+  },
+  "contact": {
+    "eyebrow": "Book a call",
+    "urgentTitle": "Project on fire? Deadline was due yesterday?",
+    "urgentBefore": "Skip the calendar booking. If your software delivery is blocked and you need certified",
+    "urgentHighlight": "Senior Angular/Fullstack experts",
+    "urgentMiddle": "deployed immediately, bypass the queue.",
+    "urgentAfter": "We can onboard an autonomous squad in 24–48 hours.",
+    "callDirectly": "Call Alex Directly: {{phone}}",
+    "alternativesIntro": "Prefer a direct channel? Reach out through one of these alternatives.",
+    "channels": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "xing": "XING"
+    }
+  },
+  "nav": {
+    "logoAlt": "RSA SOFT logo",
+    "protocol": "The Protocol",
+    "proof": "Proof",
+    "pricing": "Pricing",
+    "openMenu": "Open menu"
+  },
+  "footer": {
+    "copyright": "© {{year}} RSA SOFT S.R.L. All rights reserved · #1 regional software agency."
+  },
+  "dashboard": {
+    "hero": {
+      "badge": "For Tech Founders & CTOs in DACH automotive, banking & fintech",
+      "eyebrow": "RSA SOFT Quick Staffing Protocol",
+      "title": "RSA SOFT fills a specialized software role on your team in 24 to 48 hours. Not 3 months.",
+      "p1": "You post a role.",
+      "p2": "Your recruiter finds 40 resumes.",
+      "p3": "None of them fit.",
+      "p4": "Meanwhile your roadmap slips and your own team absorbs the extra load.",
+      "ctaSecondary": "See How The Protocol Works",
+      "stat1Label": "Time to placement",
+      "stat1Value": "24 to 48 hours",
+      "stat2Label": "Proof of retention",
+      "stat2Value": "4 years embedded, zero quality issues",
+      "stat3Label": "Our margin",
+      "stat3Value": "€10/h flat. Nothing hidden.",
+      "panelEyebrow": "How we place developers",
+      "panelLine1": "Not a resume search.",
+      "panelLine2": "A protocol.",
+      "step1Time": "Hr 0-2",
+      "step1Text": "Scope: we get on a call and get it exact",
+      "step2Time": "Hr 2-24",
+      "step2Text": "Match: pulled from developers already vetted for your industry",
+      "step3Time": "Hr 24-48",
+      "step3Text": "Placement: a developer matched to your stack, ready to start"
+    },
+    "objections": {
+      "eyebrow": "The objection we hear every call",
+      "quote1": "\"We don't work with agencies.\"",
+      "quote2": "\"Our company doesn't consider intermediaries.\"",
+      "p1": "We hear this on almost every first call.",
+      "p2": "Here is the belief behind it.",
+      "item1": "Agencies don't deliver quality.",
+      "item2": "Agencies are a middleman cutting into the developer's salary, so the developer isn't motivated.",
+      "item3": "Freelancers are a legal and financial risk.",
+      "item4": "Agency developers aren't in it for the long run, they job-hop.",
+      "reframe1": "The developer on that 4 year engagement didn't job-hop.",
+      "reframe2": "He became the person the client's own team leaned on.",
+      "reframe3": "That's what happens when the margin is fair and disclosed, not padded and hidden, and when the match is right from day one instead of rushed to fill a seat."
+    },
+    "protocol": {
+      "eyebrow": "The Protocol",
+      "title": "How the Quick Staffing Protocol works.",
+      "scopeTime": "Hour 0-2",
+      "scopeTitle": "Scope",
+      "scopeText": "You tell us the role, the stack, the niche requirement. We don't send you a questionnaire, we get on a call and get it exact.",
+      "matchTime": "Hour 2-24",
+      "matchTitle": "Match",
+      "matchText": "We pull from developers already vetted for niche roles in your industry, not a cold search that starts after you sign.",
+      "placementTime": "Hour 24-48",
+      "placementTitle": "Placement",
+      "placementText": "You get a developer matched to your stack, ready to start. Billed hourly, at the salary rate plus our €10/h margin. No surprise invoices.",
+      "retentionTime": "Ongoing",
+      "retentionTitle": "Retention",
+      "retentionText": "If the fit works, the developer stays embedded in your team for as long as the project needs. The 4 year engagement is the proof this isn't a revolving door."
+    },
+    "proof": {
+      "eyebrow": "Proof, not promises",
+      "title": "One developer. One enterprise automotive project. Four years.",
+      "p1": "One of our developers spent 4 years embedded on a single enterprise automotive project.",
+      "p2": "He built the front-end from zero. Sole front-end developer on the team.",
+      "p3": "Delivered on time, in budget, at Senior standard. Zero quality issues.",
+      "p4": "He adapted through a Kanban to Scrum transition and an on-premise to cloud migration.",
+      "p5": "He mentored junior developers on his own initiative. Nobody asked him to.",
+      "p6": "The project lead told us he wants to bring him back through RSA SOFT for future projects.",
+      "closing1": "That's the standard we place developers to.",
+      "closing2": "The Protocol is how fast we do it.",
+      "signatureName": "RSA SOFT",
+      "signatureRole": "Software Staffing Partner",
+      "videoEyebrow": "Client testimonial",
+      "videoCaption": "Hear it directly from a client RSA SOFT has delivered for.",
+      "videoTitle": "RSA SOFT client testimonial"
+    },
+    "talent": {
+      "eyebrow": "Vetted talent",
+      "title": "Every developer we place holds real, verifiable credentials.",
+      "subtitle": "Not just a resume claim. A credential you can check."
+    },
+    "pricing": {
+      "eyebrow": "How we bill",
+      "title": "A flat €10/hour margin. No hidden markup layered on top of it.",
+      "exampleLabel": "Example",
+      "ex1": "A developer is outsourced to your project for 60 hours.",
+      "ex2": "He costs €10/hour, his salary.",
+      "ex3": "RSA SOFT takes €10/hour margin.",
+      "ex4": "You get billed €1,200.",
+      "note": "That's it. You see the developer's rate. You see our margin. Nothing else is baked in.",
+      "speedNote": "Speed doesn't cost you a hidden premium. The rate stays the same whether the search takes 48 hours or 4 weeks.",
+      "whatYouGetTitle": "What you get",
+      "wyg1": "A developer matched to your niche stack in 24 to 48 hours, not months.",
+      "wyg2": "Full visibility into what you're paying: salary rate + €10/h margin, nothing hidden.",
+      "wyg3": "No legal exposure of a direct hire gone wrong.",
+      "wyg4": "A developer who stays on your project long enough to know it as well as your own team does.",
+      "removesTitle": "What this removes from your plate",
+      "rm1": "The months-long search for specialized, niche staff.",
+      "rm2": "The legal risk of getting a hire wrong.",
+      "rm3": "The guesswork of what an agency is actually charging you on top of the developer's rate.",
+      "rm4": "The risk of a developer who checks out halfway through the project."
+    },
+    "fit": {
+      "eyebrow": "Who this is for",
+      "title": "Tech Founders, CTOs, Heads of Software, Service Delivery Managers and Directors.",
+      "p1": "At DACH companies doing €500 million or more a year in automotive, banking or fintech.",
+      "p2": "You need a specific role filled. A niche stack, a niche framework, a niche compliance requirement your internal recruiter doesn't have a pipeline for.",
+      "p3": "You don't have 3 months. You have a sprint that starts Monday.",
+      "goodFitTitle": "Good fit",
+      "gf1": "Automotive, banking or fintech, doing €500M+ a year.",
+      "gf2": "Growing profit, scaling with custom-built software.",
+      "gf3": "Need to deliver faster, automate processes, cut operational costs.",
+      "gf4": "Open to a vetted specialist embedded in your team, not only direct hires.",
+      "notFitTitle": "Not a fit",
+      "nf1": "Low budget.",
+      "nf2": "Only hiring direct employees.",
+      "nf3": "Not collaborating with agencies."
+    },
+    "finalCta": {
+      "title": "Every week that seat stays empty is another week your sprint slips.",
+      "subtitle": "You don't have 3 months. You have a sprint that starts Monday."
+    }
+  }
+}
