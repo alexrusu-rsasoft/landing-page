@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { Certifications } from '../../work-with-alex/certifications/certifications';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterLink],
+  imports: [RouterLink, Certifications],
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent {
