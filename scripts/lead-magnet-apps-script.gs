@@ -22,19 +22,33 @@
  * "no-cors" to avoid a CORS preflight, which Apps Script web apps don't
  * handle. That means the client never reads this response, so failures here
  * are silent client-side, check the sheet directly to confirm captures.
+ *
+ * Security: this URL is public (anyone can POST to it directly, bypassing
+ * the site's client-side email regex and honeypot), so every field is
+ * treated as untrusted here too. Invalid payloads are dropped silently
+ * (still HTTP 200, since the client never reads the response) rather than
+ * appended, and every string value is sanitized against spreadsheet
+ * formula injection before being written.
  */
 var SPREADSHEET_ID = 'TODO_REPLACE_WITH_SPREADSHEET_ID';
 var SHEET_NAME = 'Lead Magnet Requests';
+var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var MAX_FIELD_LENGTH = 200;
 
 function doPost(e) {
-  var sheet = getOrCreateSheet();
   var payload = parseBody(e);
+  var email = String(payload.email || '').trim();
 
+  if (!EMAIL_PATTERN.test(email) || email.length > MAX_FIELD_LENGTH) {
+    return jsonResponse({ ok: false, error: 'invalid_email' });
+  }
+
+  var sheet = getOrCreateSheet();
   sheet.appendRow([
     new Date(),
-    payload.email || '',
-    payload.lang || '',
-    payload.source || '',
+    sanitizeCell(email),
+    sanitizeCell(String(payload.lang || '').slice(0, MAX_FIELD_LENGTH)),
+    sanitizeCell(String(payload.source || '').slice(0, MAX_FIELD_LENGTH)),
   ]);
 
   return jsonResponse({ ok: true });
@@ -46,6 +60,19 @@ function parseBody(e) {
   } catch (err) {
     return {};
   }
+}
+
+// Google Sheets evaluates any cell value starting with =, +, -, @, tab or CR
+// as a formula, even when the value is written via the Apps Script API, not
+// just when typed/pasted in the UI. A malicious lead ("email") could smuggle
+// a formula (e.g. IMPORTXML/HYPERLINK) that runs when staff opens the sheet.
+// Prefixing with a leading apostrophe forces Sheets to treat it as literal
+// text.
+function sanitizeCell(value) {
+  if (/^[=+\-@\t\r]/.test(value)) {
+    return "'" + value;
+  }
+  return value;
 }
 
 function getOrCreateSheet() {
