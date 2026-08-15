@@ -303,6 +303,17 @@
       "retentionTitle": "Retention",
       "retentionText": "If the fit works, the developer stays embedded in your team for as long as the project needs. The 4 year engagement is the proof this isn't a revolving door."
     },
+    "profiles": {
+      "eyebrow": "From our pool",
+      "title": "Here's what a developer profile available right now looks like.",
+      "subtitle": "Real, anonymized examples from our active pool of vetted developers. No names, no contact details — just what matters for the match.",
+      "anonymizedInitials": "DEV",
+      "yearsLabel": "{{years}} years experience",
+      "collaborationLabel": "Collaboration",
+      "languagesLabel": "Languages",
+      "disclaimer": "Anonymized profiles from our current pool. Contact details, CV and exact rate are only shared with the matched client, after the first call.",
+      "emptyText": "We're refreshing the pool of available profiles right now. Tell us what role you need and we'll send you 2-3 matching profiles directly."
+    },
     "proof": {
       "eyebrow": "Proof, not promises",
       "title": "One developer. One enterprise automotive project. Four years.",

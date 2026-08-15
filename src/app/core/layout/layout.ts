@@ -35,6 +35,13 @@ export class Layout {
     matrixParams: 'ignored',
   });
 
+  isCareersPage = isActive('/careers', this.#router, {
+    paths: 'subset',
+    queryParams: 'ignored',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+  });
+
   readonly currentYear = new Date().getFullYear();
   protected readonly mobileMenuOpen = signal(false);
   protected readonly activeSection = signal<string | null>(null);

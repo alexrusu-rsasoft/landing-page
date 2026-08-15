@@ -14,7 +14,7 @@
         <a [routerLink]="['/']" fragment="pricing" class="transition hover:text-primary"
           [class.text-primary]="activeSection() === 'pricing'">{{ 'nav.pricing' | transloco }}</a>
         <a [routerLink]="['/careers']" class="transition hover:text-primary"
-          (click)="trackCta('nav_careers_desktop')">{{ 'nav.careers' | transloco }}</a>
+          [class.text-primary]="isCareersPage()" (click)="trackCta('nav_careers_desktop')">{{ 'nav.careers' | transloco }}</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -45,6 +45,7 @@
         <a [routerLink]="['/']" fragment="pricing" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">{{ 'nav.pricing' | transloco }}</a>
         <a [routerLink]="['/careers']" class="block transition hover:text-primary"
+          [class.text-primary]="isCareersPage()"
           (click)="closeMobileMenu(); trackCta('nav_careers_mobile')">{{ 'nav.careers' | transloco }}</a>
         @if (!isContactPage()) {
         <a [routerLink]="['/contact']"

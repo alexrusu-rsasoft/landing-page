@@ -303,6 +303,17 @@
       "retentionTitle": "Bindung",
       "retentionText": "Wenn der Fit passt, bleibt der Entwickler so lange in Ihrem Team eingebettet, wie das Projekt es braucht. Der 4-Jahres-Einsatz ist der Beweis, dass das keine Drehtür ist."
     },
+    "profiles": {
+      "eyebrow": "Aus unserem Pool",
+      "title": "So sieht ein sofort verfügbares Entwicklerprofil aus.",
+      "subtitle": "Echte, anonymisierte Beispiele aus unserem aktiven Pool geprüfter Entwickler. Keine Namen, keine Kontaktdaten — nur das, was für das Match zählt.",
+      "anonymizedInitials": "DEV",
+      "yearsLabel": "{{years}} Jahre Erfahrung",
+      "collaborationLabel": "Zusammenarbeit",
+      "languagesLabel": "Sprachen",
+      "disclaimer": "Anonymisierte Profile aus unserem aktuellen Pool. Kontaktdaten, Lebenslauf und genaue Rate werden erst nach dem ersten Gespräch mit dem passenden Kunden geteilt.",
+      "emptyText": "Wir aktualisieren gerade den Pool verfügbarer Profile. Sagen Sie uns, welche Rolle Sie suchen, und wir senden Ihnen direkt 2-3 passende Profile."
+    },
     "proof": {
       "eyebrow": "Nachweis, keine Versprechen",
       "title": "Ein Entwickler. Ein Automotive-Großprojekt. Vier Jahre.",

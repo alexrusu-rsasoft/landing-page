@@ -303,6 +303,17 @@
       "retentionTitle": "Retenție",
       "retentionText": "Dacă potrivirea funcționează, dezvoltatorul rămâne integrat în echipa ta atât timp cât are nevoie proiectul. Angajamentul de 4 ani e dovada că nu e o ușă turnantă."
     },
+    "profiles": {
+      "eyebrow": "Din pool-ul nostru",
+      "title": "Iată cum arată un profil disponibil chiar acum.",
+      "subtitle": "Exemple reale, anonimizate, din pool-ul nostru activ de dezvoltatori verificați. Fără nume, fără date de contact — doar ce contează pentru match.",
+      "anonymizedInitials": "DEV",
+      "yearsLabel": "{{years}} ani experiență",
+      "collaborationLabel": "Colaborare",
+      "languagesLabel": "Limbi vorbite",
+      "disclaimer": "Profiluri anonimizate din pool-ul nostru curent. Detaliile de contact, CV-ul și rata exactă sunt partajate doar clientului potrivit, după primul apel.",
+      "emptyText": "Momentan actualizăm pool-ul de profiluri disponibile. Spune-ne ce rol cauți și îți trimitem 2-3 profiluri potrivite direct."
+    },
     "proof": {
       "eyebrow": "Dovezi, nu promisiuni",
       "title": "Un dezvoltator. Un proiect enterprise din automotive. Patru ani.",

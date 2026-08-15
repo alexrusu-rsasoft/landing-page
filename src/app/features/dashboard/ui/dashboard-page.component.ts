@@ -2,11 +2,12 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { DeveloperProfilesSection } from '../../developer-profiles/developer-profiles-section/developer-profiles-section';
 import { Certifications } from '../../work-with-alex/certifications/certifications';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterLink, Certifications, TranslocoPipe],
+  imports: [RouterLink, Certifications, DeveloperProfilesSection, TranslocoPipe],
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent {
