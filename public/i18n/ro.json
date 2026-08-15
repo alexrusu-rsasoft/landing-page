@@ -137,7 +137,7 @@
       "s2li1": "Date pe care ni le oferi direct: numele, emailul, numărul de telefon, compania și orice mesaj ne trimiți când programezi un apel, completezi un formular sau ne contactezi prin email, WhatsApp, Telegram, LinkedIn sau XING.",
       "s2li2": "Date colectate automat, doar dacă ești de acord cu cookie-urile de analiză: paginile vizitate, locația aproximativă dedusă din adresa IP, tipul de browser și dispozitiv, și sursa de recomandare.",
       "s3Title": "3. De ce prelucrăm datele tale și pe ce bază legală",
-      "s3li1": "Pentru a răspunde solicitării tale și a discuta serviciile noastre de staffing și consultanță, pe baza cererii tale și a pașilor necesari pentru încheierea unui contract (Art. 6(1)(b) GDPR).",
+      "s3li1": "Pentru a răspunde solicitării tale și a discuta serviciile noastre de dezvoltare software la comandă, pe baza cererii tale și a pașilor necesari pentru încheierea unui contract (Art. 6(1)(b) GDPR).",
       "s3li2": "Pentru a înțelege cum folosesc vizitatorii site-ul nostru și a-l îmbunătăți, pe baza acordului tău exprimat prin bannerul de cookie-uri (Art. 6(1)(a) GDPR).",
       "s3li3": "Pentru a menține site-ul nostru securizat și funcțional, pe baza interesului nostru legitim (Art. 6(1)(f) GDPR).",
       "s3li4": "Pentru a respecta obligațiile legale, precum păstrarea evidențelor contabile și fiscale (Art. 6(1)(c) GDPR).",
@@ -197,7 +197,7 @@
       "s1Title": "1. Despre acești termeni",
       "s1p1": "Acești termeni guvernează utilizarea acestui website, operat de RSA SOFT S.R.L. („RSA SOFT”, „noi”). Navigând pe acest site, ești de acord cu acești termeni.",
       "s2Title": "2. Serviciile noastre",
-      "s2p1": "RSA SOFT oferă servicii de staffing software și consultanță, descrise pe acest website. Navigarea pe acest site nu creează prin ea însăși un contract între tine și RSA SOFT; orice colaborare de staffing sau consultanță este guvernată de un acord scris separat.",
+      "s2p1": "RSA SOFT oferă servicii de dezvoltare software la comandă, descrise pe acest website. Navigarea pe acest site nu creează prin ea însăși un contract între tine și RSA SOFT; orice colaborare de dezvoltare software la comandă este guvernată de un acord scris separat.",
       "s3Title": "3. Utilizare acceptabilă",
       "s3p1": "Când folosești acest website, ești de acord să nu:",
       "s3li1": "încerci să obții acces neautorizat la acest website sau la sistemele sale",
@@ -372,7 +372,7 @@
       "q3": "Nu e totuși tot o agenție?",
       "a3": "Diferența e transparența: vezi separat tariful dezvoltatorului și marja noastră, nu un preț fix majorat. Niciun intermediar nu scade din plata dezvoltatorului fără să vezi asta.",
       "q4": "Pe ce bază legală funcționează colaborarea?",
-      "a4": "Fiecare colaborare de staffing sau consultanță este reglementată printr-un acord scris separat, semnat înainte de începerea proiectului.",
+      "a4": "Fiecare colaborare de dezvoltare software la comandă este reglementată printr-un acord scris separat, semnat înainte de începerea proiectului.",
       "q5": "Dezvoltatorul rămâne doar pentru primul sprint sau pe termen lung?",
       "a5": "Atât cât are nevoie proiectul tău. Cazul de referință din secțiunea de dovezi a durat 4 ani în aceeași echipă."
     }

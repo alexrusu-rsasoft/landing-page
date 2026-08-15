@@ -137,7 +137,7 @@
       "s2li1": "Daten, die Sie uns direkt mitteilen: Ihr Name, Ihre E-Mail-Adresse, Telefonnummer, Ihr Unternehmen und jede Nachricht, die Sie uns senden, wenn Sie ein Gespräch buchen, ein Formular ausfüllen oder uns per E-Mail, WhatsApp, Telegram, LinkedIn oder XING kontaktieren.",
       "s2li2": "Automatisch erhobene Daten, nur wenn Sie Analyse-Cookies zustimmen: besuchte Seiten, ungefährer Standort anhand Ihrer IP-Adresse, Browser- und Gerätetyp sowie Verweisquelle.",
       "s3Title": "3. Warum wir Ihre Daten verarbeiten und auf welcher Rechtsgrundlage",
-      "s3li1": "Um auf Ihre Anfrage zu antworten und unsere Staffing- und Beratungsleistungen zu besprechen, auf Grundlage Ihrer Anfrage und der zum Vertragsabschluss erforderlichen Schritte (Art. 6 Abs. 1 lit. b DSGVO).",
+      "s3li1": "Um auf Ihre Anfrage zu antworten und unsere maßgeschneiderten Softwareentwicklungsdienste zu besprechen, auf Grundlage Ihrer Anfrage und der zum Vertragsabschluss erforderlichen Schritte (Art. 6 Abs. 1 lit. b DSGVO).",
       "s3li2": "Um zu verstehen, wie Besucher unsere Website nutzen, und sie zu verbessern, auf Grundlage Ihrer über das Cookie-Banner erteilten Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
       "s3li3": "Um unsere Website sicher und funktionsfähig zu halten, auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO).",
       "s3li4": "Um rechtlichen Verpflichtungen nachzukommen, z. B. der buchhalterischen und steuerlichen Aufbewahrungspflicht (Art. 6 Abs. 1 lit. c DSGVO).",
@@ -197,7 +197,7 @@
       "s1Title": "1. Über diese Bedingungen",
       "s1p1": "Diese Bedingungen regeln Ihre Nutzung dieser Website, betrieben von RSA SOFT S.R.L. („RSA SOFT“, „wir“, „uns“). Mit dem Besuch dieser Website stimmen Sie diesen Bedingungen zu.",
       "s2Title": "2. Unsere Leistungen",
-      "s2p1": "RSA SOFT bietet Software-Staffing- und Beratungsleistungen an, die auf dieser Website beschrieben werden. Der Besuch dieser Website begründet für sich genommen keinen Vertrag zwischen Ihnen und RSA SOFT; jeder Staffing- oder Beratungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt.",
+      "s2p1": "RSA SOFT bietet maßgeschneiderte Softwareentwicklungsdienste an, die auf dieser Website beschrieben werden. Der Besuch dieser Website begründet für sich genommen keinen Vertrag zwischen Ihnen und RSA SOFT; jeder maßgeschneiderte Softwareentwicklungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt.",
       "s3Title": "3. Zulässige Nutzung",
       "s3p1": "Bei der Nutzung dieser Website verpflichten Sie sich, nicht:",
       "s3li1": "zu versuchen, unbefugten Zugriff auf diese Website oder ihre zugrunde liegenden Systeme zu erlangen",
@@ -372,7 +372,7 @@
       "q3": "Ist das nicht einfach eine weitere Agentur?",
       "a3": "Der Unterschied ist Transparenz: Sie sehen den Satz des Entwicklers und unsere Marge getrennt, statt einen aufgeschlagenen Pauschalpreis. Kein Mittelsmann, der vom Gehalt des Entwicklers abzweigt, ohne dass Sie es sehen.",
       "q4": "Auf welcher rechtlichen Basis läuft der Einsatz?",
-      "a4": "Jeder Staffing- oder Beratungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt, die vor Projektstart abgeschlossen wird.",
+      "a4": "Jeder maßgeschneiderte Softwareentwicklungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt, die vor Projektstart abgeschlossen wird.",
       "q5": "Bleibt der Entwickler nur für die erste Sprint-Phase, oder langfristig?",
       "a5": "So lange, wie Ihr Projekt es braucht. Der Referenzfall in unserem Nachweis-Abschnitt lief 4 Jahre im selben Team."
     }

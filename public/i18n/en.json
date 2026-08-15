@@ -137,7 +137,7 @@
       "s2li1": "Data you give us directly: your name, email, phone number, company, and any message you send us when you book a call, submit a form, or contact us by email, WhatsApp, Telegram, LinkedIn, or XING.",
       "s2li2": "Data collected automatically, only if you consent to analytics cookies: pages visited, approximate location derived from your IP address, browser and device type, and referral source.",
       "s3Title": "3. Why we process your data and on what legal basis",
-      "s3li1": "To respond to your inquiry and discuss our staffing and consulting services, based on your request and the steps needed to enter into a contract (Article 6(1)(b) GDPR).",
+      "s3li1": "To respond to your inquiry and discuss our custom software development services, based on your request and the steps needed to enter into a contract (Article 6(1)(b) GDPR),"
       "s3li2": "To understand how visitors use our website and improve it, based on your consent given through the cookie banner (Article 6(1)(a) GDPR).",
       "s3li3": "To keep our website secure and functioning correctly, based on our legitimate interest (Article 6(1)(f) GDPR).",
       "s3li4": "To comply with legal obligations, such as accounting and tax record-keeping (Article 6(1)(c) GDPR).",
@@ -197,7 +197,7 @@
       "s1Title": "1. About these terms",
       "s1p1": "These terms govern your use of this website, operated by RSA SOFT S.R.L. (\"RSA SOFT\", \"we\", \"us\"). By browsing this site, you agree to these terms.",
       "s2Title": "2. Our services",
-      "s2p1": "RSA SOFT provides software staffing and consulting services, described on this website. Browsing this site does not itself create a contract between you and RSA SOFT; any staffing or consulting engagement is governed by a separate written agreement.",
+      "s2p1": "RSA SOFT provides custom software development services, described on this website. Browsing this site does not itself create a contract between you and RSA SOFT; any custom software development engagement is governed by a separate written agreement.",
       "s3Title": "3. Acceptable use",
       "s3p1": "When using this website, you agree not to:",
       "s3li1": "Attempt to gain unauthorized access to this website or its underlying systems",
@@ -372,7 +372,7 @@
       "q3": "Isn't this just another agency?",
       "a3": "The difference is transparency: you see the developer's rate and our margin separately instead of one marked-up flat fee. No middleman skimming off the developer's pay without you seeing it.",
       "q4": "What's the legal basis for the engagement?",
-      "a4": "Every staffing or consulting engagement is governed by a separate written agreement signed before the project starts.",
+      "a4": "Every custom software development engagement is governed by a separate written agreement signed before the project starts.",
       "q5": "Does the developer only stick around for the first sprint, or longer-term?",
       "a5": "As long as your project needs them. The reference case in our proof section ran 4 years on the same team."
     }
