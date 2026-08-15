@@ -7,6 +7,14 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 24.15.0
+      - key: EXPERIENCE_API_URL
+        sync: false
+      - key: CAREERS_API_URL
+        sync: false
+      - key: DEVELOPER_PROFILES_API_URL
+        sync: false
+      - key: LEAD_MAGNET_API_URL
+        sync: false
     routes:
       - type: rewrite
         source: /*

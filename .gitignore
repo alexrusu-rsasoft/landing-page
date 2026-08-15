@@ -42,3 +42,8 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files with real API URLs (generated on Render at build time,
+# see scripts/generate-env.js and src/environments/environment.example.ts)
+/src/environments/environment.ts
+/src/environments/environment.development.ts

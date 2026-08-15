@@ -14,8 +14,9 @@
  *   5. Deploy > New deployment > type "Web app".
  *      - Execute as: Me
  *      - Who has access: Anyone
- *   6. Copy the generated /exec URL into src/environments/environment.ts
- *      and src/environments/environment.development.ts as leadMagnetApiUrl.
+ *   6. Copy the generated /exec URL into the LEAD_MAGNET_API_URL env var
+ *      (see render.yaml / src/environments/environment.example.ts) — do
+ *      not hardcode it in source.
  *
  * Note: the client sends the request with Content-Type: text/plain and mode
  * "no-cors" to avoid a CORS preflight, which Apps Script web apps don't

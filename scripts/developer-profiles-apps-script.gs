@@ -19,20 +19,24 @@
  * expose, not a manual per-row flag.
  *
  * Deployment:
- *   1. Open the spreadsheet: https://docs.google.com/spreadsheets/d/1qCkbmt0tNrU_j77RyM8oDqo_KMQ3jpxWjcVS4viwURA/edit
+ *   1. Open your developer pool spreadsheet and copy its ID from the URL
+ *      (the segment between /d/ and /edit).
  *   2. Extensions > Apps Script.
  *   3. Replace the default Code.gs content with this file's content.
- *   4. Deploy > New deployment > type "Web app".
+ *   4. Set SPREADSHEET_ID below to that spreadsheet's ID (only in the copy
+ *      deployed in the Apps Script editor — do not commit the real ID here).
+ *   5. Deploy > New deployment > type "Web app".
  *      - Execute as: Me
  *      - Who has access: Anyone
- *   5. Copy the generated /exec URL into src/environments/environment.ts
- *      and src/environments/environment.development.ts as developerProfilesApiUrl.
+ *   6. Copy the generated /exec URL into the DEVELOPER_PROFILES_API_URL env
+ *      var (see render.yaml / src/environments/environment.example.ts) —
+ *      do not hardcode it in source.
  *
  * Note: "Generated Profile" is sent to the browser as-is, so make sure that
  * text is written anonymized from the start (no name, no company names, no
  * exact rate) for every row — there's no per-row approval flag filtering it.
  */
-var SPREADSHEET_ID = '1qCkbmt0tNrU_j77RyM8oDqo_KMQ3jpxWjcVS4viwURA';
+var SPREADSHEET_ID = 'TODO_REPLACE_WITH_SPREADSHEET_ID';
 
 // Column headers (as they appear in the sheet) that are safe to expose publicly.
 var PUBLIC_FIELDS = {
