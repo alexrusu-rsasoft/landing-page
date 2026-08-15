@@ -47,9 +47,8 @@
   </p>
 
   <!-- Google Calendar Appointment Scheduling begin -->
-  <iframe #calendarIframe
-    [src]="calendarSrc()"
-    frameborder="0" [title]="'common.calendarIframeTitle' | transloco" [style.height]="iframeHeight()" width="100%"
+  <iframe #calendarIframe [src]="calendarSrc()" frameborder="0" [title]="'common.calendarIframeTitle' | transloco"
+    [style.height]="iframeHeight()" width="100%" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
     (load)="onCalendarLoad()"></iframe>
   <!-- end Google Calendar Appointment Scheduling -->
 
@@ -97,7 +96,7 @@
         }
 
         @case ('linkedin') {
-        <img src="/linkedIn.ico" alt="" class="h-5 w-5 object-contain" />
+        <img src="/linkedIn.ico" alt="" class="h-5 w-5 object-contain" width="20" height="20" decoding="async" />
         }
 
         @case ('xing') {

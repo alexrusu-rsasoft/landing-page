@@ -5,7 +5,6 @@
 :root {
   color-scheme: light;
   font-family:
-    'Poppins',
     ui-sans-serif,
     system-ui,
     -apple-system,
@@ -86,12 +85,7 @@
 }
 
 .skeleton-pulse {
-  background: linear-gradient(
-    90deg,
-    #e2e8f0 25%,
-    #f1f5f9 37%,
-    #e2e8f0 63%
-  );
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 37%, #e2e8f0 63%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.8s ease-in-out infinite;
   border-radius: 0.5rem;

@@ -30,14 +30,14 @@ export class Layout {
   readonly #hostElement = inject(ElementRef<HTMLElement>);
   protected readonly cookieConsent = inject(CookieConsentService);
 
-  isContactPage = isActive('/contact', this.#router, {
+  protected readonly isContactPage = isActive('/contact', this.#router, {
     paths: 'subset',
     queryParams: 'ignored',
     fragment: 'ignored',
     matrixParams: 'ignored',
   });
 
-  isCareersPage = isActive('/careers', this.#router, {
+  protected readonly isCareersPage = isActive('/careers', this.#router, {
     paths: 'subset',
     queryParams: 'ignored',
     fragment: 'ignored',
