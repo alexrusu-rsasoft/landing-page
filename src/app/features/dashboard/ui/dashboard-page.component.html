@@ -56,6 +56,17 @@
         <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat3Value' | transloco }}</p>
       </div>
     </div>
+
+    <a href="https://listafirme.ro/rsa-soft-srl-43911790//" target="_blank" rel="noopener noreferrer"
+      class="inline-flex w-fit items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm shadow-slate-200/70 transition hover:border-primary/40 hover:shadow-md"
+      [attr.aria-label]="'dashboard.hero.trustBadgeAlt' | transloco">
+      <img src="https://listafirme.ro/platform-static/platform-images/top5.gif"
+        [attr.alt]="'dashboard.hero.trustBadgeAlt' | transloco" class="h-14 w-auto shrink-0" loading="lazy" />
+      <div>
+        <p class="text-sm font-semibold text-slate-950">{{ 'dashboard.hero.trustBadgeTitle' | transloco }}</p>
+        <p class="text-xs text-slate-500">{{ 'dashboard.hero.trustBadgeSubtitle' | transloco }}</p>
+      </div>
+    </a>
   </section>
 
   <section
@@ -214,6 +225,64 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
+    </div>
+  </div>
+
+  <div class="space-y-6">
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.proof.casesEyebrow' | transloco }}</p>
+    <h3 class="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+      {{ 'dashboard.proof.casesTitle' | transloco }}
+    </h3>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      @for (i of [1, 2, 3, 4]; track i) {
+      <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+        <p class="text-sm font-semibold leading-6 text-slate-950">{{ 'dashboard.proof.case' + i + 'Industry' | transloco }}</p>
+        <p class="mt-2 text-xs leading-6 text-slate-500">{{ 'dashboard.proof.case' + i + 'Stack' | transloco }}</p>
+        <div class="mt-5 flex items-end justify-between gap-2 border-t border-slate-100 pt-4">
+          <div>
+            <p class="text-[11px] uppercase tracking-wide text-slate-400">{{ 'dashboard.proof.placementLabel' | transloco }}</p>
+            <p class="mt-1 text-sm font-semibold text-primary">{{ 'dashboard.proof.case' + i + 'Placement' | transloco }}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-[11px] uppercase tracking-wide text-slate-400">{{ 'dashboard.proof.durationLabel' | transloco }}</p>
+            <p class="mt-1 text-sm font-semibold text-slate-950">{{ 'dashboard.proof.case' + i + 'Duration' | transloco }}</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="space-y-6">
+    <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.proof.tableEyebrow' | transloco }}</p>
+    <h3 class="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+      {{ 'dashboard.proof.tableTitle' | transloco }}
+    </h3>
+
+    <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/70">
+      <table class="w-full min-w-[720px] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-slate-200 bg-slate-50">
+            <th class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.tableColCriteria' | transloco }}</th>
+            <th class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-primary">{{ 'dashboard.proof.tableColRsa' | transloco }}</th>
+            <th class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.tableColAgency' | transloco }}</th>
+            <th class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.tableColFreelancer' | transloco }}</th>
+            <th class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.tableColDirect' | transloco }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (i of [1, 2, 3, 4, 5]; track i) {
+          <tr class="border-b border-slate-100 align-top last:border-0">
+            <td class="p-4 text-sm font-semibold text-slate-950">{{ 'dashboard.proof.tableRow' + i + 'Label' | transloco }}</td>
+            <td class="bg-primary/5 p-4 text-sm leading-6 text-slate-800">{{ 'dashboard.proof.tableRow' + i + 'Rsa' | transloco }}</td>
+            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Agency' | transloco }}</td>
+            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Freelancer' | transloco }}</td>
+            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Direct' | transloco }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
     </div>
   </div>
 
