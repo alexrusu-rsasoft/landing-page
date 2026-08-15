@@ -4,7 +4,8 @@
  * Reads the RSA SOFT opportunities sheet and returns only the fields the
  * public careers page is allowed to show. Client/recruiter details (true
  * customer, relationship owner, margins, "My notes", etc.) never leave this
- * script. Rows whose Stage is "Dead" or "Closed" are dropped entirely.
+ * script, and the Stage column itself is never included in the response.
+ * Rows whose Stage is blank, "Dead" or "Closed" are dropped entirely.
  *
  * Deployment:
  *   1. Open the spreadsheet: https://docs.google.com/spreadsheets/d/1BH0vui0--Mt8CX5at5gK1QJLcEIyRE4ubFR3vc0v0PY/edit

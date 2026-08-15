@@ -1,9 +1,6 @@
 import { computed, inject, Injectable, resource } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { CareersApi } from './careers-api';
-import { CareerOpening } from './career-opening';
-
-const EXCLUDED_STAGES = new Set(['dead', 'closed']);
 
 @Injectable({
   providedIn: 'root',
@@ -18,12 +15,8 @@ export class CareersService {
     },
   });
 
-  // Defense in depth: the API already excludes Dead/Closed rows, but we never render them either way.
-  readonly openings = computed(() =>
-    (this.openingsResource.value() ?? []).filter(
-      (opening) => !EXCLUDED_STAGES.has((opening.stage ?? '').trim().toLowerCase()),
-    ),
-  );
+  // Stage filtering (Dead/Closed/blank) happens server-side; the API never sends a stage field.
+  readonly openings = computed(() => this.openingsResource.value() ?? []);
 
   readonly isLoading = this.openingsResource.isLoading;
   readonly hasError = computed(() => !!this.openingsResource.error());
