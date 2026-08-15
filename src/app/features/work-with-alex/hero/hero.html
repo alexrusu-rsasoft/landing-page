@@ -26,7 +26,7 @@
     </div>
 
     <!-- Name & Titles -->
-    <div class="space-y-4 mb-10">
+    <div class="space-y-4 mb-10" [attr.aria-busy]="isLoading()">
       <h1 class="max-w-3xl mx-auto text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
         {{ 'workWithAlex.hero.name' | transloco }}
       </h1>

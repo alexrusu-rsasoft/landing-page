@@ -63,11 +63,11 @@
           <p class="text-sm font-semibold">{{ 'careers.hero.step1Text' | transloco }}</p>
         </div>
         <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'careers.hero.step2Time' | transloco }}</span>
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-500">{{ 'careers.hero.step2Time' | transloco }}</span>
           <p class="text-sm font-semibold text-slate-950">{{ 'careers.hero.step2Text' | transloco }}</p>
         </div>
         <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'careers.hero.step3Time' | transloco }}</span>
+          <span class="text-xs font-mono uppercase tracking-widest text-slate-500">{{ 'careers.hero.step3Time' | transloco }}</span>
           <p class="text-sm font-semibold text-slate-950">{{ 'careers.hero.step3Text' | transloco }}</p>
         </div>
       </div>
@@ -112,6 +112,7 @@
     <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg">{{ 'careers.openings.subtitle' | transloco }}</p>
   </div>
 
+  <div [attr.aria-busy]="isLoading()">
   @if (isLoading()) {
   <div class="grid gap-6 lg:grid-cols-2">
     @for (i of [1, 2, 3, 4]; track i) {
@@ -150,11 +151,11 @@
   <div class="grid gap-6 lg:grid-cols-2">
     @for (opening of openings(); track opening.opportunity + opening.fillUntil) {
     <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80">
-      <button type="button" class="text-left" (click)="openDetails(opening)">
-        <h3 class="text-lg font-semibold text-slate-950 line-clamp-2 hover:text-primary transition">
+      <h3 class="text-lg font-semibold text-slate-950 line-clamp-2">
+        <button type="button" class="text-left hover:text-primary transition" (click)="openDetails(opening, $event)">
           {{ opening.opportunity }}
-        </h3>
-      </button>
+        </button>
+      </h3>
 
       <div class="mt-3 flex flex-wrap gap-2">
         @if (opening.level) {
@@ -191,7 +192,7 @@
       </div>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <button type="button" (click)="openDetails(opening)"
+        <button type="button" (click)="openDetails(opening, $event)"
           class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
           {{ 'careers.openings.viewDetailsCta' | transloco }}
         </button>
@@ -205,22 +206,24 @@
     }
   </div>
   }
+  </div>
 </section>
 
 @if (selectedOpening(); as opening) {
-<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
   <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" (click)="closeDetails()"></div>
 
-  <div class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+  <div #dialog class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
+    role="dialog" aria-modal="true" aria-labelledby="opening-details-title">
     <button type="button" (click)="closeDetails()"
       [attr.aria-label]="'careers.openings.closeDetails' | transloco"
-      class="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-950">
-      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+      class="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
-    <h3 class="pr-10 text-2xl font-semibold text-slate-950">{{ opening.opportunity }}</h3>
+    <h3 id="opening-details-title" class="pr-10 text-2xl font-semibold text-slate-950">{{ opening.opportunity }}</h3>
 
     <div class="mt-4 flex flex-wrap gap-2">
       @if (opening.level) {

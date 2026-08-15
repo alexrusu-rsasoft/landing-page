@@ -14,11 +14,11 @@
           @for (edu of education; track edu.degree) {
           <div class="bg-white p-4 rounded-xl border border-slate-100/80 shadow-sm">
             <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
                 🎓
               </div>
               <div>
-                <h4 class="text-sm font-semibold text-slate-900">{{ edu.degree }}</h4>
+                <h3 class="text-sm font-semibold text-slate-900">{{ edu.degree }}</h3>
                 <p class="text-sm text-slate-600 mt-1">{{ edu.school }}</p>
                 <p class="text-xs text-slate-500 font-mono mt-1">{{ edu.period }}</p>
               </div>
@@ -34,7 +34,7 @@
           <div class="space-y-3">
             @for (cert of certifications; track cert.name) {
             <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm">
-              <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+              <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0" aria-hidden="true">
                 ✪
               </span>
               <div class="flex-1">
@@ -51,7 +51,7 @@
           <div class="space-y-3">
             @for (org of organizations; track org.name) {
             <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm">
-              <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+              <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0" aria-hidden="true">
                 👥
               </span>
               <div class="flex-1">

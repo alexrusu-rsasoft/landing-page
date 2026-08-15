@@ -13,7 +13,7 @@
     </div>
 
     <!-- Timeline -->
-    <div class="relative">
+    <div class="relative" [attr.aria-busy]="isLoading()">
       <div class="absolute left-4 md:left-8 top-0 bottom-0 w-px experience-timeline-line"></div>
 
       @if (isLoading()) {
@@ -172,7 +172,7 @@
             </div>
             <div class="text-sm experience-date flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
@@ -209,7 +209,7 @@
             </div>
             @if (exp.client) {
             <div class="ml-4 flex items-center">
-              <img src="/RSA - Logo + Text  Horizzontal - Default.png" [attr.alt]="'workWithAlex.experience.companyLogoAlt' | transloco: { company: exp.company }"
+              <img src="/RSA - Logo + Text  Horizzontal - Default.png" [attr.alt]="'nav.logoAlt' | transloco"
                 class="experience-company-logo h-8 w-auto object-contain" />
             </div>
             }

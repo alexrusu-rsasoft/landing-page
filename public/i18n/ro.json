@@ -1,4 +1,11 @@
 {
+  "meta": {
+    "home": "Dezvoltatori Senior pentru Automotive, Banking & Fintech DACH",
+    "workWithAlex": "Colaborează cu Alex — Tech Lead Angular / Frontend",
+    "calendar": "Programează un apel gratuit",
+    "careers": "Cariere — Alătură-te rețelei noastre de dezvoltatori",
+    "contact": "Contact"
+  },
   "common": {
     "freeCallCta": "Programează un apel de consultanță GRATUIT",
     "calendarIframeTitle": "Programează un apel strategic de 30 de minute"
@@ -108,7 +115,11 @@
     "proof": "Dovezi",
     "pricing": "Prețuri",
     "careers": "Cariere",
-    "openMenu": "Deschide meniul"
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul",
+    "skipToContent": "Sari la conținut",
+    "primaryNav": "Navigare principală",
+    "footerNav": "Subsol"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. Toate drepturile rezervate.",
@@ -116,9 +127,11 @@
     "cookiePolicy": "Politica de Cookie-uri",
     "terms": "Termeni și Condiții",
     "legalNotice": "Mențiuni Legale",
-    "cookieSettings": "Setări Cookie-uri"
+    "cookieSettings": "Setări Cookie-uri",
+    "accessibilityBadge": "WCAG 2.1 AA"
   },
   "cookieConsent": {
+    "regionLabel": "Consimțământ cookie-uri",
     "message": "Folosim cookie-uri pentru a face site-ul să funcționeze și, cu acordul tău, pentru a înțelege cum e folosit. Citește",
     "acceptAll": "Acceptă tot",
     "rejectNonEssential": "Respinge cele neesențiale",
@@ -241,6 +254,24 @@
       "s4p1": "Acest website este găzduit de Render Services, Inc. Solicitările legate de infrastructura de găzduire pot fi adresate la datele de contact de mai sus, iar noi le vom transmite după caz.",
       "s5Title": "5. Legea aplicabilă",
       "s5p1": "Această pagină este guvernată de legislația română și de legea aplicabilă a Uniunii Europene."
+    },
+    "accessibility": {
+      "eyebrow": "Accesibilitate",
+      "title": "Declarație de accesibilitate",
+      "s1Title": "1. Angajamentul nostru",
+      "s1p1": "RSA SOFT se angajează să facă acest website accesibil tuturor, inclusiv persoanelor cu dizabilități, în conformitate cu Web Content Accessibility Guidelines (WCAG) 2.1 și European Accessibility Act (EAA).",
+      "s2Title": "2. Statutul de conformitate",
+      "s2p1": "Acest website este proiectat pentru a respecta WCAG 2.1 Nivel AA. Aceasta este o declarație de auto-evaluare; nu există o certificare oficială WCAG emisă de terți, deoarece WCAG reprezintă un set de recomandări, nu o schemă de certificare.",
+      "s3Title": "3. Măsuri implementate",
+      "s3li1": "Structură HTML semantică cu repere de navigare, titluri și un link de salt la conținut",
+      "s3li2": "Navigare, formulare și componente interactive accesibile de la tastatură, cu indicatori de focus vizibili",
+      "s3li3": "Contrast de culoare suficient pentru text și elementele de interfață",
+      "s3li4": "Text alternativ pentru imaginile relevante și iconițe decorative ascunse",
+      "s3li5": "Respectarea preferințelor pentru mișcare redusă",
+      "s4Title": "4. Limitări cunoscute",
+      "s4p1": "O parte din conținutul încorporat de la terți, precum widget-ul de programare Google Calendar și playerul video YouTube, nu se află sub controlul nostru direct și e posibil să nu respecte integral același standard. Folosim opțiunile de accesibilitate oferite de acești furnizori, acolo unde sunt disponibile.",
+      "s5Title": "5. Feedback",
+      "s5p1": "Dacă întâmpini o barieră de accesibilitate pe acest website, te rugăm să ne anunți pentru a o putea remedia."
     }
   },
   "dashboard": {

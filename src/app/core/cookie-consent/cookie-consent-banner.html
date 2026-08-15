@@ -1,5 +1,6 @@
 @if (consent.bannerVisible()) {
-<div class="fixed inset-x-0 bottom-0 z-[100] max-h-[70vh] overflow-y-auto border-t border-slate-200 bg-white/98 backdrop-blur-xl shadow-[0_-8px_30px_rgba(15,23,42,0.08)]"
+<div #banner role="region" [attr.aria-label]="'cookieConsent.regionLabel' | transloco"
+  class="fixed inset-x-0 bottom-0 z-[100] max-h-[70vh] overflow-y-auto border-t border-slate-200 bg-white/98 backdrop-blur-xl shadow-[0_-8px_30px_rgba(15,23,42,0.08)]"
   style="padding-bottom: env(safe-area-inset-bottom)">
   <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-5 lg:px-8">
     <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">

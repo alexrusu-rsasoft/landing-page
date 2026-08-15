@@ -11,6 +11,7 @@ const PROFILES_SHOWN = 3;
   imports: [RouterLink, TranslocoPipe],
   templateUrl: './developer-profiles-section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[attr.aria-busy]': 'isLoading()' },
 })
 export class DeveloperProfilesSection {
   readonly #analytics = inject(AnalyticsService);

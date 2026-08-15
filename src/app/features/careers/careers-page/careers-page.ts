@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
@@ -23,19 +31,50 @@ export class CareersPage {
   protected readonly hasError = this.#careers.hasError;
 
   protected readonly selectedOpening = signal<CareerOpening | null>(null);
+  private readonly dialog = viewChild<ElementRef<HTMLElement>>('dialog');
+  private opener: HTMLElement | null = null;
 
-  protected openDetails(opening: CareerOpening): void {
+  protected openDetails(opening: CareerOpening, event?: Event): void {
+    this.opener = (event?.currentTarget as HTMLElement) ?? (document.activeElement as HTMLElement);
     this.selectedOpening.set(opening);
     this.#analytics.trackCareersViewDetails(opening.opportunity);
+    requestAnimationFrame(() =>
+      this.dialog()?.nativeElement.querySelector<HTMLElement>('button, a')?.focus(),
+    );
   }
 
   protected closeDetails(): void {
+    if (!this.selectedOpening()) return;
     this.selectedOpening.set(null);
+    this.opener?.focus();
   }
 
   @HostListener('document:keydown.escape')
   protected onEscape(): void {
     this.closeDetails();
+  }
+
+  @HostListener('document:keydown.tab', ['$event'])
+  protected onTab(event: Event): void {
+    const keyboardEvent = event as KeyboardEvent;
+    const dialog = this.dialog()?.nativeElement;
+    if (!dialog) return;
+
+    const focusable = Array.from(
+      dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (keyboardEvent.shiftKey && document.activeElement === first) {
+      keyboardEvent.preventDefault();
+      last.focus();
+    } else if (!keyboardEvent.shiftKey && document.activeElement === last) {
+      keyboardEvent.preventDefault();
+      first.focus();
+    }
   }
 
   protected trackCta(label: CtaLabel): void {

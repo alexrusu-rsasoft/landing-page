@@ -1,4 +1,8 @@
 <div class="min-h-screen bg-neutral-50">
+  <a href="#top"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg">
+    {{ 'nav.skipToContent' | transloco }}
+  </a>
   <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
       <a [routerLink]="['/']" fragment="top" class="flex items-center gap-3 text-slate-950" (click)="closeMobileMenu()">
@@ -6,7 +10,8 @@
           class="h-10 w-auto object-contain" />
       </a>
 
-      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 xl:flex">
+      <nav [attr.aria-label]="'nav.primaryNav' | transloco"
+        class="hidden items-center gap-6 text-sm font-medium text-slate-700 xl:flex">
         <a [routerLink]="['/']" fragment="protocol" class="transition hover:text-primary"
           [class.text-primary]="activeSection() === 'protocol'">{{ 'nav.protocol' | transloco }}</a>
         <a [routerLink]="['/']" fragment="proof" class="transition hover:text-primary"
@@ -25,17 +30,18 @@
           {{ 'common.freeCallCta' | transloco }}
         </a>
         }
-        <button type="button" id="nav-toggle"
+        <button type="button" id="nav-toggle" #mobileMenuToggle
           class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-sm transition xl:hidden"
-          [attr.aria-label]="'nav.openMenu' | transloco" (click)="toggleMobileMenu()">
-          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+          [attr.aria-label]="(mobileMenuOpen() ? 'nav.closeMenu' : 'nav.openMenu') | transloco"
+          [attr.aria-expanded]="mobileMenuOpen()" aria-controls="mobile-menu" (click)="toggleMobileMenu()">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         </button>
       </div>
     </div>
 
-    <div id="mobile-menu" class="border-t border-slate-200 bg-white/98 px-6 py-4 xl:hidden"
+    <div id="mobile-menu" #mobileMenu class="border-t border-slate-200 bg-white/98 px-6 py-4 xl:hidden"
       [class.hidden]="!mobileMenuOpen()">
       <div class="flex flex-col gap-4 text-sm font-medium text-slate-700">
         <a [routerLink]="['/']" fragment="protocol" class="block transition hover:text-primary"
@@ -58,10 +64,10 @@
     </div>
   </header>
 
-  <main id="top" class="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-10 lg:py-8">
+  <main id="top" tabindex="-1" class="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-10 lg:py-8 focus:outline-none">
     <router-outlet />
   </main>
-  <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-400">
+  <footer class="border-t py-8 px-6 text-center text-xs font-medium border-slate-200 bg-slate-50 text-slate-500">
     <div class="mb-4 flex items-center justify-center gap-3">
       <a href="https://www.linkedin.com/company/rsa-soft" target="_blank" rel="noreferrer"
         [attr.aria-label]="'contact.channels.linkedin' | transloco"
@@ -79,7 +85,8 @@
         </svg>
       </a>
     </div>
-    <nav class="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+    <nav [attr.aria-label]="'nav.footerNav' | transloco"
+      class="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
       <a [routerLink]="['/privacy-policy']" class="transition hover:text-primary">{{ 'footer.privacyPolicy' | transloco
         }}</a>
       <a [routerLink]="['/cookie-policy']" class="transition hover:text-primary">{{ 'footer.cookiePolicy' | transloco
@@ -89,6 +96,11 @@
         }}</a>
       <button type="button" (click)="cookieConsent.reopen()" class="transition hover:text-primary">{{
         'footer.cookieSettings' | transloco }}</button>
+      <a [routerLink]="['/accessibility']"
+        [attr.aria-label]="'legal.accessibility.title' | transloco"
+        class="inline-flex items-center rounded-full border border-slate-200 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-slate-500 transition hover:border-primary/30 hover:text-primary">
+        {{ 'footer.accessibilityBadge' | transloco }}
+      </a>
     </nav>
     <p>{{ 'footer.copyright' | transloco: { year: currentYear } }}</p>
   </footer>

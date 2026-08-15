@@ -11,7 +11,8 @@
     <app-certifications />
 
     <!-- Quick Stats Cards -->
-    <div class="grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-2xl mx-auto pt-6 border-t border-slate-200/60">
+    <div class="grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-2xl mx-auto pt-6 border-t border-slate-200/60"
+      [attr.aria-busy]="isLoading()">
 
       @if (isLoading()) {
         <!-- Skeleton Stat 1 -->

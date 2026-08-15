@@ -1,4 +1,11 @@
 {
+  "meta": {
+    "home": "Senior Developers for DACH Automotive, Banking & Fintech",
+    "workWithAlex": "Work With Alex — Tech Lead Angular / Frontend",
+    "calendar": "Book a Free Call",
+    "careers": "Careers — Join Our Developer Network",
+    "contact": "Contact"
+  },
   "common": {
     "freeCallCta": "Get a FREE consulting call",
     "calendarIframeTitle": "Book a 30-minute strategy call"
@@ -108,7 +115,11 @@
     "proof": "Proof",
     "pricing": "Pricing",
     "careers": "Careers",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "primaryNav": "Primary",
+    "footerNav": "Footer"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. All rights reserved.",
@@ -116,9 +127,11 @@
     "cookiePolicy": "Cookie Policy",
     "terms": "Terms & Conditions",
     "legalNotice": "Legal Notice",
-    "cookieSettings": "Cookie Settings"
+    "cookieSettings": "Cookie Settings",
+    "accessibilityBadge": "WCAG 2.1 AA"
   },
   "cookieConsent": {
+    "regionLabel": "Cookie consent",
     "message": "We use cookies to run this site and, with your consent, to understand how it's used. Read our",
     "acceptAll": "Accept All",
     "rejectNonEssential": "Reject Non-Essential",
@@ -241,6 +254,24 @@
       "s4p1": "This website is hosted by Render Services, Inc. Requests related to hosting infrastructure can be directed to us at the contact details above, and we will forward them as needed.",
       "s5Title": "5. Applicable law",
       "s5p1": "This notice is governed by the laws of Romania and applicable European Union law."
+    },
+    "accessibility": {
+      "eyebrow": "Accessibility",
+      "title": "Accessibility Statement",
+      "s1Title": "1. Our commitment",
+      "s1p1": "RSA SOFT is committed to making this website accessible to everyone, including people with disabilities, in line with the Web Content Accessibility Guidelines (WCAG) 2.1 and the European Accessibility Act (EAA).",
+      "s2Title": "2. Conformance status",
+      "s2p1": "This website is designed to conform to WCAG 2.1 Level AA. This is a self-assessed declaration; no formal third-party WCAG certification exists, as WCAG is a set of guidelines rather than a certification scheme.",
+      "s3Title": "3. Measures taken",
+      "s3li1": "Semantic HTML structure with landmarks, headings, and a skip-to-content link",
+      "s3li2": "Keyboard-accessible navigation, forms, and interactive components with visible focus indicators",
+      "s3li3": "Sufficient color contrast for text and interface elements",
+      "s3li4": "Alternative text for meaningful images and hidden decorative icons",
+      "s3li5": "Respect for reduced-motion preferences",
+      "s4Title": "4. Known limitations",
+      "s4p1": "Some embedded third-party content, such as the Google Calendar booking widget and the YouTube video player, is not under our direct control and may not fully meet the same standard. We use these providers' accessible options where available.",
+      "s5Title": "5. Feedback",
+      "s5p1": "If you encounter any accessibility barrier on this website, please let us know so we can address it."
     }
   },
   "dashboard": {

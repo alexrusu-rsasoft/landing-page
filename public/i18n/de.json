@@ -1,4 +1,11 @@
 {
+  "meta": {
+    "home": "Senior-Entwickler für DACH Automotive, Banking & Fintech",
+    "workWithAlex": "Mit Alex arbeiten — Tech Lead Angular / Frontend",
+    "calendar": "Kostenloses Erstgespräch buchen",
+    "careers": "Karriere — Werde Teil unseres Entwicklernetzwerks",
+    "contact": "Kontakt"
+  },
   "common": {
     "freeCallCta": "Kostenloses Beratungsgespräch vereinbaren",
     "calendarIframeTitle": "30-minütiges Strategiegespräch buchen"
@@ -108,7 +115,11 @@
     "proof": "Nachweis",
     "pricing": "Preise",
     "careers": "Karriere",
-    "openMenu": "Menü öffnen"
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "skipToContent": "Zum Inhalt springen",
+    "primaryNav": "Hauptnavigation",
+    "footerNav": "Fußzeile"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. Alle Rechte vorbehalten.",
@@ -116,9 +127,11 @@
     "cookiePolicy": "Cookie-Richtlinie",
     "terms": "AGB",
     "legalNotice": "Impressum",
-    "cookieSettings": "Cookie-Einstellungen"
+    "cookieSettings": "Cookie-Einstellungen",
+    "accessibilityBadge": "WCAG 2.1 AA"
   },
   "cookieConsent": {
+    "regionLabel": "Cookie-Einwilligung",
     "message": "Wir verwenden Cookies, um diese Seite zu betreiben, und mit Ihrer Zustimmung, um zu verstehen, wie sie genutzt wird. Lesen Sie unsere",
     "acceptAll": "Alle akzeptieren",
     "rejectNonEssential": "Nicht notwendige ablehnen",
@@ -241,6 +254,24 @@
       "s4p1": "Diese Website wird von Render Services, Inc. gehostet. Anfragen zur Hosting-Infrastruktur können über die oben genannten Kontaktdaten an uns gerichtet werden; wir leiten diese bei Bedarf weiter.",
       "s5Title": "5. Anwendbares Recht",
       "s5p1": "Dieser Hinweis unterliegt dem Recht Rumäniens und dem anwendbaren Recht der Europäischen Union."
+    },
+    "accessibility": {
+      "eyebrow": "Barrierefreiheit",
+      "title": "Erklärung zur Barrierefreiheit",
+      "s1Title": "1. Unser Engagement",
+      "s1p1": "RSA SOFT setzt sich dafür ein, diese Website für alle zugänglich zu machen, einschließlich Menschen mit Behinderungen, im Einklang mit den Web Content Accessibility Guidelines (WCAG) 2.1 und dem European Accessibility Act (EAA).",
+      "s2Title": "2. Konformitätsstatus",
+      "s2p1": "Diese Website ist so gestaltet, dass sie WCAG 2.1 Stufe AA entspricht. Dies ist eine selbst durchgeführte Einschätzung; eine formelle WCAG-Zertifizierung durch Dritte existiert nicht, da WCAG ein Richtlinienwerk und kein Zertifizierungsprogramm ist.",
+      "s3Title": "3. Getroffene Maßnahmen",
+      "s3li1": "Semantische HTML-Struktur mit Landmarken, Überschriften und einem Sprung-zum-Inhalt-Link",
+      "s3li2": "Tastaturzugängliche Navigation, Formulare und interaktive Komponenten mit sichtbarem Fokus",
+      "s3li3": "Ausreichender Farbkontrast für Text und Bedienelemente",
+      "s3li4": "Alternativtexte für bedeutungstragende Bilder und ausgeblendete dekorative Icons",
+      "s3li5": "Berücksichtigung reduzierter Bewegungspräferenzen",
+      "s4Title": "4. Bekannte Einschränkungen",
+      "s4p1": "Einige eingebettete Inhalte Dritter, wie das Google-Kalender-Buchungswidget und der YouTube-Videoplayer, liegen nicht in unserer direkten Kontrolle und erfüllen möglicherweise nicht vollständig denselben Standard. Wir nutzen die barrierefreien Optionen dieser Anbieter, sofern verfügbar.",
+      "s5Title": "5. Feedback",
+      "s5p1": "Wenn Sie auf dieser Website auf eine Barriere stoßen, lassen Sie es uns bitte wissen, damit wir sie beheben können."
     }
   },
   "dashboard": {

@@ -3,8 +3,10 @@ import {
   Component,
   DestroyRef,
   ElementRef,
+  HostListener,
   inject,
   signal,
+  viewChild,
 } from '@angular/core';
 import { isActive, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
@@ -46,6 +48,9 @@ export class Layout {
   protected readonly mobileMenuOpen = signal(false);
   protected readonly activeSection = signal<string | null>(null);
 
+  private readonly mobileMenuToggle = viewChild<ElementRef<HTMLButtonElement>>('mobileMenuToggle');
+  private readonly mobileMenu = viewChild<ElementRef<HTMLElement>>('mobileMenu');
+
   #sectionObserver?: IntersectionObserver;
   readonly #visibleSections = new Set<string>();
 
@@ -62,11 +67,27 @@ export class Layout {
   }
 
   protected toggleMobileMenu(): void {
-    this.mobileMenuOpen.set(!this.mobileMenuOpen());
+    const opening = !this.mobileMenuOpen();
+    this.mobileMenuOpen.set(opening);
+    if (opening) {
+      requestAnimationFrame(() =>
+        this.mobileMenu()?.nativeElement.querySelector<HTMLElement>('a, button')?.focus(),
+      );
+    }
   }
 
   protected closeMobileMenu(): void {
     this.mobileMenuOpen.set(false);
+  }
+
+  private closeMobileMenuAndReturnFocus(): void {
+    this.closeMobileMenu();
+    this.mobileMenuToggle()?.nativeElement.focus();
+  }
+
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    if (this.mobileMenuOpen()) this.closeMobileMenuAndReturnFocus();
   }
 
   /**
