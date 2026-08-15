@@ -57,6 +57,18 @@
   <meta name="theme-color" content="#f8fafc">
   <link rel="preconnect" href="https://www.youtube-nocookie.com">
   <link rel="preconnect" href="https://listafirme.ro">
+  <style>
+    /*
+      Angular paints the shell (header/footer) before the routed page content
+      lands — even for an eager, synchronous route this crosses a task
+      boundary, so the footer visibly jumps into place a moment later. Hiding
+      the shell until the first navigation completes (see App's constructor)
+      turns that jump into a single clean paint instead of a layout shift.
+    */
+    app-root {
+      visibility: hidden;
+    }
+  </style>
 </head>
 
 <body class="bg-neutral-50 text-slate-950 antialiased">

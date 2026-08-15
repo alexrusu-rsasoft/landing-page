@@ -88,7 +88,6 @@
     }
   },
   "certifications": {
-    "ariaLabel": "Zertifizierung: {{name}} von {{issuer}}",
     "viewCredential": "Zertifikat ansehen",
     "viewCredentialFor": "Zertifikat für {{name}} ansehen",
     "certificateAlt": "{{name}} Zertifikat"

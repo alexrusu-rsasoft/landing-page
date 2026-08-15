@@ -1,20 +1,19 @@
 import { Routes } from '@angular/router';
+import { DashboardPageComponent } from './features/dashboard/ui/dashboard-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/dashboard/ui/dashboard-page.component').then(
-        (c) => c.DashboardPageComponent,
-      ),
+    // Loaded eagerly (not via loadComponent): this is the landing route for
+    // the vast majority of visits, and lazy-loading it left <main> empty for
+    // a frame while its chunk fetched, causing the whole page shell (footer
+    // included) to pop into place and produce a large layout shift.
+    component: DashboardPageComponent,
     data: { titleKey: 'meta.home' },
   },
   {
     path: 'dashboard',
-    loadComponent: () =>
-      import('./features/dashboard/ui/dashboard-page.component').then(
-        (c) => c.DashboardPageComponent,
-      ),
+    component: DashboardPageComponent,
     data: { titleKey: 'meta.home' },
   },
   {

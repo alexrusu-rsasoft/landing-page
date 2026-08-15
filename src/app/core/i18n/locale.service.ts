@@ -9,7 +9,10 @@ const GERMAN_SPEAKING_COUNTRY_CODES = new Set(['DE', 'AT', 'CH', 'LI']);
 const ROMANIAN_COUNTRY_CODE = 'RO';
 const STORAGE_KEY = 'rsa-soft-lang';
 const GEO_IP_ENDPOINT = 'https://ipwho.is/';
-const GEO_IP_TIMEOUT_MS = 2500;
+// Kept short because this blocks the app's very first render (see
+// initLocale/appInitializer): typical geo-IP responses land well under this,
+// and a slow/unreachable lookup should fall back fast rather than stall FCP.
+const GEO_IP_TIMEOUT_MS = 600;
 
 interface GeoIpResponse {
   success?: boolean;
@@ -27,14 +30,24 @@ export class LocaleService {
 
     const storedLang = this.readStoredLang();
     if (storedLang) {
-      this.transloco.setActiveLang(storedLang);
+      await this.activateLang(storedLang);
       return;
     }
 
     const countryCode = await this.detectCountryCode();
     const lang = this.resolveLang(countryCode);
-    this.transloco.setActiveLang(lang);
+    await this.activateLang(lang);
     this.storeLang(lang);
+  }
+
+  /**
+   * Loads the translation file before activating it so the first render
+   * already has real copy — avoids a pop-in reflow once the async
+   * translation JSON arrives after bootstrap (was causing large CLS).
+   */
+  private async activateLang(lang: string): Promise<void> {
+    await firstValueFrom(this.transloco.load(lang).pipe(catchError(() => of(null))));
+    this.transloco.setActiveLang(lang);
   }
 
   private syncHtmlLang(lang: string): void {

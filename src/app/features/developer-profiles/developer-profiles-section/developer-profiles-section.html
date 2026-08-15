@@ -1,3 +1,12 @@
+<!--
+  The min-height below approximates the loaded grid's real footprint (cards +
+  disclaimer + CTA row) at each breakpoint, measured against live content.
+  Without it, the loading skeleton is much shorter than the eventual result,
+  and everything below this section (including the page footer) jumps down
+  once the developer-profiles API responds — a large, real-world CLS hit
+  since that API is notably slow to answer.
+-->
+<div class="min-h-[1150px] sm:min-h-[750px] lg:min-h-[520px]">
 @if (isLoading()) {
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
   @for (i of [1, 2, 3]; track i) {
@@ -85,3 +94,4 @@
   </a>
 </div>
 }
+</div>
