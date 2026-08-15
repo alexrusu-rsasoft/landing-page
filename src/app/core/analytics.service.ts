@@ -17,7 +17,8 @@ export type CtaLabel =
   | 'nav_careers_mobile'
   | 'careers_hero_view_roles'
   | 'careers_hero_send_profile'
-  | 'careers_final_send_profile';
+  | 'careers_final_send_profile'
+  | 'call_confirmed_reschedule';
 
 export type ContactLabel =
   | 'contact_phone'

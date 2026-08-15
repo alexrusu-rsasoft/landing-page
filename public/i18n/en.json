@@ -4,7 +4,8 @@
     "workWithAlex": "Work With Alex — Tech Lead Angular / Frontend",
     "calendar": "Book a Free Call",
     "careers": "Careers — Join Our Developer Network",
-    "contact": "Contact"
+    "contact": "Contact",
+    "callConfirmed": "Your Call Is Confirmed"
   },
   "common": {
     "freeCallCta": "Get a FREE consulting call",
@@ -491,6 +492,59 @@
       "a4": "Every custom software development engagement is governed by a separate written agreement signed before the project starts.",
       "q5": "Does the developer only stick around for the first sprint, or longer-term?",
       "a5": "As long as your project needs them. The reference case in our proof section ran 4 years on the same team."
+    }
+  },
+  "callConfirmed": {
+    "hero": {
+      "eyebrow": "Call confirmed",
+      "title": "You're booked. Let's make this call count.",
+      "subtitle": "Before we talk, take five minutes here. It'll save us both time on the call and help you decide, with real information, whether this is worth pursuing.",
+      "checklistTitle": "Two quick things",
+      "check1": "Add the call to your calendar — the invite is in your inbox now (check spam if you don't see it).",
+      "check2": "Jot down the actual gap you're trying to fill: role, stack, timeline. The more specific, the shorter the call.",
+      "check3": "Something not on this page? Bring it to the call — I'd rather answer it live than have you guess."
+    },
+    "welcome": {
+      "eyebrow": "From Alex, before we speak",
+      "p1": "Thanks for booking. I know you're likely still deciding whether this is worth your time, so this page is here to help you find out before the call, not during it.",
+      "p2": "My job on this call isn't to sell you. It's to understand what you actually need and tell you plainly if RSA SOFT is a fit or not.",
+      "p3": "Below you'll find how the call works, the questions people usually ask before booking, and the proof behind what we do. If something's missing, ask it directly on the call."
+    },
+    "expect": {
+      "eyebrow": "On the call",
+      "title": "What actually happens in those 30 minutes",
+      "step1Title": "Your situation",
+      "step1Text": "What you're building, the gap you're trying to fill, and what's blocking you from filling it internally.",
+      "step2Title": "Fit, both ways",
+      "step2Text": "I'll tell you honestly if this matches what we do. If it doesn't, I'll say so instead of stringing the call along.",
+      "step3Title": "A clear next step",
+      "step3Text": "If it's a fit: what a scope call looks like and the 24–48h timeline. If it's not: no follow-up pressure."
+    },
+    "research": {
+      "eyebrow": "Do your own research",
+      "title": "Don't just take my word for it",
+      "text": "Here's where to verify who you're talking to before the call.",
+      "linkedinTitle": "LinkedIn",
+      "linkedinText": "Company page and work history.",
+      "registryTitle": "Business registry",
+      "registryText": "Verified ranking based on financial performance.",
+      "certTitle": "Verified credentials",
+      "certText": "Certifications, checkable directly with the issuer."
+    },
+    "faq": {
+      "eyebrow": "Before you ask on the call",
+      "title": "Common questions before we talk",
+      "intro": "Answered here so we don't spend the call on them."
+    },
+    "proof": {
+      "eyebrow": "Recent placements",
+      "title": "What this has actually looked like"
+    },
+    "footer": {
+      "title": "Still have a question?",
+      "text": "Bring it to the call — or reach me directly before then.",
+      "rescheduleCta": "Need to reschedule or reach me directly?",
+      "rescheduleLink": "Go to contact options"
     }
   },
   "careers": {

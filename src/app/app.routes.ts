@@ -40,6 +40,12 @@ export const routes: Routes = [
     data: { titleKey: 'meta.contact' },
   },
   {
+    path: 'call-confirmed',
+    loadComponent: () =>
+      import('./features/call-confirmed/call-confirmed').then((c) => c.CallConfirmed),
+    data: { titleKey: 'meta.callConfirmed' },
+  },
+  {
     path: 'privacy-policy',
     loadComponent: () =>
       import('./features/legal/privacy-policy/privacy-policy').then((c) => c.PrivacyPolicy),

@@ -4,7 +4,8 @@
     "workWithAlex": "Colaborează cu Alex — Tech Lead Angular / Frontend",
     "calendar": "Programează un apel gratuit",
     "careers": "Cariere — Alătură-te rețelei noastre de dezvoltatori",
-    "contact": "Contact"
+    "contact": "Contact",
+    "callConfirmed": "Apelul tău este confirmat"
   },
   "common": {
     "freeCallCta": "Programează un apel de consultanță GRATUIT",
@@ -491,6 +492,59 @@
       "a4": "Fiecare colaborare de dezvoltare software la comandă este reglementată printr-un acord scris separat, semnat înainte de începerea proiectului.",
       "q5": "Dezvoltatorul rămâne doar pentru primul sprint sau pe termen lung?",
       "a5": "Atât cât are nevoie proiectul tău. Cazul de referință din secțiunea de dovezi a durat 4 ani în aceeași echipă."
+    }
+  },
+  "callConfirmed": {
+    "hero": {
+      "eyebrow": "Apel confirmat",
+      "title": "Ești programat. Hai să facem ca acest apel să conteze.",
+      "subtitle": "Înainte să vorbim, dă-ți cinci minute aici. Ne scutește pe amândoi de timp în apel și te ajută să decizi, cu informații reale, dacă merită să mergem mai departe.",
+      "checklistTitle": "Două lucruri rapide",
+      "check1": "Adaugă apelul în calendar — invitația e deja în inbox (verifică și spam dacă nu o vezi).",
+      "check2": "Notează-ți exact ce vrei să acoperi: rol, tehnologii, termen. Cu cât ești mai specific, cu atât apelul e mai scurt.",
+      "check3": "Ceva lipsește de pe pagina asta? Adu-l în apel — prefer să răspund direct decât să ghicești."
+    },
+    "welcome": {
+      "eyebrow": "De la Alex, înainte să vorbim",
+      "p1": "Mulțumesc că ai făcut programarea. Știu că probabil încă analizezi dacă merită, așa că pagina asta e aici să te ajute să afli înainte de apel, nu în timpul lui.",
+      "p2": "Rolul meu în apel nu e să-ți vând ceva. E să înțeleg exact de ce ai nevoie și să-ți spun direct dacă RSA SOFT se potrivește sau nu.",
+      "p3": "Mai jos găsești cum decurge apelul, întrebările pe care le pun de obicei oamenii înainte să programeze și dovezile din spatele a ceea ce facem. Dacă lipsește ceva, întreabă direct în apel."
+    },
+    "expect": {
+      "eyebrow": "În apel",
+      "title": "Ce se întâmplă concret în cele 30 de minute",
+      "step1Title": "Situația ta",
+      "step1Text": "La ce lucrezi, ce gol vrei să acoperi și ce te împiedică să-l acoperi intern.",
+      "step2Title": "Potrivire, în ambele sensuri",
+      "step2Text": "Îți spun sincer dacă se potrivește cu ce facem. Dacă nu, spun asta direct, în loc să prelungesc apelul degeaba.",
+      "step3Title": "Un pas următor clar",
+      "step3Text": "Dacă se potrivește: cum arată un apel de scoping și termenul de 24-48 de ore. Dacă nu: fără presiune de follow-up."
+    },
+    "research": {
+      "eyebrow": "Verifică singur",
+      "title": "Nu te baza doar pe cuvântul meu",
+      "text": "Iată unde poți verifica cu cine vorbești înainte de apel.",
+      "linkedinTitle": "LinkedIn",
+      "linkedinText": "Pagina companiei și istoricul profesional.",
+      "registryTitle": "Registrul comerțului",
+      "registryText": "Clasament verificat, bazat pe performanța financiară.",
+      "certTitle": "Certificări verificate",
+      "certText": "Certificări, verificabile direct la emitent."
+    },
+    "faq": {
+      "eyebrow": "Înainte să întrebi în apel",
+      "title": "Întrebări frecvente înainte să vorbim",
+      "intro": "Le răspund aici, ca să nu ne consumăm apelul cu ele."
+    },
+    "proof": {
+      "eyebrow": "Plasări recente",
+      "title": "Așa a arătat în practică"
+    },
+    "footer": {
+      "title": "Mai ai o întrebare?",
+      "text": "Adu-o în apel — sau scrie-mi direct înainte de asta.",
+      "rescheduleCta": "Trebuie să reprogramezi sau vrei să mă contactezi direct?",
+      "rescheduleLink": "Vezi opțiunile de contact"
     }
   },
   "careers": {

@@ -4,7 +4,8 @@
     "workWithAlex": "Mit Alex arbeiten — Tech Lead Angular / Frontend",
     "calendar": "Kostenloses Erstgespräch buchen",
     "careers": "Karriere — Werde Teil unseres Entwicklernetzwerks",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "callConfirmed": "Ihr Gespräch ist bestätigt"
   },
   "common": {
     "freeCallCta": "Kostenloses Beratungsgespräch vereinbaren",
@@ -491,6 +492,59 @@
       "a4": "Jeder maßgeschneiderte Softwareentwicklungseinsatz wird durch eine separate schriftliche Vereinbarung geregelt, die vor Projektstart abgeschlossen wird.",
       "q5": "Bleibt der Entwickler nur für die erste Sprint-Phase, oder langfristig?",
       "a5": "So lange, wie Ihr Projekt es braucht. Der Referenzfall in unserem Nachweis-Abschnitt lief 4 Jahre im selben Team."
+    }
+  },
+  "callConfirmed": {
+    "hero": {
+      "eyebrow": "Termin bestätigt",
+      "title": "Ihr Gespräch ist gebucht. Machen wir es zählen.",
+      "subtitle": "Nehmen Sie sich vor unserem Gespräch fünf Minuten Zeit. Das spart uns beiden Zeit im Call und hilft Ihnen, mit echten Informationen zu entscheiden, ob sich das lohnt.",
+      "checklistTitle": "Zwei kurze Dinge",
+      "check1": "Tragen Sie den Termin in Ihren Kalender ein — die Einladung ist bereits in Ihrem Postfach (prüfen Sie ggf. den Spam-Ordner).",
+      "check2": "Notieren Sie sich die konkrete Lücke, die Sie füllen möchten: Rolle, Stack, Zeitrahmen. Je konkreter, desto kürzer der Call.",
+      "check3": "Etwas fehlt auf dieser Seite? Bringen Sie es zum Gespräch mit — ich beantworte es lieber live, als dass Sie raten müssen."
+    },
+    "welcome": {
+      "eyebrow": "Von Alex, vor unserem Gespräch",
+      "p1": "Danke für Ihre Buchung. Ich weiß, dass Sie wahrscheinlich noch abwägen, ob sich das lohnt — deshalb soll diese Seite Ihnen helfen, das vor dem Gespräch herauszufinden, nicht erst währenddessen.",
+      "p2": "Meine Aufgabe in diesem Gespräch ist nicht, Ihnen etwas zu verkaufen. Sie ist, zu verstehen, was Sie tatsächlich brauchen, und Ihnen ehrlich zu sagen, ob RSA SOFT dazu passt oder nicht.",
+      "p3": "Unten finden Sie, wie das Gespräch abläuft, die Fragen, die vor der Buchung meist gestellt werden, und die Nachweise hinter dem, was wir tun. Fehlt etwas, sprechen Sie es direkt im Gespräch an."
+    },
+    "expect": {
+      "eyebrow": "Im Gespräch",
+      "title": "Was in diesen 30 Minuten tatsächlich passiert",
+      "step1Title": "Ihre Situation",
+      "step1Text": "Woran Sie arbeiten, welche Lücke Sie füllen möchten und was Sie daran hindert, sie intern zu schließen.",
+      "step2Title": "Passung, in beide Richtungen",
+      "step2Text": "Ich sage Ihnen ehrlich, ob das zu dem passt, was wir tun. Falls nicht, sage ich das, statt den Call unnötig in die Länge zu ziehen.",
+      "step3Title": "Ein klarer nächster Schritt",
+      "step3Text": "Passt es: wie ein Scope-Gespräch abläuft und der 24–48-Stunden-Zeitrahmen. Passt es nicht: kein Nachfass-Druck."
+    },
+    "research": {
+      "eyebrow": "Prüfen Sie selbst",
+      "title": "Verlassen Sie sich nicht nur auf mein Wort",
+      "text": "Hier können Sie vor dem Gespräch überprüfen, mit wem Sie sprechen.",
+      "linkedinTitle": "LinkedIn",
+      "linkedinText": "Unternehmensseite und Werdegang.",
+      "registryTitle": "Handelsregister",
+      "registryText": "Geprüftes Ranking basierend auf der Finanzperformance.",
+      "certTitle": "Geprüfte Zertifikate",
+      "certText": "Zertifizierungen, direkt beim Aussteller nachprüfbar."
+    },
+    "faq": {
+      "eyebrow": "Bevor Sie im Gespräch fragen",
+      "title": "Häufige Fragen vor dem Gespräch",
+      "intro": "Hier beantwortet, damit wir das Gespräch nicht dafür brauchen."
+    },
+    "proof": {
+      "eyebrow": "Aktuelle Platzierungen",
+      "title": "So sah das in der Praxis aus"
+    },
+    "footer": {
+      "title": "Noch eine offene Frage?",
+      "text": "Bringen Sie sie zum Gespräch mit — oder erreichen Sie mich vorher direkt.",
+      "rescheduleCta": "Termin verschieben oder mich direkt erreichen?",
+      "rescheduleLink": "Zu den Kontaktmöglichkeiten"
     }
   },
   "careers": {

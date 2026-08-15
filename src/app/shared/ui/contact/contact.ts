@@ -10,7 +10,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { AnalyticsService } from '../../../core/analytics.service';
+import { AnalyticsService, type ContactLabel } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ViewportScroller } from '@angular/common';
@@ -83,8 +83,8 @@ export class Contact implements AfterViewInit, OnDestroy {
     window.removeEventListener('blur', this.#onWindowBlur);
   }
 
-  protected trackContact(label: string): void {
-    this.#analytics.trackContactClick(label as never);
+  protected trackContact(label: ContactLabel): void {
+    this.#analytics.trackContactClick(label);
   }
 
   protected onCalendarLoad(): void {
