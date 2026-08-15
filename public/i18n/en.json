@@ -97,6 +97,7 @@
     "alternativesIntro": "Prefer a direct channel? Reach out through one of these alternatives.",
     "channels": {
       "email": "Email",
+      "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn",
       "xing": "XING"
     }
@@ -137,7 +138,7 @@
       "s2li1": "Data you give us directly: your name, email, phone number, company, and any message you send us when you book a call, submit a form, or contact us by email, WhatsApp, Telegram, LinkedIn, or XING.",
       "s2li2": "Data collected automatically, only if you consent to analytics cookies: pages visited, approximate location derived from your IP address, browser and device type, and referral source.",
       "s3Title": "3. Why we process your data and on what legal basis",
-      "s3li1": "To respond to your inquiry and discuss our custom software development services, based on your request and the steps needed to enter into a contract (Article 6(1)(b) GDPR),"
+      "s3li1": "To respond to your inquiry and discuss our custom software development services, based on your request and the steps needed to enter into a contract (Article 6(1)(b) GDPR).",
       "s3li2": "To understand how visitors use our website and improve it, based on your consent given through the cookie banner (Article 6(1)(a) GDPR).",
       "s3li3": "To keep our website secure and functioning correctly, based on our legitimate interest (Article 6(1)(f) GDPR).",
       "s3li4": "To comply with legal obligations, such as accounting and tax record-keeping (Article 6(1)(c) GDPR).",

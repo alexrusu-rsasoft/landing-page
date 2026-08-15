@@ -7,6 +7,13 @@ export const CONTACT_ALTERNATIVES = [
     icon: 'mail',
   },
   {
+    id: 'whatsapp',
+    labelKey: 'contact.channels.whatsapp',
+    value: '+40 747 011 397',
+    href: 'https://wa.me/40747011397',
+    icon: 'whatsapp',
+  },
+  {
     id: 'linkedin',
     labelKey: 'contact.channels.linkedin',
     value: 'Alex Rusu',

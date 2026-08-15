@@ -97,6 +97,7 @@
     "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
     "channels": {
       "email": "E-Mail",
+      "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn",
       "xing": "XING"
     }
