@@ -425,6 +425,24 @@
       "nf2": "Stellen nur direkt ein.",
       "nf3": "Arbeiten nicht mit Agenturen zusammen."
     },
+    "leadMagnet": {
+      "eyebrow": "Noch nicht bereit für einen Anruf?",
+      "title": "Holen Sie sich das Quick Staffing Protocol als einseitiges PDF",
+      "subtitle": "Eine einseitige Referenz, die Sie an Ihr Team, Ihren CTO oder den Einkauf weiterleiten können, vor dem nächsten Sprint Planning. Kein Verkaufsgespräch, nur wie die Besetzung in 24 bis 48 Stunden funktioniert.",
+      "item1": "Wie das Scope-, Match- und Placement-Protokoll Stunde für Stunde funktioniert.",
+      "item2": "Genau wie abgerechnet wird: Gehaltssatz plus unsere pauschale Marge von 10 €/Stunde, nichts versteckt.",
+      "item3": "Was dadurch entfällt: die monatelange Suche, das rechtliche Risiko, das Rätselraten bei Agentur-Aufschlägen.",
+      "forwardNote": "Eine Seite. Zum Weiterleiten gemacht, nicht nur zum Alleinlesen.",
+      "emailLabel": "Geschäftliche E-Mail",
+      "emailPlaceholder": "sie@unternehmen.de",
+      "emailError": "Geben Sie eine gültige E-Mail-Adresse ein, damit wir wissen, wohin das PDF gesendet werden soll.",
+      "submitCta": "PDF an mich senden",
+      "submittingCta": "Wird gesendet...",
+      "privacyNote": "Nur eine E-Mail. Kein Newsletter, kein Spam, nur dieses PDF.",
+      "successTitle": "Fertig.",
+      "successBody": "Ihr Exemplar des Quick Staffing Protocol ist zum Download bereit.",
+      "downloadCta": "PDF herunterladen"
+    },
     "finalCta": {
       "title": "Jede Woche, in der die Stelle unbesetzt bleibt, ist eine weitere Woche, in der sich Ihr Sprint verzögert.",
       "subtitle": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt."

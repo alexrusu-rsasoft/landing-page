@@ -63,6 +63,16 @@ export class AnalyticsService {
     this.send('calendar_iframe_loaded', { event_category: 'calendar' });
   }
 
+  /** Fires when a visitor submits their email for the Quick Staffing Protocol PDF. */
+  trackLeadMagnetSubmit(): void {
+    this.send('lead_magnet_submit', { event_category: 'lead_magnet' });
+  }
+
+  /** Fires when a visitor clicks through to download the PDF after submitting. */
+  trackLeadMagnetDownload(lang: string): void {
+    this.send('lead_magnet_download', { event_category: 'lead_magnet', event_label: lang });
+  }
+
   private send(eventName: string, params: Record<string, string>): void {
     if (typeof gtag === 'undefined') return;
     gtag('event', eventName, params);

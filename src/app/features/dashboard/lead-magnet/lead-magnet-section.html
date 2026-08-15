@@ -1,0 +1,80 @@
+<section id="lead-magnet" class="mt-20 scroll-mt-32">
+  <div
+    class="grid gap-10 rounded-[32px] border border-primary/15 bg-gradient-to-br from-primary/5 via-white to-white p-8 shadow-lg shadow-primary/10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-12">
+
+    <div class="space-y-6">
+      <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.leadMagnet.eyebrow' | transloco }}</p>
+      <h2 class="max-w-xl text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        {{ 'dashboard.leadMagnet.title' | transloco }}
+      </h2>
+      <p class="max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+        {{ 'dashboard.leadMagnet.subtitle' | transloco }}
+      </p>
+
+      <ul class="space-y-3 text-sm leading-7 text-slate-700">
+        <li class="flex items-start gap-3">
+          <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span>
+          <span class="flex-1">{{ 'dashboard.leadMagnet.item1' | transloco }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span>
+          <span class="flex-1">{{ 'dashboard.leadMagnet.item2' | transloco }}</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span>
+          <span class="flex-1">{{ 'dashboard.leadMagnet.item3' | transloco }}</span>
+        </li>
+      </ul>
+
+      <p class="text-xs text-slate-500">{{ 'dashboard.leadMagnet.forwardNote' | transloco }}</p>
+    </div>
+
+    <div class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 sm:p-8">
+      @if (!submitted()) {
+        <form (ngSubmit)="onSubmit()" #leadForm="ngForm" class="space-y-4" novalidate>
+          <div class="h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+            <label for="lead-magnet-company">Company</label>
+            <input id="lead-magnet-company" type="text" name="company" tabindex="-1" autocomplete="off"
+              [ngModel]="company()" (ngModelChange)="company.set($event)" />
+          </div>
+
+          <div class="space-y-2">
+            <label for="lead-magnet-email" class="text-sm font-semibold text-slate-900">
+              {{ 'dashboard.leadMagnet.emailLabel' | transloco }}
+            </label>
+            <input id="lead-magnet-email" type="email" name="email" required autocomplete="email"
+              [ngModel]="email()" (ngModelChange)="email.set($event)"
+              [placeholder]="'dashboard.leadMagnet.emailPlaceholder' | transloco"
+              class="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            @if (showError()) {
+              <p class="text-sm text-red-600">{{ 'dashboard.leadMagnet.emailError' | transloco }}</p>
+            }
+          </div>
+
+          <button type="submit" [disabled]="submitting()"
+            class="flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950 disabled:cursor-not-allowed disabled:opacity-70">
+            {{ (submitting() ? 'dashboard.leadMagnet.submittingCta' : 'dashboard.leadMagnet.submitCta') | transloco }}
+          </button>
+
+          <p class="text-center text-xs text-slate-500">{{ 'dashboard.leadMagnet.privacyNote' | transloco }}</p>
+        </form>
+      } @else {
+        <div class="space-y-4 text-center">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-950">{{ 'dashboard.leadMagnet.successTitle' | transloco }}</h3>
+          <p class="text-sm leading-7 text-slate-600">{{ 'dashboard.leadMagnet.successBody' | transloco }}</p>
+          <a [href]="downloadUrl()" download target="_blank" rel="noreferrer" (click)="trackDownload()"
+            class="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
+            {{ 'dashboard.leadMagnet.downloadCta' | transloco }}
+          </a>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

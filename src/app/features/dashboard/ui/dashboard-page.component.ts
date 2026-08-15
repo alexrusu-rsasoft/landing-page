@@ -4,10 +4,11 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 import { DeveloperProfilesSection } from '../../developer-profiles/developer-profiles-section/developer-profiles-section';
 import { Certifications } from '../../work-with-alex/certifications/certifications';
+import { LeadMagnetSection } from '../lead-magnet/lead-magnet-section';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterLink, Certifications, DeveloperProfilesSection, TranslocoPipe],
+  imports: [RouterLink, Certifications, DeveloperProfilesSection, LeadMagnetSection, TranslocoPipe],
   templateUrl: './dashboard-page.component.html',
 })
 export class DashboardPageComponent {

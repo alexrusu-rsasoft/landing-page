@@ -425,6 +425,24 @@
       "nf2": "Angajează doar direct.",
       "nf3": "Nu colaborează cu agenții."
     },
+    "leadMagnet": {
+      "eyebrow": "Nu ești încă pregătit să suni?",
+      "title": "Ia Quick Staffing Protocol ca PDF de o pagină",
+      "subtitle": "O pagină de referință pe care o poți trimite mai departe echipei tale, CTO-ului, sau departamentului de achiziții, înainte de următorul sprint planning. Fără pitch de vânzări, doar cum funcționează plasarea în 24 până la 48 de ore.",
+      "item1": "Cum funcționează, oră cu oră, protocolul de Scop, Potrivire și Plasare.",
+      "item2": "Exact cum se facturează: rata salarială plus marja noastră fixă de 10 €/oră, nimic ascuns.",
+      "item3": "Ce elimină asta: căutarea de luni de zile, riscul legal, ghicitul legat de comisioanele agențiilor.",
+      "forwardNote": "O pagină. Făcută să fie trimisă mai departe, nu doar citită singur.",
+      "emailLabel": "Email de lucru",
+      "emailPlaceholder": "tu@companie.ro",
+      "emailError": "Introdu o adresă de email validă ca să știm unde trimitem PDF-ul.",
+      "submitCta": "Trimite-mi PDF-ul",
+      "submittingCta": "Se trimite...",
+      "privacyNote": "Un singur email. Fără newsletter, fără spam, doar acest PDF.",
+      "successTitle": "Gata.",
+      "successBody": "Exemplarul tău din Quick Staffing Protocol e pregătit de descărcat.",
+      "downloadCta": "Descarcă PDF-ul"
+    },
     "finalCta": {
       "title": "Fiecare săptămână în care postul rămâne neocupat e încă o săptămână în care sprintul tău întârzie.",
       "subtitle": "Nu ai 3 luni. Ai un sprint care începe luni."

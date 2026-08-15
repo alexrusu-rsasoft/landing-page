@@ -425,6 +425,24 @@
       "nf2": "Only hiring direct employees.",
       "nf3": "Not collaborating with agencies."
     },
+    "leadMagnet": {
+      "eyebrow": "Not ready to book a call yet?",
+      "title": "Get the Quick Staffing Protocol as a one-page PDF",
+      "subtitle": "A one-page reference you can forward to your team, your CTO, or procurement before the next sprint planning call. No sales pitch, just how the 24 to 48 hour placement works.",
+      "item1": "How the Scope, Match and Placement protocol works, hour by hour.",
+      "item2": "Exactly how billing works: salary rate plus our flat €10/hour margin, nothing hidden.",
+      "item3": "What this removes: the months-long search, the legal risk, the guesswork on agency markups.",
+      "forwardNote": "One page. Built to be forwarded, not read alone.",
+      "emailLabel": "Work email",
+      "emailPlaceholder": "you@company.com",
+      "emailError": "Enter a valid email address so we know where to send the PDF.",
+      "submitCta": "Send me the PDF",
+      "submittingCta": "Sending...",
+      "privacyNote": "One email. No newsletter, no spam, just this PDF.",
+      "successTitle": "You're set.",
+      "successBody": "Your copy of the Quick Staffing Protocol is ready to download.",
+      "downloadCta": "Download the PDF"
+    },
     "finalCta": {
       "title": "Every week that seat stays empty is another week your sprint slips.",
       "subtitle": "You don't have 3 months. You have a sprint that starts Monday."
