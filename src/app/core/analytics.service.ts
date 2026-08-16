@@ -46,6 +46,10 @@ export class AnalyticsService {
     this.send('careers_view_details_click', { event_category: 'careers', event_label: opportunity });
   }
 
+  trackCareersApplicationSubmit(opportunity: string): void {
+    this.send('careers_application_submit', { event_category: 'careers', event_label: opportunity });
+  }
+
   /** Fires once when the Google Calendar iframe scrolls into the viewport. */
   trackCalendarViewed(): void {
     this.send('calendar_section_viewed', { event_category: 'calendar' });

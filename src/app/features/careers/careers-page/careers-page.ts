@@ -10,14 +10,13 @@ import {
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
 import { CareersService } from '../careers';
 import { CareerOpening } from '../career-opening';
 
-const APPLY_EMAIL = 'alex.rusu@rsasoft.ro';
-
 @Component({
   selector: 'app-careers-page',
-  imports: [RouterLink, TranslocoPipe],
+  imports: [RouterLink, TranslocoPipe, CareersApplyForm],
   templateUrl: './careers-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -95,22 +94,17 @@ export class CareersPage {
     return value;
   }
 
-  protected applyHref(opening: CareerOpening): string {
-    const subject = this.#transloco.translate('careers.openings.applySubject', {
-      opportunity: opening.opportunity,
-    });
-    const body = this.#transloco.translate('careers.openings.applyBody', {
-      opportunity: opening.opportunity,
-    });
-    return `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  protected readonly applyOpen = signal(false);
+  protected readonly applyTargetRole = signal('');
+
+  protected openApply(targetRole = ''): void {
+    this.applyTargetRole.set(targetRole);
+    this.applyOpen.set(true);
+    this.closeDetails();
+    this.#analytics.trackCareersApplyClick(targetRole || 'general');
   }
 
-  protected trackApply(opening: CareerOpening): void {
-    this.#analytics.trackCareersApplyClick(opening.opportunity);
-  }
-
-  protected get generalApplyHref(): string {
-    const subject = this.#transloco.translate('careers.finalCta.subject');
-    return `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(subject)}`;
+  protected closeApply(): void {
+    this.applyOpen.set(false);
   }
 }
