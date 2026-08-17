@@ -14,17 +14,34 @@ declare global {
   }
 }
 
+interface StoredConsent {
+  status: 'accepted' | 'rejected';
+  timestamp: number;
+}
+
+const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+
 @Injectable({ providedIn: 'root' })
 export class CookieConsentService {
-  readonly status = signal<CookieConsentStatus>(this.readStoredStatus());
-  readonly bannerVisible = signal<boolean>(this.status() === null);
+  readonly status = signal<CookieConsentStatus>(null);
+  readonly bannerVisible = signal<boolean>(false);
 
   private analyticsLoaded = false;
 
-  /** Called once at app startup: silently re-enables analytics for returning visitors who already consented. */
+  /** Called once at app startup: reads stored choice and shows banner if absent/expired. */
   init(): void {
-    if (this.status() === 'accepted') {
-      this.loadAnalytics();
+    if (typeof window === 'undefined') return;
+
+    const storedStatus = this.readStoredStatus();
+    this.status.set(storedStatus);
+
+    if (storedStatus === null) {
+      this.bannerVisible.set(true);
+    } else {
+      this.bannerVisible.set(false);
+      if (storedStatus === 'accepted') {
+        this.loadAnalytics();
+      }
     }
   }
 
@@ -32,7 +49,7 @@ export class CookieConsentService {
     this.status.set('accepted');
     this.bannerVisible.set(false);
     this.store('accepted');
-    this.loadAnalytics();
+    setTimeout(() => this.loadAnalytics(), 0);
   }
 
   reject(): void {
@@ -64,17 +81,48 @@ export class CookieConsentService {
   }
 
   private readStoredStatus(): CookieConsentStatus {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return null;
+    }
+
     try {
-      const value = localStorage.getItem(STORAGE_KEY);
-      return value === 'accepted' || value === 'rejected' ? value : null;
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+
+      // Backward compatibility with legacy plain string values
+      if (raw === 'accepted' || raw === 'rejected') {
+        this.store(raw);
+        return raw;
+      }
+
+      const parsed = JSON.parse(raw) as StoredConsent;
+      if (!parsed || (parsed.status !== 'accepted' && parsed.status !== 'rejected') || !parsed.timestamp) {
+        return null;
+      }
+
+      const isExpired = Date.now() - parsed.timestamp > ONE_MONTH_MS;
+      if (isExpired) {
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
+
+      return parsed.status;
     } catch {
       return null;
     }
   }
 
   private store(value: 'accepted' | 'rejected'): void {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return;
+    }
+
     try {
-      localStorage.setItem(STORAGE_KEY, value);
+      const payload: StoredConsent = {
+        status: value,
+        timestamp: Date.now(),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch {
       // Storage unavailable (private browsing). Consent still applies for this session.
     }
