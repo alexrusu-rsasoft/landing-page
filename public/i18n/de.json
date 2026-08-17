@@ -9,7 +9,8 @@
   },
   "common": {
     "freeCallCta": "Kostenloses Beratungsgespräch vereinbaren",
-    "calendarIframeTitle": "30-minütiges Strategiegespräch buchen"
+    "calendarIframeTitle": "30-minütiges Strategiegespräch buchen",
+    "ctaConfirmed": "Wird geöffnet…"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -302,7 +303,12 @@
       "step2Time": "Std. 2-24",
       "step2Text": "Match: Aus bereits geprüften Entwicklern für Ihre Branche",
       "step3Time": "Std. 24-48",
-      "step3Text": "Besetzung: Ein Entwickler passend zu Ihrem Stack, startbereit"
+      "step3Text": "Besetzung: Ein Entwickler passend zu Ihrem Stack, startbereit",
+      "humanEyebrow": "Kein Callcenter, ein Ansprechpartner",
+      "humanLine": "Ich bin Alex. Ich lese jede Anfrage selbst und führe jedes Erstgespräch persönlich, keine Weiterleitung an ein Vertriebsteam.",
+      "humanName": "Alex-George Rusu",
+      "humanRole": "Gründer, RSA SOFT",
+      "humanPhotoAlt": "Alex-George Rusu, Gründer von RSA SOFT"
     },
     "objections": {
       "eyebrow": "Der Einwand, den wir bei jedem Erstgespräch hören",
@@ -343,7 +349,9 @@
       "collaborationLabel": "Zusammenarbeit",
       "languagesLabel": "Sprachen",
       "disclaimer": "Anonymisierte Profile aus unserem aktuellen Pool. Kontaktdaten, Lebenslauf und genaue Rate werden erst nach dem ersten Gespräch mit dem passenden Kunden geteilt.",
-      "emptyText": "Wir aktualisieren gerade den Pool verfügbarer Profile. Sagen Sie uns, welche Rolle Sie suchen, und wir senden Ihnen direkt 2-3 passende Profile."
+      "emptyText": "Wir aktualisieren gerade den Pool verfügbarer Profile. Sagen Sie uns, welche Rolle Sie suchen, und wir senden Ihnen direkt 2-3 passende Profile.",
+      "liveLabel": "Live",
+      "ctaLabel": "Vollständige Profile anfragen"
     },
     "proof": {
       "eyebrow": "Nachweis, keine Versprechen",
@@ -356,6 +364,13 @@
       "p6": "Der Projektleiter hat uns gesagt, dass er ihn über RSA SOFT für zukünftige Projekte zurückholen möchte.",
       "closing1": "Das ist der Standard, zu dem wir Entwickler vermitteln.",
       "closing2": "Das Protokoll ist, wie schnell wir das tun.",
+      "statYearsValue": "4",
+      "statYearsLabel": "Jahre eingebettet",
+      "statIssuesValue": "0",
+      "statIssuesLabel": "Qualitätsprobleme",
+      "statLevelValue": "Senior",
+      "statLevelLabel": "Standard geliefert",
+      "ctaLabel": "Referenzfall besprechen",
       "signatureName": "RSA SOFT",
       "signatureRole": "Software-Staffing-Partner",
       "videoEyebrow": "Kundenstimme",
@@ -429,6 +444,14 @@
       "ex4": "Ihnen werden 1.200 € berechnet.",
       "note": "Das ist alles. Sie sehen den Satz des Entwicklers. Sie sehen unsere Marge. Nichts sonst ist eingerechnet.",
       "speedNote": "Geschwindigkeit kostet Sie keinen versteckten Aufpreis. Der Satz bleibt gleich, egal ob die Suche 48 Stunden oder 4 Wochen dauert.",
+      "calculatorTitle": "Kostenrechner",
+      "calculatorHoursLabel": "Geschätzte Stunden",
+      "calculatorRateLabel": "Stundensatz des Entwicklers",
+      "calculatorMarginLabel": "Unsere Marge",
+      "calculatorPerHourLabel": "Gesamt pro Stunde",
+      "calculatorTotalLabel": "Ihre Gesamtkosten",
+      "calculatorHint": "Bewegen Sie die Regler. Keine versteckten Kosten, keine Überraschungen.",
+      "ctaLabel": "Genauen Preis für Ihren Fall klären",
       "whatYouGetTitle": "Das bekommen Sie",
       "wyg1": "Einen Entwickler passend zu Ihrem Nischen-Stack in 24 bis 48 Stunden, nicht in Monaten.",
       "wyg2": "Volle Transparenz darüber, was Sie zahlen: Gehaltssatz + 10 €/h Marge, nichts versteckt.",
@@ -476,7 +499,8 @@
     },
     "finalCta": {
       "title": "Jede Woche, in der die Stelle unbesetzt bleibt, ist eine weitere Woche, in der sich Ihr Sprint verzögert.",
-      "subtitle": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt."
+      "subtitle": "Sie haben keine 3 Monate Zeit. Sie haben einen Sprint, der Montag beginnt.",
+      "ctaLabel": "Jetzt Termin sichern"
     },
     "faq": {
       "eyebrow": "Häufige Fragen",

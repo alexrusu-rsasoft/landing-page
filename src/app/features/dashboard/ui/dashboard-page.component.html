@@ -1,4 +1,4 @@
-<div class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+<div appRevealOnScroll class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
   <section class="space-y-8">
     <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
       <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
@@ -21,18 +21,15 @@
     </div>
 
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-      <a [routerLink]="['/contact']"
-        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
-        (click)="trackCta('hero_free_call')">
-        {{ 'common.freeCallCta' | transloco }}
-      </a>
+      <app-free-call-cta [label]="'common.freeCallCta' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
+        analyticsLabel="hero_free_call" />
       <a [routerLink]="['/']" fragment="protocol"
-        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-md"
         (click)="trackCta('hero_view_protocol')">
         {{ 'dashboard.hero.ctaSecondary' | transloco }}
       </a>
       <a href="tel:+40747011397"
-        class="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-6 py-4 text-sm font-semibold text-red-700 transition hover:border-red-300 hover:bg-red-100"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-6 py-4 text-sm font-semibold text-red-700 transition duration-200 hover:-translate-y-0.5 hover:border-red-300 hover:bg-red-100 hover:shadow-md"
         (click)="trackCta('hero_urgent_call')">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -43,19 +40,22 @@
     </div>
 
     <div class="grid gap-4 sm:grid-cols-3">
-      <app-count-up-stat [label]="'dashboard.hero.stat1Label' | transloco" [value]="'dashboard.hero.stat1Value' | transloco" />
-      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+      <app-count-up-stat [label]="'dashboard.hero.stat1Label' | transloco"
+        [value]="'dashboard.hero.stat1Value' | transloco" />
+      <div
+        class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
         <p class="text-sm text-slate-500">{{ 'dashboard.hero.stat2Label' | transloco }}</p>
         <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat2Value' | transloco }}</p>
       </div>
-      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+      <div
+        class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
         <p class="text-sm text-slate-500">{{ 'dashboard.hero.stat3Label' | transloco }}</p>
         <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat3Value' | transloco }}</p>
       </div>
     </div>
 
     <a href="https://listafirme.ro/rsa-soft-srl-43911790//" target="_blank" rel="noopener noreferrer"
-      class="inline-flex w-fit items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm shadow-slate-200/70 transition hover:border-primary/40 hover:shadow-md"
+      class="inline-flex w-fit items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
       [attr.aria-label]="'dashboard.hero.trustBadgeAlt' | transloco">
       <img src="https://listafirme.ro/platform-static/platform-images/top5.gif"
         [attr.alt]="'dashboard.hero.trustBadgeAlt' | transloco" class="h-14 w-auto shrink-0" loading="lazy"
@@ -102,7 +102,32 @@
   </section>
 </div>
 
-<section id="objections" class="mt-20 scroll-mt-32 space-y-8">
+<section appRevealOnScroll class="mt-16">
+  <div
+    class="relative overflow-hidden rounded-3xl bg-primary shadow-xl shadow-primary/25 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+    <div class="grid grid-cols-[110px_1fr] items-stretch sm:min-h-[440px] sm:grid-cols-[1fr_1.3fr]">
+      <div class="relative h-[235px] sm:h-auto">
+        <img src="/alex-rusu-image.webp" [attr.alt]="'dashboard.hero.humanPhotoAlt' | transloco"
+          class="absolute inset-0 h-full w-full object-contain object-bottom" width="900" height="1442"
+          decoding="async" />
+      </div>
+      <div appRevealOnScroll direction="right"
+        class="flex flex-col justify-center gap-1.5 p-4 text-white sm:gap-3 sm:p-10">
+        <p class="text-[10px] uppercase leading-tight tracking-[0.16em] text-white/70 sm:text-sm sm:tracking-[0.32em]">
+          {{ 'dashboard.hero.humanEyebrow' | transloco }}
+        </p>
+        <p class="hidden text-xs leading-5 sm:block sm:text-xl sm:leading-8">{{ 'dashboard.hero.humanLine' | transloco
+          }}</p>
+        <p class="text-[11px] font-semibold sm:text-sm">
+          {{ 'dashboard.hero.humanName' | transloco }}
+          <span class="font-normal text-white/70">— {{ 'dashboard.hero.humanRole' | transloco }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="objections" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl space-y-4">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.objections.eyebrow' | transloco }}</p>
     <h2 class="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -118,18 +143,22 @@
   </div>
 
   <div class="grid gap-4 sm:grid-cols-2">
-    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+    <div
+      class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <p class="text-sm leading-7 text-slate-600">{{ 'dashboard.objections.item1' | transloco }}</p>
     </div>
-    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+    <div
+      class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <p class="text-sm leading-7 text-slate-600">
         {{ 'dashboard.objections.item2' | transloco }}
       </p>
     </div>
-    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+    <div
+      class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <p class="text-sm leading-7 text-slate-600">{{ 'dashboard.objections.item3' | transloco }}</p>
     </div>
-    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+    <div
+      class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <p class="text-sm leading-7 text-slate-600">{{ 'dashboard.objections.item4' | transloco }}</p>
     </div>
   </div>
@@ -143,7 +172,7 @@
   </div>
 </section>
 
-<section id="protocol" class="mt-20 scroll-mt-32 space-y-8">
+<section id="protocol" #protocolSection appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.protocol.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -151,8 +180,27 @@
     </h2>
   </div>
 
+  <div aria-hidden="true">
+    <div class="h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
+      <div class="h-full rounded-full bg-primary transition-[width] duration-500 ease-out"
+        [style.width.%]="protocolProgressPercent()"></div>
+    </div>
+    <div class="mt-2 flex justify-between text-[11px] font-semibold uppercase tracking-wide">
+      <span [class]="activeProtocolPhase() >= 0 ? 'text-primary' : 'text-slate-400'">{{ 'dashboard.protocol.scopeTitle'
+        | transloco }}</span>
+      <span [class]="activeProtocolPhase() >= 1 ? 'text-primary' : 'text-slate-400'">{{ 'dashboard.protocol.matchTitle'
+        | transloco }}</span>
+      <span [class]="activeProtocolPhase() >= 2 ? 'text-primary' : 'text-slate-400'">{{
+        'dashboard.protocol.placementTitle' | transloco }}</span>
+      <span [class]="activeProtocolPhase() >= 3 ? 'text-primary' : 'text-slate-400'">{{
+        'dashboard.protocol.retentionTitle' | transloco }}</span>
+    </div>
+  </div>
+
   <div class="grid gap-6 lg:grid-cols-4">
-    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80 transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
+      [class.ring-2]="activeProtocolPhase() === 0" [class.ring-primary]="activeProtocolPhase() === 0"
+      [class.ring-offset-2]="activeProtocolPhase() === 0">
       <p class="text-xs font-mono uppercase tracking-widest text-primary">{{ 'dashboard.protocol.scopeTime' | transloco
         }}</p>
       <h3 class="mt-3 text-xl font-semibold text-slate-950">{{ 'dashboard.protocol.scopeTitle' | transloco }}</h3>
@@ -160,7 +208,9 @@
         {{ 'dashboard.protocol.scopeText' | transloco }}
       </p>
     </div>
-    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80 transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
+      [class.ring-2]="activeProtocolPhase() === 1" [class.ring-primary]="activeProtocolPhase() === 1"
+      [class.ring-offset-2]="activeProtocolPhase() === 1">
       <p class="text-xs font-mono uppercase tracking-widest text-primary">{{ 'dashboard.protocol.matchTime' | transloco
         }}</p>
       <h3 class="mt-3 text-xl font-semibold text-slate-950">{{ 'dashboard.protocol.matchTitle' | transloco }}</h3>
@@ -168,7 +218,9 @@
         {{ 'dashboard.protocol.matchText' | transloco }}
       </p>
     </div>
-    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80 transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
+      [class.ring-2]="activeProtocolPhase() === 2" [class.ring-primary]="activeProtocolPhase() === 2"
+      [class.ring-offset-2]="activeProtocolPhase() === 2">
       <p class="text-xs font-mono uppercase tracking-widest text-primary">{{ 'dashboard.protocol.placementTime' |
         transloco }}</p>
       <h3 class="mt-3 text-xl font-semibold text-slate-950">{{ 'dashboard.protocol.placementTitle' | transloco }}</h3>
@@ -176,7 +228,9 @@
         {{ 'dashboard.protocol.placementText' | transloco }}
       </p>
     </div>
-    <div class="rounded-3xl bg-slate-950/95 p-8 text-white shadow-xl shadow-slate-950/10">
+    <div class="rounded-3xl bg-slate-950/95 p-8 text-white shadow-xl shadow-slate-950/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+      [class.ring-2]="activeProtocolPhase() === 3" [class.ring-primary]="activeProtocolPhase() === 3"
+      [class.ring-offset-2]="activeProtocolPhase() === 3">
       <p class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'dashboard.protocol.retentionTime' |
         transloco }}</p>
       <h3 class="mt-3 text-xl font-semibold">{{ 'dashboard.protocol.retentionTitle' | transloco }}</h3>
@@ -187,7 +241,7 @@
   </div>
 </section>
 
-<section id="profiles" class="mt-20 scroll-mt-32 space-y-8">
+<section id="profiles" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.profiles.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -201,12 +255,32 @@
   <app-developer-profiles-section />
 </section>
 
-<section id="proof" class="mt-20 scroll-mt-32 space-y-10">
+<section id="proof" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-10">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.proof.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
       {{ 'dashboard.proof.title' | transloco }}
     </h2>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-3">
+    <div
+      class="rounded-3xl bg-slate-950/95 p-6 text-white shadow-xl shadow-slate-950/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+      <p appCountUp class="text-4xl font-semibold tabular-nums sm:text-5xl">{{ 'dashboard.proof.statYearsValue' |
+        transloco }}</p>
+      <p class="mt-2 text-sm text-slate-300">{{ 'dashboard.proof.statYearsLabel' | transloco }}</p>
+    </div>
+    <div
+      class="rounded-3xl bg-slate-950/95 p-6 text-white shadow-xl shadow-slate-950/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+      <p appCountUp class="text-4xl font-semibold tabular-nums sm:text-5xl">{{ 'dashboard.proof.statIssuesValue' |
+        transloco }}</p>
+      <p class="mt-2 text-sm text-slate-300">{{ 'dashboard.proof.statIssuesLabel' | transloco }}</p>
+    </div>
+    <div
+      class="rounded-3xl bg-primary p-6 text-white shadow-xl shadow-primary/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+      <p class="text-4xl font-semibold sm:text-5xl">{{ 'dashboard.proof.statLevelValue' | transloco }}</p>
+      <p class="mt-2 text-sm text-white/80">{{ 'dashboard.proof.statLevelLabel' | transloco }}</p>
+    </div>
   </div>
 
   <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
@@ -231,7 +305,8 @@
       </div>
     </div>
 
-    <div class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/70">
+    <div
+      class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl">
       <p class="text-sm uppercase tracking-[0.24em] text-primary">{{ 'dashboard.proof.videoEyebrow' | transloco }}</p>
       <p class="mt-3 text-sm leading-7 text-slate-600">
         {{ 'dashboard.proof.videoCaption' | transloco }}
@@ -254,22 +329,23 @@
 
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       @for (i of [1, 2, 3, 4]; track i) {
-      <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+      <div
+        class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
         <p class="text-sm font-semibold leading-6 text-slate-950">{{ 'dashboard.proof.case' + i + 'Industry' | transloco
           }}</p>
         <p class="mt-2 text-xs leading-6 text-slate-500">{{ 'dashboard.proof.case' + i + 'Stack' | transloco }}</p>
         <div class="mt-5 flex items-end justify-between gap-2 border-t border-slate-100 pt-4">
           <div>
-            <p class="text-[11px] uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.placementLabel' |
+            <p class="text-[11px] uppercase tracking-wide text-slate-400">{{ 'dashboard.proof.placementLabel' |
               transloco }}</p>
-            <p appCountUp class="mt-1 text-sm font-semibold text-primary">{{ 'dashboard.proof.case' + i + 'Placement' |
-              transloco }}</p>
+            <p class="mt-1 text-xs font-medium text-slate-500">{{ 'dashboard.proof.case' + i + 'Placement' | transloco
+              }}</p>
           </div>
           <div class="text-right">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500">{{ 'dashboard.proof.durationLabel' | transloco
+            <p class="text-[11px] uppercase tracking-wide text-primary">{{ 'dashboard.proof.durationLabel' | transloco
               }}</p>
-            <p class="mt-1 text-sm font-semibold text-slate-950">{{ 'dashboard.proof.case' + i + 'Duration' | transloco
-              }}</p>
+            <p appCountUp class="mt-1 text-2xl font-bold tabular-nums text-slate-950">{{ 'dashboard.proof.case' + i +
+              'Duration' | transloco }}</p>
           </div>
         </div>
       </div>
@@ -284,13 +360,20 @@
     </h3>
 
     <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/70">
-      <table class="w-full min-w-[720px] border-collapse text-sm">
+      <table class="w-full min-w-[760px] border-collapse text-sm">
         <thead>
           <tr class="border-b border-slate-200 bg-slate-50">
             <th scope="col" class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{
               'dashboard.proof.tableColCriteria' | transloco }}</th>
-            <th scope="col" class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-primary">{{
-              'dashboard.proof.tableColRsa' | transloco }}</th>
+            <th scope="col" class="border-x border-primary/30 bg-primary p-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
+              <span class="inline-flex items-center gap-1.5">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {{ 'dashboard.proof.tableColRsa' | transloco }}
+              </span>
+            </th>
             <th scope="col" class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{
               'dashboard.proof.tableColAgency' | transloco }}</th>
             <th scope="col" class="p-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">{{
@@ -304,13 +387,41 @@
           <tr class="border-b border-slate-100 align-top last:border-0">
             <td class="p-4 text-sm font-semibold text-slate-950">{{ 'dashboard.proof.tableRow' + i + 'Label' | transloco
               }}</td>
-            <td class="bg-primary/5 p-4 text-sm leading-6 text-slate-800">{{ 'dashboard.proof.tableRow' + i + 'Rsa' |
-              transloco }}</td>
-            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Agency' | transloco }}
+            <td class="border-x border-primary/30 bg-primary/5 p-4 text-sm leading-6 text-slate-900">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-none text-emerald-600" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                <span class="font-medium">{{ 'dashboard.proof.tableRow' + i + 'Rsa' | transloco }}</span>
+              </div>
             </td>
-            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Freelancer' |
-              transloco }}</td>
-            <td class="p-4 text-sm leading-6 text-slate-600">{{ 'dashboard.proof.tableRow' + i + 'Direct' | transloco }}
+            <td class="p-4 text-sm leading-6 text-slate-500">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-none text-slate-300" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 12h12" />
+                </svg>
+                <span>{{ 'dashboard.proof.tableRow' + i + 'Agency' | transloco }}</span>
+              </div>
+            </td>
+            <td class="p-4 text-sm leading-6 text-slate-500">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-none text-slate-300" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 12h12" />
+                </svg>
+                <span>{{ 'dashboard.proof.tableRow' + i + 'Freelancer' | transloco }}</span>
+              </div>
+            </td>
+            <td class="p-4 text-sm leading-6 text-slate-500">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-none text-slate-300" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 12h12" />
+                </svg>
+                <span>{{ 'dashboard.proof.tableRow' + i + 'Direct' | transloco }}</span>
+              </div>
             </td>
           </tr>
           }
@@ -320,15 +431,12 @@
   </div>
 
   <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-    <a [routerLink]="['/contact']"
-      class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
-      (click)="trackCta('proof_free_call')">
-      {{ 'common.freeCallCta' | transloco }}
-    </a>
+    <app-free-call-cta [label]="'dashboard.proof.ctaLabel' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
+      analyticsLabel="proof_free_call" />
   </div>
 </section>
 
-<section id="talent" class="mt-20 scroll-mt-32 space-y-8">
+<section id="talent" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.talent.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -342,7 +450,7 @@
   <app-certifications />
 </section>
 
-<section id="pricing" class="mt-20 scroll-mt-32 space-y-8">
+<section id="pricing" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.pricing.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -351,7 +459,8 @@
   </div>
 
   <div class="grid gap-6 lg:grid-cols-2">
-    <div class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80">
+    <div
+      class="rounded-3xl bg-white p-8 shadow-sm shadow-slate-200/80 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <p class="text-sm uppercase tracking-[0.24em] text-primary">{{ 'dashboard.pricing.exampleLabel' | transloco }}</p>
       <div class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
         <p>{{ 'dashboard.pricing.ex1' | transloco }}</p>
@@ -368,7 +477,7 @@
     </div>
 
     <div class="grid gap-4">
-      <div class="rounded-3xl bg-slate-950/95 p-6 text-white shadow-xl shadow-slate-950/10">
+      <div class="rounded-3xl bg-slate-950/95 p-6 text-white shadow-xl shadow-slate-950/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
         <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">{{
           'dashboard.pricing.whatYouGetTitle' | transloco }}</h3>
         <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-200">
@@ -378,7 +487,8 @@
           <li>{{ 'dashboard.pricing.wyg4' | transloco }}</li>
         </ul>
       </div>
-      <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80">
+      <div
+        class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
         <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{{ 'dashboard.pricing.removesTitle'
           | transloco }}</h3>
         <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
@@ -391,16 +501,20 @@
     </div>
   </div>
 
+  <app-cost-calculator [title]="'dashboard.pricing.calculatorTitle' | transloco"
+    [hint]="'dashboard.pricing.calculatorHint' | transloco" [hoursLabel]="'dashboard.pricing.calculatorHoursLabel' | transloco"
+    [rateLabel]="'dashboard.pricing.calculatorRateLabel' | transloco"
+    [marginLabel]="'dashboard.pricing.calculatorMarginLabel' | transloco"
+    [perHourLabel]="'dashboard.pricing.calculatorPerHourLabel' | transloco"
+    [totalLabel]="'dashboard.pricing.calculatorTotalLabel' | transloco" />
+
   <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-    <a [routerLink]="['/contact']"
-      class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
-      (click)="trackCta('pricing_free_call')">
-      {{ 'common.freeCallCta' | transloco }}
-    </a>
+    <app-free-call-cta [label]="'dashboard.pricing.ctaLabel' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
+      analyticsLabel="pricing_free_call" />
   </div>
 </section>
 
-<section id="fit" class="mt-20 scroll-mt-32 space-y-8">
+<section id="fit" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl space-y-2">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.fit.eyebrow' | transloco }}</p>
     <h2 class="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -418,7 +532,8 @@
   </div>
 
   <div class="grid gap-6 lg:grid-cols-2">
-    <div class="rounded-3xl border border-primary/20 bg-primary/5 p-8">
+    <div
+      class="rounded-3xl border border-primary/20 bg-primary/5 p-8 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <h3 class="text-lg font-semibold text-slate-950">{{ 'dashboard.fit.goodFitTitle' | transloco }}</h3>
       <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-700">
         <li>{{ 'dashboard.fit.gf1' | transloco }}</li>
@@ -427,7 +542,8 @@
         <li>{{ 'dashboard.fit.gf4' | transloco }}</li>
       </ul>
     </div>
-    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+    <div
+      class="rounded-3xl border border-slate-200 bg-slate-50 p-8 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <h3 class="text-lg font-semibold text-slate-950">{{ 'dashboard.fit.notFitTitle' | transloco }}</h3>
       <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
         <li>{{ 'dashboard.fit.nf1' | transloco }}</li>
@@ -440,7 +556,7 @@
 
 <app-lead-magnet-section />
 
-<section id="faq" class="mt-20 scroll-mt-32 space-y-8">
+<section id="faq" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">
     <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.faq.eyebrow' | transloco }}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -450,7 +566,8 @@
 
   <div class="grid gap-4 max-w-3xl">
     @for (i of [1, 2, 3, 4, 5]; track i) {
-    <details class="group rounded-2xl bg-white p-6 shadow-sm shadow-slate-200/70 open:shadow-md">
+    <details
+      class="group rounded-2xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md open:shadow-md">
       <summary
         class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-slate-950">
         {{ 'dashboard.faq.q' + i | transloco }}
@@ -465,7 +582,7 @@
   </div>
 </section>
 
-<section class="mt-20 mb-4 scroll-mt-32">
+<section appRevealOnScroll class="mt-20 mb-4 scroll-mt-32">
   <div class="rounded-[32px] bg-slate-950 px-8 py-16 text-center shadow-2xl shadow-slate-950/20 sm:px-16">
     <h2 class="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
       {{ 'dashboard.finalCta.title' | transloco }}
@@ -474,11 +591,8 @@
       {{ 'dashboard.finalCta.subtitle' | transloco }}
     </p>
     <div class="mt-8 flex justify-center">
-      <a [routerLink]="['/contact']"
-        class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950"
-        (click)="trackCta('final_free_call')">
-        {{ 'common.freeCallCta' | transloco }}
-      </a>
+      <app-free-call-cta [label]="'dashboard.finalCta.ctaLabel' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
+        analyticsLabel="final_free_call" variant="invert" size="lg" />
     </div>
   </div>
 </section>

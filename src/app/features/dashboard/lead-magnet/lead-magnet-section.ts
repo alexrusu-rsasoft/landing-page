@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AnalyticsService } from '../../../core/analytics.service';
+import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
 import { LeadMagnetApi } from './lead-magnet-api';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,7 +15,7 @@ const DOWNLOAD_URLS: Record<string, string> = {
 
 @Component({
   selector: 'app-lead-magnet-section',
-  imports: [FormsModule, TranslocoPipe],
+  imports: [FormsModule, TranslocoPipe, RevealOnScrollDirective],
   templateUrl: './lead-magnet-section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

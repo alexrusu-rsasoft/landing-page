@@ -9,7 +9,8 @@
   },
   "common": {
     "freeCallCta": "Get a FREE consulting call",
-    "calendarIframeTitle": "Book a 30-minute strategy call"
+    "calendarIframeTitle": "Book a 30-minute strategy call",
+    "ctaConfirmed": "Opening…"
   },
   "notFound": {
     "title": "Page not found",
@@ -302,7 +303,12 @@
       "step2Time": "Hr 2-24",
       "step2Text": "Match: pulled from developers already vetted for your industry",
       "step3Time": "Hr 24-48",
-      "step3Text": "Placement: a developer matched to your stack, ready to start"
+      "step3Text": "Placement: a developer matched to your stack, ready to start",
+      "humanEyebrow": "No call center, one point of contact",
+      "humanLine": "I'm Alex. I read every inquiry myself and run every first call personally, no hand-off to a sales team.",
+      "humanName": "Alex-George Rusu",
+      "humanRole": "Founder, RSA SOFT",
+      "humanPhotoAlt": "Alex-George Rusu, Founder of RSA SOFT"
     },
     "objections": {
       "eyebrow": "The objection we hear every call",
@@ -343,7 +349,9 @@
       "collaborationLabel": "Collaboration",
       "languagesLabel": "Languages",
       "disclaimer": "Anonymized profiles from our current pool. Contact details, CV and exact rate are only shared with the matched client, after the first call.",
-      "emptyText": "We're refreshing the pool of available profiles right now. Tell us what role you need and we'll send you 2-3 matching profiles directly."
+      "emptyText": "We're refreshing the pool of available profiles right now. Tell us what role you need and we'll send you 2-3 matching profiles directly.",
+      "liveLabel": "Live",
+      "ctaLabel": "Request full profiles"
     },
     "proof": {
       "eyebrow": "Proof, not promises",
@@ -356,6 +364,13 @@
       "p6": "The project lead told us he wants to bring him back through RSA SOFT for future projects.",
       "closing1": "That's the standard we place developers to.",
       "closing2": "The Protocol is how fast we do it.",
+      "statYearsValue": "4",
+      "statYearsLabel": "years embedded",
+      "statIssuesValue": "0",
+      "statIssuesLabel": "quality issues",
+      "statLevelValue": "Senior",
+      "statLevelLabel": "standard delivered",
+      "ctaLabel": "Discuss this reference case",
       "signatureName": "RSA SOFT",
       "signatureRole": "Software Staffing Partner",
       "videoEyebrow": "Client testimonial",
@@ -429,6 +444,14 @@
       "ex4": "You get billed €1,200.",
       "note": "That's it. You see the developer's rate. You see our margin. Nothing else is baked in.",
       "speedNote": "Speed doesn't cost you a hidden premium. The rate stays the same whether the search takes 48 hours or 4 weeks.",
+      "calculatorTitle": "Cost calculator",
+      "calculatorHoursLabel": "Estimated hours",
+      "calculatorRateLabel": "Developer's hourly rate",
+      "calculatorMarginLabel": "Our margin",
+      "calculatorPerHourLabel": "Total per hour",
+      "calculatorTotalLabel": "Your total cost",
+      "calculatorHint": "Move the sliders. No hidden costs, no surprises.",
+      "ctaLabel": "Get your exact price",
       "whatYouGetTitle": "What you get",
       "wyg1": "A developer matched to your niche stack in 24 to 48 hours, not months.",
       "wyg2": "Full visibility into what you're paying: salary rate + €10/h margin, nothing hidden.",
@@ -476,7 +499,8 @@
     },
     "finalCta": {
       "title": "Every week that seat stays empty is another week your sprint slips.",
-      "subtitle": "You don't have 3 months. You have a sprint that starts Monday."
+      "subtitle": "You don't have 3 months. You have a sprint that starts Monday.",
+      "ctaLabel": "Secure your slot now"
     },
     "faq": {
       "eyebrow": "Frequently asked",

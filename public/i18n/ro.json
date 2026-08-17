@@ -9,7 +9,8 @@
   },
   "common": {
     "freeCallCta": "Programează un apel de consultanță GRATUIT",
-    "calendarIframeTitle": "Programează un apel strategic de 30 de minute"
+    "calendarIframeTitle": "Programează un apel strategic de 30 de minute",
+    "ctaConfirmed": "Se deschide…"
   },
   "notFound": {
     "title": "Pagina nu a fost găsită",
@@ -302,7 +303,12 @@
       "step2Time": "Ora 2-24",
       "step2Text": "Potrivire: din dezvoltatori deja verificați pentru industria ta",
       "step3Time": "Ora 24-48",
-      "step3Text": "Plasare: un dezvoltator potrivit stack-ului tău, gata de start"
+      "step3Text": "Plasare: un dezvoltator potrivit stack-ului tău, gata de start",
+      "humanEyebrow": "Fără call center, un singur interlocutor",
+      "humanLine": "Sunt Alex. Citesc personal fiecare cerere și conduc chiar eu fiecare prim apel, fără să fie transferat unei echipe de vânzări.",
+      "humanName": "Alex-George Rusu",
+      "humanRole": "Fondator, RSA SOFT",
+      "humanPhotoAlt": "Alex-George Rusu, Fondator RSA SOFT"
     },
     "objections": {
       "eyebrow": "Obiecția pe care o auzim la fiecare apel",
@@ -343,7 +349,9 @@
       "collaborationLabel": "Colaborare",
       "languagesLabel": "Limbi vorbite",
       "disclaimer": "Profiluri anonimizate din pool-ul nostru curent. Detaliile de contact, CV-ul și rata exactă sunt partajate doar clientului potrivit, după primul apel.",
-      "emptyText": "Momentan actualizăm pool-ul de profiluri disponibile. Spune-ne ce rol cauți și îți trimitem 2-3 profiluri potrivite direct."
+      "emptyText": "Momentan actualizăm pool-ul de profiluri disponibile. Spune-ne ce rol cauți și îți trimitem 2-3 profiluri potrivite direct.",
+      "liveLabel": "Live",
+      "ctaLabel": "Solicită profiluri complete"
     },
     "proof": {
       "eyebrow": "Dovezi, nu promisiuni",
@@ -356,6 +364,13 @@
       "p6": "Project lead-ul ne-a spus că vrea să-l aducă înapoi prin RSA SOFT pentru proiecte viitoare.",
       "closing1": "Acesta e standardul la care plasăm dezvoltatori.",
       "closing2": "Protocolul e cât de repede facem asta.",
+      "statYearsValue": "4",
+      "statYearsLabel": "ani integrat",
+      "statIssuesValue": "0",
+      "statIssuesLabel": "probleme de calitate",
+      "statLevelValue": "Senior",
+      "statLevelLabel": "standard livrat",
+      "ctaLabel": "Discută acest caz de referință",
       "signatureName": "RSA SOFT",
       "signatureRole": "Partener de Staffing Software",
       "videoEyebrow": "Testimonial client",
@@ -429,6 +444,14 @@
       "ex4": "Ești facturat 1.200 €.",
       "note": "Asta e tot. Vezi rata dezvoltatorului. Vezi marja noastră. Nimic altceva nu e inclus ascuns.",
       "speedNote": "Viteza nu te costă o taxă ascunsă. Rata rămâne aceeași indiferent dacă găsirea durează 48 de ore sau 4 săptămâni.",
+      "calculatorTitle": "Calculator de cost",
+      "calculatorHoursLabel": "Ore estimate",
+      "calculatorRateLabel": "Tariful orar al dezvoltatorului",
+      "calculatorMarginLabel": "Marja noastră",
+      "calculatorPerHourLabel": "Total pe oră",
+      "calculatorTotalLabel": "Costul tău total",
+      "calculatorHint": "Mișcă sliderele. Fără costuri ascunse, fără surprize.",
+      "ctaLabel": "Află costul exact pentru cazul tău",
       "whatYouGetTitle": "Ce primești",
       "wyg1": "Un dezvoltator potrivit stack-ului tău de nișă în 24 până la 48 de ore, nu luni.",
       "wyg2": "Vizibilitate completă asupra a ceea ce plătești: rata salarială + marja de 10 €/h, nimic ascuns.",
@@ -476,7 +499,8 @@
     },
     "finalCta": {
       "title": "Fiecare săptămână în care postul rămâne neocupat e încă o săptămână în care sprintul tău întârzie.",
-      "subtitle": "Nu ai 3 luni. Ai un sprint care începe luni."
+      "subtitle": "Nu ai 3 luni. Ai un sprint care începe luni.",
+      "ctaLabel": "Rezervă-ți locul acum"
     },
     "faq": {
       "eyebrow": "Întrebări frecvente",

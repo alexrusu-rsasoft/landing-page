@@ -1,20 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { FreeCallCta } from '../../../shared/ui/free-call-cta/free-call-cta';
 import { DeveloperProfilesService } from '../developer-profiles';
 
 const PROFILES_SHOWN = 3;
 
 @Component({
   selector: 'app-developer-profiles-section',
-  imports: [RouterLink, TranslocoPipe],
+  imports: [TranslocoPipe, FreeCallCta],
   templateUrl: './developer-profiles-section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[attr.aria-busy]': 'isLoading()' },
 })
 export class DeveloperProfilesSection {
-  readonly #analytics = inject(AnalyticsService);
   readonly #developerProfiles = inject(DeveloperProfilesService);
 
   protected readonly isLoading = this.#developerProfiles.isLoading;
@@ -22,10 +20,6 @@ export class DeveloperProfilesSection {
   protected readonly profiles = computed(() =>
     this.#developerProfiles.profiles().slice(0, PROFILES_SHOWN),
   );
-
-  protected trackCta(label: CtaLabel): void {
-    this.#analytics.trackCtaClick(label);
-  }
 
   protected splitList(value: string): string[] {
     if (!value) return [];
@@ -36,6 +30,6 @@ export class DeveloperProfilesSection {
   }
 
   protected isAvailableNow(availability: string): boolean {
-    return /now|acum|imediat|sofort/i.test(availability ?? '');
+    return /immediately|now|acum|imediat|sofort/i.test(availability ?? '');
   }
 }

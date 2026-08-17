@@ -25,26 +25,32 @@
 } @else if (hasError() || profiles().length === 0) {
 <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
   <p class="text-base leading-7 text-slate-700">{{ 'dashboard.profiles.emptyText' | transloco }}</p>
-  <a [routerLink]="['/contact']"
-    class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
-    (click)="trackCta('profiles_free_call')">
-    {{ 'common.freeCallCta' | transloco }}
-  </a>
+  <div class="mt-6 flex justify-center">
+    <app-free-call-cta [label]="'dashboard.profiles.ctaLabel' | transloco"
+      [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="profiles_free_call" />
+  </div>
 </div>
 } @else {
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
   @for (profile of profiles(); track profile.role + profile.yearsExperience + $index) {
-  <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80">
+  <div
+    class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
     <div class="flex items-start justify-between gap-3">
       <div
         class="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-slate-950/95 text-sm font-semibold text-white">
         {{ 'dashboard.profiles.anonymizedInitials' | transloco }}
       </div>
       @if (profile.availability) {
-      <span class="px-2.5 py-1 text-xs rounded-full font-medium border whitespace-nowrap"
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-full font-medium border whitespace-nowrap"
         [class]="isAvailableNow(profile.availability)
           ? 'bg-green-50 text-green-700 border-green-200'
           : 'bg-slate-100 text-slate-700 border-slate-200'">
+        @if (isAvailableNow(profile.availability)) {
+        <span class="relative flex h-1.5 w-1.5" [attr.aria-label]="'dashboard.profiles.liveLabel' | transloco">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-600"></span>
+        </span>
+        }
         {{ profile.availability }}
       </span>
       }
@@ -87,11 +93,8 @@
 <p class="mt-6 text-sm text-slate-500">{{ 'dashboard.profiles.disclaimer' | transloco }}</p>
 
 <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-  <a [routerLink]="['/contact']"
-    class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950"
-    (click)="trackCta('profiles_free_call')">
-    {{ 'common.freeCallCta' | transloco }}
-  </a>
+  <app-free-call-cta [label]="'dashboard.profiles.ctaLabel' | transloco"
+    [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="profiles_free_call" />
 </div>
 }
 </div>
