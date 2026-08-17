@@ -22,7 +22,7 @@ import { TranslocoHttpLoader } from './core/i18n/transloco-loader';
 import { LocaleService } from './core/i18n/locale.service';
 import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
 import { AppTitleStrategy } from './core/i18n/app-title-strategy';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const interceptor = inject(AuthInterceptor);
@@ -76,6 +76,10 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => inject(LocaleService).initLocale()),
     provideAppInitializer(() => inject(CookieConsentService).init()),
     { provide: TitleStrategy, useClass: AppTitleStrategy },
-    provideClientHydration(),
+    // withEventReplay: on a prerendered page the HTML is visible before the
+    // JS has hydrated, so a tap on "Accept"/"Reject" in that window would
+    // otherwise be silently dropped — this queues it and replays it once
+    // hydration finishes, instead of the button appearing to ignore the tap.
+    provideClientHydration(withEventReplay()),
   ],
 };
