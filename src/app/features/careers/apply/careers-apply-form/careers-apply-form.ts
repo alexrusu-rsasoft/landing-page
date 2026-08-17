@@ -1,21 +1,49 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   HostListener,
   inject,
   input,
+  OnDestroy,
   OnInit,
   output,
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService } from '../../../../core/analytics.service';
 import { AVAILABILITY_OPTIONS, COLLABORATION_OPTIONS } from '../apply-options';
 import { CareersApplyApi } from '../careers-apply-api';
+import { DEFAULT_LANGUAGE_LEVEL, LANGUAGE_LEVELS, LANGUAGE_OPTIONS } from '../language-options';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Allows spaces, dashes, parentheses and an optional leading "+", but the
+// digit count (7-15) is what actually decides validity, per E.164.
+const PHONE_CHAR_PATTERN = /^\+?[\d\s()-]+$/;
 const IMMEDIATE_AVAILABILITY = AVAILABILITY_OPTIONS[0].value;
+const CUSTOM_LANGUAGE_PREFIX = 'custom:';
+
+type StepId = 'contact' | 'availability' | 'role' | 'languages' | 'consent';
+
+interface StepMeta {
+  id: StepId;
+  emoji: string;
+  titleKey: string;
+}
+
+interface SelectedLanguage {
+  code: string;
+  level: string;
+}
+
+const STEPS: readonly StepMeta[] = [
+  { id: 'contact', emoji: '👋', titleKey: 'careers.apply.stepContactTitle' },
+  { id: 'availability', emoji: '⏰', titleKey: 'careers.apply.stepAvailabilityTitle' },
+  { id: 'role', emoji: '💼', titleKey: 'careers.apply.stepRoleTitle' },
+  { id: 'languages', emoji: '🌍', titleKey: 'careers.apply.stepLanguagesTitle' },
+  { id: 'consent', emoji: '🎉', titleKey: 'careers.apply.stepConsentTitle' },
+];
 
 // Verbatim from the Google Form's own "Candidate Privacy Notice" question,
 // kept in English (its original language) rather than machine-retranslated,
@@ -62,18 +90,37 @@ As a data subject, you have a number of rights under the GDPR. You can:</p>
   selector: 'app-careers-apply-form',
   imports: [FormsModule, TranslocoPipe],
   templateUrl: './careers-apply-form.html',
+  styleUrl: './careers-apply-form.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CareersApplyForm implements OnInit {
+export class CareersApplyForm implements OnInit, OnDestroy {
   readonly initialTargetRole = input<string>('');
   readonly closed = output<void>();
 
   readonly #api = inject(CareersApplyApi);
   readonly #analytics = inject(AnalyticsService);
+  readonly #transloco = inject(TranslocoService);
 
+  protected readonly steps = STEPS;
   protected readonly availabilityOptions = AVAILABILITY_OPTIONS;
   protected readonly collaborationOptions = COLLABORATION_OPTIONS;
+  protected readonly languageOptions = LANGUAGE_OPTIONS;
+  protected readonly languageLevels = LANGUAGE_LEVELS;
   protected readonly privacyNoticeHtml = PRIVACY_NOTICE_HTML;
+
+  protected readonly currentStepIndex = signal(0);
+  protected readonly furthestStepIndex = signal(0);
+  protected readonly attemptedNext = signal(false);
+
+  /** Locked when applying from a specific role's card; free-text when sending a general profile. */
+  protected readonly isSpecificRole = computed(() => !!this.initialTargetRole().trim());
+
+  protected readonly currentStep = computed(() => this.steps[this.currentStepIndex()]);
+  protected readonly isFirstStep = computed(() => this.currentStepIndex() === 0);
+  protected readonly isLastStep = computed(() => this.currentStepIndex() === this.steps.length - 1);
+  protected readonly progressPercent = computed(
+    () => ((this.currentStepIndex() + 1) / this.steps.length) * 100,
+  );
 
   protected readonly fullName = signal('');
   protected readonly phone = signal('');
@@ -83,25 +130,141 @@ export class CareersApplyForm implements OnInit {
   protected readonly targetRole = signal('');
   protected readonly techStack = signal('');
   protected readonly yearsExperience = signal('');
-  protected readonly languages = signal('');
-  protected readonly collaborationType = signal('');
   protected readonly expectedRate = signal('');
+  protected readonly collaborationType = signal('');
   protected readonly consent = signal(false);
   /** Honeypot: hidden from real visitors, only bots that autofill every field populate it. */
   protected readonly website = signal('');
 
+  protected readonly selectedLanguages = signal<SelectedLanguage[]>([]);
+  protected readonly customLanguageInput = signal('');
+  protected readonly showCustomLanguageInput = signal(false);
+
   protected readonly submitting = signal(false);
   protected readonly submitted = signal(false);
-  protected readonly showErrors = signal(false);
   protected readonly showPrivacyNotice = signal(false);
+
+  protected readonly phoneTouched = signal(false);
+  protected readonly emailTouched = signal(false);
+  protected readonly showPhoneError = computed(
+    () => (this.phoneTouched() || this.attemptedNext()) && !this.isPhoneValid(),
+  );
+  protected readonly showEmailError = computed(
+    () => (this.emailTouched() || this.attemptedNext()) && !this.isEmailValid(),
+  );
+
+  protected readonly stepValid = computed(() => {
+    switch (this.currentStep().id) {
+      case 'contact':
+        return !!this.fullName().trim() && this.isPhoneValid() && this.isEmailValid();
+      case 'availability':
+        return !!this.availability();
+      case 'role':
+        return (
+          !!this.targetRole().trim() &&
+          !!this.techStack().trim() &&
+          !!this.yearsExperience().trim() &&
+          !!this.expectedRate().trim()
+        );
+      case 'languages':
+        return this.selectedLanguages().length > 0;
+      case 'consent':
+        return this.consent();
+      default:
+        return true;
+    }
+  });
 
   ngOnInit(): void {
     this.targetRole.set(this.initialTargetRole());
+    // This component only ever exists in the DOM while its modal is open,
+    // so init/destroy is the modal's own open/close lifecycle.
+    document.body.style.overflow = 'hidden';
+  }
+
+  ngOnDestroy(): void {
+    document.body.style.overflow = '';
+  }
+
+  protected isPhoneValid(): boolean {
+    const value = this.phone().trim();
+    if (!value || !PHONE_CHAR_PATTERN.test(value)) return false;
+    const digitCount = value.replace(/\D/g, '').length;
+    return digitCount >= 7 && digitCount <= 15;
+  }
+
+  protected isEmailValid(): boolean {
+    return EMAIL_PATTERN.test(this.email().trim());
+  }
+
+  /** Strips anything that isn't a digit, +, space, dash or parenthesis as the user types. */
+  protected onPhoneInput(event: Event): void {
+    const inputEl = event.target as HTMLInputElement;
+    const sanitized = inputEl.value.replace(/[^\d+()\s-]/g, '');
+    if (inputEl.value !== sanitized) {
+      inputEl.value = sanitized;
+    }
+    this.phone.set(sanitized);
   }
 
   protected showsNoticeDate(): boolean {
     const value = this.availability();
     return !!value && value !== IMMEDIATE_AVAILABILITY;
+  }
+
+  protected isLanguageSelected(code: string): boolean {
+    return this.selectedLanguages().some((l) => l.code === code);
+  }
+
+  protected languageLevel(code: string): string | undefined {
+    return this.selectedLanguages().find((l) => l.code === code)?.level;
+  }
+
+  protected toggleLanguage(code: string): void {
+    const current = this.selectedLanguages();
+    if (current.some((l) => l.code === code)) {
+      this.selectedLanguages.set(current.filter((l) => l.code !== code));
+    } else {
+      this.selectedLanguages.set([...current, { code, level: DEFAULT_LANGUAGE_LEVEL }]);
+    }
+  }
+
+  protected setLanguageLevel(code: string, level: string): void {
+    this.selectedLanguages.update((list) => list.map((l) => (l.code === code ? { ...l, level } : l)));
+  }
+
+  protected removeLanguage(code: string): void {
+    this.selectedLanguages.update((list) => list.filter((l) => l.code !== code));
+  }
+
+  protected addCustomLanguage(): void {
+    const name = this.customLanguageInput().trim();
+    if (!name) return;
+    const code = `${CUSTOM_LANGUAGE_PREFIX}${name}`;
+    if (!this.selectedLanguages().some((l) => l.code === code)) {
+      this.selectedLanguages.set([
+        ...this.selectedLanguages(),
+        { code, level: DEFAULT_LANGUAGE_LEVEL },
+      ]);
+    }
+    this.customLanguageInput.set('');
+    this.showCustomLanguageInput.set(false);
+  }
+
+  protected languageFlag(code: string): string {
+    return code.startsWith(CUSTOM_LANGUAGE_PREFIX)
+      ? '🌐'
+      : (LANGUAGE_OPTIONS.find((l) => l.code === code)?.flag ?? '🌐');
+  }
+
+  protected languageDisplayName(code: string): string {
+    if (code.startsWith(CUSTOM_LANGUAGE_PREFIX)) return code.slice(CUSTOM_LANGUAGE_PREFIX.length);
+    const option = LANGUAGE_OPTIONS.find((l) => l.code === code);
+    return option ? this.#transloco.translate(option.labelKey) : code;
+  }
+
+  protected levelLabel(level: string): string {
+    return level === 'Native' ? this.#transloco.translate('careers.apply.levelNative') : level;
   }
 
   protected togglePrivacyNotice(): void {
@@ -117,19 +280,45 @@ export class CareersApplyForm implements OnInit {
     this.close();
   }
 
-  protected onSubmit(): void {
+  protected next(): void {
     if (this.website().trim()) {
-      // Bot tripped the honeypot: show success without submitting or tracking.
+      // Bot tripped the honeypot: skip straight to a fake success.
       this.submitted.set(true);
       return;
     }
 
-    if (!this.isValid()) {
-      this.showErrors.set(true);
+    if (!this.stepValid()) {
+      this.attemptedNext.set(true);
       return;
     }
 
-    this.showErrors.set(false);
+    this.attemptedNext.set(false);
+
+    if (this.isLastStep()) {
+      this.onSubmit();
+      return;
+    }
+
+    const nextIndex = this.currentStepIndex() + 1;
+    this.currentStepIndex.set(nextIndex);
+    this.furthestStepIndex.update((current) => Math.max(current, nextIndex));
+  }
+
+  protected back(): void {
+    this.attemptedNext.set(false);
+    this.currentStepIndex.update((current) => Math.max(0, current - 1));
+  }
+
+  protected goToStep(index: number): void {
+    if (index <= this.furthestStepIndex()) {
+      this.attemptedNext.set(false);
+      this.currentStepIndex.set(index);
+    }
+  }
+
+  private onSubmit(): void {
+    if (!this.stepValid()) return;
+
     this.submitting.set(true);
 
     this.#api
@@ -142,7 +331,7 @@ export class CareersApplyForm implements OnInit {
         targetRole: this.targetRole().trim(),
         techStack: this.techStack().trim(),
         yearsExperience: this.yearsExperience().trim(),
-        languages: this.languages().trim(),
+        languages: this.buildLanguagesText(),
         collaborationType: this.collaborationType() || undefined,
         expectedRate: this.expectedRate().trim(),
       })
@@ -152,19 +341,15 @@ export class CareersApplyForm implements OnInit {
       });
   }
 
-  private isValid(): boolean {
-    return (
-      !!this.fullName().trim() &&
-      !!this.phone().trim() &&
-      EMAIL_PATTERN.test(this.email().trim()) &&
-      !!this.availability() &&
-      !!this.targetRole().trim() &&
-      !!this.techStack().trim() &&
-      !!this.yearsExperience().trim() &&
-      !!this.languages().trim() &&
-      !!this.expectedRate().trim() &&
-      this.consent()
-    );
+  private buildLanguagesText(): string {
+    return this.selectedLanguages()
+      .map((l) => {
+        const name = l.code.startsWith(CUSTOM_LANGUAGE_PREFIX)
+          ? l.code.slice(CUSTOM_LANGUAGE_PREFIX.length)
+          : (LANGUAGE_OPTIONS.find((opt) => opt.code === l.code)?.value ?? l.code);
+        return `${name} - ${l.level}`;
+      })
+      .join(', ');
   }
 
   private handleSubmitted(): void {

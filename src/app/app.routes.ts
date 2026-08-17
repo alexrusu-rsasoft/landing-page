@@ -34,6 +34,12 @@ export const routes: Routes = [
     data: { titleKey: 'meta.careers' },
   },
   {
+    path: 'careers/:slug',
+    loadComponent: () =>
+      import('./features/careers/job-detail/job-detail-page').then((c) => c.JobDetailPage),
+    data: { titleKey: 'meta.careers' },
+  },
+  {
     path: 'contact',
     loadComponent: () => import('./shared/ui/contact/contact').then((c) => c.Contact),
     data: { titleKey: 'meta.contact' },

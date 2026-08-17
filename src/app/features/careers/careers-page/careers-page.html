@@ -149,9 +149,7 @@
     @for (opening of openings(); track opening.opportunity + opening.fillUntil) {
     <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80">
       <h3 class="text-lg font-semibold text-slate-950 line-clamp-2">
-        <button type="button" class="text-left hover:text-primary transition" (click)="openDetails(opening, $event)">
-          {{ opening.opportunity }}
-        </button>
+        <a [routerLink]="jobLink(opening)" class="hover:text-primary transition">{{ opening.opportunity }}</a>
       </h3>
 
       <div class="mt-3 flex flex-wrap gap-2">
@@ -189,10 +187,10 @@
       </div>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <button type="button" (click)="openDetails(opening, $event)"
+        <a [routerLink]="jobLink(opening)"
           class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
           {{ 'careers.openings.viewDetailsCta' | transloco }}
-        </button>
+        </a>
         <button type="button" (click)="openApply(opening.opportunity)"
           class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950">
           {{ 'careers.openings.applyCta' | transloco }}
@@ -204,66 +202,6 @@
   }
   </div>
 </section>
-
-@if (selectedOpening(); as opening) {
-<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
-  <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" (click)="closeDetails()"></div>
-
-  <div #dialog class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
-    role="dialog" aria-modal="true" aria-labelledby="opening-details-title">
-    <button type="button" (click)="closeDetails()"
-      [attr.aria-label]="'careers.openings.closeDetails' | transloco"
-      class="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-950">
-      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-
-    <h3 id="opening-details-title" class="pr-10 text-2xl font-semibold text-slate-950">{{ opening.opportunity }}</h3>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      @if (opening.level) {
-      <span class="px-2.5 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
-        {{ opening.level }}
-      </span>
-      }
-      @if (opening.minYearsExperience) {
-      <span class="px-2.5 py-1 text-xs rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-medium">
-        {{ yearsLabel(opening) }}
-      </span>
-      }
-      @if (opening.urgency) {
-      <span class="px-2.5 py-1 text-xs rounded-full font-medium border"
-        [class]="isUrgent(opening)
-          ? 'bg-red-50 text-red-700 border-red-200'
-          : 'bg-slate-100 text-slate-700 border-slate-200'">
-        {{ opening.urgency }}
-      </span>
-      }
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
-      @if (opening.hourly) {
-      <span class="font-medium text-slate-950">{{ 'careers.openings.rateLabel' | transloco }}: {{ opening.hourly }}</span>
-      }
-      @if (opening.fillUntil) {
-      <span>{{ 'careers.openings.fillUntilLabel' | transloco }}: {{ opening.fillUntil }}</span>
-      }
-    </div>
-
-    @if (opening.notes) {
-    <p class="mt-6 whitespace-pre-line text-sm leading-7 text-slate-600">{{ opening.notes }}</p>
-    }
-
-    <div class="mt-8">
-      <button type="button" (click)="openApply(opening.opportunity)"
-        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950">
-        {{ 'careers.openings.applyCta' | transloco }}
-      </button>
-    </div>
-  </div>
-</div>
-}
 
 <section class="mt-20 mb-4 scroll-mt-32">
   <div class="rounded-[32px] bg-slate-950 px-8 py-16 text-center shadow-2xl shadow-slate-950/20 sm:px-16">
