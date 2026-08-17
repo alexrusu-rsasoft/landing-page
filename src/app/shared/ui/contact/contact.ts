@@ -6,6 +6,7 @@ import {
   ElementRef,
   inject,
   OnDestroy,
+  PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
@@ -13,7 +14,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService, type ContactLabel } from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ViewportScroller } from '@angular/common';
+import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -33,6 +34,7 @@ export class Contact implements AfterViewInit, OnDestroy {
   readonly #breakpointObserver = inject(BreakpointObserver);
   readonly #transloco = inject(TranslocoService);
   readonly #sanitizer = inject(DomSanitizer);
+  readonly #platformId = inject(PLATFORM_ID);
 
   readonly calendarIfremRef = viewChild<ElementRef<HTMLIFrameElement>>('calendarIframe');
 
@@ -74,13 +76,16 @@ export class Contact implements AfterViewInit, OnDestroy {
   });
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.#platformId)) return;
     this.setupIntersectionObserver();
     window.addEventListener('blur', this.#onWindowBlur);
   }
 
   ngOnDestroy(): void {
     this.#intersectionObserver?.disconnect();
-    window.removeEventListener('blur', this.#onWindowBlur);
+    if (isPlatformBrowser(this.#platformId)) {
+      window.removeEventListener('blur', this.#onWindowBlur);
+    }
   }
 
   protected trackContact(label: ContactLabel): void {

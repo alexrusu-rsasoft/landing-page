@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Injectable, inject } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { TranslocoService } from '@jsverse/transloco';
 import { catchError, firstValueFrom, of, timeout } from 'rxjs';
@@ -24,9 +24,17 @@ export class LocaleService {
   private readonly http = inject(HttpClient);
   private readonly transloco = inject(TranslocoService);
   private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
 
   async initLocale(): Promise<void> {
     this.transloco.langChanges$.subscribe((lang) => this.syncHtmlLang(lang));
+
+    if (!isPlatformBrowser(this.platformId)) {
+      // No real visitor IP or navigator to read at build/render time on the server;
+      // render with the default language and let the client redo real detection on hydration.
+      await this.activateLang(this.transloco.getDefaultLang());
+      return;
+    }
 
     const storedLang = this.readStoredLang();
     if (storedLang) {

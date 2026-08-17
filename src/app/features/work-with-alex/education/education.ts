@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Edu {
@@ -17,6 +17,7 @@ interface Cert {
   imports: [TranslocoPipe],
   templateUrl: './education.html',
   styleUrl: './education.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationSection {
   readonly education: Edu[] = [

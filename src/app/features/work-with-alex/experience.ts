@@ -1,4 +1,5 @@
-import { computed, inject, Injectable, resource } from '@angular/core';
+import { computed, inject, Injectable, PLATFORM_ID, resource } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ExperienceItem } from './experience-item';
 import { ExperienceApi } from './experience-api';
 import { firstValueFrom } from 'rxjs';
@@ -8,10 +9,15 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ExperienceService {
   readonly #api = inject(ExperienceApi);
+  readonly #platformId = inject(PLATFORM_ID);
 
-  // Resource tracking the async experience data
+  // Resource tracking the async experience data. Skipped on the server: this
+  // route is prerendered at build time, and this data comes from a live,
+  // occasionally slow third-party API (Apps Script) that a build shouldn't
+  // depend on. The client re-fetches on hydration instead.
   readonly experienceResource = resource({
     loader: async ({ abortSignal }) => {
+      if (!isPlatformBrowser(this.#platformId)) return [];
       const obs = this.#api.fetchExperiences();
       return await firstValueFrom(obs);
     },

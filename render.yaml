@@ -16,9 +16,16 @@ services:
       - key: LEAD_MAGNET_API_URL
         sync: false
     routes:
+      # Prerendered routes (dashboard, work-with-alex, contact, legal pages, ...)
+      # are served directly as static files and never hit this rewrite. This
+      # only catches paths with no prerendered file: the API-backed careers
+      # routes and genuine 404s. It must point at the bare CSR shell rather
+      # than the prerendered homepage — routing a mismatched URL to the
+      # homepage's baked-in HTML causes a hydration mismatch (a flash of
+      # homepage content) once the client Router resolves the real path.
       - type: rewrite
         source: /*
-        destination: /index.html
+        destination: /index.csr.html
     headers:
       - path: /*
         name: X-Content-Type-Options

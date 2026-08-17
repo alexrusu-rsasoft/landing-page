@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ExperienceService } from '../experience';
@@ -8,6 +8,7 @@ import { ExperienceService } from '../experience';
   templateUrl: './experience-section.html',
   styleUrls: ['./experience-section.css'],
   imports: [DatePipe, TranslocoPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSection {
   readonly #service = inject(ExperienceService);

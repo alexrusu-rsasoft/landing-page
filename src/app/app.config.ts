@@ -3,7 +3,7 @@ import {
   inject,
   isDevMode,
   provideAppInitializer,
-  provideZoneChangeDetection,
+  provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -11,7 +11,6 @@ import {
   provideRouter,
   Router,
   TitleStrategy,
-  withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
@@ -23,6 +22,7 @@ import { TranslocoHttpLoader } from './core/i18n/transloco-loader';
 import { LocaleService } from './core/i18n/locale.service';
 import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
 import { AppTitleStrategy } from './core/i18n/app-title-strategy';
+import { provideClientHydration } from '@angular/platform-browser';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const interceptor = inject(AuthInterceptor);
@@ -31,18 +31,17 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZonelessChangeDetection(),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(
       routes,
-      // Without this, Angular renders the app shell (header/footer) and only
-      // inserts the routed page content once initial navigation resolves —
-      // even for a synchronous, eagerly-loaded route this crosses a task
-      // boundary, so the shell paints first with an empty <main>. The footer
-      // then visibly jumps into its final position once the route component
-      // lands, which was the largest remaining source of layout shift.
-      withEnabledBlockingInitialNavigation(),
+      // withEnabledBlockingInitialNavigation() used to cover the gap between
+      // shell paint and routed content landing (see below), but Angular
+      // rejects combining it with hydration (NG05001) — the two solve the
+      // same problem and are mutually exclusive. Hydration supersedes it:
+      // prerendered routes already have full content in the initial HTML, so
+      // there's no gap left to cover.
       withInMemoryScrolling({
         scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled',
@@ -56,6 +55,11 @@ export const appConfig: ApplicationConfig = {
           if (router.getCurrentNavigation()?.id === 1) {
             transition.skipTransition();
           }
+          // The browser aborts a transition outright if the DOM changes again
+          // before it settles (e.g. a fast second navigation, or hydration
+          // patching the DOM). That's an expected race, not a bug — avoid an
+          // unhandled-rejection console error for it.
+          transition.finished.catch(() => {});
         },
       }),
     ),
@@ -72,5 +76,6 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => inject(LocaleService).initLocale()),
     provideAppInitializer(() => inject(CookieConsentService).init()),
     { provide: TitleStrategy, useClass: AppTitleStrategy },
+    provideClientHydration(),
   ],
 };

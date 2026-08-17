@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-not-found',
   imports: [RouterLink, TranslocoPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="rounded-3xl p-8 text-center">
       <h1 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl text-center">

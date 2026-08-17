@@ -5,9 +5,11 @@ import {
   ElementRef,
   HostListener,
   inject,
+  PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { isActive, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { filter } from 'rxjs';
@@ -28,6 +30,7 @@ export class Layout {
   readonly #router = inject(Router);
   readonly #destroyRef = inject(DestroyRef);
   readonly #hostElement = inject(ElementRef<HTMLElement>);
+  readonly #platformId = inject(PLATFORM_ID);
   protected readonly cookieConsent = inject(CookieConsentService);
 
   protected readonly isContactPage = isActive('/contact', this.#router, {
@@ -55,11 +58,13 @@ export class Layout {
   readonly #visibleSections = new Set<string>();
 
   constructor() {
-    this.#router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => requestAnimationFrame(() => this.setupScrollSpy()));
+    if (isPlatformBrowser(this.#platformId)) {
+      this.#router.events
+        .pipe(filter((event) => event instanceof NavigationEnd))
+        .subscribe(() => requestAnimationFrame(() => this.setupScrollSpy()));
 
-    this.#destroyRef.onDestroy(() => this.#sectionObserver?.disconnect());
+      this.#destroyRef.onDestroy(() => this.#sectionObserver?.disconnect());
+    }
   }
 
   protected trackCta(label: CtaLabel): void {

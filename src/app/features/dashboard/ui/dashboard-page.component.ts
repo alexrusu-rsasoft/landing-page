@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
@@ -10,6 +10,7 @@ import { LeadMagnetSection } from '../lead-magnet/lead-magnet-section';
   selector: 'app-dashboard-page',
   imports: [RouterLink, Certifications, DeveloperProfilesSection, LeadMagnetSection, TranslocoPipe],
   templateUrl: './dashboard-page.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardPageComponent {
   protected readonly mobileMenuOpen = signal(false);

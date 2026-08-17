@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ExperienceService } from '../experience';
 import { Certifications } from '../certifications/certifications';
@@ -8,6 +8,7 @@ import { Certifications } from '../certifications/certifications';
   imports: [Certifications, TranslocoPipe],
   templateUrl: './why-choose-me.html',
   styleUrl: './why-choose-me.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WhyChooseMe {
   readonly #service = inject(ExperienceService);

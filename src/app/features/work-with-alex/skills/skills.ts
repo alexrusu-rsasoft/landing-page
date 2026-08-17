@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Skill {
@@ -16,6 +16,7 @@ interface Category {
   imports: [TranslocoPipe],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsSection {
   readonly categories: Category[] = [
