@@ -21,6 +21,7 @@ import { HttpHandler, HttpInterceptorFn } from '@angular/common/http';
 import { TranslocoHttpLoader } from './core/i18n/transloco-loader';
 import { LocaleService } from './core/i18n/locale.service';
 import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
+import { OffersService } from './core/offers/offers.service';
 import { AppTitleStrategy } from './core/i18n/app-title-strategy';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
@@ -75,6 +76,7 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAppInitializer(() => inject(LocaleService).initLocale()),
     provideAppInitializer(() => inject(CookieConsentService).init()),
+    provideAppInitializer(() => inject(OffersService).init()),
     { provide: TitleStrategy, useClass: AppTitleStrategy },
     // withEventReplay: on a prerendered page the HTML is visible before the
     // JS has hydrated, so a tap on "Accept"/"Reject" in that window would

@@ -2,9 +2,10 @@
 /**
  * Writes src/environments/environment.ts from environment variables.
  *
- * On Render, EXPERIENCE_API_URL / CAREERS_API_URL / DEVELOPER_PROFILES_API_URL /
- * LEAD_MAGNET_API_URL are set in the dashboard (see render.yaml, sync: false)
- * so the real Apps Script URLs never live in the git repo.
+ * On Render, EXPERIENCE_API_URL / CAREERS_API_URL / OFFERS_API_URL /
+ * DEVELOPER_PROFILES_API_URL / LEAD_MAGNET_API_URL are set in the dashboard
+ * (see render.yaml, sync: false) so the real Apps Script URLs never live in
+ * the git repo.
  *
  * Locally, these env vars are usually unset — in that case this script does
  * nothing and leaves your manually created (gitignored) environment.ts alone.
@@ -15,6 +16,7 @@ const path = require('path');
 const VARS = {
   experienceApiUrl: 'EXPERIENCE_API_URL',
   careersApiUrl: 'CAREERS_API_URL',
+  offersApiUrl: 'OFFERS_API_URL',
   developerProfilesApiUrl: 'DEVELOPER_PROFILES_API_URL',
   leadMagnetApiUrl: 'LEAD_MAGNET_API_URL',
 };

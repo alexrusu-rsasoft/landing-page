@@ -8,6 +8,7 @@
 export const environment = {
   experienceApiUrl: 'https://script.google.com/macros/s/REPLACE_ME/exec',
   careersApiUrl: 'https://script.google.com/macros/s/REPLACE_ME/exec',
+  offersApiUrl: 'https://script.google.com/macros/s/REPLACE_ME/exec',
   developerProfilesApiUrl: 'https://script.google.com/macros/s/REPLACE_ME/exec',
   leadMagnetApiUrl: 'https://script.google.com/macros/s/REPLACE_ME/exec',
 };

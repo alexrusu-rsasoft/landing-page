@@ -7,6 +7,10 @@
  * script, and the Stage column itself is never included in the response.
  * Rows whose Stage is blank, "Dead" or "Closed" are dropped entirely.
  *
+ * The Hourly figure returned here is the raw sheet value — the frontend
+ * subtracts the platform's cut itself, using the first row of the Offers
+ * sheet (see scripts/offers-apps-script.gs).
+ *
  * Deployment:
  *   1. Open your opportunities spreadsheet and copy its ID from the URL
  *      (the segment between /d/ and /edit).

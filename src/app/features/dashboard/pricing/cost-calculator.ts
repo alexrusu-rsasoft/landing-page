@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { OffersService } from '../../../core/offers/offers.service';
 
-const MARGIN_EUR_PER_HOUR = 10;
 const HOURS_MIN = 10;
 const HOURS_MAX = 400;
 const RATE_MIN = 5;
@@ -8,8 +8,9 @@ const RATE_MAX = 100;
 
 /**
  * Lets a visitor drag the two levers of the billing model (hours, developer
- * rate) and see the live total, so the "salary + €10/h margin" claim in the
- * copy above becomes something they can check themselves.
+ * rate) and see the live total, so the "salary + margin" claim in the copy
+ * above becomes something they can check themselves. The margin itself is
+ * the platform's first offer, fetched app-wide at startup by OffersService.
  */
 @Component({
   selector: 'app-cost-calculator',
@@ -52,7 +53,7 @@ const RATE_MAX = 100;
         </div>
         <div class="rounded-2xl bg-slate-50 p-4">
           <p class="text-xs uppercase tracking-wide text-slate-500">{{ marginLabel() }}</p>
-          <p class="mt-1 text-lg font-semibold tabular-nums text-slate-950">{{ margin }} €/h</p>
+          <p class="mt-1 text-lg font-semibold tabular-nums text-slate-950">{{ margin() }} €/h</p>
         </div>
         <div class="rounded-2xl bg-primary/10 p-4">
           <p class="text-xs uppercase tracking-wide text-primary">{{ perHourLabel() }}</p>
@@ -81,12 +82,12 @@ export class CostCalculator {
   protected readonly hoursMax = HOURS_MAX;
   protected readonly rateMin = RATE_MIN;
   protected readonly rateMax = RATE_MAX;
-  protected readonly margin = MARGIN_EUR_PER_HOUR;
+  protected readonly margin = inject(OffersService).platformCut;
 
   protected readonly hours = signal(60);
   protected readonly rate = signal(10);
 
-  protected readonly perHourTotal = computed(() => this.rate() + this.margin);
+  protected readonly perHourTotal = computed(() => this.rate() + this.margin());
   protected readonly total = computed(() => this.perHourTotal() * this.hours());
 
   protected onHoursInput(event: Event): void {
