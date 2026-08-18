@@ -95,10 +95,17 @@ function readCell(row, columnIndex, headerName) {
     return Utilities.formatDate(value, Session.getScriptTimeZone(), 'yyyy-MM-dd');
   }
 
-  // Înlocuim rândurile noi cu spațiu și eliminăm spațiile goale de la capete
-  return String(value)
-    .replace(/[\r\n]+/g, ' ')
-    .trim();
+  var text = String(value);
+
+  // The Notes column is a free-text job description (headings, paragraphs,
+  // bullet lists) — its line breaks are kept so the frontend can render it
+  // properly. Every other field is expected to be single-line, so stray
+  // newlines there are still collapsed to a space.
+  if (headerName === PUBLIC_FIELDS.notes) {
+    return text.replace(/\r\n/g, '\n').trim();
+  }
+
+  return text.replace(/[\r\n]+/g, ' ').trim();
 }
 
 function jsonResponse(payload) {

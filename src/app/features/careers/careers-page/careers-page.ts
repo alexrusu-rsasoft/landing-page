@@ -5,6 +5,7 @@ import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
 import { CareersService } from '../careers';
 import { CareerOpening } from '../career-opening';
+import { summarizeJobNotes } from '../job-notes';
 import { slugifyOpportunity } from '../job-slug';
 
 @Component({
@@ -35,6 +36,10 @@ export class CareersPage {
 
   protected jobLink(opening: CareerOpening): string[] {
     return ['/careers', slugifyOpportunity(opening.opportunity)];
+  }
+
+  protected notesSummary(opening: CareerOpening): string {
+    return summarizeJobNotes(opening.notes);
   }
 
   // Sheet values are usually numeric ("5", "3; 4") but occasionally free text

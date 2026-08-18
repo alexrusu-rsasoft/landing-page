@@ -8,6 +8,7 @@ import { AnalyticsService } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
 import { CareerOpening } from '../career-opening';
 import { CareersService } from '../careers';
+import { JobNotesBlock, parseJobNotes } from '../job-notes';
 import { slugifyOpportunity } from '../job-slug';
 
 @Component({
@@ -39,6 +40,11 @@ export class JobDetailPage {
   protected readonly notFound = computed(
     () => !this.isLoading() && !this.hasError() && !this.opening(),
   );
+
+  protected readonly noteBlocks = computed<JobNotesBlock[]>(() => {
+    const current = this.opening();
+    return current ? parseJobNotes(current.notes, current.opportunity) : [];
+  });
 
   protected readonly otherOpenings = computed(() => {
     const current = this.opening();
