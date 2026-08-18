@@ -62,7 +62,7 @@
 
       <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-500">
         @if (job.hourly) {
-        <span class="font-medium text-slate-950">{{ 'careers.openings.rateLabel' | transloco }}: {{ job.hourly }}</span>
+        <span class="font-medium text-slate-950">{{ 'careers.openings.rateLabel' | transloco }}: {{ job.hourly }} €/h</span>
         }
         @if (job.fillUntil) {
         <span>{{ 'careers.openings.fillUntilLabel' | transloco }}: {{ job.fillUntil }}</span>
