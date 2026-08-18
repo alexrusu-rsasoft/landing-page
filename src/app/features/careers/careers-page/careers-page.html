@@ -179,7 +179,11 @@
 
       <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
         @if (opening.hourly) {
+        @if (ratesLoading()) {
+        <span class="skeleton-pulse inline-block h-4 w-24" aria-hidden="true"></span>
+        } @else {
         <span class="font-medium text-slate-950">{{ 'careers.openings.rateLabel' | transloco }}: {{ opening.hourly }} €/h</span>
+        }
         }
         @if (opening.fillUntil) {
         <span>{{ 'careers.openings.fillUntilLabel' | transloco }}: {{ opening.fillUntil }}</span>

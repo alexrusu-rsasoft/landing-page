@@ -76,7 +76,10 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAppInitializer(() => inject(LocaleService).initLocale()),
     provideAppInitializer(() => inject(CookieConsentService).init()),
-    provideAppInitializer(() => inject(OffersService).init()),
+    // Non-blocking: just injecting the service starts its resource() fetch
+    // immediately, so this kicks it off at startup without delaying first
+    // render — consumers show a skeleton via OffersService.isLoading() instead.
+    provideAppInitializer(() => void inject(OffersService)),
     { provide: TitleStrategy, useClass: AppTitleStrategy },
     // withEventReplay: on a prerendered page the HTML is visible before the
     // JS has hydrated, so a tap on "Accept"/"Reject" in that window would

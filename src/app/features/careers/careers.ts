@@ -31,4 +31,9 @@ export class CareersService {
 
   readonly isLoading = this.openingsResource.isLoading;
   readonly hasError = computed(() => !!this.openingsResource.error());
+
+  // True while the platform cut hasn't loaded yet — opening.hourly above is
+  // still the uncut rate at that point, so templates should show a skeleton
+  // instead of that transient value.
+  readonly ratesLoading = this.#offers.isLoading;
 }

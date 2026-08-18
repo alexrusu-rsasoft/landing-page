@@ -53,17 +53,29 @@ const RATE_MAX = 100;
         </div>
         <div class="rounded-2xl bg-slate-50 p-4">
           <p class="text-xs uppercase tracking-wide text-slate-500">{{ marginLabel() }}</p>
+          @if (offersLoading()) {
+          <div class="skeleton-pulse mt-2 h-6 w-16" aria-hidden="true"></div>
+          } @else {
           <p class="mt-1 text-lg font-semibold tabular-nums text-slate-950">{{ margin() }} €/h</p>
+          }
         </div>
         <div class="rounded-2xl bg-primary/10 p-4">
           <p class="text-xs uppercase tracking-wide text-primary">{{ perHourLabel() }}</p>
+          @if (offersLoading()) {
+          <div class="skeleton-pulse mt-2 h-6 w-16" aria-hidden="true"></div>
+          } @else {
           <p class="mt-1 text-lg font-semibold tabular-nums text-primary">{{ perHourTotal() }} €/h</p>
+          }
         </div>
       </div>
 
       <div class="mt-6 flex items-baseline justify-between gap-4 rounded-2xl bg-slate-950/95 px-6 py-5 text-white">
         <span class="text-sm text-slate-300">{{ totalLabel() }}</span>
+        @if (offersLoading()) {
+        <div class="skeleton-pulse h-9 w-24" aria-hidden="true"></div>
+        } @else {
         <span class="text-3xl font-semibold tabular-nums">{{ total() }} €</span>
+        }
       </div>
     </div>
   `,
@@ -82,7 +94,9 @@ export class CostCalculator {
   protected readonly hoursMax = HOURS_MAX;
   protected readonly rateMin = RATE_MIN;
   protected readonly rateMax = RATE_MAX;
-  protected readonly margin = inject(OffersService).platformCut;
+  readonly #offers = inject(OffersService);
+  protected readonly margin = this.#offers.platformCut;
+  protected readonly offersLoading = this.#offers.isLoading;
 
   protected readonly hours = signal(60);
   protected readonly rate = signal(10);

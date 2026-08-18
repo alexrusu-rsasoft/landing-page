@@ -32,6 +32,7 @@ export class JobDetailPage {
   protected readonly isLoading = this.#careers.isLoading;
   protected readonly hasError = this.#careers.hasError;
   protected readonly openings = this.#careers.openings;
+  protected readonly ratesLoading = this.#careers.ratesLoading;
 
   protected readonly opening = computed<CareerOpening | null>(
     () => this.openings().find((o) => slugifyOpportunity(o.opportunity) === this.slug()) ?? null,
