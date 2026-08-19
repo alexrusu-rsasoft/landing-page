@@ -68,7 +68,7 @@
   </section>
 
   <section
-    class="relative overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(43,84,148,0.18),_transparent_38%),_linear-gradient(180deg,_rgb(255_255_255)_0%,_rgb(242_247_255)_100%)] px-6 py-10 shadow-2xl shadow-slate-200/40 sm:px-8 lg:py-16">
+    class="relative hidden overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(43,84,148,0.18),_transparent_38%),_linear-gradient(180deg,_rgb(255_255_255)_0%,_rgb(242_247_255)_100%)] px-6 py-10 shadow-2xl shadow-slate-200/40 sm:px-8 lg:block lg:py-16">
     <div class="absolute inset-x-0 top-0 h-20 bg-primary/10 blur-3xl"></div>
     <div class="relative space-y-6">
       <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/50">
@@ -338,19 +338,11 @@
         <p class="text-sm font-semibold leading-6 text-slate-950">{{ 'dashboard.proof.case' + i + 'Industry' | transloco
           }}</p>
         <p class="mt-2 text-xs leading-6 text-slate-500">{{ 'dashboard.proof.case' + i + 'Stack' | transloco }}</p>
-        <div class="mt-5 flex items-end justify-between gap-2 border-t border-slate-100 pt-4">
-          <div>
-            <p class="text-[11px] uppercase tracking-wide text-slate-400">{{ 'dashboard.proof.placementLabel' |
-              transloco }}</p>
-            <p class="mt-1 text-xs font-medium text-slate-500">{{ 'dashboard.proof.case' + i + 'Placement' | transloco
-              }}</p>
-          </div>
-          <div class="text-right">
-            <p class="text-[11px] uppercase tracking-wide text-primary">{{ 'dashboard.proof.durationLabel' | transloco
-              }}</p>
-            <p appCountUp class="mt-1 text-2xl font-bold tabular-nums text-slate-950">{{ 'dashboard.proof.case' + i +
-              'Duration' | transloco }}</p>
-          </div>
+        <div class="mt-5 border-t border-slate-100 pt-4">
+          <p class="text-[11px] uppercase tracking-wide text-primary">{{ 'dashboard.proof.durationLabel' | transloco
+            }}</p>
+          <p appCountUp class="mt-1 text-2xl font-bold tabular-nums text-slate-950">{{ 'dashboard.proof.case' + i +
+            'Duration' | transloco }}</p>
         </div>
       </div>
       }
