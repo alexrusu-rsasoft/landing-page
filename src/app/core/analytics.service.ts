@@ -8,6 +8,7 @@ export type CtaLabel =
   | 'nav_free_call_mobile'
   | 'hero_free_call'
   | 'hero_view_protocol'
+  | 'protocol_free_call'
   | 'profiles_free_call'
   | 'proof_free_call'
   | 'pricing_free_call'

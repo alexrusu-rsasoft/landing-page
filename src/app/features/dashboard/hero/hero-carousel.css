@@ -1,0 +1,175 @@
+/* The hero is the only full-bleed block on the page: it cancels the padded,
+   max-w-7xl <main> around it, and the negative top margin lets it sit flush
+   under the sticky header. `overflow-x: clip` on <html> (styles.css) absorbs
+   the scrollbar width that 100vw does not account for. */
+:host {
+  display: block;
+  margin-inline: calc(50% - 50vw);
+  margin-top: -1rem;
+}
+
+@media (min-width: 1024px) {
+  :host {
+    margin-top: -2rem;
+  }
+}
+
+/* Fills the fold under the sticky header (4.85rem), but grows instead of
+   clipping when the copy and the control row need more room — which is what
+   happens on a narrow phone. */
+.hero {
+  min-height: calc(100svh - 4.85rem);
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.1s ease-in-out;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Slow push-in while a slide is on screen, restarted every time it comes
+   back around because re-adding the class re-triggers the animation. */
+.hero-slide.is-active .hero-image {
+  animation: hero-zoom 9s ease-out both;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.07);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* Brand blue over the whole frame, plus a top/bottom scrim so white type keeps
+   its contrast over the brighter parts of the photograph. */
+.overlay-brand {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.5) 0%,
+      rgba(2, 6, 23, 0.12) 38%,
+      rgba(2, 6, 23, 0.72) 100%
+    ),
+    linear-gradient(0deg, rgba(43, 84, 148, 0.84), rgba(43, 84, 148, 0.84));
+}
+
+/* The tunnel shot carries its own colour, so it gets only a light blue tint
+   and a heavier scrim to keep the centre column readable. */
+.overlay-warm {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.62) 0%,
+      rgba(2, 6, 23, 0.34) 40%,
+      rgba(2, 6, 23, 0.8) 100%
+    ),
+    linear-gradient(0deg, rgba(43, 84, 148, 0.3), rgba(43, 84, 148, 0.3));
+}
+
+/* Medium blue tint for architectural subjects (bridge) with good detail
+   visibility but still strong brand presence. */
+.overlay-medium {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.48) 0%,
+      rgba(2, 6, 23, 0.2) 38%,
+      rgba(2, 6, 23, 0.72) 100%
+    ),
+    linear-gradient(0deg, rgba(43, 84, 148, 0.64), rgba(43, 84, 148, 0.64));
+}
+
+/* Lighter blue tint for photographic subjects (skyscraper) where the
+   building form must remain readable: weaker tint, stronger scrim. */
+.overlay-light {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.42) 0%,
+      rgba(2, 6, 23, 0.08) 32%,
+      rgba(2, 6, 23, 0.78) 100%
+    ),
+    linear-gradient(0deg, rgba(43, 84, 148, 0.42), rgba(43, 84, 148, 0.42));
+}
+
+.hero-pill {
+  position: relative;
+  height: 0.75rem;
+  width: 2.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-pill::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Filled by the rotation loop, which writes --hero-progress on the host. */
+.hero-pill-fill {
+  position: relative;
+  height: 2px;
+  width: 100%;
+  border-radius: 999px;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hero-pill.is-active .hero-pill-fill {
+  transform: scaleX(var(--hero-progress, 0));
+}
+
+.hero-scroll-cue {
+  animation: hero-cue 2.4s ease-in-out infinite;
+}
+
+@keyframes hero-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+
+  .hero-slide.is-active .hero-image {
+    animation: none;
+  }
+
+  .hero-scroll-cue {
+    animation: none;
+  }
+}

@@ -9,7 +9,6 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 import { CountUpDirective } from '../../../shared/ui/count-up/count-up.directive';
@@ -18,6 +17,7 @@ import { FreeCallCta } from '../../../shared/ui/free-call-cta/free-call-cta';
 import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
 import { DeveloperProfilesSection } from '../../developer-profiles/developer-profiles-section/developer-profiles-section';
 import { Certifications } from '../../work-with-alex/certifications/certifications';
+import { HeroCarousel } from '../hero/hero-carousel';
 import { LeadMagnetSection } from '../lead-magnet/lead-magnet-section';
 import { CostCalculator } from '../pricing/cost-calculator';
 
@@ -26,11 +26,11 @@ const PROTOCOL_PHASE_COUNT = 4;
 @Component({
   selector: 'app-dashboard-page',
   imports: [
-    RouterLink,
     Certifications,
     CostCalculator,
     DeveloperProfilesSection,
     FreeCallCta,
+    HeroCarousel,
     LeadMagnetSection,
     TranslocoPipe,
     CountUpDirective,

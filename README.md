@@ -58,6 +58,19 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 The build's `prebuild` step (`scripts/generate-env.js`) writes `src/environments/environment.ts` from these vars before `ng build` runs. If you rotate an Apps Script deployment (new `/exec` URL), just update the corresponding value in Render and redeploy — no code change needed.
 
+## Hero carousel images
+
+The full-resolution originals of the three hero photographs live in `assets-src/hero-carousel/`
+and are **not** deployed — only the responsive WebP variants in `public/hero-carousel/` are.
+After adding or replacing an original, regenerate those variants (needs Python with Pillow):
+
+```bash
+python3 scripts/optimize-hero-images.py
+```
+
+The widths it writes (640/960/1440/1920/2560) are the ones the hero's `srcset` asks for, and
+`src/index.html` preloads the first slide because it is the landing page's LCP element.
+
 ## Testing
 
 This project does not include unit or end-to-end tests.

@@ -1,106 +1,45 @@
-<div appRevealOnScroll class="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-  <section class="space-y-8">
-    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-      <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
-      {{ 'dashboard.hero.badge' | transloco }}
-    </div>
+<app-hero-carousel />
 
-    <div class="space-y-6">
-      <p class="text-sm uppercase tracking-[0.32em] text-slate-500">
-        {{ 'dashboard.hero.eyebrow' | transloco }}
-      </p>
-      <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-        {{ 'dashboard.hero.title' | transloco }}
-      </h1>
-      <div class="max-w-2xl space-y-2 text-base leading-8 text-slate-600 sm:text-lg">
-        <p>{{ 'dashboard.hero.p1' | transloco }}</p>
-        <p>{{ 'dashboard.hero.p2' | transloco }}</p>
-        <p>{{ 'dashboard.hero.p3' | transloco }}</p>
-        <p>{{ 'dashboard.hero.p4' | transloco }}</p>
-      </div>
-    </div>
+<!-- The proof that used to crowd the opening fold: audience, the two numbers
+     that matter and the third-party ranking, read after the headline. -->
+<section appRevealOnScroll class="mt-12 space-y-6">
+  <p
+    class="mx-auto flex w-fit items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-center text-sm font-semibold text-primary">
+    <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-primary"></span>
+    {{ 'dashboard.hero.badge' | transloco }}
+  </p>
 
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-      <app-free-call-cta [label]="'common.freeCallCta' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
-        analyticsLabel="hero_free_call" />
-      <a [routerLink]="['/']" fragment="protocol"
-        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-md"
-        (click)="trackCta('hero_view_protocol')">
-        {{ 'dashboard.hero.ctaSecondary' | transloco }}
-      </a>
-      <a href="tel:+40747011397"
-        class="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-6 py-4 text-sm font-semibold text-red-700 transition duration-200 hover:-translate-y-0.5 hover:border-red-300 hover:bg-red-100 hover:shadow-md"
-        (click)="trackCta('hero_urgent_call')">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-        </span>
-        {{ 'dashboard.hero.urgentCta' | transloco }}
-      </a>
+  <div class="grid gap-4 sm:grid-cols-3">
+    <app-count-up-stat [label]="'dashboard.hero.stat1Label' | transloco"
+      [value]="'dashboard.hero.stat1Value' | transloco" />
+    <div
+      class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+      <p class="text-sm text-slate-500">{{ 'dashboard.hero.stat2Label' | transloco }}</p>
+      <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat2Value' | transloco }}</p>
     </div>
-
-    <div class="grid gap-4 sm:grid-cols-3">
-      <app-count-up-stat [label]="'dashboard.hero.stat1Label' | transloco"
-        [value]="'dashboard.hero.stat1Value' | transloco" />
-      <div
-        class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
-        <p class="text-sm text-slate-500">{{ 'dashboard.hero.stat2Label' | transloco }}</p>
-        <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat2Value' | transloco }}</p>
-      </div>
-      <div
-        class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
-        <p class="text-sm text-slate-500">{{ 'dashboard.hero.stat3Label' | transloco }}</p>
-        <p class="mt-3 text-2xl font-semibold text-slate-950">{{ 'dashboard.hero.stat3Value' | transloco }}</p>
-      </div>
-    </div>
-
     <a href="https://listafirme.ro/rsa-soft-srl-43911790//" target="_blank" rel="noopener noreferrer"
-      class="inline-flex w-fit items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+      class="flex items-center gap-4 rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
       [attr.aria-label]="'dashboard.hero.trustBadgeAlt' | transloco">
       <img src="https://listafirme.ro/platform-static/platform-images/top5.gif"
-        [attr.alt]="'dashboard.hero.trustBadgeAlt' | transloco" class="h-14 w-auto shrink-0" loading="lazy"
-        decoding="async" width="120" height="56" />
+        [attr.alt]="'dashboard.hero.trustBadgeAlt' | transloco" class="h-12 w-auto shrink-0" loading="lazy"
+        decoding="async" width="120" height="48" />
       <div>
         <p class="text-sm font-semibold text-slate-950">{{ 'dashboard.hero.trustBadgeTitle' | transloco }}</p>
         <p class="text-xs text-slate-500">{{ 'dashboard.hero.trustBadgeSubtitle' | transloco }}</p>
       </div>
     </a>
-  </section>
+  </div>
 
-  <section
-    class="relative hidden overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(43,84,148,0.18),_transparent_38%),_linear-gradient(180deg,_rgb(255_255_255)_0%,_rgb(242_247_255)_100%)] px-6 py-10 shadow-2xl shadow-slate-200/40 sm:px-8 lg:block lg:py-16">
-    <div class="absolute inset-x-0 top-0 h-20 bg-primary/10 blur-3xl"></div>
-    <div class="relative space-y-6">
-      <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/50">
-        <p class="text-sm uppercase tracking-[0.32em] text-primary">{{ 'dashboard.hero.panelEyebrow' | transloco }}</p>
-        <p class="mt-4 text-lg font-semibold text-slate-950">
-          {{ 'dashboard.hero.panelLine1' | transloco }}
-        </p>
-        <p class="text-lg font-semibold text-slate-950">
-          <span class="text-primary">↳</span> {{ 'dashboard.hero.panelLine2' | transloco }}
-        </p>
-      </div>
-
-      <div class="space-y-3">
-        <div class="flex items-center gap-4 rounded-2xl bg-slate-950/95 p-5 text-white shadow-xl shadow-slate-950/10">
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-400">{{ 'dashboard.hero.step1Time' |
-            transloco }}</span>
-          <p class="text-sm font-semibold">{{ 'dashboard.hero.step1Text' | transloco }}</p>
-        </div>
-        <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-500">{{ 'dashboard.hero.step2Time' |
-            transloco }}</span>
-          <p class="text-sm font-semibold text-slate-950">{{ 'dashboard.hero.step2Text' | transloco }}</p>
-        </div>
-        <div class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm shadow-slate-200/80">
-          <span class="text-xs font-mono uppercase tracking-widest text-slate-500">{{ 'dashboard.hero.step3Time' |
-            transloco }}</span>
-          <p class="text-sm font-semibold text-slate-950">{{ 'dashboard.hero.step3Text' | transloco }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+  <a href="tel:+40747011397"
+    class="mx-auto flex w-fit items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-6 py-3 text-sm font-semibold text-red-700 transition duration-200 hover:-translate-y-0.5 hover:border-red-300 hover:bg-red-100 hover:shadow-md"
+    (click)="trackCta('hero_urgent_call')">
+    <span class="relative flex h-2 w-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+    </span>
+    {{ 'dashboard.hero.urgentCta' | transloco }}
+  </a>
+</section>
 
 <section appRevealOnScroll class="mt-16">
   <div
@@ -249,6 +188,11 @@
     </div>
   </div>
 </section>
+
+<div appRevealOnScroll class="mt-10 flex justify-center">
+  <app-free-call-cta [label]="'dashboard.protocol.ctaLabel' | transloco"
+    [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="protocol_free_call" size="lg" />
+</div>
 
 <section id="profiles" appRevealOnScroll class="mt-20 scroll-mt-32 space-y-8">
   <div class="max-w-3xl">

@@ -21,7 +21,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 10rem;
+    /* Padding for section anchors: header is 4.85rem, so 5rem gives a small buffer
+       without overshooting and hiding content above the fold. */
+    scroll-padding-top: 5rem;
+    /* The full-bleed hero breaks out of <main> with 100vw-based margins, which
+       overshoot by the scrollbar width. `clip` absorbs that without turning
+       <html> into a scroll container, so `position: sticky` still works. */
+    overflow-x: clip;
   }
 
   body {

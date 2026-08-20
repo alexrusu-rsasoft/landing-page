@@ -7,9 +7,11 @@ const CONFIRM_DURATION_MS = 900;
 const BASE_CLASSES =
   'group relative inline-flex items-center justify-center overflow-hidden rounded-full py-4 text-sm font-semibold shadow-lg transition duration-200 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
 
-const VARIANT_CLASSES: Record<'primary' | 'invert', string> = {
+const VARIANT_CLASSES: Record<'primary' | 'invert' | 'light', string> = {
   primary: 'bg-primary text-white shadow-primary/20 hover:bg-slate-950 hover:shadow-xl focus-visible:ring-primary',
   invert: 'bg-primary text-white shadow-primary/30 hover:bg-white hover:text-slate-950 hover:shadow-xl focus-visible:ring-white',
+  // For the photographic hero: a blue button would sink into the blue overlay.
+  light: 'bg-white text-slate-950 shadow-slate-950/30 hover:bg-primary hover:text-white hover:shadow-xl focus-visible:ring-white focus-visible:ring-offset-transparent',
 };
 
 const SIZE_CLASSES: Record<'md' | 'lg', string> = {
@@ -47,7 +49,7 @@ export class FreeCallCta {
   readonly label = input.required<string>();
   readonly confirmedLabel = input.required<string>();
   readonly analyticsLabel = input.required<CtaLabel>();
-  readonly variant = input<'primary' | 'invert'>('primary');
+  readonly variant = input<'primary' | 'invert' | 'light'>('primary');
   readonly size = input<'md' | 'lg'>('md');
 
   protected readonly confirmed = signal(false);
