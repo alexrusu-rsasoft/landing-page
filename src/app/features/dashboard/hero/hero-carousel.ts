@@ -99,6 +99,18 @@ export class HeroCarousel {
    * section. A manual rAF tween rather than native `scrollIntoView` because
    * the latter can be cut short mid-animation by layout shifts from the
    * hero's own rotation/observers, leaving the hero only partly scrolled past.
+   *
+   * The page's global `scroll-behavior: smooth` is suspended for the
+   * duration: left on, every per-frame `scrollTo` below would kick off its
+   * own smoothed jump on top of this tween, and the two fighting for the
+   * same scroll position is what caused the lag and overshoot on Safari.
+   *
+   * The target itself is read via `offsetTop`, not `getBoundingClientRect`:
+   * the section carries `appRevealOnScroll`, which paints it 20px lower
+   * than its resting spot (a `translateY`) until it scrolls into view.
+   * `getBoundingClientRect` would pick up that temporary offset and send
+   * the tween 20px too far, right under the header. `offsetTop` reads the
+   * layout position the transform never touches.
    */
   protected scrollToElement(elementId: string): void {
     const el = document.getElementById(elementId);
@@ -106,14 +118,27 @@ export class HeroCarousel {
     if (!el) return;
 
     const headerHeight = header?.getBoundingClientRect().height ?? 0;
-    const target = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+    let absoluteTop = 0;
+    for (let node: HTMLElement | null = el; node; node = node.offsetParent as HTMLElement | null) {
+      absoluteTop += node.offsetTop;
+    }
+    const target = absoluteTop - headerHeight;
     const start = window.scrollY;
     const duration = 700;
     const startTime = performance.now();
+
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+
     const animate = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
       window.scrollTo(0, start + (target - start) * progress);
-      if (progress < 1) requestAnimationFrame(animate);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        root.style.scrollBehavior = previousScrollBehavior;
+      }
     };
     requestAnimationFrame(animate);
   }
