@@ -19,7 +19,6 @@ interface HeroSlide {
   readonly overlay: 'brand' | 'warm' | 'medium' | 'light';
   /** object-position, so the subject survives the crop on portrait screens. */
   readonly focus: string;
-  readonly captionKey: string;
   readonly altKey: string;
 }
 
@@ -33,21 +32,18 @@ const SLIDES: readonly HeroSlide[] = [
     image: 'bridge',
     overlay: 'medium',
     focus: '58% 50%',
-    captionKey: 'dashboard.hero.slide1Caption',
     altKey: 'dashboard.hero.slide1Alt',
   },
   {
     image: 'tunel',
     overlay: 'warm',
     focus: '50% 50%',
-    captionKey: 'dashboard.hero.slide2Caption',
     altKey: 'dashboard.hero.slide2Alt',
   },
   {
     image: 'skyscrapers',
     overlay: 'light',
     focus: '50% 55%',
-    captionKey: 'dashboard.hero.slide3Caption',
     altKey: 'dashboard.hero.slide3Alt',
   },
 ];
@@ -55,11 +51,6 @@ const SLIDES: readonly HeroSlide[] = [
 /**
  * Full-bleed opening fold: three photographs crossfading behind one headline,
  * one sub-headline and a single call to action.
- *
- * The rotation is driven by a requestAnimationFrame loop rather than a timer
- * so the progress pill and the slide change can never drift apart. The loop
- * writes its progress straight to a CSS custom property, which keeps the
- * per-frame work out of change detection — only the slide index is a signal.
  */
 @Component({
   selector: 'app-hero-carousel',
@@ -71,8 +62,6 @@ const SLIDES: readonly HeroSlide[] = [
 export class HeroCarousel {
   protected readonly slides = SLIDES;
   protected readonly activeIndex = signal(0);
-  /** Set by the pause button; the reader's explicit choice, so it sticks. */
-  protected readonly paused = signal(false);
 
   /** Hover or keyboard focus inside the hero: hold, but resume on leave. */
   private readonly interacting = signal(false);
@@ -84,8 +73,6 @@ export class HeroCarousel {
   private elapsed = 0;
   private lastFrame = 0;
   private frame: number | undefined;
-  /** When true nothing rotates on its own; the pills still switch slides. */
-  private reducedMotion = false;
 
   constructor() {
     afterNextRender(() => this.setupAutoplay());
@@ -99,15 +86,6 @@ export class HeroCarousel {
     return `hero-carousel/${slide.image}-1920.webp`;
   }
 
-  protected goTo(index: number): void {
-    this.activeIndex.set(index);
-    this.resetProgress();
-  }
-
-  protected togglePaused(): void {
-    this.paused.update((paused) => !paused);
-  }
-
   protected setInteracting(interacting: boolean): void {
     this.interacting.set(interacting);
   }
@@ -116,34 +94,33 @@ export class HeroCarousel {
     this.analytics.trackCtaClick(label);
   }
 
+  /**
+   * Scrolls past the header, ending flush with the top of the target
+   * section. A manual rAF tween rather than native `scrollIntoView` because
+   * the latter can be cut short mid-animation by layout shifts from the
+   * hero's own rotation/observers, leaving the hero only partly scrolled past.
+   */
   protected scrollToElement(elementId: string): void {
-    setTimeout(() => {
-      const el = document.getElementById(elementId);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
-  }
-
-  protected scrollToProtocol(): void {
-    const el = document.getElementById('protocol');
+    const el = document.getElementById(elementId);
+    const header = document.querySelector('header');
     if (!el) return;
-    const target = el.offsetTop - 80; // 5rem padding = 80px
-    const start = document.documentElement.scrollTop;
-    const duration = 800;
-    const startTime = Date.now();
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      document.documentElement.scrollTop = start + (target - start) * progress;
+
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
+    const target = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const start = window.scrollY;
+    const duration = 700;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, start + (target - start) * progress);
       if (progress < 1) requestAnimationFrame(animate);
     };
-    animate();
+    requestAnimationFrame(animate);
   }
 
   private setupAutoplay(): void {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // Nothing rotates: the chosen slide simply stays, and its pill reads full.
-      this.reducedMotion = true;
-      this.setProgress(1);
+      // Nothing rotates: the chosen slide simply stays.
       return;
     }
 
@@ -182,23 +159,12 @@ export class HeroCarousel {
     const delta = this.lastFrame ? timestamp - this.lastFrame : 0;
     this.lastFrame = timestamp;
 
-    if (this.paused() || this.interacting()) return;
+    if (this.interacting()) return;
 
     this.elapsed += delta;
     if (this.elapsed >= SLIDE_DURATION_MS) {
       this.elapsed = 0;
       this.activeIndex.update((index) => (index + 1) % SLIDES.length);
     }
-    this.setProgress(this.elapsed / SLIDE_DURATION_MS);
-  }
-
-  private resetProgress(): void {
-    this.elapsed = 0;
-    // With no rotation running the pill would never fill, so it reads as done.
-    this.setProgress(this.reducedMotion ? 1 : 0);
-  }
-
-  private setProgress(value: number): void {
-    this.hostRef.nativeElement.style.setProperty('--hero-progress', value.toFixed(3));
   }
 }

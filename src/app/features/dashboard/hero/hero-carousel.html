@@ -35,50 +35,14 @@
     </p>
   </div>
 
-  <div class="relative z-10 mx-auto w-full max-w-7xl px-6 pb-8 sm:px-8 lg:px-10">
-    <div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-3 sm:items-end">
-      <p class="order-2 text-sm font-medium tracking-wide text-white/75 sm:order-none sm:justify-self-start"
-        aria-hidden="true">
-        {{ slides[activeIndex()].captionKey | transloco }}
-      </p>
-
-      <a class="hero-scroll-cue order-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition hover:border-white hover:text-white sm:order-none"
-        href="javascript:void(0)" [attr.aria-label]="'dashboard.hero.ctaSecondary' | transloco"
-        (click)="scrollToElement('protocol'); trackCta('hero_view_protocol')">
-        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 5v14M6 13l6 6 6-6" />
-        </svg>
-      </a>
-
-      <div class="order-3 flex items-center gap-3 sm:order-none sm:justify-self-end">
-        <div class="flex items-center gap-2" role="group"
-          [attr.aria-label]="'dashboard.hero.carouselLabel' | transloco">
-          @for (slide of slides; track slide.image; let i = $index) {
-          <button type="button" class="hero-pill" [class.is-active]="activeIndex() === i"
-            [attr.aria-current]="activeIndex() === i ? 'true' : null"
-            [attr.aria-label]="'dashboard.hero.slideLabel' | transloco: { index: i + 1, total: slides.length }"
-            (click)="goTo(i)">
-            <span class="hero-pill-fill"></span>
-          </button>
-          }
-        </div>
-
-        <button type="button"
-          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white/80 transition hover:border-white hover:text-white"
-          [attr.aria-label]="(paused() ? 'dashboard.hero.playLabel' : 'dashboard.hero.pauseLabel') | transloco"
-          (click)="togglePaused()">
-          @if (paused()) {
-          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
-            <path d="M8 5.5v13l11-6.5z" />
-          </svg>
-          } @else {
-          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
-            <path d="M8 5h3v14H8zM13 5h3v14h-3z" />
-          </svg>
-          }
-        </button>
-      </div>
-    </div>
+  <div class="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-6 pb-8 sm:px-8 lg:px-10">
+    <a class="hero-scroll-cue inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition hover:border-white hover:text-white"
+      href="javascript:void(0)" [attr.aria-label]="'dashboard.hero.ctaSecondary' | transloco"
+      (click)="scrollToElement('hero-next'); trackCta('hero_view_protocol')">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 5v14M6 13l6 6 6-6" />
+      </svg>
+    </a>
   </div>
 </section>

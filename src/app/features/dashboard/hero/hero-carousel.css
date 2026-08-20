@@ -113,38 +113,6 @@
     linear-gradient(0deg, rgba(43, 84, 148, 0.42), rgba(43, 84, 148, 0.42));
 }
 
-.hero-pill {
-  position: relative;
-  height: 0.75rem;
-  width: 2.75rem;
-  display: flex;
-  align-items: center;
-}
-
-.hero-pill::before {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* Filled by the rotation loop, which writes --hero-progress on the host. */
-.hero-pill-fill {
-  position: relative;
-  height: 2px;
-  width: 100%;
-  border-radius: 999px;
-  background: #ffffff;
-  transform: scaleX(0);
-  transform-origin: left center;
-}
-
-.hero-pill.is-active .hero-pill-fill {
-  transform: scaleX(var(--hero-progress, 0));
-}
-
 .hero-scroll-cue {
   animation: hero-cue 2.4s ease-in-out infinite;
 }
