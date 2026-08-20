@@ -46,9 +46,12 @@
     class="relative overflow-hidden rounded-3xl bg-primary shadow-xl shadow-primary/25 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
     <div class="grid grid-cols-[140px_1fr] items-stretch sm:min-h-[440px] sm:grid-cols-[1fr_1.3fr]">
       <div class="relative h-[200px] sm:h-auto">
-        <img src="/alex-rusu-image.webp" [attr.alt]="'dashboard.hero.humanPhotoAlt' | transloco"
+        <img src="/alex-rusu-image.webp"
+          srcset="/alex-rusu-image-320.webp 320w, /alex-rusu-image-640.webp 640w, /alex-rusu-image.webp 900w"
+          sizes="(max-width: 639px) 140px, (max-width: 1280px) 43vw, 550px"
+          [attr.alt]="'dashboard.hero.humanPhotoAlt' | transloco"
           class="absolute inset-0 h-full w-full object-contain object-bottom pt-2 px-2 pb-0 sm:p-0" width="900" height="1442"
-          decoding="async" />
+          decoding="async" loading="lazy" />
       </div>
       <div appRevealOnScroll direction="right"
         class="flex flex-col justify-center gap-1.5 p-4 text-white sm:gap-3 sm:p-10">

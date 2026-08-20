@@ -36,13 +36,13 @@
   </div>
 
   <div class="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-6 pb-8 sm:px-8 lg:px-10">
-    <a class="hero-scroll-cue inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition hover:border-white hover:text-white"
-      href="javascript:void(0)" [attr.aria-label]="'dashboard.hero.ctaSecondary' | transloco"
+    <button type="button" class="hero-scroll-cue inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition hover:border-white hover:text-white"
+      [attr.aria-label]="'dashboard.hero.ctaSecondary' | transloco"
       (click)="scrollToElement('hero-next'); trackCta('hero_view_protocol')">
       <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M12 5v14M6 13l6 6 6-6" />
       </svg>
-    </a>
+    </button>
   </div>
 </section>
