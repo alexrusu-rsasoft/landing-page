@@ -85,7 +85,8 @@
     },
     "featuredVideo": {
       "title": "Featured Video",
-      "iframeTitle": "YouTube video player"
+      "iframeTitle": "YouTube video player",
+      "watchOnYoutube": "Watch on YouTube"
     },
     "cvBanner": {
       "eyebrow": "Free CV",

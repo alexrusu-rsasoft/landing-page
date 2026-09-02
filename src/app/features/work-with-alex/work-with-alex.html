@@ -5,12 +5,31 @@
   <section appRevealOnScroll class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
     <div class="rounded-3xl border border-slate-200 bg-slate-950/5 p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl">
       <h2 class="text-3xl font-semibold text-slate-900 mb-4">{{ 'workWithAlex.featuredVideo.title' | transloco }}</h2>
-      <div class="aspect-video overflow-hidden rounded-3xl">
+      <div data-cv-pdf-hide class="aspect-video overflow-hidden rounded-3xl">
         <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/zX4mr8UGlP8?modestbranding=1&rel=0" [title]="'workWithAlex.featuredVideo.iframeTitle' | transloco"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
+      <!-- A CV PDF can't play an embedded video, so the capture swaps the iframe above for this
+           thumbnail + direct link instead of leaving recruiters staring at a blank box. -->
+      <a data-cv-pdf-show hidden href="https://www.youtube.com/watch?v=zX4mr8UGlP8" target="_blank"
+        rel="noopener noreferrer"
+        class="group relative block aspect-video overflow-hidden rounded-3xl bg-slate-900"
+        [attr.aria-label]="'workWithAlex.featuredVideo.watchOnYoutube' | transloco">
+        <img src="https://i.ytimg.com/vi/zX4mr8UGlP8/hqdefault.jpg" crossorigin="anonymous"
+          [attr.alt]="'workWithAlex.featuredVideo.iframeTitle' | transloco" class="h-full w-full object-cover" />
+        <span class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-950/30">
+          <span class="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg">
+            <svg class="ml-1 h-6 w-6 text-slate-900" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+          <span class="rounded-full bg-black/70 px-4 py-1.5 text-sm font-semibold text-white">
+            {{ 'workWithAlex.featuredVideo.watchOnYoutube' | transloco }}
+          </span>
+        </span>
+      </a>
     </div>
   </section>
   <app-experience />

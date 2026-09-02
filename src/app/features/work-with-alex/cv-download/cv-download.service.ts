@@ -70,6 +70,7 @@ export class CvDownloadService {
 
     this.generating.set(true);
     let restoreReveal: (() => void) | undefined;
+    let restoreVideo: (() => void) | undefined;
     try {
       // The experience timeline loads from a third-party API after hydration
       // and renders skeleton placeholders until it resolves; capturing before
@@ -83,6 +84,9 @@ export class CvDownloadService {
       // it still invisible. Force everything visible for the capture, then
       // put it back so the live page's scroll-reveal keeps working normally.
       restoreReveal = this.#forceRevealAll(root);
+      // A PDF can't play an embedded video, so swap it for a thumbnail +
+      // direct YouTube link for the capture.
+      restoreVideo = this.#swapVideoForPdf(root);
       await this.#ensureImagesLoaded(root);
       await new Promise(requestAnimationFrame);
 
@@ -95,9 +99,22 @@ export class CvDownloadService {
       URL.revokeObjectURL(url);
       this.#analytics.trackCvDownload(this.#activeLang());
     } finally {
+      restoreVideo?.();
       restoreReveal?.();
       this.generating.set(false);
     }
+  }
+
+  /** Swaps the embedded video iframe for a thumbnail + link during capture; returns a callback that undoes it. */
+  #swapVideoForPdf(root: HTMLElement): () => void {
+    const hideEls = Array.from(root.querySelectorAll<HTMLElement>('[data-cv-pdf-hide]'));
+    const showEls = Array.from(root.querySelectorAll<HTMLElement>('[data-cv-pdf-show]'));
+    hideEls.forEach((el) => (el.hidden = true));
+    showEls.forEach((el) => (el.hidden = false));
+    return () => {
+      hideEls.forEach((el) => (el.hidden = false));
+      showEls.forEach((el) => (el.hidden = true));
+    };
   }
 
   /** Forces every not-yet-revealed `appRevealOnScroll` section visible; returns a callback that undoes it. */

@@ -85,7 +85,8 @@
     },
     "featuredVideo": {
       "title": "Video prezentat",
-      "iframeTitle": "Player video YouTube"
+      "iframeTitle": "Player video YouTube",
+      "watchOnYoutube": "Vezi pe YouTube"
     },
     "cvBanner": {
       "eyebrow": "CV gratuit",

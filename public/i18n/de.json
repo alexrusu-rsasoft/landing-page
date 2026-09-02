@@ -85,7 +85,8 @@
     },
     "featuredVideo": {
       "title": "Vorgestelltes Video",
-      "iframeTitle": "YouTube-Videoplayer"
+      "iframeTitle": "YouTube-Videoplayer",
+      "watchOnYoutube": "Auf YouTube ansehen"
     },
     "cvBanner": {
       "eyebrow": "Kostenloser Lebenslauf",
