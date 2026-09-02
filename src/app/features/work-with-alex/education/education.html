@@ -1,6 +1,6 @@
 <section id="education" class="relative py-16 sm:py-24">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
+    <div appRevealOnScroll class="text-center mb-8">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
         <span>{{ 'workWithAlex.education.badge' | transloco }}</span>
@@ -9,10 +9,10 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
-      <div>
+      <div appRevealOnScroll>
         <div class="space-y-4">
           @for (edu of education; track edu.degree) {
-          <div class="bg-white p-4 rounded-xl border border-slate-100/80 shadow-sm">
+          <div class="bg-white p-4 rounded-xl border border-slate-100/80 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
                 🎓
@@ -28,12 +28,12 @@
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div appRevealOnScroll direction="right" class="space-y-4">
         <div>
           <h3 class="text-lg font-semibold text-slate-900 mb-4">{{ 'workWithAlex.education.certificationsTitle' | transloco }}</h3>
           <div class="space-y-3">
             @for (cert of certifications; track cert.name) {
-            <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm">
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
               <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0" aria-hidden="true">
                 ✪
               </span>
@@ -50,7 +50,7 @@
           <h3 class="text-lg font-semibold text-slate-900 mb-4">{{ 'workWithAlex.education.organizationsTitle' | transloco }}</h3>
           <div class="space-y-3">
             @for (org of organizations; track org.name) {
-            <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm">
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-100/80 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
               <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0" aria-hidden="true">
                 👥
               </span>

@@ -2,7 +2,7 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section header -->
-    <div class="text-center mb-8 sm:mb-12">
+    <div appRevealOnScroll class="text-center mb-8 sm:mb-12">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
         <span>{{ 'workWithAlex.experience.badge' | transloco }}</span>
@@ -156,7 +156,7 @@
       </div>
       } @else {
       @for (exp of experiences(); track exp.company + exp?.start; let i = $index) {
-      <div class="relative pl-12 md:pl-20 pb-14 last:pb-0 group">
+      <div appRevealOnScroll class="relative pl-12 md:pl-20 pb-14 last:pb-0 group">
         <div class="absolute left-7 top-8 timeline-dot rounded-full border-2" [class]="
                             exp.current
                                 ? 'bg-primary border-primary shadow-lg shadow-primary/50'

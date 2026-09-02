@@ -8,6 +8,7 @@ import { EducationSection } from './education/education';
 import { WhyChooseMe } from './why-choose-me/why-choose-me';
 import { CvDownloadBanner } from './cv-download/cv-download-banner';
 import { CvDownloadMobile } from './cv-download/cv-download-mobile';
+import { RevealOnScrollDirective } from '../../shared/ui/reveal/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-work-with-alex',
@@ -24,6 +25,7 @@ import { CvDownloadMobile } from './cv-download/cv-download-mobile';
     CvDownloadBanner,
     CvDownloadMobile,
     TranslocoPipe,
+    RevealOnScrollDirective,
   ],
 })
 export class WorkWithAlex {}

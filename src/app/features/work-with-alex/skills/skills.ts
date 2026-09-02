@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SKILL_CATEGORIES } from '../profile-data';
+import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-skills',
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, RevealOnScrollDirective],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

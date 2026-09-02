@@ -15,7 +15,10 @@
   }
 }
 
-/* Hover overlay with certificate image */
+/* Hover overlay with certificate image. Fixed positioning (not absolute) so
+   it escapes the overflow-hidden section this component renders inside;
+   position is computed in JS since fixed elements don't follow their
+   trigger's document-flow position. */
 .cert-overlay {
   position: fixed;
   inset: 0;

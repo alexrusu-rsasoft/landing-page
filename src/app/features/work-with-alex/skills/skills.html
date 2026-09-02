@@ -1,6 +1,6 @@
 <section id="skills" class="relative py-16 sm:py-24">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
+    <div appRevealOnScroll class="text-center mb-8">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
         <span>{{ 'workWithAlex.skills.badge' | transloco }}</span>
@@ -11,8 +11,8 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (category of categories; track category.titleKey) {
-      <div
-        class="rounded-2xl sm:rounded-3xl bg-white p-5 shadow-sm shadow-slate-200/70 border border-slate-100/80 hover:border-primary/20 transition-all duration-300">
+      <div appRevealOnScroll
+        class="rounded-2xl sm:rounded-3xl bg-white p-5 shadow-sm shadow-slate-200/70 border border-slate-100/80 hover:border-primary/20 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
             @switch (category.icon) {

@@ -2,10 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ExperienceService } from '../experience';
 import { Certifications } from '../certifications/certifications';
+import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
+import { CountUpDirective } from '../../../shared/ui/count-up/count-up.directive';
 
 @Component({
   selector: 'app-why-choose-me',
-  imports: [Certifications, TranslocoPipe],
+  imports: [Certifications, TranslocoPipe, RevealOnScrollDirective, CountUpDirective],
   templateUrl: './why-choose-me.html',
   styleUrl: './why-choose-me.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

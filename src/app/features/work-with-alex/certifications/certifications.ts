@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, afterNextRender, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
 
 interface Certification {
   name: string;
@@ -12,7 +13,7 @@ interface Certification {
 
 @Component({
   selector: 'app-certifications',
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, RevealOnScrollDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './certifications.html',
   styleUrl: './certifications.css',
@@ -73,5 +74,25 @@ export class Certifications {
 
   hideCert(): void {
     this.activeCert.set(null);
+  }
+
+  /**
+   * mouseenter/mouseleave don't fire reliably through Angular's production
+   * event-dispatch (it delegates them via bubbling mouseover/mouseout), so
+   * this reimplements enter/leave semantics on top of mouseover/mouseout
+   * directly, which does fire reliably.
+   */
+  onCardPointerEnter(cert: Certification, event: MouseEvent): void {
+    const card = event.currentTarget as HTMLElement;
+    const from = event.relatedTarget;
+    if (from instanceof Node && card.contains(from)) return;
+    this.showCert(cert, event);
+  }
+
+  onCardPointerLeave(event: MouseEvent): void {
+    const card = event.currentTarget as HTMLElement;
+    const to = event.relatedTarget;
+    if (to instanceof Node && card.contains(to)) return;
+    this.hideCert();
   }
 }

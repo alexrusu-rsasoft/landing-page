@@ -2,8 +2,8 @@
 <div id="cv-capture-root" class="flex flex-col gap-10 min-h-screen lg:min-h-screen">
   <app-hero />
   <app-why-choose-me />
-  <section class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
-    <div class="rounded-3xl border border-slate-200 bg-slate-950/5 p-6 shadow-lg shadow-slate-900/5">
+  <section appRevealOnScroll class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
+    <div class="rounded-3xl border border-slate-200 bg-slate-950/5 p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl">
       <h2 class="text-3xl font-semibold text-slate-900 mb-4">{{ 'workWithAlex.featuredVideo.title' | transloco }}</h2>
       <div class="aspect-video overflow-hidden rounded-3xl">
         <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/zX4mr8UGlP8?modestbranding=1&rel=0" [title]="'workWithAlex.featuredVideo.iframeTitle' | transloco"
