@@ -28,7 +28,7 @@ export class Certifications {
       imageUrl:
         'https://certificates.dev/.netlify/images?url=https:%2F%2Fapi.certificates.dev%2Fcertificates%2Fthumbnail%2Fa12fa0a8-6382-4e88-af67-646b056e7faf.jpg',
       credentialUrl:
-        'https://certificates.dev/certificates/a12fa0a8-6382-4e88-af67-646b056e7faf/share',
+        'https://certificates.dev/angular/certificates/a12fa0a8-6382-4e88-af67-646b056e7faf',
     },
     // {
     //   name: 'Medium Angular Developer',
