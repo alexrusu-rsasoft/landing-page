@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { AttributionService } from './attribution.service';
 
 // gtag is loaded via the script tag in index.html
 declare const gtag: (...args: unknown[]) => void;
@@ -31,6 +32,8 @@ export type ContactLabel =
 
 @Injectable({ providedIn: 'root' })
 export class AnalyticsService {
+  private readonly attribution = inject(AttributionService);
+
   trackCtaClick(label: CtaLabel): void {
     this.send('cta_click', { event_category: 'engagement', event_label: label });
   }
@@ -95,6 +98,25 @@ export class AnalyticsService {
 
   private send(eventName: string, params: Record<string, string>): void {
     if (typeof gtag === 'undefined') return;
-    gtag('event', eventName, params);
+    gtag('event', eventName, { ...params, ...this.attributionParams() });
+  }
+
+  /**
+   * Tags every event with the visitor's last known marketing channel
+   * (LinkedIn, YouTube, a direct link sent by Alex, etc.) so any event —
+   * not just pageviews — can be broken down by source/medium/campaign in
+   * GA4, even across sessions. See AttributionService for the model.
+   */
+  private attributionParams(): Record<string, string> {
+    const attribution = this.attribution.get();
+    if (!attribution) return {};
+
+    const params: Record<string, string> = {
+      lead_source: attribution.source,
+      lead_medium: attribution.medium,
+    };
+    if (attribution.campaign) params['lead_campaign'] = attribution.campaign;
+    if (attribution.content) params['lead_content'] = attribution.content;
+    return params;
   }
 }

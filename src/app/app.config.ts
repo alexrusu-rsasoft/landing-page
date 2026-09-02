@@ -21,6 +21,7 @@ import { HttpHandler, HttpInterceptorFn } from '@angular/common/http';
 import { TranslocoHttpLoader } from './core/i18n/transloco-loader';
 import { LocaleService } from './core/i18n/locale.service';
 import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
+import { AttributionService } from './core/attribution.service';
 import { OffersService } from './core/offers/offers.service';
 import { AppTitleStrategy } from './core/i18n/app-title-strategy';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -76,6 +77,7 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAppInitializer(() => inject(LocaleService).initLocale()),
     provideAppInitializer(() => inject(CookieConsentService).init()),
+    provideAppInitializer(() => inject(AttributionService).init()),
     // Non-blocking: just injecting the service starts its resource() fetch
     // immediately, so this kicks it off at startup without delaying first
     // render — consumers show a skeleton via OffersService.isLoading() instead.
