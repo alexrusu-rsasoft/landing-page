@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, afterNextRender, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 interface Certification {
@@ -52,6 +52,15 @@ export class Certifications {
 
   readonly activeCert = signal<Certification | null>(null);
   readonly modalPosition = signal<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  constructor() {
+    afterNextRender(() => {
+      for (const cert of this.certifications) {
+        const preload = new Image();
+        preload.src = cert.imageUrl;
+      }
+    });
+  }
 
   showCert(cert: Certification, event: MouseEvent | FocusEvent): void {
     const card = (event.currentTarget as HTMLElement).getBoundingClientRect();

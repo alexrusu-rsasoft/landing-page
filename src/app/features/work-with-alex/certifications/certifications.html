@@ -43,7 +43,7 @@
   <div class="cert-overlay-panel" [style.left.px]="modalPosition().x" [style.top.px]="modalPosition().y">
     <div class="cert-overlay-inner">
       <img [src]="cert.imageUrl" [alt]="'certifications.certificateAlt' | transloco: { name: cert.name }"
-        class="cert-overlay-img" loading="lazy" decoding="async" width="1200" height="800" />
+        class="cert-overlay-img" loading="eager" decoding="async" width="1200" height="800" />
       <div class="cert-overlay-caption">
         <p class="text-sm font-semibold text-slate-100">{{ cert.name }}</p>
         <p class="text-xs text-slate-400">{{ cert.issuer }} · {{ cert.year }}</p>
