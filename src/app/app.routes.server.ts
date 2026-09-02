@@ -11,6 +11,13 @@ export const serverRoutes: ServerRoute[] = [
     path: 'careers/:slug',
     renderMode: RenderMode.Client,
   },
+  // Vanity attribution links (/via/:channel) just set localStorage and
+  // redirect — there's nothing meaningful to prerender, and the channel
+  // slugs aren't known at build time.
+  {
+    path: 'via/:channel',
+    renderMode: RenderMode.Client,
+  },
   // Unmatched paths (404s) can't be enumerated at build time.
   {
     path: '**',

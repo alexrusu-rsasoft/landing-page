@@ -45,6 +45,11 @@ export const routes: Routes = [
     data: { titleKey: 'meta.contact' },
   },
   {
+    path: 'via/:channel',
+    loadComponent: () => import('./core/via-redirect').then((c) => c.ViaRedirect),
+    data: { titleKey: 'meta.home' },
+  },
+  {
     path: 'call-confirmed',
     loadComponent: () =>
       import('./features/call-confirmed/call-confirmed').then((c) => c.CallConfirmed),

@@ -24,6 +24,15 @@ const REFERRER_RULES: Array<{ pattern: RegExp; source: string; medium: string }>
   { pattern: /bing\./i, source: 'bing', medium: 'organic' },
 ];
 
+// Named short links (/via/<channel>) for places that strip query strings —
+// e.g. LinkedIn removes UTM params from links placed in its "Featured"
+// section, but leaves a plain path alone. Add an entry here and point the
+// link at https://rsasoft.ro/via/<channel> to get a working UTM equivalent.
+const VANITY_CHANNELS: Record<string, Attribution> = {
+  'li-featured': { source: 'linkedin', medium: 'social', campaign: 'featured-profile' },
+  'li-profile': { source: 'linkedin', medium: 'social', campaign: 'profile-website-link' },
+};
+
 /**
  * Captures which channel brought a visitor in and persists it across the
  * whole visitor lifetime (90 days), not just the current GA4 session — so a
@@ -51,6 +60,16 @@ export class AttributionService {
   /** Returns the last known marketing-channel attribution for this visitor, if any. */
   get(): Attribution | null {
     return this.readStored();
+  }
+
+  /**
+   * Attributes this visit to a named channel from VANITY_CHANNELS, called by
+   * the /via/:channel route. Overwrites any previously stored attribution —
+   * landing on a dedicated short link is the most explicit signal available.
+   */
+  setChannel(channel: string): void {
+    const attribution = VANITY_CHANNELS[channel];
+    if (attribution) this.store(attribution);
   }
 
   private detectAttribution(): Attribution | null {
