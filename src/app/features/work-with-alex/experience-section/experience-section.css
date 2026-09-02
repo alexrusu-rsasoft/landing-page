@@ -44,11 +44,13 @@
     filter 180ms ease,
     transform 180ms ease,
     opacity 180ms ease;
-  max-height: 20px;
+  height: 14px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .experience-company-logo {
-    max-height: 28px;
+    height: 18px;
   }
 }
