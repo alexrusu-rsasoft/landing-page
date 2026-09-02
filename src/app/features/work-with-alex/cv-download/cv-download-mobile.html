@@ -1,0 +1,76 @@
+<button type="button" #bubbleButton (click)="openModal()"
+  class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-primary py-3 pl-4 pr-5 text-sm font-semibold text-white shadow-xl shadow-primary/30 transition hover:-translate-y-0.5 hover:bg-slate-950">
+  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 3v12" />
+    <path d="m7 10 5 5 5-5" />
+    <path d="M4 21h16" />
+  </svg>
+  {{ 'workWithAlex.cvBanner.bubbleLabel' | transloco }}
+</button>
+
+@if (modalOpen()) {
+<div class="animate-modal-backdrop fixed inset-0 z-50 flex flex-col bg-primary text-white" role="dialog" aria-modal="true"
+  [attr.aria-label]="'workWithAlex.cvBanner.formTitle' | transloco">
+  <div class="flex items-center justify-between px-5 py-4">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75">
+      {{ 'workWithAlex.cvBanner.eyebrow' | transloco }}
+    </p>
+    <button type="button" #closeButton (click)="closeModal()"
+      [attr.aria-label]="'workWithAlex.cvBanner.dismissLabel' | transloco"
+      class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18" />
+        <path d="M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="animate-modal-content flex flex-1 flex-col items-center justify-center gap-6 px-6 pb-16 text-center">
+    <span class="flex h-14 w-14 flex-none items-center justify-center rounded-full bg-white/15">
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M4 21h16" />
+      </svg>
+    </span>
+
+    @if (cv.submitted()) {
+    <h2 class="animate-pop-in max-w-xs text-xl font-semibold">{{ 'workWithAlex.cvBanner.successMessage' | transloco }}</h2>
+    <button type="button" (click)="cv.downloadCv()" [disabled]="cv.generating()"
+      class="animate-pop-in inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
+      {{ 'workWithAlex.cvBanner.downloadCta' | transloco }}
+    </button>
+    } @else {
+    <h2 class="max-w-xs text-xl font-semibold">{{ 'workWithAlex.cvBanner.formTitle' | transloco }}</h2>
+
+    <form (ngSubmit)="onSubmit()" #cvModalForm="ngForm" class="flex w-full max-w-sm flex-col gap-3" novalidate>
+      <div class="h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+        <label for="cv-modal-company">Company</label>
+        <input id="cv-modal-company" type="text" name="company" tabindex="-1" autocomplete="off"
+          [ngModel]="cv.company()" (ngModelChange)="cv.company.set($event)" />
+      </div>
+
+      <label for="cv-modal-email" class="sr-only">{{ 'workWithAlex.cvBanner.emailPlaceholder' | transloco }}</label>
+      <input id="cv-modal-email" type="email" name="email" required autocomplete="email"
+        [ngModel]="cv.email()" (ngModelChange)="cv.email.set($event)"
+        [placeholder]="'workWithAlex.cvBanner.emailPlaceholder' | transloco"
+        [attr.aria-invalid]="cv.showError()"
+        [attr.aria-describedby]="cv.showError() ? 'cv-modal-email-error' : null"
+        class="w-full rounded-full border-0 bg-white/95 px-5 py-3.5 text-center text-sm text-slate-900 shadow-sm outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-white" />
+
+      @if (cv.showError()) {
+      <p id="cv-modal-email-error" class="text-xs text-amber-100">{{ 'workWithAlex.cvBanner.emailError' | transloco }}</p>
+      }
+
+      <button type="submit" [disabled]="cv.submitting()"
+        class="inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
+        {{ (cv.submitting() ? 'workWithAlex.cvBanner.submittingCta' : 'workWithAlex.cvBanner.submitCta') | transloco }}
+      </button>
+    </form>
+    }
+  </div>
+</div>
+}

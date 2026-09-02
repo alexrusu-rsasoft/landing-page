@@ -1,0 +1,85 @@
+@if (!dismissed()) {
+<div class="rounded-2xl border border-primary/20 bg-primary text-white shadow-lg shadow-primary/20">
+  <div class="flex flex-wrap items-center justify-between gap-4 px-6 py-3">
+    <div class="flex items-center gap-3">
+      <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12" />
+          <path d="m7 10 5 5 5-5" />
+          <path d="M4 21h16" />
+        </svg>
+      </span>
+      <div>
+        <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75">
+          {{ 'workWithAlex.cvBanner.eyebrow' | transloco }}
+        </p>
+        <p class="text-sm font-semibold">
+          @if (cv.submitted()) {
+          <span class="animate-pop-in inline-block">{{ 'workWithAlex.cvBanner.successMessage' | transloco }}</span>
+          } @else if (showForm()) {
+          <span class="animate-pop-in inline-block">{{ 'workWithAlex.cvBanner.formTitle' | transloco }}</span>
+          } @else {
+          {{ 'workWithAlex.cvBanner.title' | transloco }}
+          }
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <div class="flex flex-col items-end gap-1.5">
+        @if (cv.submitted()) {
+        <button type="button" (click)="cv.downloadCv()" [disabled]="cv.generating()"
+          class="animate-pop-in inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
+          {{ 'workWithAlex.cvBanner.downloadCta' | transloco }}
+        </button>
+        } @else if (showForm()) {
+        <form (ngSubmit)="onSubmit()" #cvForm="ngForm" class="animate-pop-in flex items-center gap-2" novalidate>
+          <div class="h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+            <label for="cv-banner-company">Company</label>
+            <input id="cv-banner-company" type="text" name="company" tabindex="-1" autocomplete="off"
+              [ngModel]="cv.company()" (ngModelChange)="cv.company.set($event)" />
+          </div>
+
+          <label for="cv-banner-email" class="sr-only">{{ 'workWithAlex.cvBanner.emailPlaceholder' | transloco }}</label>
+          <input id="cv-banner-email" type="email" name="email" required autocomplete="email" autofocus
+            [ngModel]="cv.email()" (ngModelChange)="cv.email.set($event)"
+            [placeholder]="'workWithAlex.cvBanner.emailPlaceholder' | transloco"
+            [attr.aria-invalid]="cv.showError()"
+            [attr.aria-describedby]="cv.showError() ? 'cv-banner-email-error' : null"
+            class="w-60 rounded-full border-0 bg-white/95 px-4 py-2 text-sm text-slate-900 shadow-sm outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-white" />
+
+          <button type="submit" [disabled]="cv.submitting()"
+            class="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
+            {{ (cv.submitting() ? 'workWithAlex.cvBanner.submittingCta' : 'workWithAlex.cvBanner.submitCta') | transloco }}
+          </button>
+        </form>
+        @if (cv.showError()) {
+        <p id="cv-banner-email-error" class="text-xs text-amber-100">{{ 'workWithAlex.cvBanner.emailError' | transloco }}</p>
+        }
+        } @else {
+        <button type="button" (click)="showForm.set(true)"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M4 21h16" />
+          </svg>
+          {{ 'workWithAlex.cvBanner.ctaLabel' | transloco }}
+        </button>
+        }
+      </div>
+
+      <button type="button" (click)="dismiss()" [attr.aria-label]="'workWithAlex.cvBanner.dismissLabel' | transloco"
+        class="inline-flex h-8 w-8 flex-none items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6 6 18" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+}

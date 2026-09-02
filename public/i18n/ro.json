@@ -86,6 +86,20 @@
     "featuredVideo": {
       "title": "Video prezentat",
       "iframeTitle": "Player video YouTube"
+    },
+    "cvBanner": {
+      "eyebrow": "CV gratuit",
+      "title": "CV-ul meu complet, în format PDF",
+      "ctaLabel": "Descarcă CV-ul (PDF)",
+      "formTitle": "Unde să-l trimit?",
+      "successMessage": "Mulțumesc! Descărcarea ar trebui să înceapă automat.",
+      "emailPlaceholder": "tu@companie.ro",
+      "submitCta": "Trimite-mi CV-ul",
+      "submittingCta": "Se pregătește...",
+      "downloadCta": "Descarcă din nou",
+      "emailError": "Te rugăm să introduci o adresă de email validă.",
+      "dismissLabel": "Închide",
+      "bubbleLabel": "Descarcă CV-ul"
     }
   },
   "certifications": {

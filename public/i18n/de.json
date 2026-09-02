@@ -86,6 +86,20 @@
     "featuredVideo": {
       "title": "Vorgestelltes Video",
       "iframeTitle": "YouTube-Videoplayer"
+    },
+    "cvBanner": {
+      "eyebrow": "Kostenloser Lebenslauf",
+      "title": "Mein vollständiger Lebenslauf als PDF",
+      "ctaLabel": "Lebenslauf herunterladen (PDF)",
+      "formTitle": "Wohin soll ich ihn schicken?",
+      "successMessage": "Danke! Der Download sollte automatisch starten.",
+      "emailPlaceholder": "du@unternehmen.de",
+      "submitCta": "Lebenslauf zusenden",
+      "submittingCta": "Wird vorbereitet...",
+      "downloadCta": "Erneut herunterladen",
+      "emailError": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "dismissLabel": "Schließen",
+      "bubbleLabel": "Lebenslauf herunterladen"
     }
   },
   "certifications": {

@@ -6,6 +6,8 @@ import { AboutSection } from './about/about';
 import { SkillsSection } from './skills/skills';
 import { EducationSection } from './education/education';
 import { WhyChooseMe } from './why-choose-me/why-choose-me';
+import { CvDownloadBanner } from './cv-download/cv-download-banner';
+import { CvDownloadMobile } from './cv-download/cv-download-mobile';
 
 @Component({
   selector: 'app-work-with-alex',
@@ -19,6 +21,8 @@ import { WhyChooseMe } from './why-choose-me/why-choose-me';
     SkillsSection,
     EducationSection,
     WhyChooseMe,
+    CvDownloadBanner,
+    CvDownloadMobile,
     TranslocoPipe,
   ],
 })

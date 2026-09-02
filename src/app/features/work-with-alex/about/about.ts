@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LANGUAGES } from '../profile-data';
 
 @Component({
   selector: 'app-about',
@@ -9,10 +10,5 @@ import { TranslocoPipe } from '@jsverse/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutSection {
-  readonly languages = [
-    { nameKey: 'german', levelKey: 'fluent' },
-    { nameKey: 'english', levelKey: 'fluent' },
-    { nameKey: 'romanian', levelKey: 'native' },
-    { nameKey: 'italian', levelKey: 'basic' },
-  ];
+  readonly languages = LANGUAGES;
 }

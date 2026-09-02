@@ -1,4 +1,5 @@
-<div class="flex flex-col gap-10 min-h-screen lg:min-h-screen">
+<app-cv-download-banner />
+<div id="cv-capture-root" class="flex flex-col gap-10 min-h-screen lg:min-h-screen">
   <app-hero />
   <app-why-choose-me />
   <section class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
@@ -12,8 +13,9 @@
       </div>
     </div>
   </section>
+  <app-experience />
+  <app-about />
+  <app-skills />
+  <app-education />
 </div>
-<app-experience />
-<app-about />
-<app-skills />
-<app-education />
+<app-cv-download-mobile />

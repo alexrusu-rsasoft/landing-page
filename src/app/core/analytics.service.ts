@@ -83,6 +83,16 @@ export class AnalyticsService {
     this.send('lead_magnet_download', { event_category: 'lead_magnet', event_label: lang });
   }
 
+  /** Fires when a visitor submits their email for Alex's CV PDF on /work-with-alex. */
+  trackCvLeadSubmit(): void {
+    this.send('cv_lead_submit', { event_category: 'cv_download' });
+  }
+
+  /** Fires when the generated CV PDF is downloaded. */
+  trackCvDownload(lang: string): void {
+    this.send('cv_download', { event_category: 'cv_download', event_label: lang });
+  }
+
   private send(eventName: string, params: Record<string, string>): void {
     if (typeof gtag === 'undefined') return;
     gtag('event', eventName, params);

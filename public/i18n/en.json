@@ -86,6 +86,20 @@
     "featuredVideo": {
       "title": "Featured Video",
       "iframeTitle": "YouTube video player"
+    },
+    "cvBanner": {
+      "eyebrow": "Free CV",
+      "title": "My complete CV as a PDF",
+      "ctaLabel": "Download CV (PDF)",
+      "formTitle": "Where should I send it?",
+      "successMessage": "Thanks! Your download should start automatically.",
+      "emailPlaceholder": "you@company.com",
+      "submitCta": "Send me the CV",
+      "submittingCta": "Preparing...",
+      "downloadCta": "Download again",
+      "emailError": "Please enter a valid email address.",
+      "dismissLabel": "Dismiss",
+      "bubbleLabel": "Download CV"
     }
   },
   "certifications": {
