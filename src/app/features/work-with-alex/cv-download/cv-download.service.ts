@@ -4,6 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService } from '../../../core/analytics.service';
 import { LeadMagnetApi } from '../../dashboard/lead-magnet/lead-magnet-api';
+import { ExperienceService } from '../experience';
 import { buildCvPdfBlob } from './cv-pdf-builder';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,6 +21,7 @@ export class CvDownloadService {
   readonly #transloco = inject(TranslocoService);
   readonly #analytics = inject(AnalyticsService);
   readonly #api = inject(LeadMagnetApi);
+  readonly #experience = inject(ExperienceService);
   readonly #platformId = inject(PLATFORM_ID);
   readonly #document = inject(DOCUMENT);
 
@@ -68,6 +70,11 @@ export class CvDownloadService {
 
     this.generating.set(true);
     try {
+      // The experience timeline loads from a third-party API after hydration
+      // and renders skeleton placeholders until it resolves; capturing before
+      // that finishes would bake the skeletons into the PDF instead of the
+      // real work history.
+      await this.#waitForExperienceToLoad();
       await this.#ensureImagesLoaded(root);
 
       const blob = await buildCvPdfBlob(root);
@@ -81,6 +88,18 @@ export class CvDownloadService {
     } finally {
       this.generating.set(false);
     }
+  }
+
+  /** Polls until the experience resource settles, or gives up after 8s so a stuck request can't hang the download forever. */
+  async #waitForExperienceToLoad(): Promise<void> {
+    const deadline = Date.now() + 8000;
+    while (this.#experience.isLoading() && Date.now() < deadline) {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+    // Give Angular a couple of frames to swap the skeleton cards for the
+    // real ones before html2canvas reads the DOM.
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
   }
 
   /** Lazy-loaded images below the fold may not have finished fetching yet; force them so the capture isn't blank. */
