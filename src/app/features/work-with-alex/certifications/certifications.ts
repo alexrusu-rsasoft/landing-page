@@ -1,5 +1,17 @@
-import { ChangeDetectionStrategy, Component, afterNextRender, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DOCUMENT,
+  OnDestroy,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+  afterNextRender,
+  inject,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { ConnectedPosition, Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
 import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
 
 interface Certification {
@@ -11,6 +23,13 @@ interface Certification {
   credentialUrl?: string;
 }
 
+// Prefer directly above the card; flip below when there isn't room (e.g. the
+// card is near the top of the viewport).
+const PREVIEW_POSITIONS: ConnectedPosition[] = [
+  { originX: 'center', originY: 'top', overlayX: 'center', overlayY: 'bottom', offsetY: -12 },
+  { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 12 },
+];
+
 @Component({
   selector: 'app-certifications',
   imports: [TranslocoPipe, RevealOnScrollDirective],
@@ -18,7 +37,15 @@ interface Certification {
   templateUrl: './certifications.html',
   styleUrl: './certifications.css',
 })
-export class Certifications {
+export class Certifications implements OnDestroy {
+  private readonly overlay = inject(Overlay);
+  private readonly viewContainerRef = inject(ViewContainerRef);
+  private readonly document = inject(DOCUMENT);
+
+  @ViewChild('certPreview') private certPreviewTemplate!: TemplateRef<{ $implicit: Certification }>;
+
+  private overlayRef: OverlayRef | null = null;
+
   readonly certifications: Certification[] = [
     {
       name: 'Senior Angular Developer',
@@ -51,29 +78,46 @@ export class Certifications {
     },
   ];
 
-  readonly activeCert = signal<Certification | null>(null);
-  readonly modalPosition = signal<{ x: number; y: number }>({ x: 0, y: 0 });
-
   constructor() {
     afterNextRender(() => {
       for (const cert of this.certifications) {
-        const preload = new Image();
-        preload.src = cert.imageUrl;
+        const link = this.document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = cert.imageUrl;
+        this.document.head.appendChild(link);
       }
     });
   }
 
+  ngOnDestroy(): void {
+    this.overlayRef?.dispose();
+  }
+
   showCert(cert: Certification, event: MouseEvent | FocusEvent): void {
-    const card = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    this.modalPosition.set({
-      x: card.left + card.width / 2,
-      y: card.top,
+    const card = event.currentTarget as HTMLElement;
+    this.hideCert();
+
+    this.overlayRef = this.overlay.create({
+      positionStrategy: this.overlay
+        .position()
+        .flexibleConnectedTo(card)
+        .withPositions(PREVIEW_POSITIONS)
+        .withViewportMargin(12)
+        .withPush(true),
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      panelClass: 'cert-overlay-panel',
     });
-    this.activeCert.set(cert);
+
+    const portal = new TemplatePortal(this.certPreviewTemplate, this.viewContainerRef, {
+      $implicit: cert,
+    });
+    this.overlayRef.attach(portal);
   }
 
   hideCert(): void {
-    this.activeCert.set(null);
+    this.overlayRef?.dispose();
+    this.overlayRef = null;
   }
 
   /**

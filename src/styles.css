@@ -1,6 +1,14 @@
+@import '@angular/cdk/overlay-prebuilt.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CDK overlay panelClass used by app-certifications' hover preview. It's
+   created by CDK outside any component's view (portalled to <body>), so it
+   can't be targeted by that component's scoped styles. */
+.cert-overlay-panel {
+  pointer-events: none;
+}
 
 :root {
   color-scheme: light;

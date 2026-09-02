@@ -56,21 +56,18 @@
   }
 </div>
 
-<!-- Hover modal overlay. Fixed positioning so it escapes the overflow-hidden
-     section this component renders inside; positioned via JS since it must
-     track each card's viewport position (which absolute positioning inside
-     the overflow-hidden ancestor cannot do without being clipped). -->
-@if (activeCert(); as cert) {
-<div class="cert-overlay" aria-hidden="true">
-  <div class="cert-overlay-panel" [style.left.px]="modalPosition().x" [style.top.px]="modalPosition().y">
-    <div class="cert-overlay-inner">
-      <img [src]="cert.imageUrl" [alt]="'certifications.certificateAlt' | transloco: { name: cert.name }"
-        class="cert-overlay-img" loading="eager" decoding="async" width="1200" height="800" />
-      <div class="cert-overlay-caption">
-        <p class="text-sm font-semibold text-slate-100">{{ cert.name }}</p>
-        <p class="text-xs text-slate-400">{{ cert.issuer }} · {{ cert.year }}</p>
-      </div>
+<!-- Hover preview, portalled to a top-level CDK overlay (appended straight to
+     <body>) rather than positioned in place. That's what makes it reliably
+     stack above the rest of the page and track the hovered card's actual
+     position with an above/below flip, instead of depending on this
+     component's own nested stacking context. -->
+<ng-template #certPreview let-cert>
+  <div class="cert-overlay-inner" aria-hidden="true">
+    <img [src]="cert.imageUrl" [alt]="'certifications.certificateAlt' | transloco: { name: cert.name }"
+      class="cert-overlay-img" loading="eager" decoding="async" width="1200" height="800" />
+    <div class="cert-overlay-caption">
+      <p class="text-sm font-semibold text-slate-100">{{ cert.name }}</p>
+      <p class="text-xs text-slate-400">{{ cert.issuer }} · {{ cert.year }}</p>
     </div>
   </div>
-</div>
-}
+</ng-template>

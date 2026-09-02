@@ -15,25 +15,14 @@
   }
 }
 
-/* Hover overlay with certificate image. Fixed positioning (not absolute) so
-   it escapes the overflow-hidden section this component renders inside;
-   position is computed in JS since fixed elements don't follow their
-   trigger's document-flow position. */
-.cert-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  pointer-events: none;
-}
-
-.cert-overlay-panel {
-  position: fixed;
-  transform: translate(-50%, calc(-100% - 16px));
-  z-index: 1001;
-  pointer-events: none;
-  animation: overlay-enter 0.2s ease-out;
-}
-
+/* Hover overlay with certificate image. Positioning/flipping above-or-below
+   is handled entirely by the CDK overlay's FlexibleConnectedPositionStrategy
+   (see certifications.ts). The panel itself (panelClass "cert-overlay-panel")
+   is created by CDK outside this component's view, so it can't be targeted
+   by this component's scoped styles — that rule lives in styles.css instead.
+   This only styles the preview's own content, which IS rendered from this
+   component's template (via ng-template + TemplatePortal) and so stays
+   correctly scoped. */
 .cert-overlay-inner {
   background: rgba(249, 250, 251, 0.95);
   border: 1px solid rgba(226, 232, 240, 0.8);
@@ -47,6 +36,7 @@
     0 0 20px rgba(226, 232, 240, 0.4);
   max-width: 400px;
   width: max-content;
+  animation: overlay-enter 0.15s ease-out;
 }
 
 .cert-overlay-img {
@@ -75,10 +65,10 @@
 @keyframes overlay-enter {
   from {
     opacity: 0;
-    transform: translate(-50%, calc(-100% - 8px)) scale(0.95);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, calc(-100% - 16px)) scale(1);
+    transform: scale(1);
   }
 }
