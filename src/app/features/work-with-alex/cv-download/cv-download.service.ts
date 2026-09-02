@@ -69,13 +69,22 @@ export class CvDownloadService {
     if (!root) return;
 
     this.generating.set(true);
+    let restoreReveal: (() => void) | undefined;
     try {
       // The experience timeline loads from a third-party API after hydration
       // and renders skeleton placeholders until it resolves; capturing before
       // that finishes would bake the skeletons into the PDF instead of the
       // real work history.
       await this.#waitForExperienceToLoad();
+
+      // Sections (and each experience entry individually) only fade in once
+      // scrolled into view via IntersectionObserver; a visitor who hasn't
+      // scrolled the whole page yet would otherwise get a PDF with most of
+      // it still invisible. Force everything visible for the capture, then
+      // put it back so the live page's scroll-reveal keeps working normally.
+      restoreReveal = this.#forceRevealAll(root);
       await this.#ensureImagesLoaded(root);
+      await new Promise(requestAnimationFrame);
 
       const blob = await buildCvPdfBlob(root);
       const url = URL.createObjectURL(blob);
@@ -86,8 +95,26 @@ export class CvDownloadService {
       URL.revokeObjectURL(url);
       this.#analytics.trackCvDownload(this.#activeLang());
     } finally {
+      restoreReveal?.();
       this.generating.set(false);
     }
+  }
+
+  /** Forces every not-yet-revealed `appRevealOnScroll` section visible; returns a callback that undoes it. */
+  #forceRevealAll(root: HTMLElement): () => void {
+    const elements = Array.from(
+      root.querySelectorAll<HTMLElement>('.reveal-on-scroll:not(.is-visible), .reveal-on-scroll-right:not(.is-visible)'),
+    );
+    for (const el of elements) {
+      el.style.transition = 'none';
+      el.classList.add('is-visible');
+    }
+    return () => {
+      for (const el of elements) {
+        el.classList.remove('is-visible');
+        el.style.removeProperty('transition');
+      }
+    };
   }
 
   /** Polls until the experience resource settles, or gives up after 8s so a stuck request can't hang the download forever. */
