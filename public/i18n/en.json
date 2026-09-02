@@ -90,7 +90,7 @@
     "cvBanner": {
       "eyebrow": "Free CV",
       "title": "My complete CV as a PDF",
-      "ctaLabel": "Download CV (PDF)",
+      "ctaLabel": "Download",
       "formTitle": "Where should I send it?",
       "successMessage": "Thanks! Your download should start automatically.",
       "emailPlaceholder": "you@company.com",

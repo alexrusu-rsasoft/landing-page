@@ -90,7 +90,7 @@
     "cvBanner": {
       "eyebrow": "Kostenloser Lebenslauf",
       "title": "Mein vollständiger Lebenslauf als PDF",
-      "ctaLabel": "Lebenslauf herunterladen (PDF)",
+      "ctaLabel": "Download",
       "formTitle": "Wohin soll ich ihn schicken?",
       "successMessage": "Danke! Der Download sollte automatisch starten.",
       "emailPlaceholder": "du@unternehmen.de",

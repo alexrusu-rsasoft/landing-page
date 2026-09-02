@@ -90,7 +90,7 @@
     "cvBanner": {
       "eyebrow": "CV gratuit",
       "title": "CV-ul meu complet, în format PDF",
-      "ctaLabel": "Descarcă CV-ul (PDF)",
+      "ctaLabel": "Download",
       "formTitle": "Unde să-l trimit?",
       "successMessage": "Mulțumesc! Descărcarea ar trebui să înceapă automat.",
       "emailPlaceholder": "tu@companie.ro",
