@@ -137,7 +137,8 @@
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content",
     "primaryNav": "Primary",
-    "footerNav": "Footer"
+    "footerNav": "Footer",
+    "backToTop": "Back to top"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. All rights reserved.",

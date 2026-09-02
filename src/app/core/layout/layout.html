@@ -105,4 +105,14 @@
     </nav>
     <p>{{ 'footer.copyright' | transloco: { year: currentYear } }}</p>
   </footer>
+
+  @if (showBackToTop()) {
+  <button type="button" (click)="scrollToTop()" [attr.aria-label]="'nav.backToTop' | transloco"
+    class="fixed right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg transition hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    [class.bottom-6]="!cookieConsent.bannerVisible()" [class.bottom-36]="cookieConsent.bannerVisible()">
+    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+  }
 </div>

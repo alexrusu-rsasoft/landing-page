@@ -137,7 +137,8 @@
     "closeMenu": "Închide meniul",
     "skipToContent": "Sari la conținut",
     "primaryNav": "Navigare principală",
-    "footerNav": "Subsol"
+    "footerNav": "Subsol",
+    "backToTop": "Înapoi sus"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. Toate drepturile rezervate.",

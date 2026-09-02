@@ -137,7 +137,8 @@
     "closeMenu": "Menü schließen",
     "skipToContent": "Zum Inhalt springen",
     "primaryNav": "Hauptnavigation",
-    "footerNav": "Fußzeile"
+    "footerNav": "Fußzeile",
+    "backToTop": "Nach oben"
   },
   "footer": {
     "copyright": "© {{year}} RSA SOFT S.R.L. Alle Rechte vorbehalten.",

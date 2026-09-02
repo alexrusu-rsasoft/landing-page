@@ -50,6 +50,9 @@ export class Layout {
   readonly currentYear = new Date().getFullYear();
   protected readonly mobileMenuOpen = signal(false);
   protected readonly activeSection = signal<string | null>(null);
+  protected readonly showBackToTop = signal(false);
+
+  private static readonly BACK_TO_TOP_SCROLL_THRESHOLD = 400;
 
   private readonly mobileMenuToggle = viewChild<ElementRef<HTMLButtonElement>>('mobileMenuToggle');
   private readonly mobileMenu = viewChild<ElementRef<HTMLElement>>('mobileMenu');
@@ -93,6 +96,15 @@ export class Layout {
   @HostListener('document:keydown.escape')
   protected onEscape(): void {
     if (this.mobileMenuOpen()) this.closeMobileMenuAndReturnFocus();
+  }
+
+  @HostListener('window:scroll')
+  protected onWindowScroll(): void {
+    this.showBackToTop.set(window.scrollY > Layout.BACK_TO_TOP_SCROLL_THRESHOLD);
+  }
+
+  protected scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /**
