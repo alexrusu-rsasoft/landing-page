@@ -3,7 +3,6 @@ import { Injectable, signal } from '@angular/core';
 export type CookieConsentStatus = 'accepted' | 'rejected' | null;
 
 const STORAGE_KEY = 'rsa-soft-cookie-consent';
-const GA_MEASUREMENT_ID = 'G-ZY2RCK6GLL';
 
 type Gtag = (...args: unknown[]) => void;
 
@@ -21,12 +20,27 @@ interface StoredConsent {
 
 const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
+// Google Consent Mode v2 signal sets. gtag.js is always loaded (see
+// index.html) with all four defaulted to "denied" — this only ever raises
+// or re-lowers them in response to the visitor's own choice.
+const GRANTED_CONSENT = {
+  ad_storage: 'granted',
+  ad_user_data: 'granted',
+  ad_personalization: 'granted',
+  analytics_storage: 'granted',
+};
+
+const DENIED_CONSENT = {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+};
+
 @Injectable({ providedIn: 'root' })
 export class CookieConsentService {
   readonly status = signal<CookieConsentStatus>(null);
   readonly bannerVisible = signal<boolean>(false);
-
-  private analyticsLoaded = false;
 
   /** Called once at app startup: reads stored choice and shows banner if absent/expired. */
   init(): void {
@@ -39,9 +53,7 @@ export class CookieConsentService {
       this.bannerVisible.set(true);
     } else {
       this.bannerVisible.set(false);
-      if (storedStatus === 'accepted') {
-        this.loadAnalytics();
-      }
+      this.updateConsent(storedStatus);
     }
   }
 
@@ -49,13 +61,14 @@ export class CookieConsentService {
     this.status.set('accepted');
     this.bannerVisible.set(false);
     this.store('accepted');
-    setTimeout(() => this.loadAnalytics(), 0);
+    this.updateConsent('accepted');
   }
 
   reject(): void {
     this.status.set('rejected');
     this.bannerVisible.set(false);
     this.store('rejected');
+    this.updateConsent('rejected');
   }
 
   /** Re-opens the banner so a visitor can change an earlier decision (e.g. from a footer link). */
@@ -63,21 +76,15 @@ export class CookieConsentService {
     this.bannerVisible.set(true);
   }
 
-  private loadAnalytics(): void {
-    if (this.analyticsLoaded || typeof document === 'undefined') return;
-    this.analyticsLoaded = true;
-
-    window.dataLayer = window.dataLayer || [];
-    const gtag: Gtag = (...args) => window.dataLayer?.push(args);
-    window.gtag = gtag;
-
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(script);
-
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID);
+  /**
+   * Pushes the visitor's choice to Google as a Consent Mode v2 update. While
+   * denied (the default, and what "Reject Non-Essential" restores), Google
+   * sets no cookies and stores no identifiable data — it only receives
+   * anonymous, cookie-free pings for aggregated modelling.
+   */
+  private updateConsent(status: 'accepted' | 'rejected'): void {
+    if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+    window.gtag('consent', 'update', status === 'accepted' ? GRANTED_CONSENT : DENIED_CONSENT);
   }
 
   private readStoredStatus(): CookieConsentStatus {

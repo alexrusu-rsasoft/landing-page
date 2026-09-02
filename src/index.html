@@ -53,7 +53,27 @@
   }
   </script>
 
-  <!-- Google Analytics (gtag.js) loads only after cookie consent is granted; see CookieConsentService. -->
+  <!--
+    Google Consent Mode v2. gtag.js always loads, but every signal below
+    defaults to "denied" until the visitor accepts non-essential cookies
+    (see CookieConsentService, which calls gtag('consent', 'update', ...)).
+    While denied, Google sets no cookies and stores no identifiable data —
+    it only receives anonymous, cookie-free pings used for aggregated
+    statistical modelling, which is why this can run without prior consent.
+  -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-ZY2RCK6GLL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZY2RCK6GLL"></script>
   <meta name="theme-color" content="#f8fafc">
   <!-- First hero slide: the landing page's LCP element. -->
   <link rel="preload" as="image" href="hero-carousel/bridge-1920.webp" fetchpriority="high" imagesizes="100vw"

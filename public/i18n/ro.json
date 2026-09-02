@@ -36,7 +36,9 @@
       "p3": "Deși mă simt confortabil să lucrez independent, am ajuns să apreciez puterea lucrului în echipă. Acum mă concentrez pe crearea unui mediu colaborativ în care toată lumea poate reuși și poate depăși limitele împreună.",
       "locationLabel": "Locație",
       "locationValue": "Cluj-Napoca, România / Remote",
-      "languagesLabel": "Limbi"
+      "languagesLabel": "Limbi",
+      "humanBehindLabel": "Omul din spatele codului",
+      "humanBehindAlt": "Alex Rusu — fotografia {{index}}"
     },
     "languages": {
       "german": "Germană",
@@ -207,12 +209,12 @@
       "s1Title": "1. Ce sunt cookie-urile",
       "s1p1": "Cookie-urile sunt fișiere text mici stocate pe dispozitivul tău, care ajută site-urile să funcționeze și, cu acordul tău, ne ajută să înțelegem cum folosesc vizitatorii site-ul nostru.",
       "s2Title": "2. Cookie-urile pe care le folosim",
-      "s2p1": "Încărcăm Google Analytics doar după ce accepți cookie-urile prin bannerul nostru. Cookie-urile necesare, care stochează preferințele tale, sunt mereu active.",
+      "s2p1": "Eticheta Google Analytics se încarcă la fiecare vizită, dar setează cookie-uri și stochează date identificabile doar după ce apeși „Acceptă tot” din bannerul nostru. Dacă apeși „Respinge cele neesențiale”, nu se setează niciun cookie, iar Google primește doar semnale anonime, fără cookie-uri, folosite pentru statistici agregate (Google Consent Mode). Cookie-urile necesare, care stochează preferințele tale, sunt mereu active.",
       "necessaryTitle": "Necesare",
       "necessary1": "rsa-soft-cookie-consent (localStorage) — reține alegerea ta privind cookie-urile, ca să nu te întrebăm din nou la fiecare vizită.",
       "necessary2": "rsa-soft-lang (localStorage) — reține preferința ta de limbă (engleză, germană sau română).",
-      "analyticsTitle": "Analiză (doar după acord)",
-      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — ne ajută să înțelegem utilizarea agregată a site-ului. Sunt setate de Google doar după ce apeși „Acceptă tot”.",
+      "analyticsTitle": "Analiză (cookie-uri doar după acord)",
+      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — ne ajută să înțelegem utilizarea agregată a site-ului. Sunt setate de Google doar după ce apeși „Acceptă tot”; dacă apeși „Respinge cele neesențiale”, nu se setează niciun cookie și sunt primite doar semnale anonime, neidentificabile.",
       "embedsTitle": "Integrări de la terți",
       "embeds1": "YouTube (youtube-nocookie.com) — testimonialele noastre video folosesc modul YouTube cu protecție sporită a confidențialității, care nu setează cookie-uri până când nu apeși play.",
       "embeds2": "Google Calendar — widget-ul nostru de programare este un iframe Google Calendar, care poate seta cookie-uri de la Google necesare pentru funcționarea programării.",

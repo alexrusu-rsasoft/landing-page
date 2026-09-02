@@ -36,7 +36,9 @@
       "p3": "Auch wenn ich gerne eigenständig arbeite, habe ich die Stärke von Teamarbeit schätzen gelernt. Heute konzentriere ich mich darauf, ein kollaboratives Umfeld zu schaffen, in dem jeder erfolgreich sein und gemeinsam Grenzen verschieben kann.",
       "locationLabel": "Standort",
       "locationValue": "Cluj-Napoca, Rumänien / Remote",
-      "languagesLabel": "Sprachen"
+      "languagesLabel": "Sprachen",
+      "humanBehindLabel": "Der Mensch hinter dem Code",
+      "humanBehindAlt": "Alex Rusu — Foto {{index}}"
     },
     "languages": {
       "german": "Deutsch",
@@ -207,12 +209,12 @@
       "s1Title": "1. Was sind Cookies",
       "s1p1": "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden. Sie helfen Websites zu funktionieren und, mit Ihrer Zustimmung, uns zu verstehen, wie Besucher unsere Seite nutzen.",
       "s2Title": "2. Die von uns verwendeten Cookies",
-      "s2p1": "Wir laden Google Analytics erst, nachdem Sie Cookies über unser Banner akzeptiert haben. Notwendige Cookies, die Ihre Einstellungen speichern, sind immer aktiv.",
+      "s2p1": "Das Tag von Google Analytics wird bei jedem Besuch geladen, setzt aber erst Cookies und speichert identifizierbare Daten, nachdem Sie über unser Banner auf „Alle akzeptieren“ klicken. Klicken Sie stattdessen auf „Nicht notwendige ablehnen“, wird kein Cookie gesetzt und Google erhält nur anonyme, cookie-freie Signale für aggregierte Statistiken (Google Consent Mode). Notwendige Cookies, die Ihre Einstellungen speichern, sind immer aktiv.",
       "necessaryTitle": "Notwendig",
       "necessary1": "rsa-soft-cookie-consent (localStorage) — speichert Ihre Cookie-Auswahl, damit wir Sie nicht bei jedem Besuch erneut fragen.",
       "necessary2": "rsa-soft-lang (localStorage) — speichert Ihre Sprachpräferenz (Englisch, Deutsch oder Rumänisch).",
-      "analyticsTitle": "Analyse (nur nach Zustimmung)",
-      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — helfen uns, die aggregierte Nutzung der Website zu verstehen. Werden von Google erst gesetzt, nachdem Sie auf „Alle akzeptieren“ klicken.",
+      "analyticsTitle": "Analyse (Cookies nur nach Zustimmung)",
+      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — helfen uns, die aggregierte Nutzung der Website zu verstehen. Werden von Google erst gesetzt, nachdem Sie auf „Alle akzeptieren“ klicken; klicken Sie auf „Nicht notwendige ablehnen“, wird kein Cookie gesetzt und es werden nur anonyme, nicht identifizierende Signale empfangen.",
       "embedsTitle": "Eingebettete Drittanbieter-Inhalte",
       "embeds1": "YouTube (youtube-nocookie.com) — unsere Video-Testimonials nutzen den datenschutzfreundlichen Modus von YouTube, der erst beim Abspielen Cookies setzt.",
       "embeds2": "Google Kalender — unser Buchungswidget ist ein Google-Kalender-iframe, der für den Buchungsablauf erforderliche Cookies von Google setzen kann.",

@@ -36,7 +36,9 @@
       "p3": "While I'm comfortable working independently, I've come to appreciate the power of teamwork. Now, I'm focused on creating a collaborative atmosphere where everyone can succeed and push boundaries together.",
       "locationLabel": "Location",
       "locationValue": "Cluj-Napoca, Romania / Remote",
-      "languagesLabel": "Languages"
+      "languagesLabel": "Languages",
+      "humanBehindLabel": "The human behind the code",
+      "humanBehindAlt": "Alex Rusu — photo {{index}}"
     },
     "languages": {
       "german": "German",
@@ -207,12 +209,12 @@
       "s1Title": "1. What are cookies",
       "s1p1": "Cookies are small text files stored on your device that help websites function and, when you agree, help us understand how visitors use our site.",
       "s2Title": "2. The cookies we use",
-      "s2p1": "We only load Google Analytics after you accept cookies through our banner. Necessary cookies, which store your preferences, are always active.",
+      "s2p1": "Google Analytics' tag loads on every visit, but it only sets cookies and stores identifiable data once you click \"Accept All\" through our banner. If you click \"Reject Non-Essential\" instead, no cookie is set and Google only receives anonymous, cookie-free signals used for aggregated statistics (Google's Consent Mode). Necessary cookies, which store your preferences, are always active.",
       "necessaryTitle": "Necessary",
       "necessary1": "rsa-soft-cookie-consent (localStorage) — remembers your cookie choice, so we don't ask again on every visit.",
       "necessary2": "rsa-soft-lang (localStorage) — remembers your language preference (English, German, or Romanian).",
-      "analyticsTitle": "Analytics (only after consent)",
-      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — help us understand aggregate site usage. Set by Google only after you click \"Accept All\".",
+      "analyticsTitle": "Analytics (cookies only after consent)",
+      "analytics1": "_ga, _ga_*, _gid (Google Analytics) — help us understand aggregate site usage. Set by Google only after you click \"Accept All\"; if you click \"Reject Non-Essential\", no cookie is set and only anonymous, non-identifying signals are received.",
       "embedsTitle": "Third-party embeds",
       "embeds1": "YouTube (youtube-nocookie.com) — our video testimonials use YouTube's privacy-enhanced mode, which does not set cookies until you press play.",
       "embeds2": "Google Calendar — our booking widget is a Google Calendar iframe, which may set cookies from Google needed for the booking flow to work.",
