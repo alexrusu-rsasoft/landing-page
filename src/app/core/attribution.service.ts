@@ -24,13 +24,13 @@ const REFERRER_RULES: Array<{ pattern: RegExp; source: string; medium: string }>
   { pattern: /bing\./i, source: 'bing', medium: 'organic' },
 ];
 
-// Named short links (/via/<channel>) for places that strip query strings —
-// e.g. LinkedIn removes UTM params from links placed in its "Featured"
-// section, but leaves a plain path alone. Add an entry here and point the
-// link at https://rsasoft.ro/via/<channel> to get a working UTM equivalent.
-const VANITY_CHANNELS: Record<string, Attribution> = {
-  'li-featured': { source: 'linkedin', medium: 'social', campaign: 'featured-profile' },
-  'li-profile': { source: 'linkedin', medium: 'social', campaign: 'profile-website-link' },
+// Medium to use for /via/<source>/<campaign> vanity links (see setChannel
+// below), keyed by source name. Unlisted sources fall back to 'referral'.
+const SOURCE_MEDIUM_MAP: Record<string, string> = {
+  linkedin: 'social',
+  youtube: 'social',
+  google: 'organic',
+  bing: 'organic',
 };
 
 /**
@@ -63,13 +63,15 @@ export class AttributionService {
   }
 
   /**
-   * Attributes this visit to a named channel from VANITY_CHANNELS, called by
-   * the /via/:channel route. Overwrites any previously stored attribution —
+   * Attributes this visit to a source/campaign pair, called by the
+   * /via/:source/:campaign route. Any source works — pick a new one freely,
+   * no code change needed — the medium comes from SOURCE_MEDIUM_MAP (or
+   * 'referral' if unlisted). Overwrites any previously stored attribution:
    * landing on a dedicated short link is the most explicit signal available.
    */
-  setChannel(channel: string): void {
-    const attribution = VANITY_CHANNELS[channel];
-    if (attribution) this.store(attribution);
+  setChannel(source: string, campaign: string): void {
+    if (!source || !campaign) return;
+    this.store({ source, medium: SOURCE_MEDIUM_MAP[source] ?? 'referral', campaign });
   }
 
   private detectAttribution(): Attribution | null {

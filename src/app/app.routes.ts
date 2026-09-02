@@ -45,7 +45,7 @@ export const routes: Routes = [
     data: { titleKey: 'meta.contact' },
   },
   {
-    path: 'via/:channel',
+    path: 'via/:source/:campaign',
     loadComponent: () => import('./core/via-redirect').then((c) => c.ViaRedirect),
     data: { titleKey: 'meta.home' },
   },
