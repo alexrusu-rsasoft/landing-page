@@ -15,6 +15,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { filter } from 'rxjs';
 import { AnalyticsService, CtaLabel } from '../analytics.service';
 import { CookieConsentService } from '../cookie-consent/cookie-consent.service';
+import { CareersApplyModal } from '../../features/careers/careers-apply-modal.service';
 
 const NAV_SECTION_IDS = ['protocol', 'proof', 'pricing'];
 
@@ -31,6 +32,7 @@ export class Layout {
   readonly #destroyRef = inject(DestroyRef);
   readonly #hostElement = inject(ElementRef<HTMLElement>);
   readonly #platformId = inject(PLATFORM_ID);
+  readonly #careersApplyModal = inject(CareersApplyModal);
   protected readonly cookieConsent = inject(CookieConsentService);
 
   protected readonly isContactPage = isActive('/contact', this.#router, {
@@ -72,6 +74,11 @@ export class Layout {
 
   protected trackCta(label: CtaLabel): void {
     this.#analytics.trackCtaClick(label);
+  }
+
+  protected openCareersApply(label: CtaLabel): void {
+    this.#careersApplyModal.open();
+    this.trackCta(label);
   }
 
   protected toggleMobileMenu(): void {

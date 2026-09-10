@@ -17,6 +17,8 @@ export type CtaLabel =
   | 'hero_urgent_call'
   | 'nav_careers_desktop'
   | 'nav_careers_mobile'
+  | 'nav_send_profile_desktop'
+  | 'nav_send_profile_mobile'
   | 'careers_hero_view_roles'
   | 'careers_hero_send_profile'
   | 'careers_final_send_profile'

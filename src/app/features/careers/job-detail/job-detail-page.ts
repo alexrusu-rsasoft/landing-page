@@ -6,6 +6,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { map } from 'rxjs';
 import { AnalyticsService } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
+import { CareersApplyModal } from '../careers-apply-modal.service';
 import { CareerOpening } from '../career-opening';
 import { CareersService } from '../careers';
 import { JobNotesBlock, parseJobNotes } from '../job-notes';
@@ -23,6 +24,7 @@ export class JobDetailPage {
   readonly #analytics = inject(AnalyticsService);
   readonly #transloco = inject(TranslocoService);
   readonly #pageTitle = inject(Title);
+  readonly #applyModal = inject(CareersApplyModal);
 
   protected readonly slug = toSignal(
     this.#route.paramMap.pipe(map((params) => params.get('slug') ?? '')),
@@ -54,7 +56,7 @@ export class JobDetailPage {
       .slice(0, 3);
   });
 
-  protected readonly applyOpen = signal(false);
+  protected readonly applyOpen = this.#applyModal.isOpen;
   protected readonly shareState = signal<'idle' | 'copied'>('idle');
 
   #viewTracked = new Set<string>();

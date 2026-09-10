@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
+import { CareersApplyModal } from '../careers-apply-modal.service';
 import { CareersService } from '../careers';
 import { CareerOpening } from '../career-opening';
 import { summarizeJobNotes } from '../job-notes';
@@ -18,14 +19,15 @@ export class CareersPage {
   readonly #analytics = inject(AnalyticsService);
   readonly #transloco = inject(TranslocoService);
   readonly #careers = inject(CareersService);
+  readonly #applyModal = inject(CareersApplyModal);
 
   protected readonly openings = this.#careers.openings;
   protected readonly isLoading = this.#careers.isLoading;
   protected readonly hasError = this.#careers.hasError;
   protected readonly ratesLoading = this.#careers.ratesLoading;
 
-  protected readonly applyOpen = signal(false);
-  protected readonly applyTargetRole = signal('');
+  protected readonly applyOpen = this.#applyModal.isOpen;
+  protected readonly applyTargetRole = this.#applyModal.targetRole;
 
   protected trackCta(label: CtaLabel): void {
     this.#analytics.trackCtaClick(label);
@@ -54,12 +56,11 @@ export class CareersPage {
   }
 
   protected openApply(targetRole = ''): void {
-    this.applyTargetRole.set(targetRole);
-    this.applyOpen.set(true);
+    this.#applyModal.open(targetRole);
     this.#analytics.trackCareersApplyClick(targetRole || 'general');
   }
 
   protected closeApply(): void {
-    this.applyOpen.set(false);
+    this.#applyModal.close();
   }
 }
