@@ -11,7 +11,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 @Component({
   selector: 'app-count-up-stat',
   template: `
-    <div class="rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
+    <div class="h-full rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/70">
       <div class="flex items-center gap-3">
         <div class="relative flex h-9 w-9 shrink-0 items-center justify-center text-primary">
           <svg class="h-9 w-9 -rotate-90" viewBox="0 0 36 36" aria-hidden="true">

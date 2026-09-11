@@ -48,13 +48,18 @@ export function animateCountUpText(
   onFrame?: (eased: number) => void,
   duration = COUNT_UP_DURATION_MS,
 ): void {
+  // Counting up more than one number at once (e.g. a "24 to 48 hours" range)
+  // produces meaningless intermediate values, so only single-number text is animated.
+  const mutateText = (finalText.match(/\d+/g) ?? []).length === 1;
   const start = performance.now();
 
   const step = (now: number) => {
     const progress = Math.min((now - start) / duration, 1);
     const eased = easeOutCubic(progress);
 
-    el.textContent = finalText.replace(/\d+/g, (match) => String(Math.round(Number(match) * eased)));
+    if (mutateText) {
+      el.textContent = finalText.replace(/\d+/g, (match) => String(Math.round(Number(match) * eased)));
+    }
     onFrame?.(eased);
 
     if (progress < 1) {
