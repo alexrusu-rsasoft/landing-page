@@ -579,8 +579,8 @@
     "hero": {
       "badge": "We're hiring — Senior developers for DACH automotive, banking & fintech projects",
       "eyebrow": "RSA SOFT Careers",
-      "title": "Get matched to a vetted DACH project in days, not months of ghosted applications.",
-      "p1": "You send your profile once. We match it against roles already vetted by our clients, no black-hole ATS, no recruiter chasing 40 keywords.",
+      "title": "Find your next role, without the hassle.",
+      "p1": "We start with a conversation. We learn what you're looking for, what drives you, and the experience you bring — then we recommend you where you'll actually fit.",
       "p2": "Every placement moves fast: a clear scope, your rate agreed upfront, and you start within days, not months stuck in interview loops.",
       "ctaPrimary": "View Open Roles",
       "ctaSecondary": "Send Us Your Profile",
@@ -598,7 +598,8 @@
       "step2Time": "Day 0-2",
       "step2Text": "Matched against vetted, active DACH roles",
       "step3Time": "Day 2+",
-      "step3Text": "Client interview, then start, rate disclosed upfront"
+      "step3Text": "Client interview, then start, rate disclosed upfront",
+      "imageAlt": "Two colleagues shaking hands after a successful collaboration"
     },
     "why": {
       "eyebrow": "Why developers work with us",

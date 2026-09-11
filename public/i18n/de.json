@@ -579,8 +579,8 @@
     "hero": {
       "badge": "Wir stellen ein — Senior-Entwickler für DACH-Projekte in Automotive, Banking & Fintech",
       "eyebrow": "RSA SOFT Karriere",
-      "title": "In Tagen, nicht Monaten, zu einem geprüften DACH-Projekt passen, ganz ohne Bewerbungs-Blackhole.",
-      "p1": "Sie senden Ihr Profil einmal. Wir gleichen es mit bereits von unseren Kunden geprüften Rollen ab, kein ATS-Blackhole, kein Recruiter, der 40 Keywords abhakt.",
+      "title": "Finden Sie Ihre nächste Rolle – ganz ohne Umwege.",
+      "p1": "Wir beginnen mit einem Gespräch. Wir lernen, wonach Sie suchen, was Sie antreibt und welche Erfahrung Sie mitbringen — und empfehlen Sie dann dort, wo Sie wirklich passen.",
       "p2": "Jede Vermittlung geht schnell: klarer Scope, Ihr Satz von Anfang an vereinbart, und Sie starten innerhalb weniger Tage, nicht nach monatelangen Interview-Runden.",
       "ctaPrimary": "Offene Stellen ansehen",
       "ctaSecondary": "Profil senden",
@@ -598,7 +598,8 @@
       "step2Time": "Tag 0-2",
       "step2Text": "Abgleich mit geprüften, aktiven DACH-Rollen",
       "step3Time": "Ab Tag 2",
-      "step3Text": "Kundeninterview, dann Start, Satz vorab offengelegt"
+      "step3Text": "Kundeninterview, dann Start, Satz vorab offengelegt",
+      "imageAlt": "Zwei Kollegen schütteln sich nach einer erfolgreichen Zusammenarbeit die Hand"
     },
     "why": {
       "eyebrow": "Warum Entwickler mit uns arbeiten",

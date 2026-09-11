@@ -579,8 +579,8 @@
     "hero": {
       "badge": "Angajăm — dezvoltatori Senior pentru proiecte DACH în automotive, banking & fintech",
       "eyebrow": "Cariere RSA SOFT",
-      "title": "Ajungi la un proiect DACH verificat în zile, nu în luni de aplicații fără răspuns.",
-      "p1": "Trimiți profilul o singură dată. Îl potrivim cu roluri deja verificate de clienții noștri, fără ATS-uri care te ignoră, fără recrutori care bifează 40 de cuvinte cheie.",
+      "title": "Găsește-ți următorul rol, fără bătăi de cap.",
+      "p1": "Ne cunoaștem mai întâi. Înțelegem ce cauți, ce te motivează și experiența pe care o aduci — apoi te recomandăm acolo unde chiar te potrivești.",
       "p2": "Fiecare plasare merge rapid: scop clar, rata ta stabilită din start, și începi în câteva zile, nu după luni de runde de interviuri.",
       "ctaPrimary": "Vezi rolurile disponibile",
       "ctaSecondary": "Trimite-ți profilul",
@@ -598,7 +598,8 @@
       "step2Time": "Ziua 0-2",
       "step2Text": "Potrivire cu roluri DACH active, deja verificate",
       "step3Time": "Din ziua 2",
-      "step3Text": "Interviu cu clientul, apoi start, rata comunicată din start"
+      "step3Text": "Interviu cu clientul, apoi start, rata comunicată din start",
+      "imageAlt": "Doi colegi dându-și mâna după o colaborare reușită"
     },
     "why": {
       "eyebrow": "De ce lucrează dezvoltatorii cu noi",
