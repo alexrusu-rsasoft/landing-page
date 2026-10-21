@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tailwind display utilities (e.g. `block`) win over the browser's default
+   `[hidden] { display: none }` since author CSS always beats UA styles at
+   equal specificity. Elements toggled via the `hidden` attribute (like the
+   CV-only video placeholder) must stay hidden regardless of other classes. */
+[hidden] {
+  display: none !important;
+}
+
 /* CDK overlay panelClass used by app-certifications' hover preview. It's
    created by CDK outside any component's view (portalled to <body>), so it
    can't be targeted by that component's scoped styles. */
