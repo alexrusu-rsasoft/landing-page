@@ -36,9 +36,69 @@
       "p3": "Auch wenn ich gerne eigenständig arbeite, habe ich die Stärke von Teamarbeit schätzen gelernt. Heute konzentriere ich mich darauf, ein kollaboratives Umfeld zu schaffen, in dem jeder erfolgreich sein und gemeinsam Grenzen verschieben kann.",
       "locationLabel": "Standort",
       "locationValue": "Cluj-Napoca, Rumänien / Remote",
-      "languagesLabel": "Sprachen",
-      "humanBehindLabel": "Der Mensch hinter dem Code",
-      "humanBehindAlt": "Alex Rusu — Foto {{index}}"
+      "languagesLabel": "Sprachen"
+    },
+    "humanBehind": {
+      "title": "Der Mensch hinter dem Code",
+      "hobbiesLabel": "Leidenschaften",
+      "hobbies": {
+        "family": "Familie & Freunde",
+        "gym": "Gym",
+        "tennis": "Tennis",
+        "sailing": "Segeln",
+        "photography": "Fotografie",
+        "travel": "Reisen",
+        "cooking": "Kochen",
+        "history": "Geschichte",
+        "books": "Bücher",
+        "automotive": "Automotive",
+        "gaming": "PC-Gaming",
+        "animals": "Leo & Ginger"
+      },
+      "p1": "Abseits der Projekte verbringe ich meine Zeit am liebsten mit meiner Frau, mit Freunden und den Menschen, die mir wichtig sind. Neue Energie tanke ich im Fitnessstudio, auf dem Tennisplatz oder am Steuer eines Segelboots, und wenn wir reisen, ist die Kamera immer dabei.",
+      "p2": "Ich koche gern, interessiere mich für Geschichte und alles rund ums Auto und lese viel, vor allem Bücher über Business und persönliche Weiterentwicklung; ab und zu entspanne ich bei einem Spiel am PC.",
+      "p3": "Ich bin ein geselliger Mensch und liebe Tiere: Zu Hause leisten uns unser Kater Leo und unsere Hündin Ginger Gesellschaft. Online wie offline derselbe Mensch: offen, engagiert und unkompliziert in der Zusammenarbeit.",
+      "alts": {
+        "fountain": "Alex im weißen Hemd vor einem Parkbrunnen",
+        "roadTrip": "Alex und Ehefrau lächelnd auf einem Roadtrip",
+        "sailing": "Alex am Steuer eines Segelboots",
+        "dog": "Alex mit einem Belgischen Malinois an einem Bergaussichtspunkt",
+        "homeOffice": "Alex bei der Arbeit am Schreibtisch im Homeoffice, Kater Leo auf dem Stuhl daneben",
+        "dubai": "Alex lachend beim Abendessen auf einer Dachterrasse über einer nächtlichen Skyline",
+        "suit": "Alex im cremefarbenen Anzug vor einer Backsteinfassade",
+        "vatican": "Alex beim Gang durch eine Galerie römischer Statuen",
+        "taormina": "Alex auf einer schmalen Steintreppe mit bemalter Keramik",
+        "globe": "Alex vor einem riesigen beleuchteten Globus",
+        "laptopView": "Alex am Laptop auf einer Steinmauer über dem Meer",
+        "driving": "Alex am Steuer eines Autos"
+      },
+      "captions": {
+        "fountain": "Online wie offline derselbe Mensch",
+        "roadTrip": "Roadtrip mit meiner Frau",
+        "sailing": "Am Steuer — auf dem Wasser wie im Projekt",
+        "dog": "In den Bergen, zwischen zwei Projekten",
+        "homeOffice": "Das Homeoffice, mit Leo als Kollegen",
+        "dubai": "Gute Abende mit guten Menschen",
+        "suit": "Wenn der Anlass einen Anzug verlangt",
+        "vatican": "Leidenschaft für Geschichte, aus nächster Nähe",
+        "taormina": "Absichtlich verlaufen in alten Gassen",
+        "globe": "Neugier führt mich um die ganze Welt",
+        "laptopView": "Remote arbeiten, mit Aussicht",
+        "driving": "Leidenschaft für Autos, am Steuer"
+      },
+      "lightbox": {
+        "close": "Schließen",
+        "prev": "Vorheriges Foto",
+        "next": "Nächstes Foto",
+        "counter": "{{current}} von {{total}}"
+      },
+      "booksTitle": "📚 Mein Bücherregal",
+      "booksSubtitle": "Bücher, die meine Arbeitsweise geprägt haben – jeweils in einem Satz.",
+      "books": {},
+      "ctaTitle": "Bis hierhin gelesen? Lernen wir uns kennen.",
+      "ctaText": "Ein kostenloses 30-minütiges Gespräch ohne Verpflichtungen: Sie erzählen mir, woran Sie arbeiten, und wir schauen gemeinsam, ob und wie ich helfen kann.",
+      "ctaButton": "Auf einen virtuellen Kaffee",
+      "ctaNote": "Kostenlos · 30 Minuten · unverbindlich"
     },
     "languages": {
       "german": "Deutsch",

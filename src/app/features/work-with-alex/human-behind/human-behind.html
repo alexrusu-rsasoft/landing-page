@@ -1,0 +1,162 @@
+<!-- Left out of the CV PDF, which stays a professional document. Photos are AVIF with WebP
+     fallback at their rendered 1x-3x sizes and lazy-load, since all of this sits well below the fold. -->
+<div data-cv-pdf-hide class="mt-14 sm:mt-20">
+  <!-- From md up the portrait is taken out of flow and fills the row, so its height follows
+       the text column beside it and both columns end on the same line. -->
+  <div appRevealOnScroll appTrackSectionView="human_behind" class="grid gap-8 md:grid-cols-5 md:gap-10">
+    <button type="button" aria-haspopup="dialog" (click)="open(featurePhoto)"
+      class="group relative block w-full cursor-zoom-in overflow-hidden rounded-xl md:col-span-2">
+      <picture>
+        <source type="image/avif" [attr.srcset]="srcset(featurePhoto, 'avif')"
+          sizes="(min-width: 1024px) 360px, (min-width: 768px) 31vw, calc(100vw - 80px)" />
+        <img [src]="fallbackSrc(featurePhoto)" [attr.srcset]="srcset(featurePhoto, 'webp')"
+          sizes="(min-width: 1024px) 360px, (min-width: 768px) 31vw, calc(100vw - 80px)"
+          [attr.width]="featurePhoto.width" [attr.height]="featurePhoto.height"
+          [alt]="'workWithAlex.humanBehind.alts.' + featurePhoto.key | transloco"
+          class="aspect-[4/5] w-full bg-slate-100 object-cover object-[50%_40%] shadow-sm transition duration-500 group-hover:scale-[1.03] md:absolute md:inset-0 md:aspect-auto md:h-full"
+          loading="lazy" decoding="async" />
+      </picture>
+    </button>
+
+    <div class="md:col-span-3">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-950">{{ 'workWithAlex.humanBehind.title' | transloco }}</h3>
+      <ul class="mt-5 grid grid-cols-3 gap-2.5 sm:grid-cols-4 lg:grid-cols-6"
+        [attr.aria-label]="'workWithAlex.humanBehind.hobbiesLabel' | transloco">
+        @for (hobby of hobbies; track hobby.key; let i = $index) {
+          <li class="hobby-tile group flex aspect-square flex-col items-center justify-center gap-1.5 rounded-2xl border border-slate-100/80 bg-white p-2 text-center shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
+            [style.animation-delay.ms]="i * 40">
+            <span class="text-2xl leading-none transition duration-200 group-hover:scale-110" aria-hidden="true">{{ hobby.emoji }}</span>
+            <span class="text-[11px] font-medium leading-tight text-slate-700">
+              {{ 'workWithAlex.humanBehind.hobbies.' + hobby.key | transloco }}
+            </span>
+          </li>
+        }
+      </ul>
+      <div class="mt-5 space-y-4 text-slate-700 leading-relaxed">
+        <p>{{ 'workWithAlex.humanBehind.p1' | transloco }}</p>
+        <p>{{ 'workWithAlex.humanBehind.p2' | transloco }}</p>
+        <p>{{ 'workWithAlex.humanBehind.p3' | transloco }}</p>
+      </div>
+      <ul class="mt-6 flex gap-3">
+        @for (photo of asideRow; track photo.name) {
+          <ng-container *ngTemplateOutlet="galleryPhoto; context: { $implicit: photo }" />
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Justified rows: each photo's flex-grow is its aspect ratio, so a line shares one height uncropped -->
+  <div appRevealOnScroll appTrackSectionView="human_behind_gallery" class="mt-3 space-y-3">
+    @for (row of bottomRows; track $index) {
+      <div class="flex flex-col gap-3 md:flex-row">
+        @for (group of row.groups; track $index) {
+          <ul class="human-behind-group flex gap-3" [style.--group-ratio]="group.ratio"
+            [style.--group-gaps]="(group.photos.length - 1) * 0.75 + 'rem'">
+            @for (photo of group.photos; track photo.name) {
+              <ng-container *ngTemplateOutlet="galleryPhoto; context: { $implicit: photo }" />
+            }
+          </ul>
+        }
+      </div>
+    }
+  </div>
+
+  @if (books.length) {
+    <div appRevealOnScroll appTrackSectionView="human_behind_books" class="mt-14 sm:mt-16">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-950">{{ 'workWithAlex.humanBehind.booksTitle' | transloco }}</h3>
+      <p class="mt-1 text-sm text-slate-600">{{ 'workWithAlex.humanBehind.booksSubtitle' | transloco }}</p>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        @for (book of books; track book.key) {
+          <li
+            class="flex gap-4 rounded-2xl border border-slate-100/80 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md">
+            <div aria-hidden="true" class="book-cover h-20 w-14 shrink-0 bg-gradient-to-br shadow-md {{ book.coverClass }}"></div>
+            <div class="min-w-0">
+              <p class="font-semibold leading-snug text-slate-950">{{ book.title }}</p>
+              <p class="mt-0.5 text-xs text-slate-500">{{ book.author }}</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {{ 'workWithAlex.humanBehind.books.' + book.key | transloco }}
+              </p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- A reward for reading this far: a personal invitation instead of another generic CTA -->
+  <div appRevealOnScroll appTrackSectionView="human_behind_cta"
+    class="mt-14 rounded-3xl bg-slate-950 px-6 py-10 text-center text-white shadow-xl sm:mt-16 sm:px-12 sm:py-12">
+    <img src="/alex-rusu-avatar-image.jpg" [attr.alt]="'workWithAlex.hero.avatarAlt' | transloco" width="64" height="64"
+      class="mx-auto h-16 w-16 rounded-full ring-4 ring-white/10" loading="lazy" decoding="async" />
+    <h3 class="mx-auto mt-5 max-w-2xl text-balance text-2xl font-bold sm:text-3xl">
+      {{ 'workWithAlex.humanBehind.ctaTitle' | transloco }}
+    </h3>
+    <p class="mx-auto mt-3 max-w-xl leading-relaxed text-white/75">{{ 'workWithAlex.humanBehind.ctaText' | transloco }}</p>
+    <div class="mt-8">
+      <app-free-call-cta [label]="'workWithAlex.humanBehind.ctaButton' | transloco"
+        [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="human_behind_free_call" variant="invert"
+        size="lg" />
+    </div>
+    <p class="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+      {{ 'workWithAlex.humanBehind.ctaNote' | transloco }}
+    </p>
+  </div>
+</div>
+
+<ng-template #galleryPhoto let-photo>
+  <li class="min-w-0" [style.flex]="photo.ratio + ' 1 0%'">
+    <button type="button" aria-haspopup="dialog" (click)="open(photo)"
+      class="group block w-full cursor-zoom-in overflow-hidden rounded-xl bg-slate-100 shadow-sm">
+      <picture>
+        <source type="image/avif" [attr.srcset]="srcset(photo, 'avif')" [attr.sizes]="photo.sizes" />
+        <img [src]="fallbackSrc(photo)" [attr.srcset]="srcset(photo, 'webp')" [attr.sizes]="photo.sizes"
+          [attr.width]="photo.width" [attr.height]="photo.height"
+          [alt]="'workWithAlex.humanBehind.alts.' + photo.key | transloco"
+          class="block h-auto w-full transition duration-500 group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+      </picture>
+    </button>
+  </li>
+</ng-template>
+
+<dialog #lightbox class="lightbox" [attr.aria-label]="'workWithAlex.humanBehind.title' | transloco"
+  (close)="onClosed()" (click)="onDialogClick($event)" (keydown)="onKeydown($event)"
+  (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+  @if (activePhoto(); as photo) {
+    <!-- Keyed on the photo so the entrance animation replays on every next/previous -->
+    @for (shown of [photo]; track shown.name) {
+      <figure class="lightbox-figure flex flex-col items-center gap-3">
+        <picture>
+          <source type="image/avif" [attr.srcset]="srcset(shown, 'avif')" [attr.sizes]="lightboxSizes(shown)" />
+          <img [src]="fallbackSrc(shown)" [attr.srcset]="srcset(shown, 'webp')" [attr.sizes]="lightboxSizes(shown)"
+            [attr.width]="shown.width" [attr.height]="shown.height"
+            [alt]="'workWithAlex.humanBehind.alts.' + shown.key | transloco"
+            class="max-h-[80vh] w-auto max-w-[92vw] rounded-xl object-contain shadow-2xl" decoding="async" />
+        </picture>
+        <figcaption class="px-12 text-center text-sm text-white/90">
+          <span class="font-medium">{{ 'workWithAlex.humanBehind.captions.' + shown.key | transloco }}</span>
+          <span class="ml-2 text-white/50">{{ 'workWithAlex.humanBehind.lightbox.counter'
+            | transloco: { current: (activeIndex() ?? 0) + 1, total: photoCount } }}</span>
+        </figcaption>
+      </figure>
+    }
+
+    <button type="button" (click)="close()" [attr.aria-label]="'workWithAlex.humanBehind.lightbox.close' | transloco"
+      class="lightbox-button right-4 top-4">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <button type="button" (click)="step(-1)" [attr.aria-label]="'workWithAlex.humanBehind.lightbox.prev' | transloco"
+      class="lightbox-button left-3 top-1/2 -translate-y-1/2 sm:left-6">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+    <button type="button" (click)="step(1)" [attr.aria-label]="'workWithAlex.humanBehind.lightbox.next' | transloco"
+      class="lightbox-button right-3 top-1/2 -translate-y-1/2 sm:right-6">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+  }
+</dialog>

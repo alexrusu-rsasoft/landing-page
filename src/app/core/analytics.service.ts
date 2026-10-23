@@ -22,7 +22,8 @@ export type CtaLabel =
   | 'careers_hero_view_roles'
   | 'careers_hero_send_profile'
   | 'careers_final_send_profile'
-  | 'call_confirmed_reschedule';
+  | 'call_confirmed_reschedule'
+  | 'human_behind_free_call';
 
 export type ContactLabel =
   | 'contact_phone'
@@ -96,6 +97,48 @@ export class AnalyticsService {
   /** Fires when the generated CV PDF is downloaded. */
   trackCvDownload(lang: string): void {
     this.send('cv_download', { event_category: 'cv_download', event_label: lang });
+  }
+
+  /**
+   * Fires once per page view as the visitor passes each scroll milestone (see
+   * ScrollDepthTracker). GA4's built-in `scroll` event only reports 90%, so this
+   * shows where people actually drop off.
+   */
+  trackScrollDepth(percent: number, pagePath: string): void {
+    this.send('scroll_depth', {
+      event_category: 'engagement',
+      event_label: `${percent}%`,
+      percent_scrolled: String(percent),
+      page_path: pagePath,
+    });
+  }
+
+  /** Fires once per page view when a section first scrolls into view (see TrackSectionViewDirective). */
+  trackSectionView(section: string, pagePath: string): void {
+    this.send('section_view', {
+      event_category: 'engagement',
+      event_label: section,
+      section_name: section,
+      page_path: pagePath,
+    });
+  }
+
+  /**
+   * Fires for every photo shown in the "human behind the code" lightbox on
+   * /work-with-alex: `via` is how it got there (click on the thumbnail, or
+   * next/prev by button, arrow key or swipe).
+   */
+  trackPhotoView(photo: string, via: 'click' | 'next' | 'prev'): void {
+    this.send('photo_view', { event_category: 'human_behind', event_label: photo, photo_name: photo, via });
+  }
+
+  /** Fires when the lightbox closes, with how many photos were looked at in that session. */
+  trackLightboxClose(photosViewed: number): void {
+    this.send('photo_lightbox_close', {
+      event_category: 'human_behind',
+      event_label: String(photosViewed),
+      photos_viewed: String(photosViewed),
+    });
   }
 
   private send(eventName: string, params: Record<string, string>): void {

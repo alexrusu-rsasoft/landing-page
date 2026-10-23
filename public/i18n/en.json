@@ -36,9 +36,69 @@
       "p3": "While I'm comfortable working independently, I've come to appreciate the power of teamwork. Now, I'm focused on creating a collaborative atmosphere where everyone can succeed and push boundaries together.",
       "locationLabel": "Location",
       "locationValue": "Cluj-Napoca, Romania / Remote",
-      "languagesLabel": "Languages",
-      "humanBehindLabel": "The human behind the code",
-      "humanBehindAlt": "Alex Rusu — photo {{index}}"
+      "languagesLabel": "Languages"
+    },
+    "humanBehind": {
+      "title": "The human behind the code",
+      "hobbiesLabel": "Passions",
+      "hobbies": {
+        "family": "Family & friends",
+        "gym": "Gym",
+        "tennis": "Tennis",
+        "sailing": "Sailing",
+        "photography": "Photography",
+        "travel": "Travel",
+        "cooking": "Cooking",
+        "history": "History",
+        "books": "Books",
+        "automotive": "Automotive",
+        "gaming": "PC gaming",
+        "animals": "Leo & Ginger"
+      },
+      "p1": "Outside of projects, my favorite time is the time I spend with my wife, my friends and the people I love. I recharge at the gym, on the tennis court or at the helm of a sailboat, and whenever we travel, the camera always comes along.",
+      "p2": "I love to cook, I'm fascinated by history and all things automotive, and I read a lot, mostly business and self-improvement books; every now and then I unwind with a game on my PC.",
+      "p3": "I'm a sociable person and I love animals: at home we share our space with Leo, our cat, and Ginger, our little dog. Same person online and offline: open, involved and easy to work with.",
+      "alts": {
+        "fountain": "Alex in a white shirt in front of a park fountain",
+        "roadTrip": "Alex and wife smiling on a road trip",
+        "sailing": "Alex at the helm of a sailboat",
+        "dog": "Alex with a Belgian Malinois on a mountain overlook",
+        "homeOffice": "Alex working at the home-office desk, with Leo the cat on the chair next to it",
+        "dubai": "Alex laughing at dinner on a rooftop above a night skyline",
+        "suit": "Alex in a cream suit walking past a brick facade",
+        "vatican": "Alex walking through a gallery of Roman statues",
+        "taormina": "Alex on a narrow stone stairway lined with painted ceramics",
+        "globe": "Alex walking in front of a giant illuminated globe",
+        "laptopView": "Alex working on a laptop on a stone wall above the sea",
+        "driving": "Alex at the wheel of a car"
+      },
+      "captions": {
+        "fountain": "Same person, online and offline",
+        "roadTrip": "Road trip with my wife",
+        "sailing": "At the helm — on the water and on projects",
+        "dog": "In the mountains, between projects",
+        "homeOffice": "The home office, with Leo as my coworker",
+        "dubai": "Good evenings with good people",
+        "suit": "When the occasion calls for a suit",
+        "vatican": "A love of history, up close",
+        "taormina": "Getting lost (on purpose) in old streets",
+        "globe": "Curiosity takes me all over the world",
+        "laptopView": "Remote work, with a view",
+        "driving": "Automotive passion, behind the wheel"
+      },
+      "lightbox": {
+        "close": "Close",
+        "prev": "Previous photo",
+        "next": "Next photo",
+        "counter": "{{current}} of {{total}}"
+      },
+      "booksTitle": "📚 My bookshelf",
+      "booksSubtitle": "Books that shaped the way I work, in one sentence each.",
+      "books": {},
+      "ctaTitle": "Made it this far? Let's get to know each other.",
+      "ctaText": "A free 30-minute call, no strings attached: tell me what you're working on and we'll see together whether and how I can help.",
+      "ctaButton": "Grab a virtual coffee",
+      "ctaNote": "Free · 30 minutes · no strings attached"
     },
     "languages": {
       "german": "German",

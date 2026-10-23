@@ -4,6 +4,7 @@ import { NavigationEnd, NavigationCancel, NavigationError, Router } from '@angul
 import { filter, race, take, timer } from 'rxjs';
 import { Layout } from './core/layout/layout';
 import { CookieConsentBanner } from './core/cookie-consent/cookie-consent-banner';
+import { ScrollDepthTracker } from './core/scroll-depth-tracker.service';
 
 const REVEAL_FALLBACK_MS = 3000;
 
@@ -19,6 +20,8 @@ export class App {
     // Angular's anchorScrolling ignores CSS scroll-padding-top / scroll-margin-top.
     // ViewportScroller.setOffset is the correct way to reserve space for the sticky nav.
     inject(ViewportScroller).setOffset([0, 80]);
+
+    inject(ScrollDepthTracker).start();
 
     // app-root starts hidden (see index.html) so the shell (header/footer)
     // and the routed page content paint together in one frame instead of

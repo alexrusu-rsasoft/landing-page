@@ -36,9 +36,69 @@
       "p3": "Deși mă simt confortabil să lucrez independent, am ajuns să apreciez puterea lucrului în echipă. Acum mă concentrez pe crearea unui mediu colaborativ în care toată lumea poate reuși și poate depăși limitele împreună.",
       "locationLabel": "Locație",
       "locationValue": "Cluj-Napoca, România / Remote",
-      "languagesLabel": "Limbi",
-      "humanBehindLabel": "Omul din spatele codului",
-      "humanBehindAlt": "Alex Rusu — fotografia {{index}}"
+      "languagesLabel": "Limbi"
+    },
+    "humanBehind": {
+      "title": "Omul din spatele codului",
+      "hobbiesLabel": "Pasiuni",
+      "hobbies": {
+        "family": "Familie & prieteni",
+        "gym": "Sală",
+        "tennis": "Tenis",
+        "sailing": "Navigație",
+        "photography": "Fotografie",
+        "travel": "Călătorii",
+        "cooking": "Gătit",
+        "history": "Istorie",
+        "books": "Cărți",
+        "automotive": "Automotive",
+        "gaming": "PC gaming",
+        "animals": "Leo & Ginger"
+      },
+      "p1": "În afara proiectelor, timpul meu preferat e cel petrecut cu soția mea, cu prietenii și cu oamenii dragi. Îmi încarc bateriile la sală, pe terenul de tenis sau la cârma unei bărci cu pânze, iar când călătorim, aparatul foto nu lipsește niciodată.",
+      "p2": "Îmi place să gătesc, iubesc istoria și lumea auto și citesc mult, mai ales cărți de business și dezvoltare personală, iar din când în când mă relaxez cu un joc pe PC.",
+      "p3": "Sunt o fire sociabilă și iubesc animalele: acasă ne țin companie Leo, motanul nostru, și Ginger, cățelușa noastră. Același om online și offline: deschis, implicat și ușor de lucrat cu mine.",
+      "alts": {
+        "fountain": "Alex în cămașă albă, în fața unei fântâni dintr-un parc",
+        "roadTrip": "Alex și soția, zâmbind într-un road trip",
+        "sailing": "Alex la cârma unei bărci cu pânze",
+        "dog": "Alex cu un Malinois belgian pe un punct de belvedere montan",
+        "homeOffice": "Alex lucrând la biroul de acasă, cu motanul Leo pe scaunul de alături",
+        "dubai": "Alex râzând la cină pe o terasă, deasupra unui oraș luminat noaptea",
+        "suit": "Alex într-un costum crem, trecând pe lângă o fațadă de cărămidă",
+        "vatican": "Alex plimbându-se printr-o galerie de statui romane",
+        "taormina": "Alex pe o scară îngustă de piatră, decorată cu ceramică pictată",
+        "globe": "Alex mergând prin fața unui glob uriaș iluminat",
+        "laptopView": "Alex lucrând pe laptop, pe un zid de piatră deasupra mării",
+        "driving": "Alex la volanul unei mașini"
+      },
+      "captions": {
+        "fountain": "Același om, online și offline",
+        "roadTrip": "Road trip cu soția mea",
+        "sailing": "La cârmă — și pe apă, și în proiecte",
+        "dog": "Pe munte, între două proiecte",
+        "homeOffice": "Biroul de acasă, cu Leo pe post de coleg",
+        "dubai": "Seri bune cu oameni buni",
+        "suit": "Când ocazia cere un costum",
+        "vatican": "Pasiunea pentru istorie, de aproape",
+        "taormina": "Pierdut (intenționat) pe străduțe vechi",
+        "globe": "Curiozitatea mă poartă prin toată lumea",
+        "laptopView": "Remote, cu priveliște",
+        "driving": "Pasiunea pentru automotive, la volan"
+      },
+      "lightbox": {
+        "close": "Închide",
+        "prev": "Fotografia anterioară",
+        "next": "Fotografia următoare",
+        "counter": "{{current}} din {{total}}"
+      },
+      "booksTitle": "📚 Raftul meu",
+      "booksSubtitle": "Cărți care mi-au influențat felul de a lucra, într-o frază fiecare.",
+      "books": {},
+      "ctaTitle": "Ai ajuns până aici? Hai să ne cunoaștem.",
+      "ctaText": "Un apel gratuit de 30 de minute, fără obligații: îmi spui la ce lucrezi și vedem împreună dacă și cum te pot ajuta.",
+      "ctaButton": "Hai la o cafea virtuală",
+      "ctaNote": "Gratuit · 30 de minute · fără obligații"
     },
     "languages": {
       "german": "Germană",

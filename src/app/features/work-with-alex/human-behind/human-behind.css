@@ -1,0 +1,104 @@
+/* From md up each row's groups sit on one line. A group grows by its summed aspect
+   ratio; the basis is the group's own inner gaps (gap-3 between its photos), which
+   keeps every photo across the line at exactly the same height. */
+@media (min-width: 768px) {
+  .human-behind-group {
+    flex: var(--group-ratio) 1 var(--group-gaps);
+  }
+}
+
+/* Interest tiles pop in one after another once their block scrolls into view
+   (the reveal directive adds .is-visible; per-tile delays are set inline). */
+@media (prefers-reduced-motion: no-preference) {
+  .is-visible .hobby-tile {
+    animation: hobby-tile-in 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+}
+
+@keyframes hobby-tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+}
+
+/* A tiny hardcover: darker spine on the left, a page edge on the right */
+.book-cover {
+  position: relative;
+  border-radius: 2px 6px 6px 2px;
+}
+
+.book-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  border-radius: 2px 0 0 2px;
+  background: rgb(0 0 0 / 0.25);
+}
+
+.book-cover::after {
+  content: '';
+  position: absolute;
+  inset: 3px -3px 3px auto;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: #f1f5f9;
+}
+
+/* Full-screen lightbox on the native <dialog>: Escape, focus trapping and the
+   top layer come for free. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+}
+
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox::backdrop {
+  background: rgb(2 6 23 / 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-button {
+  position: absolute;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.1);
+  color: white;
+  transition: background-color 150ms;
+}
+
+.lightbox-button:hover,
+.lightbox-button:focus-visible {
+  background: rgb(255 255 255 / 0.25);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox-figure {
+    animation: lightbox-in 250ms ease-out both;
+  }
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}

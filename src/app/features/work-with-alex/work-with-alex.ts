@@ -9,6 +9,7 @@ import { WhyChooseMe } from './why-choose-me/why-choose-me';
 import { CvDownloadBanner } from './cv-download/cv-download-banner';
 import { CvDownloadMobile } from './cv-download/cv-download-mobile';
 import { RevealOnScrollDirective } from '../../shared/ui/reveal/reveal-on-scroll.directive';
+import { TrackSectionViewDirective } from '../../shared/analytics/track-section-view.directive';
 
 @Component({
   selector: 'app-work-with-alex',
@@ -26,6 +27,7 @@ import { RevealOnScrollDirective } from '../../shared/ui/reveal/reveal-on-scroll
     CvDownloadMobile,
     TranslocoPipe,
     RevealOnScrollDirective,
+    TrackSectionViewDirective,
   ],
 })
 export class WorkWithAlex {}

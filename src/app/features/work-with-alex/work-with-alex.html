@@ -1,8 +1,8 @@
 <app-cv-download-banner />
 <div id="cv-capture-root" class="flex flex-col gap-10 min-h-screen lg:min-h-screen">
-  <app-hero />
-  <app-why-choose-me />
-  <section appRevealOnScroll class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
+  <app-hero appTrackSectionView="hero" />
+  <app-why-choose-me appTrackSectionView="why_choose_me" />
+  <section appRevealOnScroll appTrackSectionView="featured_video" class="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8">
     <div class="rounded-3xl border border-slate-200 bg-slate-950/5 p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl">
       <h2 class="text-3xl font-semibold text-slate-900 mb-4">{{ 'workWithAlex.featuredVideo.title' | transloco }}</h2>
       <div data-cv-pdf-hide class="aspect-video overflow-hidden rounded-3xl">
@@ -34,9 +34,9 @@
       </a>
     </div>
   </section>
-  <app-experience />
-  <app-about />
-  <app-skills />
-  <app-education />
+  <app-experience appTrackSectionView="experience" />
+  <app-about appTrackSectionView="about" />
+  <app-skills appTrackSectionView="skills" />
+  <app-education appTrackSectionView="education" />
 </div>
 <app-cv-download-mobile />
