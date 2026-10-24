@@ -70,7 +70,8 @@ export class CvDownloadService {
 
     this.generating.set(true);
     let restoreReveal: (() => void) | undefined;
-    let restoreVideo: (() => void) | undefined;
+    let restorePdfSwaps: (() => void) | undefined;
+    let restoreOrder: (() => void) | undefined;
     try {
       // The experience timeline loads from a third-party API after hydration
       // and renders skeleton placeholders until it resolves; capturing before
@@ -84,9 +85,15 @@ export class CvDownloadService {
       // it still invisible. Force everything visible for the capture, then
       // put it back so the live page's scroll-reveal keeps working normally.
       restoreReveal = this.#forceRevealAll(root);
-      // A PDF can't play an embedded video, so swap it for a thumbnail +
-      // direct YouTube link for the capture.
-      restoreVideo = this.#swapVideoForPdf(root);
+      // A PDF can't play an embedded video or open the booking flow, so swap
+      // those for a thumbnail + YouTube link and for plain contact details.
+      restorePdfSwaps = this.#swapForPdf(root);
+      // The CV reads professional-first: personal background goes last.
+      restoreOrder = this.#movePersonalSectionsLast(root);
+      // Revealing sections just started their entrance animations (e.g. the
+      // staggered interest tiles), and html2canvas copies computed styles as
+      // they are right now, so jump them to their end state first.
+      this.#finishAnimations(root);
       await this.#ensureImagesLoaded(root);
       await new Promise(requestAnimationFrame);
 
@@ -99,14 +106,33 @@ export class CvDownloadService {
       URL.revokeObjectURL(url);
       this.#analytics.trackCvDownload(this.#activeLang());
     } finally {
-      restoreVideo?.();
+      restoreOrder?.();
+      restorePdfSwaps?.();
       restoreReveal?.();
       this.generating.set(false);
     }
   }
 
-  /** Swaps the embedded video iframe for a thumbnail + link during capture; returns a callback that undoes it. */
-  #swapVideoForPdf(root: HTMLElement): () => void {
+  /** Jumps every finite animation under `root` to its end state, so the capture never catches one mid-way. */
+  #finishAnimations(root: HTMLElement): void {
+    for (const animation of root.getAnimations({ subtree: true })) {
+      if (animation.effect?.getComputedTiming().endTime !== Infinity) animation.finish();
+    }
+  }
+
+  /**
+   * Moves `[data-cv-pdf-last]` sections to the end of the capture. The root is a
+   * flex column, so CSS `order` does it without touching Angular's DOM; returns
+   * a callback that undoes it.
+   */
+  #movePersonalSectionsLast(root: HTMLElement): () => void {
+    const elements = Array.from(root.querySelectorAll<HTMLElement>(':scope > [data-cv-pdf-last]'));
+    elements.forEach((el) => (el.style.order = '1'));
+    return () => elements.forEach((el) => el.style.removeProperty('order'));
+  }
+
+  /** Hides `[data-cv-pdf-hide]` and shows `[data-cv-pdf-show]` during capture; returns a callback that undoes it. */
+  #swapForPdf(root: HTMLElement): () => void {
     const hideEls = Array.from(root.querySelectorAll<HTMLElement>('[data-cv-pdf-hide]'));
     const showEls = Array.from(root.querySelectorAll<HTMLElement>('[data-cv-pdf-show]'));
     hideEls.forEach((el) => (el.hidden = true));

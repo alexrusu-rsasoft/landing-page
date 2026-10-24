@@ -4,7 +4,7 @@
 The originals live in assets-src/human-behind/ and are never deployed. Photos keep
 their original framing (the page crops the portrait with object-cover to fit the text
 beside it) and are written as AVIF + WebP at their rendered 1x-3x sizes into
-public/human-behind/. To swap a photo, change it here and in about.ts.
+public/human-behind/. To swap a photo, change it here and in human-behind/human-behind-data.ts.
 
 Usage: python3 scripts/optimize-human-behind-images.py   (needs Pillow >= 11.3 for AVIF)
 """

@@ -38,6 +38,8 @@ export class HumanBehind {
   readonly hobbies = HOBBIES;
   readonly books = BOOKS;
   readonly photoCount = ALL_PHOTOS.length;
+  /** Where the CV PDF's call to action points; UTM-tagged so visits from the PDF show up as their own source in GA4. */
+  readonly pdfContactUrl = 'https://rsasoft.ro/contact?utm_source=cv_pdf&utm_medium=pdf&utm_campaign=cv_download';
 
   private readonly analytics = inject(AnalyticsService);
   private readonly document = inject(DOCUMENT);

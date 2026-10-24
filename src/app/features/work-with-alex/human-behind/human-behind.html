@@ -1,6 +1,7 @@
-<!-- Left out of the CV PDF, which stays a professional document. Photos are AVIF with WebP
-     fallback at their rendered 1x-3x sizes and lazy-load, since all of this sits well below the fold. -->
-<div data-cv-pdf-hide class="mt-14 sm:mt-20">
+<!-- Photos are AVIF with WebP fallback at their rendered 1x-3x sizes and lazy-load, since all of
+     this sits well below the fold. In the CV PDF the block closes the document, together with the
+     rest of the About section (see data-cv-pdf-last on <app-about>). -->
+<div class="mt-14 sm:mt-20">
   <!-- From md up the portrait is taken out of flow and fills the row, so its height follows
        the text column beside it and both columns end on the same line. -->
   <div appRevealOnScroll appTrackSectionView="human_behind" class="grid gap-8 md:grid-cols-5 md:gap-10">
@@ -83,23 +84,59 @@
     </div>
   }
 
-  <!-- A reward for reading this far: a personal invitation instead of another generic CTA -->
+  <!-- A reward for reading this far: a personal invitation instead of another generic CTA. The
+       cutout stands on the card's bottom edge: under the text on phones, beside it from md up. -->
   <div appRevealOnScroll appTrackSectionView="human_behind_cta"
-    class="mt-14 rounded-3xl bg-slate-950 px-6 py-10 text-center text-white shadow-xl sm:mt-16 sm:px-12 sm:py-12">
-    <img src="/alex-rusu-avatar-image.jpg" [attr.alt]="'workWithAlex.hero.avatarAlt' | transloco" width="64" height="64"
-      class="mx-auto h-16 w-16 rounded-full ring-4 ring-white/10" loading="lazy" decoding="async" />
-    <h3 class="mx-auto mt-5 max-w-2xl text-balance text-2xl font-bold sm:text-3xl">
-      {{ 'workWithAlex.humanBehind.ctaTitle' | transloco }}
-    </h3>
-    <p class="mx-auto mt-3 max-w-xl leading-relaxed text-white/75">{{ 'workWithAlex.humanBehind.ctaText' | transloco }}</p>
-    <div class="mt-8">
-      <app-free-call-cta [label]="'workWithAlex.humanBehind.ctaButton' | transloco"
-        [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="human_behind_free_call" variant="invert"
-        size="lg" />
+    class="mt-14 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-slate-950 text-white shadow-xl sm:mt-16">
+    <div class="flex flex-col-reverse md:grid md:min-h-[400px] md:grid-cols-[1fr_1.4fr]">
+      <div class="relative h-56 md:h-auto">
+        <img src="/alex-rusu-image.webp"
+          srcset="/alex-rusu-image-320.webp 320w, /alex-rusu-image-640.webp 640w, /alex-rusu-image.webp 900w"
+          sizes="(min-width: 768px) 280px, 140px" [attr.alt]="'dashboard.hero.humanPhotoAlt' | transloco"
+          class="absolute inset-0 h-full w-full object-contain object-bottom" width="900" height="1442" loading="lazy"
+          decoding="async" />
+      </div>
+      <div
+        class="flex flex-col items-center px-6 pb-6 pt-10 text-center md:items-start md:justify-center md:py-12 md:pl-2 md:pr-12 md:text-left">
+        <h3 class="max-w-xl text-balance text-2xl font-bold sm:text-3xl">
+          {{ 'workWithAlex.humanBehind.ctaTitle' | transloco }}
+        </h3>
+        <p class="mt-3 max-w-xl leading-relaxed text-white/75">{{ 'workWithAlex.humanBehind.ctaText' | transloco }}</p>
+        <div data-cv-pdf-hide class="mt-8">
+          <app-free-call-cta [label]="'workWithAlex.humanBehind.ctaButton' | transloco"
+            [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="human_behind_free_call"
+            variant="invert" size="lg" />
+        </div>
+        <!-- The PDF can't open the booking flow, so it gets the contact page, email and phone instead
+             (cv-pdf-builder turns these links into clickable areas) -->
+        <div data-cv-pdf-show hidden class="mt-8 flex flex-col items-center gap-3 md:items-start">
+          <a [href]="pdfContactUrl"
+            class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg">
+            www.rsasoft.ro/contact
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a href="mailto:alex.rusu@rsasoft.ro" class="inline-flex items-center gap-2 text-sm text-white/85">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            alex.rusu&#64;rsasoft.ro
+          </a>
+          <a href="tel:+40747011397" class="inline-flex items-center gap-2 text-sm text-white/85">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            +40 747 011 397
+          </a>
+        </div>
+        <p class="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+          {{ 'workWithAlex.humanBehind.ctaNote' | transloco }}
+        </p>
+      </div>
     </div>
-    <p class="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
-      {{ 'workWithAlex.humanBehind.ctaNote' | transloco }}
-    </p>
   </div>
 </div>
 

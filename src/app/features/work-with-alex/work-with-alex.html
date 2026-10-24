@@ -35,7 +35,8 @@
     </div>
   </section>
   <app-experience appTrackSectionView="experience" />
-  <app-about appTrackSectionView="about" />
+  <!-- Personal background closes the CV PDF, after the professional sections (see CvDownloadService) -->
+  <app-about appTrackSectionView="about" data-cv-pdf-last />
   <app-skills appTrackSectionView="skills" />
   <app-education appTrackSectionView="education" />
 </div>
