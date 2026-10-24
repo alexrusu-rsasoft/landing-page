@@ -125,7 +125,14 @@
       "title": "Professional Timeline",
       "subtitle": "Selected roles, highlights and technologies used across my career.",
       "present": "Present",
-      "companyLogoAlt": "{{company}} logo"
+      "companyLogoAlt": "{{company}} logo",
+      "current": "Now",
+      "techLabel": "Technologies used",
+      "nextChapter": {
+        "title": "Your project could be the next entry on this list.",
+        "text": "Every role above started with a simple conversation. Tell me what you're working on and we'll see together whether we're a fit.",
+        "cta": "Let's talk"
+      }
     },
     "skills": {
       "badge": "🛠️ Skills",

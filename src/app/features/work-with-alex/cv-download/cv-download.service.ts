@@ -116,6 +116,9 @@ export class CvDownloadService {
   /** Jumps every finite animation under `root` to its end state, so the capture never catches one mid-way. */
   #finishAnimations(root: HTMLElement): void {
     for (const animation of root.getAnimations({ subtree: true })) {
+      // Scroll-driven ones (the experience timeline) follow the scroll position, not the clock;
+      // finishing one would knock it out of sync with the scroll on the live page afterwards.
+      if (animation.timeline !== this.#document.timeline) continue;
       if (animation.effect?.getComputedTiming().endTime !== Infinity) animation.finish();
     }
   }

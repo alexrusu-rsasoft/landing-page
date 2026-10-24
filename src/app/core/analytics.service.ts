@@ -23,7 +23,8 @@ export type CtaLabel =
   | 'careers_hero_send_profile'
   | 'careers_final_send_profile'
   | 'call_confirmed_reschedule'
-  | 'human_behind_free_call';
+  | 'human_behind_free_call'
+  | 'experience_free_call';
 
 export type ContactLabel =
   | 'contact_phone'
@@ -120,6 +121,20 @@ export class AnalyticsService {
       event_label: section,
       section_name: section,
       page_path: pagePath,
+    });
+  }
+
+  /**
+   * Fires once per page view for each role in the /work-with-alex experience
+   * timeline as it scrolls into view, so drop-off inside that long section shows
+   * up: `index` is the role's 1-based position on the page, oldest first.
+   */
+  trackExperienceEntryView(index: number, company: string): void {
+    this.send('experience_entry_view', {
+      event_category: 'experience',
+      event_label: company,
+      entry_index: String(index),
+      entry_company: company,
     });
   }
 

@@ -125,7 +125,14 @@
       "title": "Beruflicher Werdegang",
       "subtitle": "Ausgewählte Rollen, Highlights und eingesetzte Technologien aus meiner Laufbahn.",
       "present": "Heute",
-      "companyLogoAlt": "{{company}} Logo"
+      "companyLogoAlt": "{{company}} Logo",
+      "current": "Aktuell",
+      "techLabel": "Eingesetzte Technologien",
+      "nextChapter": {
+        "title": "Ihr Projekt könnte der nächste Eintrag auf dieser Liste sein.",
+        "text": "Jede Station oben hat mit einem einfachen Gespräch begonnen. Erzählen Sie mir, woran Sie arbeiten, und wir schauen gemeinsam, ob wir zusammenpassen.",
+        "cta": "Lassen Sie uns sprechen"
+      }
     },
     "skills": {
       "badge": "🛠️ Fähigkeiten",

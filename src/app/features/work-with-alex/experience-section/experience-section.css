@@ -1,56 +1,332 @@
-/* Experience timeline small theme adjustments to match project visuals */
-
-/* Vertical timeline line subtle gradient */
-.experience-timeline-line {
-  background: linear-gradient(180deg, rgba(43, 84, 148, 0.18), rgba(148, 163, 184, 0.05));
+/* ─── Timeline geometry ───
+   Each role is an .exp-entry. From md up its rail segment runs from its own node
+   down to the next role's node (the next entry starts where this one ends, so the
+   segment overhangs its entry by --node-y); from lg up the start year sits in a
+   column left of the rail. Below md there's no rail: cards get the full width. */
+.exp-entry {
+  /* Card padding (28px) + half the monogram (22px): the node lines up with the monogram */
+  --node-y: 50px;
+  --entry-gap: 1.25rem;
+  position: relative;
+  padding-bottom: var(--entry-gap);
 }
 
-/* Card hover to match other cards across the site */
-.experience-card {
-  /* Do not override utility classes (bg, rounded, padding) applied in the template */
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
-}
-.experience-card:hover {
-  transform: translateY(-4px);
-  /* Match the subtle elevated card shadow used across the app */
-  box-shadow:
-    0 10px 30px rgba(2, 6, 23, 0.08),
-    0 2px 8px rgba(15, 23, 42, 0.04);
-  /* Use app primary color for hover border (primary: #2b5494 -> rgb(43,84,148)) */
-  border-color: rgba(43, 84, 148, 0.12);
-}
-
-/* Timeline dot sizing on larger screens */
-.timeline-dot {
-  width: 12px;
-  height: 12px;
-  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
-}
-
-/* Make date text slightly muted and monospace on small widths */
-.experience-date {
-  color: #64748b;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
-  font-size: 0.875rem;
-}
-
-/* Company logo shown on experience cards */
-.experience-company-logo {
-  opacity: 0.6;
-  transition:
-    filter 180ms ease,
-    transform 180ms ease,
-    opacity 180ms ease;
-  height: 14px;
-  width: auto;
-  flex-shrink: 0;
+.exp-seg,
+.exp-node,
+.exp-end-node,
+.exp-year-col {
+  display: none;
 }
 
 @media (min-width: 768px) {
-  .experience-company-logo {
-    height: 18px;
+  .exp-entry {
+    --rail-x: 1.25rem;
+    --entry-gap: 2.5rem;
+    padding-left: 3.5rem;
+  }
+
+  .exp-seg {
+    display: block;
+    position: absolute;
+    left: var(--rail-x);
+    top: var(--node-y);
+    bottom: calc(-1 * var(--node-y));
+    width: 2px;
+    margin-left: -1px;
+    border-radius: 9999px;
+    background: #e2e8f0;
+  }
+
+  .exp-node,
+  .exp-end-node {
+    display: block;
+    position: absolute;
+    left: var(--rail-x);
+    top: var(--node-y);
+    border-radius: 9999px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .exp-entry {
+    --rail-x: 8.75rem;
+    padding-left: 11.25rem;
+  }
+
+  .exp-year-col {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: var(--entry-gap);
+    left: 0;
+    width: 6.5rem;
+    text-align: right;
+  }
+}
+
+.exp-end {
+  padding-bottom: 0;
+}
+
+/* ─── Rail, nodes, years and monograms ───
+   Their resting state here is the "already scrolled past" one: lit and filled. That's
+   what browsers without scroll-driven animations, reduced-motion visitors and the CV
+   PDF (which switches all animations off) get. */
+.exp-seg-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transform-origin: top;
+}
+
+/* A glowing marker riding the tip of the fill, i.e. "you are here"; only shown mid-scroll */
+.exp-seg-head {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-primary);
+  background: #fff;
+  box-shadow:
+    0 0 0 4px rgb(43 84 148 / 0.15),
+    0 0 18px 3px rgb(96 165 250 / 0.55);
+  opacity: 0;
+}
+
+.exp-node,
+.exp-end-node {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+}
+
+.exp-node {
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 5px rgb(43 84 148 / 0.12);
+}
+
+/* Ring that ripples out once as the reading line crosses the node */
+.exp-node::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--color-primary);
+  opacity: 0;
+}
+
+.exp-node.is-placeholder {
+  border-color: #cbd5e1;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* The open "next chapter" slot: green like the hero's availability badge, softly pulsing */
+.exp-end-node {
+  background: #10b981;
+  box-shadow: 0 0 0 5px rgb(16 185 129 / 0.15);
+}
+
+.exp-end-node::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #10b981;
+  opacity: 0;
+}
+
+.exp-year {
+  position: sticky;
+  /* Clears the header and the CV download banner under it */
+  top: 7.5rem;
+  display: block;
+  /* Centers the first line on the node */
+  padding-top: calc(var(--node-y) - 1.25rem);
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: #0f172a;
+}
+
+.exp-monogram {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 8px 18px -8px rgb(43 84 148 / 0.6);
+}
+
+/* ─── Scroll-driven progress ───
+   Each entry is a view timeline whose viewport is narrowed to a single line 60% down
+   the screen (the same line section_view fires on): 0% when the entry's top reaches
+   that line, 100% when its bottom leaves it. Against it the rail fills, nodes and
+   monograms light up for good, and the year of the role being read darkens. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .exp-entry {
+      view-timeline: --exp-entry block;
+      view-timeline-inset: 60% 40%;
+    }
+
+    .exp-seg-fill {
+      animation: exp-fill linear both;
+      animation-timeline: --exp-entry;
+    }
+
+    .exp-seg-head {
+      animation: exp-head linear both;
+      animation-timeline: --exp-entry;
+    }
+
+    .exp-node:not(.is-placeholder) {
+      animation: exp-node-on linear both;
+      animation-timeline: --exp-entry;
+      animation-range: cover 0% cover 4%;
+    }
+
+    .exp-node:not(.is-placeholder)::after {
+      animation: exp-node-ripple linear both;
+      animation-timeline: --exp-entry;
+      animation-range: cover 0% cover 25%;
+    }
+
+    .exp-monogram {
+      animation: exp-monogram-on linear both;
+      animation-timeline: --exp-entry;
+      animation-range: cover 0% cover 4%;
+    }
+
+    .exp-year {
+      animation: exp-year-focus linear both;
+      animation-timeline: --exp-entry;
+    }
+  }
+}
+
+@keyframes exp-fill {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes exp-head {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  3%,
+  97% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes exp-node-on {
+  from {
+    border-color: #cbd5e1;
+    background: #fff;
+    box-shadow: 0 0 0 0 rgb(43 84 148 / 0);
+    transform: scale(0.85);
+  }
+}
+
+@keyframes exp-node-ripple {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes exp-monogram-on {
+  from {
+    background: rgb(43 84 148 / 0.08);
+    color: var(--color-primary);
+    box-shadow: 0 0 0 0 rgb(43 84 148 / 0);
+  }
+}
+
+@keyframes exp-year-focus {
+  0%,
+  100% {
+    color: #cbd5e1;
+  }
+
+  6%,
+  94% {
+    color: #0f172a;
+  }
+}
+
+/* ─── Entrances ───
+   Cards glide up as they reveal, then their highlights and tech chips follow one
+   after another (the reveal directive adds .is-visible; delays are set inline). */
+@media (prefers-reduced-motion: no-preference) {
+  .exp-reveal.reveal-on-scroll {
+    transform: translateY(32px);
+    transition:
+      opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .exp-reveal.reveal-on-scroll.is-visible {
+    transform: none;
+  }
+
+  .is-visible .exp-highlight {
+    animation: exp-rise 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .is-visible .exp-chip {
+    animation: exp-chip-in 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .exp-end-node::after {
+    animation: exp-end-pulse 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes exp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes exp-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.9);
+  }
+}
+
+@keyframes exp-end-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3);
   }
 }

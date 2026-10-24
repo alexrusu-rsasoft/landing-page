@@ -2,7 +2,7 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section header -->
-    <div appRevealOnScroll class="text-center mb-8 sm:mb-12">
+    <div appRevealOnScroll class="text-center mb-10 sm:mb-14">
       <div
         class="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-sm border border-slate-200/80 mb-4">
         <span>{{ 'workWithAlex.experience.badge' | transloco }}</span>
@@ -12,213 +12,170 @@
       <p class="max-w-2xl mx-auto text-sm text-slate-600 mt-2">{{ 'workWithAlex.experience.subtitle' | transloco }}</p>
     </div>
 
-    <!-- Timeline -->
-    <div class="relative" [attr.aria-busy]="isLoading()">
-      <div class="hidden md:block absolute left-4 md:left-8 top-0 bottom-0 w-px experience-timeline-line"></div>
-
+    <!-- One <li> per role. From md up a rail segment runs from its node down to the next role's node, and
+         from lg up its start year sits in a sticky column left of the rail. -->
+    <ol class="exp-list" [attr.aria-busy]="isLoading()">
       @if (isLoading()) {
-      <!-- Loading skeleton: show 3 placeholder cards -->
-      <div class="relative">
-        <div class="space-y-8">
-          <!-- Skeleton card 1 -->
-          <div class="relative pl-0 md:pl-20 group">
-            <div class="hidden md:block absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
-              style="width:12px;height:12px;border-radius:9999px"></div>
-            <div
-              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div>
-                  <div class="skeleton-pulse h-5 w-48 rounded-md mb-2"></div>
-                  <div class="skeleton-pulse h-3 w-32 rounded-md"></div>
-                </div>
-                <div class="text-sm experience-date flex items-center gap-1.5">
-                  <div class="skeleton-pulse h-3 w-24 rounded-md"></div>
-                </div>
-              </div>
-
-              <div class="text-slate-600 text-sm leading-relaxed mb-4">
-                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
-                <div class="skeleton-pulse h-3 w-3/4 rounded-md"></div>
-              </div>
-
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
-                </li>
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-5/6 rounded-md"></div>
-                </li>
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-2/3 rounded-md"></div>
-                </li>
-              </ul>
-
-              <div class="flex row flex-nowrap items-center justify-between gap-2">
-                <div class="flex flex-wrap gap-2">
-                  <div class="skeleton-pulse h-6 w-16 rounded-full"></div>
-                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
-                  <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
-                </div>
-                <div class="ml-4 flex items-center">
-                  <div class="skeleton-pulse h-8 w-24 rounded-md"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Skeleton card 2 -->
-          <div class="relative pl-0 md:pl-20 group">
-            <div class="hidden md:block absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
-              style="width:12px;height:12px;border-radius:9999px"></div>
-            <div
-              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div>
-                  <div class="skeleton-pulse h-5 w-40 rounded-md mb-2"></div>
+        @for (n of [1, 2, 3]; track n) {
+          <li class="exp-entry" aria-hidden="true">
+            <span class="exp-year-col"><span class="skeleton-pulse ml-auto mt-8 block h-9 w-20"></span></span>
+            <span class="exp-seg"></span>
+            <span class="exp-node is-placeholder"></span>
+            <div class="rounded-3xl border border-slate-200/70 bg-white p-5 md:p-7">
+              <div class="flex items-start gap-4">
+                <div class="skeleton-pulse size-11 shrink-0 rounded-2xl"></div>
+                <div class="flex-1 space-y-2 pt-0.5">
+                  <div class="skeleton-pulse h-3 w-36 rounded-md"></div>
+                  <div class="skeleton-pulse h-5 w-56 max-w-full rounded-md"></div>
                   <div class="skeleton-pulse h-3 w-28 rounded-md"></div>
                 </div>
-                <div class="text-sm experience-date flex items-center gap-1.5">
-                  <div class="skeleton-pulse h-3 w-20 rounded-md"></div>
-                </div>
               </div>
-
-              <div class="text-slate-600 text-sm leading-relaxed mb-4">
-                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
+              <div class="mt-6 space-y-2.5">
+                <div class="skeleton-pulse h-3 w-full rounded-md"></div>
+                <div class="skeleton-pulse h-3 w-5/6 rounded-md"></div>
                 <div class="skeleton-pulse h-3 w-2/3 rounded-md"></div>
               </div>
-
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
-                </li>
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-4/6 rounded-md"></div>
-                </li>
-              </ul>
-
-              <div class="flex row flex-nowrap items-center justify-between gap-2">
-                <div class="flex flex-wrap gap-2">
-                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
-                  <div class="skeleton-pulse h-6 w-16 rounded-full"></div>
-                </div>
-                <div class="ml-4 flex items-center">
-                  <div class="skeleton-pulse h-8 w-20 rounded-md"></div>
-                </div>
+              <div class="mt-6 flex flex-wrap gap-1.5 border-t border-slate-100 pt-5">
+                <div class="skeleton-pulse h-6 w-16 rounded-full"></div>
+                <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
+                <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
               </div>
             </div>
-          </div>
-
-          <!-- Skeleton card 3 -->
-          <div class="relative pl-0 md:pl-20 group">
-            <div class="hidden md:block absolute left-7 top-8 rounded-full border-2 skeleton-pulse"
-              style="width:12px;height:12px;border-radius:9999px"></div>
-            <div
-              class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div>
-                  <div class="skeleton-pulse h-5 w-44 rounded-md mb-2"></div>
-                  <div class="skeleton-pulse h-3 w-24 rounded-md"></div>
-                </div>
-                <div class="text-sm experience-date flex items-center gap-1.5">
-                  <div class="skeleton-pulse h-3 w-20 rounded-md"></div>
-                </div>
-              </div>
-
-              <div class="text-slate-600 text-sm leading-relaxed mb-4">
-                <div class="skeleton-pulse h-3 w-full rounded-md mb-2"></div>
-                <div class="skeleton-pulse h-3 w-3/5 rounded-md"></div>
-              </div>
-
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-full rounded-md"></div>
-                </li>
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-4/6 rounded-md"></div>
-                </li>
-                <li class="flex items-start gap-2 text-sm text-slate-600">
-                  <div class="skeleton-pulse h-3 w-2/5 rounded-md"></div>
-                </li>
-              </ul>
-
-              <div class="flex row flex-nowrap items-center justify-between gap-2">
-                <div class="flex flex-wrap gap-2">
-                  <div class="skeleton-pulse h-6 w-20 rounded-full"></div>
-                  <div class="skeleton-pulse h-6 w-12 rounded-full"></div>
-                </div>
-                <div class="ml-4 flex items-center">
-                  <div class="skeleton-pulse h-8 w-16 rounded-md"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </li>
+        }
       } @else {
-      @for (exp of experiences(); track exp.company + exp?.start; let i = $index) {
-      <div appRevealOnScroll class="relative pl-0 md:pl-20 pb-14 last:pb-0 group">
-        <div class="hidden md:block absolute left-7 top-8 timeline-dot rounded-full border-2" [class]="
-                            exp.current
-                                ? 'bg-primary border-primary shadow-lg shadow-primary/50'
-                                : 'bg-white border-slate-300 group-hover:border-primary'
-                        "></div>
-
-        <div
-          class="experience-card rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 text-slate-900 shadow-sm shadow-slate-200/70 border border-slate-100/80">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-            <div>
-              <h3 class="text-lg font-semibold text-slate-950">{{ exp.title }}</h3>
-              <p class="text-primary text-sm font-medium">{{ exp.company }}</p>
-            </div>
-            <div class="text-sm experience-date flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span>
-                {{ exp?.start | date: 'MMMM yyyy' }} —
-                @if (exp?.end) {
-                {{ exp?.end | date: 'MMMM yyyy' }}
-                } @else {
-                {{ 'workWithAlex.experience.present' | transloco }}
+        @for (entry of entries(); track entry.item.company + entry.item.start; let i = $index, last = $last) {
+          <li #entry class="exp-entry" [attr.data-index]="i + 1" [attr.data-company]="entry.item.company">
+            <span class="exp-year-col" aria-hidden="true">
+              <!-- Roles overlap, so the end year too: a role that started earlier can come after one
+                   that started later -->
+              <span class="exp-year">
+                {{ entry.startYear }}
+                @if (entry.endYear !== entry.startYear) {
+                  <span class="mt-2 block text-[0.8125rem] font-medium leading-4 tracking-normal text-slate-400">→ {{ entry.endYear ?? ('workWithAlex.experience.present' | transloco) }}</span>
                 }
               </span>
-            </div>
-          </div>
+            </span>
+            <!-- The last segment leads into the "next chapter" slot, which the CV PDF leaves out -->
+            <span class="exp-seg" aria-hidden="true" [attr.data-cv-pdf-hide]="last ? '' : null">
+              <span class="exp-seg-fill"></span>
+              <span class="exp-seg-head"></span>
+            </span>
+            <span class="exp-node" aria-hidden="true"></span>
 
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">{{ exp.description }}</p>
+            <div appRevealOnScroll class="exp-reveal">
+              <article
+                class="group rounded-3xl border border-slate-200/70 bg-white p-5 shadow-sm shadow-slate-200/60 transition duration-300 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/[0.08] md:p-7">
+                <header class="flex items-start gap-4">
+                  <span
+                    class="exp-monogram grid size-11 shrink-0 place-items-center rounded-2xl text-[0.8125rem] font-bold tracking-tight"
+                    aria-hidden="true">{{ entry.monogram }}</span>
+                  <div class="min-w-0 flex-1">
+                    <p class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-medium text-slate-500">
+                      <span>
+                        {{ entry.start }} – {{ entry.end ?? ('workWithAlex.experience.present' | transloco) }}
+                      </span>
+                      @if (entry.duration) {
+                        <!-- The dot wraps together with the duration, so no line ends in a dangling separator -->
+                        <span class="inline-flex items-center gap-2">
+                          <span class="size-1 rounded-full bg-slate-300" aria-hidden="true"></span>
+                          {{ entry.duration }}
+                        </span>
+                      }
+                      @if (entry.item.current) {
+                        <span
+                          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-600/15">
+                          <span class="size-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+                          {{ 'workWithAlex.experience.current' | transloco }}
+                        </span>
+                      }
+                    </p>
+                    <h3 class="mt-1 text-lg font-semibold leading-snug text-slate-950 md:text-xl">{{ entry.item.title }}</h3>
+                    <p class="mt-0.5 text-sm font-medium text-primary">{{ entry.item.company }}</p>
+                  </div>
+                </header>
 
-          <ul class="space-y-2 mb-5">
-            @for (highlight of exp.highlights; track highlight) {
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <span class="text-primary shrink-0">▹</span>
-              <span class="leading-relaxed">{{ highlight }}</span>
-            </li>
-            }
-          </ul>
+                <p class="mt-5 text-[0.9375rem] leading-relaxed text-slate-600">{{ entry.item.description }}</p>
 
-          <div class="flex flex-col sm:flex-row sm:flex-nowrap sm:items-center justify-between gap-3 sm:gap-2">
-            <div class="flex flex-wrap gap-2">
-              @for (tech of exp.tech; track tech) {
-              <span
-                class="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20 font-mono">
-                {{ tech }}
-              </span>
-              }
+                @if (entry.item.highlights.length) {
+                  <ul class="mt-4 space-y-2.5">
+                    @for (highlight of entry.item.highlights; track highlight; let h = $index) {
+                      <li class="exp-highlight flex gap-3 text-sm leading-relaxed text-slate-700"
+                        [style.animation-delay.ms]="150 + h * 70">
+                        <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary/10 text-primary"
+                          aria-hidden="true">
+                          <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                          </svg>
+                        </span>
+                        <span>{{ highlight }}</span>
+                      </li>
+                    }
+                  </ul>
+                }
+
+                <div class="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-slate-100 pt-5">
+                  <ul class="flex flex-wrap gap-1.5" [attr.aria-label]="'workWithAlex.experience.techLabel' | transloco">
+                    @for (tech of entry.item.tech; track tech; let t = $index) {
+                      <li class="exp-chip rounded-full border border-slate-200/80 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600"
+                        [style.animation-delay.ms]="250 + t * 35">
+                        {{ tech }}
+                      </li>
+                    }
+                  </ul>
+                  @if (entry.item.client) {
+                    <img src="/RSA - Logo + Text  Horizzontal - Default.png" [attr.alt]="'nav.logoAlt' | transloco"
+                      class="ml-auto h-3.5 w-auto shrink-0 opacity-60 grayscale transition duration-300 group-hover:opacity-100 md:h-4"
+                      width="120" height="16" loading="lazy" decoding="async" />
+                  }
+                </div>
+              </article>
             </div>
-            @if (exp.client) {
-            <div class="sm:ml-4 flex items-center shrink-0">
-              <img src="/RSA - Logo + Text  Horizzontal - Default.png" [attr.alt]="'nav.logoAlt' | transloco"
-                class="experience-company-logo object-contain" width="128" height="32" decoding="async" />
+          </li>
+        }
+
+        <!-- A reward for reading the whole timeline: an empty slot shaped like the cards above. The CV PDF
+             skips it, since its own closing block already carries the contact details. -->
+        @if (entries().length) {
+          <li class="exp-entry exp-end" data-cv-pdf-hide appTrackSectionView="experience_end">
+            <span class="exp-end-node" aria-hidden="true"></span>
+            <div appRevealOnScroll class="exp-reveal">
+              <div class="group rounded-3xl border-2 border-dashed border-slate-300/80 bg-white/60 p-5 transition duration-300 hover:border-primary/40 hover:bg-white md:p-7">
+                <div class="flex items-start gap-4">
+                  <span
+                    class="grid size-11 shrink-0 place-items-center rounded-2xl border-2 border-dashed border-slate-300 text-slate-400 transition duration-300 group-hover:rotate-90 group-hover:border-primary group-hover:text-primary"
+                    aria-hidden="true">
+                    <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"
+                      stroke-linecap="round">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                  <div class="min-w-0 flex-1">
+                    <p class="flex items-center gap-2 text-xs font-semibold text-emerald-700">
+                      <span class="relative flex size-2" aria-hidden="true">
+                        <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span>
+                      </span>
+                      {{ 'workWithAlex.hero.badge' | transloco }}
+                    </p>
+                    <h3 class="mt-1 text-balance text-lg font-semibold leading-snug text-slate-950 md:text-xl">
+                      {{ 'workWithAlex.experience.nextChapter.title' | transloco }}
+                    </h3>
+                    <p class="mt-2 text-[0.9375rem] leading-relaxed text-slate-600">
+                      {{ 'workWithAlex.experience.nextChapter.text' | transloco }}
+                    </p>
+                    <div class="mt-5">
+                      <app-free-call-cta [label]="'workWithAlex.experience.nextChapter.cta' | transloco"
+                        [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="experience_free_call" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            }
-          </div>
-        </div>
-      </div>
+          </li>
+        }
       }
-      }
-
-    </div>
+    </ol>
   </div>
 </section>

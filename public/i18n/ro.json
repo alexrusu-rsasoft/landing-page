@@ -125,7 +125,14 @@
       "title": "Traseu Profesional",
       "subtitle": "Roluri selectate, realizări și tehnologii folosite de-a lungul carierei mele.",
       "present": "Prezent",
-      "companyLogoAlt": "Logo {{company}}"
+      "companyLogoAlt": "Logo {{company}}",
+      "current": "Acum",
+      "techLabel": "Tehnologii folosite",
+      "nextChapter": {
+        "title": "Proiectul tău poate fi următorul pe această listă.",
+        "text": "Fiecare rol de mai sus a început cu o simplă discuție. Spune-mi la ce lucrezi și vedem împreună dacă ne potrivim.",
+        "cta": "Hai să vorbim"
+      }
     },
     "skills": {
       "badge": "🛠️ Competențe",
