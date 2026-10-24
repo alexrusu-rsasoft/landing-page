@@ -49,6 +49,11 @@
   body {
     margin: 0;
     min-height: 100vh;
+    /* On <html> the clip above is propagated to the viewport, where mobile Chrome still
+       counts the clipped overflow (e.g. a section waiting to slide in from the right):
+       it widens the layout viewport past the screen and pushes fixed buttons off the
+       bottom edge. Clipping on <body> too keeps that overflow out of the page's width. */
+    overflow-x: clip;
     background-color: var(--color-light);
     color: #0f172a;
     text-rendering: optimizeLegibility;
@@ -138,6 +143,15 @@
 .reveal-on-scroll-right.is-visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Until it lands, a block sliding in from the right sticks out past the screen edge
+   wherever the side margin is under 48px, widening the page in browsers that ignore
+   `overflow: clip` (iOS Safari < 16). Below xl it rises like the other reveals. */
+@media (max-width: 1279px) {
+  .reveal-on-scroll-right {
+    transform: translateY(20px);
+  }
 }
 
 /* ─── CTA click confirmation ─── */
