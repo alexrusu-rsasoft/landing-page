@@ -101,7 +101,7 @@ export class CvDownloadService {
       const url = URL.createObjectURL(blob);
       const anchor = this.#document.createElement('a');
       anchor.href = url;
-      anchor.download = 'alex-rusu-cv.pdf';
+      anchor.download = `alex-rusu-cv-${this.#activeLang()}.pdf`;
       anchor.click();
       URL.revokeObjectURL(url);
       this.#analytics.trackCvDownload(this.#activeLang());
