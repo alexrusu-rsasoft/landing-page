@@ -16,8 +16,16 @@
   </div>
 
   <div
-    class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-6 pb-12 pt-16 text-center sm:px-8 lg:px-10 lg:pb-16">
-    <h1 class="max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+    class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-6 pb-8 pt-8 text-center sm:pb-10 sm:pt-12 sm:px-8 lg:px-10 lg:pb-12">
+    <!-- Who it is for, before what it is: a visitor outside DACH enterprise
+         should know in one glance that the rest is not addressed to them. -->
+    <p
+      class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-sm sm:text-sm">
+      <span class="h-2 w-2 shrink-0 rounded-full bg-emerald-400" aria-hidden="true"></span>
+      {{ 'dashboard.hero.badge' | transloco }}
+    </p>
+
+    <h1 class="mt-6 max-w-4xl text-balance text-3xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
       {{ 'dashboard.hero.title' | transloco }}
     </h1>
 
@@ -25,24 +33,49 @@
       {{ 'dashboard.hero.subtitle' | transloco }}
     </p>
 
-    <div class="mt-10">
+    <!-- Two ways in: the call for whoever is ready, the live developer
+         profiles for whoever wants to see the bench before talking. -->
+    <div class="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
       <app-free-call-cta [label]="'dashboard.hero.heroCtaLabel' | transloco" [confirmedLabel]="'common.ctaConfirmed' | transloco"
         analyticsLabel="hero_free_call" variant="light" size="lg" />
+      <button type="button"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-4 text-sm font-semibold text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        (click)="scrollToElement('profiles'); trackCta('hero_view_profiles')">
+        {{ 'dashboard.hero.ctaSecondary' | transloco }}
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M6 13l6 6 6-6" />
+        </svg>
+      </button>
     </div>
 
-    <p class="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/60">
+    <p class="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-white/60">
       {{ 'dashboard.hero.ctaNote' | transloco }}
     </p>
   </div>
 
-  <div class="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-6 pb-8 sm:px-8 lg:px-10">
-    <button type="button" class="hero-scroll-cue inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition hover:border-white hover:text-white"
-      [attr.aria-label]="'dashboard.hero.ctaSecondary' | transloco"
-      (click)="scrollToElement('hero-next'); trackCta('hero_view_protocol')">
-      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 5v14M6 13l6 6 6-6" />
-      </svg>
-    </button>
+  <!-- Proof inside the fold, as one quiet row rather than cards, so it backs
+       the headline without competing with the call to action above it. -->
+  <div class="relative z-10 border-t border-white/15 bg-slate-950/40 backdrop-blur-sm">
+    <ul class="mx-auto grid w-full max-w-5xl grid-cols-3 divide-x divide-white/15 py-5 text-center sm:py-6">
+      <li class="px-2 sm:px-6">
+        <p class="text-xl font-bold tracking-tight sm:text-3xl">{{ 'dashboard.hero.stat1Value' | transloco }}</p>
+        <p class="mt-1 text-[11px] leading-4 text-white/70 sm:text-sm">{{ 'dashboard.hero.stat1Label' | transloco }}</p>
+      </li>
+      <li class="px-2 sm:px-6">
+        <p class="text-xl font-bold tracking-tight sm:text-3xl">{{ 'dashboard.hero.stat2Value' | transloco }}</p>
+        <p class="mt-1 text-[11px] leading-4 text-white/70 sm:text-sm">{{ 'dashboard.hero.stat2Label' | transloco }}</p>
+      </li>
+      <li class="px-2 sm:px-6">
+        <a href="https://platform.listafirme.ro/top_2024/diploma_3774693.htm" target="_blank" rel="noopener noreferrer"
+          class="group block rounded-lg transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          (click)="trackCta('hero_trust_badge')">
+          <p class="text-xl font-bold tracking-tight sm:text-3xl">{{ 'dashboard.hero.stat3Value' | transloco }}</p>
+          <p class="mt-1 text-[11px] leading-4 text-white/70 underline decoration-white/30 underline-offset-2 group-hover:decoration-white sm:text-sm">
+            {{ 'dashboard.hero.stat3Label' | transloco }}
+          </p>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>

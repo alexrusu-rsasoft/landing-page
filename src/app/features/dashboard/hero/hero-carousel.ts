@@ -7,7 +7,6 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
 import { FreeCallCta } from '../../../shared/ui/free-call-cta/free-call-cta';
@@ -26,6 +25,9 @@ interface HeroSlide {
 const IMAGE_WIDTHS = [640, 960, 1440, 1920, 2560];
 
 const SLIDE_DURATION_MS = 6500;
+
+/** Breathing room left between the sticky header and a scrolled-to section. */
+const SCROLL_TARGET_GAP_PX = 24;
 
 const SLIDES: readonly HeroSlide[] = [
   {
@@ -49,12 +51,13 @@ const SLIDES: readonly HeroSlide[] = [
 ];
 
 /**
- * Full-bleed opening fold: three photographs crossfading behind one headline,
- * one sub-headline and a single call to action.
+ * Full-bleed opening fold: three photographs crossfading behind the audience
+ * line, headline and sub-headline, the call (plus a softer "see the bench"
+ * alternative) and a row of proof along the bottom edge.
  */
 @Component({
   selector: 'app-hero-carousel',
-  imports: [RouterLink, TranslocoPipe, FreeCallCta],
+  imports: [TranslocoPipe, FreeCallCta],
   templateUrl: './hero-carousel.html',
   styleUrl: './hero-carousel.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -95,10 +98,11 @@ export class HeroCarousel {
   }
 
   /**
-   * Scrolls past the header, ending flush with the top of the target
-   * section. A manual rAF tween rather than native `scrollIntoView` because
-   * the latter can be cut short mid-animation by layout shifts from the
-   * hero's own rotation/observers, leaving the hero only partly scrolled past.
+   * Scrolls past the header, ending with the target section a short gap
+   * below it rather than touching its edge. A manual rAF tween rather than
+   * native `scrollIntoView` because the latter can be cut short mid-animation
+   * by layout shifts from the hero's own rotation/observers, leaving the hero
+   * only partly scrolled past.
    *
    * The page's global `scroll-behavior: smooth` is suspended for the
    * duration: left on, every per-frame `scrollTo` below would kick off its
@@ -122,7 +126,7 @@ export class HeroCarousel {
     for (let node: HTMLElement | null = el; node; node = node.offsetParent as HTMLElement | null) {
       absoluteTop += node.offsetTop;
     }
-    const target = absoluteTop - headerHeight;
+    const target = absoluteTop - headerHeight - SCROLL_TARGET_GAP_PX;
     const start = window.scrollY;
     const duration = 700;
     const startTime = performance.now();

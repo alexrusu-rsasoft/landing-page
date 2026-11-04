@@ -29,6 +29,16 @@ export class DeveloperProfilesSection {
       .filter(Boolean);
   }
 
+  /** The sheet uses "-" (or leaves the cell empty) when the years are unknown. */
+  protected hasYears(years: string): boolean {
+    return /\d/.test(years ?? '');
+  }
+
+  /**
+   * The sheet's availability values are English free text, so the common
+   * "available now" case is shown in the visitor's language instead; anything
+   * else (a date, "in 2 weeks") passes through as written.
+   */
   protected isAvailableNow(availability: string): boolean {
     return /immediately|now|acum|imediat|sofort/i.test(availability ?? '');
   }

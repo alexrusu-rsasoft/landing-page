@@ -17,7 +17,7 @@ import { AnalyticsService, CtaLabel } from '../analytics.service';
 import { CookieConsentService } from '../cookie-consent/cookie-consent.service';
 import { CareersApplyModal } from '../../features/careers/careers-apply-modal.service';
 
-const NAV_SECTION_IDS = ['protocol', 'proof', 'pricing'];
+const NAV_SECTION_IDS = ['services', 'projects', 'process', 'pricing'];
 
 @Component({
   selector: 'app-layout',
