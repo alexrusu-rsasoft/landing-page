@@ -62,8 +62,8 @@ export class AnalyticsService {
     this.send('careers_application_submit', { event_category: 'careers', event_label: opportunity });
   }
 
-  trackCareersShare(opportunity: string): void {
-    this.send('careers_share_click', { event_category: 'careers', event_label: opportunity });
+  trackCareersShare(opportunity: string, method: 'native_share' | 'copy_link'): void {
+    this.send('careers_share_click', { event_category: 'careers', event_label: opportunity, method });
   }
 
   /** Fires once when the Google Calendar iframe scrolls into the viewport. */

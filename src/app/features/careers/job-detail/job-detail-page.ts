@@ -106,24 +106,37 @@ export class JobDetailPage {
     const current = this.opening();
     if (!current) return;
 
-    this.#analytics.trackCareersShare(current.opportunity);
-    const url = window.location.href;
-
     if (navigator.share) {
+      this.#analytics.trackCareersShare(current.opportunity, 'native_share');
       try {
-        await navigator.share({ title: current.opportunity, url });
+        await navigator.share({ title: current.opportunity, url: this.#shareUrl(current, 'native_share') });
       } catch {
         // Share sheet dismissed or unsupported mid-call: nothing more to do.
       }
       return;
     }
 
+    this.#analytics.trackCareersShare(current.opportunity, 'copy_link');
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(this.#shareUrl(current, 'copy_link'));
       this.shareState.set('copied');
       setTimeout(() => this.shareState.set('idle'), 2000);
     } catch {
       // Clipboard unavailable (permissions, insecure context): fail silently.
     }
+  }
+
+  /**
+   * Builds the shared link from the clean role URL (dropping any UTMs the
+   * sharer arrived with) so every visit it brings lands in GA as
+   * source=job_share / campaign=careers, with the role slug as utm_content.
+   */
+  #shareUrl(opening: CareerOpening, medium: 'native_share' | 'copy_link'): string {
+    const url = new URL(window.location.pathname, window.location.origin);
+    url.searchParams.set('utm_source', 'job_share');
+    url.searchParams.set('utm_medium', medium);
+    url.searchParams.set('utm_campaign', 'careers');
+    url.searchParams.set('utm_content', slugifyOpportunity(opening.opportunity));
+    return url.toString();
   }
 }

@@ -80,9 +80,17 @@
         </button>
         <button type="button" (click)="share()"
           class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
-          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342a3 3 0 100-2.684m0 2.684a3 3 0 100 2.684m0-2.684l6.632 3.316m0-6.684a3 3 0 100-2.632m0 2.632a3 3 0 100 2.632m0-2.632L8.684 10.658M18 6a3 3 0 11-6 0 3 3 0 016 0zM9 12a3 3 0 11-6 0 3 3 0 016 0zM18 18a3 3 0 11-6 0 3 3 0 016 0z" />
+          @if (shareState() === 'copied') {
+          <svg viewBox="0 0 24 24" class="h-4 w-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" />
           </svg>
+          } @else {
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" />
+            <path d="m16 6-4-4-4 4" />
+            <path d="M12 2v13" />
+          </svg>
+          }
           {{ (shareState() === 'copied' ? 'careers.detail.linkCopied' : 'careers.detail.shareCta') | transloco }}
         </button>
       </div>
