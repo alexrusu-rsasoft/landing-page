@@ -32,7 +32,7 @@ export class OffersService {
 
   // The first offer returned by the API (id 1, special = FALSE, no client) is
   // the platform's flat per-hour cut — applied everywhere a rate is shown net
-  // of it (cost calculator margin, career page hourly rates). Defaults to 0
+  // of it (e.g. the cost calculator margin). Defaults to 0
   // (no cut) while loading or if the fetch fails; consumers should check
   // isLoading themselves to show a skeleton instead of a misleading 0.
   readonly platformCut = computed(() => this.offersResource.value()?.[0]?.price ?? 0);

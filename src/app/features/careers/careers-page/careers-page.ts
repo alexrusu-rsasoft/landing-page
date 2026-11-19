@@ -25,7 +25,6 @@ export class CareersPage {
   protected readonly openings = this.#careers.openings;
   protected readonly isLoading = this.#careers.isLoading;
   protected readonly hasError = this.#careers.hasError;
-  protected readonly ratesLoading = this.#careers.ratesLoading;
 
   protected readonly applyOpen = this.#applyModal.isOpen;
   protected readonly applyTargetRole = this.#applyModal.targetRole;
