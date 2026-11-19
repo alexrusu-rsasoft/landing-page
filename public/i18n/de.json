@@ -676,7 +676,13 @@
       "applyCta": "Jetzt bewerben",
       "viewDetailsCta": "Details ansehen",
       "errorText": "Die offenen Stellen konnten gerade nicht geladen werden. Senden Sie uns direkt Ihr Profil, wir vermitteln Sie zur passenden Möglichkeit.",
-      "emptyText": "Aktuell keine offenen Stellen. Senden Sie uns Ihr Profil, wir melden uns, sobald ein passendes Projekt verfügbar ist."
+      "emptyText": "Aktuell keine offenen Stellen. Senden Sie uns Ihr Profil, wir melden uns, sobald ein passendes Projekt verfügbar ist.",
+      "searchLabel": "Stellen nach Technologie suchen",
+      "searchPlaceholder": "Nach Technologie suchen: Java, SAP, Azure…",
+      "searchClear": "Suche löschen",
+      "searchResults": "{{count}} von {{total}} Stellen",
+      "searchEmpty": "Aktuell keine offenen Stellen für „{{query}}“. Senden Sie uns Ihr Profil, wir melden uns, sobald eine passende Stelle frei wird.",
+      "searchShowAll": "Alle Stellen anzeigen"
     },
     "finalCta": {
       "title": "Nicht die passende Rolle dabei? Wir suchen laufend geprüfte, DACH-erfahrene Entwickler.",

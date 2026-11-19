@@ -26,6 +26,7 @@ export type CtaLabel =
   | 'careers_hero_view_roles'
   | 'careers_hero_send_profile'
   | 'careers_final_send_profile'
+  | 'careers_search_send_profile'
   | 'call_confirmed_reschedule'
   | 'human_behind_free_call'
   | 'experience_free_call';
@@ -64,6 +65,11 @@ export class AnalyticsService {
 
   trackCareersShare(opportunity: string, method: 'native_share' | 'copy_link'): void {
     this.send('careers_share_click', { event_category: 'careers', event_label: opportunity, method });
+  }
+
+  /** A candidate filtered the open roles by technology (typed or via a quick-pick chip). */
+  trackCareersSearch(term: string, results: number, method: 'typed' | 'chip'): void {
+    this.send('careers_search', { event_category: 'careers', search_term: term, results_count: String(results), method });
   }
 
   /** Fires once when the Google Calendar iframe scrolls into the viewport. */

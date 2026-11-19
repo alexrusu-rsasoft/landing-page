@@ -676,7 +676,13 @@
       "applyCta": "Apply Now",
       "viewDetailsCta": "View Details",
       "errorText": "We couldn't load the open roles right now. Send us your profile directly and we'll match you to the right opportunity.",
-      "emptyText": "No open roles right now. Send us your profile and we'll reach out the moment a matching project opens up."
+      "emptyText": "No open roles right now. Send us your profile and we'll reach out the moment a matching project opens up.",
+      "searchLabel": "Search roles by technology",
+      "searchPlaceholder": "Search by technology: Java, SAP, Azure…",
+      "searchClear": "Clear search",
+      "searchResults": "{{count}} of {{total}} roles",
+      "searchEmpty": "No open roles for “{{query}}” right now. Send us your profile and we'll let you know when a matching one opens up.",
+      "searchShowAll": "Show all roles"
     },
     "finalCta": {
       "title": "Don't see the right role? We're always looking for vetted DACH-ready developers.",

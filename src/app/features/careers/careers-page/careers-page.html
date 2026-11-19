@@ -78,8 +78,66 @@
     </button>
   </div>
   } @else {
+  <div class="mb-8 max-w-3xl" role="search">
+    <label for="careers-search" class="sr-only">{{ 'careers.openings.searchLabel' | transloco }}</label>
+    <div class="relative">
+      <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </svg>
+      <input id="careers-search" type="search" autocomplete="off" enterkeyhint="search"
+        [value]="searchQuery()" (input)="onSearchInput($any($event.target).value)"
+        [placeholder]="'careers.openings.searchPlaceholder' | transloco"
+        class="w-full rounded-full border border-slate-200 bg-white py-4 pl-14 pr-12 text-base text-slate-900 shadow-sm shadow-slate-200/80 outline-none transition placeholder:text-slate-400 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 [&::-webkit-search-cancel-button]:hidden" />
+      @if (searchQuery()) {
+      <button type="button" (click)="clearSearch()" [attr.aria-label]="'careers.openings.searchClear' | transloco"
+        class="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      }
+    </div>
+
+    @if (techSuggestions().length > 0) {
+    <div class="mt-4 flex flex-wrap gap-2">
+      @for (tech of techSuggestions(); track tech) {
+      <button type="button" (click)="toggleTech(tech)" [attr.aria-pressed]="isTechActive(tech)"
+        class="rounded-full border px-3 py-1.5 text-xs font-medium transition"
+        [class]="isTechActive(tech)
+          ? 'border-primary bg-primary text-white'
+          : 'border-slate-200 bg-white text-slate-600 hover:border-primary/40 hover:text-primary'">
+        {{ tech }}
+      </button>
+      }
+    </div>
+    }
+
+    @if (searchQuery().trim()) {
+    <p class="mt-4 text-sm text-slate-500" aria-live="polite">
+      {{ 'careers.openings.searchResults' | transloco: { count: filteredOpenings().length, total: openings().length } }}
+    </p>
+    }
+  </div>
+
+  @if (filteredOpenings().length === 0) {
+  <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
+    <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.searchEmpty' | transloco: { query: searchQuery().trim() } }}</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <button type="button" (click)="clearSearch()"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
+        {{ 'careers.openings.searchShowAll' | transloco }}
+      </button>
+      <button type="button" (click)="openApply(); trackCta('careers_search_send_profile')"
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
+        {{ 'careers.hero.ctaSecondary' | transloco }}
+      </button>
+    </div>
+  </div>
+  }
+
   <div class="grid gap-6 lg:grid-cols-2">
-    @for (opening of openings(); track opening.opportunity + opening.fillUntil) {
+    @for (opening of filteredOpenings(); track opening.opportunity + opening.fillUntil) {
     <div class="flex flex-col rounded-3xl bg-white p-6 shadow-sm shadow-slate-200/80 border border-slate-100/80">
       <h3 class="text-lg font-semibold text-slate-950 line-clamp-2">
         <a [routerLink]="jobLink(opening)" class="hover:text-primary transition">{{ opening.opportunity }}</a>

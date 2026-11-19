@@ -676,7 +676,13 @@
       "applyCta": "Aplică acum",
       "viewDetailsCta": "Vezi detalii",
       "errorText": "Nu am putut încărca rolurile disponibile momentan. Trimite-ne profilul tău direct și te vom potrivi cu oportunitatea potrivită.",
-      "emptyText": "Momentan nu există roluri disponibile. Trimite-ne profilul tău și te contactăm imediat ce apare un proiect potrivit."
+      "emptyText": "Momentan nu există roluri disponibile. Trimite-ne profilul tău și te contactăm imediat ce apare un proiect potrivit.",
+      "searchLabel": "Caută roluri după tehnologie",
+      "searchPlaceholder": "Caută după tehnologie: Java, SAP, Azure…",
+      "searchClear": "Șterge căutarea",
+      "searchResults": "{{count}} din {{total}} roluri",
+      "searchEmpty": "Niciun rol disponibil pentru „{{query}}” momentan. Trimite-ne profilul și te anunțăm când apare unul potrivit.",
+      "searchShowAll": "Vezi toate rolurile"
     },
     "finalCta": {
       "title": "Nu vezi rolul potrivit? Căutăm mereu dezvoltatori verificați, pregătiți pentru piața DACH.",
