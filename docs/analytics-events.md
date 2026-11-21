@@ -59,7 +59,8 @@ free-call button.
 | `landing_profiles_free_call_click` | Developer profiles: free-call button |
 | `landing_pricing_free_call_click` | Pricing: free-call button |
 | `landing_founder_view_cv_click` | Founder band: link to Alex's CV |
-| `landing_lead_magnet_submit` | Lead magnet: email submitted for the staffing PDF |
+| `landing_lead_magnet_submit` | Lead magnet: email for the staffing PDF sent to the leads Google Form |
+| `landing_lead_magnet_error` | Lead magnet: the email couldn't be sent (offline, blocked by an extension or proxy). The visitor still got the PDF, but the lead is missing from the sheet |
 | `landing_lead_magnet_download` | Lead magnet: PDF downloaded. `event_label`: language |
 | `landing_final_cta_free_call_click` | Final call to action: free-call button |
 | `landing_final_cta_phone_click` | Final call to action: phone number |
@@ -74,9 +75,11 @@ free-call button.
 | `alex_human_behind_photo_view` | A photo shown in the lightbox. `event_label`: photo, `via`: `click` / `next` / `prev` |
 | `alex_human_behind_lightbox_close` | Lightbox closed. `photos_viewed`: how many photos were seen |
 | `alex_human_behind_cta_free_call_click` | Free-call button in the "human behind the code" closing card |
-| `alex_cv_banner_lead_submit` | Email submitted for the CV PDF in the sticky banner (xl screens) |
+| `alex_cv_banner_lead_submit` | Email for the CV PDF sent to the leads Google Form from the sticky banner (xl screens) |
+| `alex_cv_banner_lead_error` | The banner's email couldn't be sent (offline, blocked). The CV still downloaded, but the lead is missing from the sheet |
 | `alex_cv_banner_download` | CV PDF downloaded from the banner. `event_label`: language |
-| `alex_cv_bubble_lead_submit` | Email submitted in the floating CV button's form (below xl) |
+| `alex_cv_bubble_lead_submit` | Email sent to the leads Google Form from the floating CV button's form (below xl) |
+| `alex_cv_bubble_lead_error` | The floating button's email couldn't be sent, as for the banner |
 | `alex_cv_bubble_download` | CV PDF downloaded from the floating button. `event_label`: language |
 
 ## Careers (`careers`)

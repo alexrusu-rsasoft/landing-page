@@ -55,10 +55,19 @@ export class CvDownloadService {
     this.submitting.set(true);
 
     this.#api
-      .submitLead({ email, lang: this.#activeLang(), source: 'work_with_alex_cv' })
+      .submitLead({ email, lang: this.#activeLang(), source: `alex_${surface}` })
       .subscribe({
-        next: () => this.handleSubmitted(surface),
-        error: () => this.handleSubmitted(surface),
+        next: () => {
+          this.#analytics.trackCvLeadSubmit(surface);
+          this.#deliverCv(surface);
+        },
+        // The request couldn't leave the browser (offline, or blocked by an
+        // extension, a company proxy or the CSP). Hand over the CV anyway: a
+        // retry rarely gets past a block, and the error event counts the lost lead.
+        error: () => {
+          this.#analytics.trackCvLeadError(surface);
+          this.#deliverCv(surface);
+        },
       });
   }
 
@@ -186,10 +195,9 @@ export class CvDownloadService {
     );
   }
 
-  private handleSubmitted(surface: CvSurface): void {
+  #deliverCv(surface: CvSurface): void {
     this.submitting.set(false);
     this.submitted.set(true);
-    this.#analytics.trackCvLeadSubmit(surface);
     void this.downloadCv(surface);
   }
 }

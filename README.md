@@ -54,7 +54,6 @@ This will compile your project and store the build artifacts in the `dist/` dire
 - `EXPERIENCE_API_URL`
 - `CAREERS_API_URL`
 - `DEVELOPER_PROFILES_API_URL`
-- `LEAD_MAGNET_API_URL`
 
 The build's `prebuild` step (`scripts/generate-env.js`) writes `src/environments/environment.ts` from these vars before `ng build` runs. If you rotate an Apps Script deployment (new `/exec` URL), just update the corresponding value in Render and redeploy — no code change needed.
 

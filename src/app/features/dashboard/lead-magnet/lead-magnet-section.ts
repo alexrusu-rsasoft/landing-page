@@ -57,10 +57,19 @@ export class LeadMagnetSection {
     this.submitting.set(true);
 
     this.#api
-      .submitLead({ email, lang: this.#activeLang(), source: 'dashboard_lead_magnet' })
+      .submitLead({ email, lang: this.#activeLang(), source: 'landing_lead_magnet' })
       .subscribe({
-        next: () => this.handleSubmitted(),
-        error: () => this.handleSubmitted(),
+        next: () => {
+          this.#analytics.trackLeadMagnetSubmit();
+          this.showDownload();
+        },
+        // The request couldn't leave the browser (offline, or blocked by an
+        // extension, a company proxy or the CSP). Hand over the PDF anyway: a
+        // retry rarely gets past a block, and the error event counts the lost lead.
+        error: () => {
+          this.#analytics.trackLeadMagnetError();
+          this.showDownload();
+        },
       });
   }
 
@@ -68,9 +77,8 @@ export class LeadMagnetSection {
     this.#analytics.trackLeadMagnetDownload(this.#activeLang());
   }
 
-  private handleSubmitted(): void {
+  private showDownload(): void {
     this.submitting.set(false);
     this.submitted.set(true);
-    this.#analytics.trackLeadMagnetSubmit();
   }
 }

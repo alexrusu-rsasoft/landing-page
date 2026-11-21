@@ -15,8 +15,6 @@ services:
         sync: false
       - key: DEVELOPER_PROFILES_API_URL
         sync: false
-      - key: LEAD_MAGNET_API_URL
-        sync: false
     routes:
       # Prerendered routes (dashboard, work-with-alex, contact, legal pages, ...)
       # are served directly as static files and never hit this rewrite. This

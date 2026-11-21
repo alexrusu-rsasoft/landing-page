@@ -215,9 +215,14 @@ export class AnalyticsService {
     this.send('booking', 'load', {});
   }
 
-  /** Fires when a visitor submits their email for the Quick Staffing Protocol PDF: `landing_lead_magnet_submit`. */
+  /** Fires when a visitor's email for the Quick Staffing Protocol PDF went out to the leads form: `landing_lead_magnet_submit`. */
   trackLeadMagnetSubmit(): void {
     this.send('lead_magnet', 'submit', {});
+  }
+
+  /** The staffing PDF email couldn't be sent (offline, blocker, CSP); the visitor still gets the PDF: `landing_lead_magnet_error`. */
+  trackLeadMagnetError(): void {
+    this.send('lead_magnet', 'error', {});
   }
 
   /** Fires when a visitor clicks through to download the PDF after submitting: `landing_lead_magnet_download`. */
@@ -225,9 +230,14 @@ export class AnalyticsService {
     this.send('lead_magnet', 'download', { event_label: lang });
   }
 
-  /** Fires when a visitor submits their email for Alex's CV PDF: `alex_cv_banner_lead_submit` / `alex_cv_bubble_lead_submit`. */
+  /** Fires when a visitor's email for Alex's CV PDF went out to the leads form: `alex_cv_banner_lead_submit` / `alex_cv_bubble_lead_submit`. */
   trackCvLeadSubmit(surface: CvSurface): void {
     this.send(surface, 'lead_submit', {});
+  }
+
+  /** The CV email couldn't be sent (offline, blocker, CSP); the CV still downloads: `alex_cv_banner_lead_error` / `alex_cv_bubble_lead_error`. */
+  trackCvLeadError(surface: CvSurface): void {
+    this.send(surface, 'lead_error', {});
   }
 
   /** Fires when the generated CV PDF is downloaded: `alex_cv_banner_download` / `alex_cv_bubble_download`. */
