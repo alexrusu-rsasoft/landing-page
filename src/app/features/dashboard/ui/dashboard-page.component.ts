@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { AnalyticsCta, AnalyticsSection, AnalyticsService } from '../../../core/analytics.service';
 import { TrackSectionViewDirective } from '../../../shared/analytics/track-section-view.directive';
 import { FreeCallCta } from '../../../shared/ui/free-call-cta/free-call-cta';
 import { RevealOnScrollDirective } from '../../../shared/ui/reveal/reveal-on-scroll.directive';
@@ -50,7 +50,7 @@ export class DashboardPageComponent {
 
   private readonly analytics = inject(AnalyticsService);
 
-  protected trackCta(label: CtaLabel): void {
-    this.analytics.trackCtaClick(label);
+  protected trackClick(section: AnalyticsSection, cta: AnalyticsCta): void {
+    this.analytics.trackClick(section, cta);
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import type { AnalyticsSection } from '../../core/analytics.service';
 
 /**
  * Shared open/close state for the "send your profile" modal, so triggers
@@ -9,9 +10,12 @@ import { Injectable, signal } from '@angular/core';
 export class CareersApplyModal {
   readonly isOpen = signal(false);
   readonly targetRole = signal('');
+  /** Section whose button opened the form, reported with its submit (`opened_from`). */
+  readonly openedFrom = signal<AnalyticsSection>('navbar');
 
-  open(targetRole = ''): void {
+  open(targetRole: string, openedFrom: AnalyticsSection): void {
     this.targetRole.set(targetRole);
+    this.openedFrom.set(openedFrom);
     this.isOpen.set(true);
   }
 

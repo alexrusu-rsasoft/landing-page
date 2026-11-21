@@ -1,27 +1,28 @@
+/** `id` is also the channel in click events, e.g. `contact_channels_whatsapp_click`. */
 export const CONTACT_ALTERNATIVES = [
   {
-    id: 'contact_email',
+    id: 'email',
     labelKey: 'contact.channels.email',
     value: 'alex.rusu@rsasoft.ro',
     href: 'mailto:alex.rusu@rsasoft.ro',
     icon: 'mail',
   },
   {
-    id: 'contact_whatsapp',
+    id: 'whatsapp',
     labelKey: 'contact.channels.whatsapp',
     value: '+40 747 011 397',
     href: 'https://wa.me/40747011397',
     icon: 'whatsapp',
   },
   {
-    id: 'contact_linkedin',
+    id: 'linkedin',
     labelKey: 'contact.channels.linkedin',
     value: 'Alex Rusu',
     href: 'https://www.linkedin.com/company/rsa-soft',
     icon: 'linkedin',
   },
   {
-    id: 'contact_xing',
+    id: 'xing',
     labelKey: 'contact.channels.xing',
     value: 'Alex Rusu',
     href: 'https://www.xing.com/profile/Alex_Rusu3',

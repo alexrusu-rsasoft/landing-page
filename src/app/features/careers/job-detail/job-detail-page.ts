@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { map } from 'rxjs';
-import { AnalyticsService } from '../../../core/analytics.service';
+import { AnalyticsSection, AnalyticsService } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
 import { CareersApplyModal } from '../careers-apply-modal.service';
 import { CareerOpening } from '../career-opening';
@@ -69,7 +69,7 @@ export class JobDetailPage {
 
       if (current && !this.#viewTracked.has(current.opportunity)) {
         this.#viewTracked.add(current.opportunity);
-        this.#analytics.trackCareersViewDetails(current.opportunity);
+        this.#analytics.trackJobView(current.opportunity);
       }
     });
   }
@@ -92,9 +92,17 @@ export class JobDetailPage {
     return value;
   }
 
-  protected openApply(): void {
-    this.applyOpen.set(true);
-    this.#analytics.trackCareersApplyClick(this.opening()?.opportunity ?? 'general');
+  /** Opens the form for this role: `careers_job_<section>_apply_click`, labelled with the role. */
+  protected apply(section: AnalyticsSection): void {
+    const opportunity = this.opening()?.opportunity ?? '';
+    this.#applyModal.open(opportunity, section);
+    this.#analytics.trackClick(section, 'apply', opportunity);
+  }
+
+  /** The roles failed to load, so the page offers the general form instead: `careers_job_error_send_profile_click`. */
+  protected sendProfile(): void {
+    this.#applyModal.open('', 'error');
+    this.#analytics.trackClick('error', 'send_profile');
   }
 
   protected closeApply(): void {
@@ -106,7 +114,9 @@ export class JobDetailPage {
     if (!current) return;
 
     if (navigator.share) {
-      this.#analytics.trackCareersShare(current.opportunity, 'native_share');
+      this.#analytics.trackClick('header', 'share', current.opportunity, {
+        method: 'native_share',
+      });
       try {
         await navigator.share({ title: current.opportunity, url: this.#shareUrl(current, 'native_share') });
       } catch {
@@ -115,7 +125,7 @@ export class JobDetailPage {
       return;
     }
 
-    this.#analytics.trackCareersShare(current.opportunity, 'copy_link');
+    this.#analytics.trackClick('header', 'share', current.opportunity, { method: 'copy_link' });
     try {
       await navigator.clipboard.writeText(this.#shareUrl(current, 'copy_link'));
       this.shareState.set('copied');

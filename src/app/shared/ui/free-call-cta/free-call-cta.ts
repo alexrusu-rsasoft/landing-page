@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { AnalyticsCta, AnalyticsSection, AnalyticsService } from '../../../core/analytics.service';
 
 const CONFIRM_DURATION_MS = 900;
 
@@ -48,7 +48,9 @@ const SIZE_CLASSES: Record<'md' | 'lg', string> = {
 export class FreeCallCta {
   readonly label = input.required<string>();
   readonly confirmedLabel = input.required<string>();
-  readonly analyticsLabel = input.required<CtaLabel>();
+  /** Section of the page the button sits in: the click reports as `<page>_<section>_<cta>_click`. */
+  readonly analyticsSection = input.required<AnalyticsSection>();
+  readonly analyticsCta = input<AnalyticsCta>('free_call');
   readonly variant = input<'primary' | 'invert' | 'light'>('primary');
   readonly size = input<'md' | 'lg'>('md');
 
@@ -62,7 +64,7 @@ export class FreeCallCta {
   private timer: ReturnType<typeof setTimeout> | undefined;
 
   protected onClick(): void {
-    this.analytics.trackCtaClick(this.analyticsLabel());
+    this.analytics.trackClick(this.analyticsSection(), this.analyticsCta());
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;

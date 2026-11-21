@@ -19,7 +19,25 @@ export class App {
   constructor() {
     // Angular's anchorScrolling ignores CSS scroll-padding-top / scroll-margin-top.
     // ViewportScroller.setOffset is the correct way to reserve space for the sticky nav.
-    inject(ViewportScroller).setOffset([0, 80]);
+    const viewportScroller = inject(ViewportScroller);
+    viewportScroller.setOffset([0, 80]);
+    const router = inject(Router);
+
+    // The router scrolls a new page to the top only a frame after showing it, and
+    // smoothly (scroll-behavior in styles.css), so the page first appeared at the old
+    // page's scroll position and then slid up through its content, which also sent GA
+    // section views for parts the visitor never scrolled to. Jump to the top as soon as
+    // a different page is in place; #anchor links still scroll smoothly from there.
+    let currentPath: string | null = null;
+    router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        const path = event.urlAfterRedirects.split(/[?#]/)[0];
+        if (currentPath !== null && path !== currentPath) {
+          viewportScroller.scrollToPosition([0, 0], { behavior: 'instant' });
+        }
+        currentPath = path;
+      });
 
     inject(ScrollDepthTracker).start();
 
@@ -29,7 +47,6 @@ export class App {
     // timer is a safety net so a failed/cancelled navigation can never leave
     // the page permanently blank.
     const hostElement = inject(ElementRef<HTMLElement>).nativeElement;
-    const router = inject(Router);
     race(
       router.events.pipe(
         filter(

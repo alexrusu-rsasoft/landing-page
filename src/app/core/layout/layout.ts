@@ -13,7 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { isActive, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { filter } from 'rxjs';
-import { AnalyticsService, CtaLabel } from '../analytics.service';
+import { AnalyticsCta, AnalyticsService } from '../analytics.service';
 import { CookieConsentService } from '../cookie-consent/cookie-consent.service';
 import { CareersApplyModal } from '../../features/careers/careers-apply-modal.service';
 
@@ -72,13 +72,14 @@ export class Layout {
     }
   }
 
-  protected trackCta(label: CtaLabel): void {
-    this.#analytics.trackCtaClick(label);
+  /** Navbar clicks report as `<page>_navbar_<cta>_click`, labelled with which menu was used. */
+  protected trackNavClick(cta: AnalyticsCta, menu: 'desktop' | 'mobile'): void {
+    this.#analytics.trackClick('navbar', cta, menu);
   }
 
-  protected openCareersApply(label: CtaLabel): void {
-    this.#careersApplyModal.open();
-    this.trackCta(label);
+  protected openCareersApply(menu: 'desktop' | 'mobile'): void {
+    this.#careersApplyModal.open('', 'navbar');
+    this.trackNavClick('send_profile', menu);
   }
 
   protected toggleMobileMenu(): void {

@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { AnalyticsCta, AnalyticsSection, AnalyticsService } from '../../../core/analytics.service';
 import { FreeCallCta } from '../../../shared/ui/free-call-cta/free-call-cta';
 
 interface HeroSlide {
@@ -93,8 +93,8 @@ export class HeroCarousel {
     this.interacting.set(interacting);
   }
 
-  protected trackCta(label: CtaLabel): void {
-    this.analytics.trackCtaClick(label);
+  protected trackClick(section: AnalyticsSection, cta: AnalyticsCta): void {
+    this.analytics.trackClick(section, cta);
   }
 
   /**

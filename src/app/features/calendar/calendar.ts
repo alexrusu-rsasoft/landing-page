@@ -29,7 +29,7 @@ export class Calendar {
     ),
   );
 
-  protected onCalendarLoad(): void {
-    this.#analytics.trackCalendarIframeLoaded();
+  protected onCalendarLoad(iframe: HTMLIFrameElement): void {
+    this.#analytics.trackBookingLoad(iframe);
   }
 }

@@ -10,9 +10,10 @@ const MILESTONES = [25, 50, 75, 90, 100] as const;
 const BOTTOM_SLACK_PX = 4;
 
 /**
- * Reports how far down each page visitors scroll, as one `scroll_depth` event per
- * milestone per page view. Milestones reset when the route path changes (not on
- * in-page #anchor jumps), so every page gets its own funnel.
+ * Reports how far down each page visitors scroll, as one `<page>_scroll_<percent>`
+ * event per milestone per page view (`landing_scroll_50`, `careers_scroll_100`).
+ * Milestones reset when the route path changes (not on in-page #anchor jumps), so
+ * every page gets its own funnel.
  */
 @Injectable({ providedIn: 'root' })
 export class ScrollDepthTracker {
@@ -23,6 +24,7 @@ export class ScrollDepthTracker {
   private pagePath = '';
   private readonly reached = new Set<number>();
   private frameRequested = false;
+  private skipping = false;
 
   start(): void {
     if (!this.isBrowser) return;
@@ -32,11 +34,24 @@ export class ScrollDepthTracker {
       .subscribe((event) => {
         const path = event.urlAfterRedirects.split(/[?#]/)[0];
         if (path === this.pagePath) return;
+        // A new page opens with a jump to its top (App makes it as soon as the page is in
+        // place), whose scroll event arrives in the next frame. That isn't the visitor
+        // scrolling, and on a short page the top alone would already pass a milestone or two.
+        if (this.pagePath) this.skipNextFrame();
         this.pagePath = path;
         this.reached.clear();
       });
 
     window.addEventListener('scroll', () => this.scheduleMeasure(), { passive: true });
+  }
+
+  /**
+   * Skips the measurements of the coming frame. Registered now, this callback runs before
+   * any measurement that frame's scroll event schedules, and lifts the skip a frame later.
+   */
+  private skipNextFrame(): void {
+    this.skipping = true;
+    requestAnimationFrame(() => requestAnimationFrame(() => (this.skipping = false)));
   }
 
   /** Coalesces scroll events into at most one measurement per frame. */
@@ -50,7 +65,7 @@ export class ScrollDepthTracker {
   }
 
   private measure(): void {
-    if (!this.pagePath || this.reached.size === MILESTONES.length) return;
+    if (this.skipping || !this.pagePath || this.reached.size === MILESTONES.length) return;
 
     const pageHeight = document.documentElement.scrollHeight;
     const seenBottom = window.scrollY + window.innerHeight;

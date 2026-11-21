@@ -41,7 +41,7 @@
 
     @if (cv.submitted()) {
     <h2 class="animate-pop-in max-w-xs text-xl font-semibold">{{ 'workWithAlex.cvBanner.successMessage' | transloco }}</h2>
-    <button type="button" (click)="cv.downloadCv()" [disabled]="cv.generating()"
+    <button type="button" (click)="cv.downloadCv('cv_bubble')" [disabled]="cv.generating()"
       class="animate-pop-in inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
       {{ 'workWithAlex.cvBanner.downloadCta' | transloco }}
     </button>

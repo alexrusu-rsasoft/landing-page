@@ -21,20 +21,20 @@
         <a [routerLink]="['/']" fragment="pricing" class="transition hover:text-primary"
           [class.text-primary]="activeSection() === 'pricing'">{{ 'nav.pricing' | transloco }}</a>
         <a [routerLink]="['/careers']" class="transition hover:text-primary" [class.text-primary]="isCareersPage()"
-          (click)="trackCta('nav_careers_desktop')">{{ 'nav.careers' | transloco }}</a>
+          (click)="trackNavClick('careers', 'desktop')">{{ 'nav.careers' | transloco }}</a>
       </nav>
 
       <div class="flex items-center gap-4">
         @if (isCareersPage()) {
         <button type="button"
           class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 xl:inline-flex"
-          (click)="openCareersApply('nav_send_profile_desktop')">
+          (click)="openCareersApply('desktop')">
           {{ 'careers.finalCta.cta' | transloco }}
         </button>
         } @else if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950 xl:inline-flex"
-          (click)="trackCta('nav_free_call_desktop')">
+          (click)="trackNavClick('free_call', 'desktop')">
           {{ 'common.freeCallCta' | transloco }}
         </a>
         }
@@ -62,18 +62,18 @@
         <a [routerLink]="['/']" fragment="pricing" class="block transition hover:text-primary"
           (click)="closeMobileMenu()">{{ 'nav.pricing' | transloco }}</a>
         <a [routerLink]="['/careers']" class="block transition hover:text-primary"
-          [class.text-primary]="isCareersPage()" (click)="closeMobileMenu(); trackCta('nav_careers_mobile')">{{
+          [class.text-primary]="isCareersPage()" (click)="closeMobileMenu(); trackNavClick('careers', 'mobile')">{{
           'nav.careers' | transloco }}</a>
         @if (isCareersPage()) {
         <button type="button"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
-          (click)="closeMobileMenu(); openCareersApply('nav_send_profile_mobile')">
+          (click)="closeMobileMenu(); openCareersApply('mobile')">
           {{ 'careers.finalCta.cta' | transloco }}
         </button>
         } @else if (!isContactPage()) {
         <a [routerLink]="['/contact']"
           class="inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950"
-          (click)="closeMobileMenu(); trackCta('nav_free_call_mobile')">
+          (click)="closeMobileMenu(); trackNavClick('free_call', 'mobile')">
           {{ 'common.freeCallCta' | transloco }}
         </a>
         }

@@ -114,7 +114,7 @@
 
   <div class="grid gap-4 sm:grid-cols-3">
     <a href="https://www.linkedin.com/company/rsa-soft" target="_blank" rel="noreferrer"
-      (click)="trackContact('contact_linkedin')"
+      (click)="trackContact('research', 'linkedin')"
       class="group flex items-center gap-4 rounded-[24px] border border-slate-200/80 bg-white p-5 shadow-sm shadow-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
       <div class="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/10 transition group-hover:bg-primary">
         <img src="/linkedIn.ico" alt="" class="h-5 w-5 object-contain" width="20" height="20" decoding="async" />
@@ -241,11 +241,11 @@
           class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950">
           {{ 'callConfirmed.footer.rescheduleLink' | transloco }}
         </a>
-        <a [href]="emailChannel.href" (click)="trackContact('contact_email')"
+        <a [href]="emailChannel.href" (click)="trackContact('footer', 'email')"
           class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40">
           {{ emailChannel.value }}
         </a>
-        <a [href]="whatsappChannel.href" target="_blank" rel="noreferrer" (click)="trackContact('contact_whatsapp')"
+        <a [href]="whatsappChannel.href" target="_blank" rel="noreferrer" (click)="trackContact('footer', 'whatsapp')"
           class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40">
           {{ whatsappChannel.value }}
         </a>

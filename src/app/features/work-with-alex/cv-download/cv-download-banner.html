@@ -29,7 +29,7 @@
     <div class="flex items-center gap-3">
       <div class="flex flex-col items-end gap-1.5">
         @if (cv.submitted()) {
-        <button type="button" (click)="cv.downloadCv()" [disabled]="cv.generating()"
+        <button type="button" (click)="cv.downloadCv('cv_banner')" [disabled]="cv.generating()"
           class="animate-pop-in inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70">
           {{ 'workWithAlex.cvBanner.downloadCta' | transloco }}
         </button>

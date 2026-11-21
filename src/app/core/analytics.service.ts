@@ -1,152 +1,248 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, isDevMode } from '@angular/core';
+import { Router } from '@angular/router';
 import { AttributionService } from './attribution.service';
 
 // gtag is loaded via the script tag in index.html
 declare const gtag: (...args: unknown[]) => void;
 
-export type CtaLabel =
-  | 'nav_free_call_desktop'
-  | 'nav_free_call_mobile'
-  | 'hero_free_call'
-  | 'hero_view_profiles'
-  | 'hero_trust_badge'
-  | 'services_project_call'
-  | 'services_team_call'
-  | 'services_view_profiles'
-  | 'projects_view_cv'
-  | 'founder_view_cv'
-  | 'profiles_free_call'
-  | 'pricing_free_call'
-  | 'final_free_call'
-  | 'final_phone_call'
-  | 'nav_careers_desktop'
-  | 'nav_careers_mobile'
-  | 'nav_send_profile_desktop'
-  | 'nav_send_profile_mobile'
-  | 'careers_hero_view_roles'
-  | 'careers_hero_send_profile'
-  | 'careers_final_send_profile'
-  | 'careers_search_send_profile'
-  | 'call_confirmed_reschedule'
-  | 'human_behind_free_call'
-  | 'experience_free_call';
+/*
+ * Every event is named `<page>_<section>_<action>`, so the GA4 Events report says
+ * where on the site it happened without adding any dimension:
+ * `landing_hero_free_call_click`, `careers_navbar_send_profile_click`,
+ * `alex_human_behind_photo_view`. The page comes from the URL (see pageForPath), so
+ * the navbar and other shared pieces report under whichever page they were used on.
+ * docs/analytics-events.md lists every event and what it means.
+ *
+ * GA4 drops events whose name is longer than 40 characters, so keep section and
+ * action names short (send() complains in dev mode when one is too long).
+ */
+const MAX_EVENT_NAME_LENGTH = 40;
 
-export type ContactLabel =
-  | 'contact_phone'
-  | 'contact_email'
-  | 'contact_whatsapp'
-  | 'contact_telegram'
-  | 'contact_linkedin'
-  | 'contact_xing';
+/** The first part of every event name: which page it happened on. */
+export type AnalyticsPage =
+  | 'landing' // / and /dashboard
+  | 'alex' // /work-with-alex
+  | 'careers' // /careers
+  | 'careers_job' // /careers/<role>
+  | 'contact'
+  | 'calendar'
+  | 'call_confirmed'
+  | 'legal' // privacy policy, cookie policy, terms, legal notice, accessibility
+  | 'not_found';
+
+/** The second part: the zone of the page. Section views use the same names (TrackSectionViewDirective). */
+export type AnalyticsSection =
+  // Every page
+  | 'navbar'
+  // Landing page
+  | 'hero'
+  | 'services'
+  | 'projects'
+  | 'process'
+  | 'profiles'
+  | 'pricing'
+  | 'founder'
+  | 'faq'
+  | 'lead_magnet'
+  | 'final_cta'
+  // /work-with-alex
+  | 'why_choose_me'
+  | 'featured_video'
+  | 'experience'
+  | 'experience_end'
+  | 'about'
+  | 'human_behind'
+  | 'human_behind_gallery'
+  | 'human_behind_books'
+  | 'human_behind_cta'
+  | 'skills'
+  | 'education'
+  | 'cv_banner' // sticky "download CV" bar, xl screens and up
+  | 'cv_bubble' // floating "download CV" button + fullscreen form, below xl
+  // Careers pages
+  | 'openings'
+  | 'header'
+  | 'apply_banner'
+  | 'error'
+  | 'apply_form'
+  // Contact, calendar and call-confirmed pages
+  | 'urgent'
+  | 'booking'
+  | 'channels'
+  | 'research'
+  | 'footer';
+
+/** What was clicked: the `<cta>` in `<page>_<section>_<cta>_click`. */
+export type AnalyticsCta =
+  | 'free_call'
+  | 'project_call'
+  | 'team_call'
+  | 'view_profiles'
+  | 'view_cv'
+  | 'trust_badge'
+  | 'careers'
+  | 'send_profile'
+  | 'view_roles'
+  | 'apply'
+  | 'share'
+  | 'reschedule'
+  | ContactChannel;
+
+export type ContactChannel = 'phone' | 'email' | 'whatsapp' | 'linkedin' | 'xing';
+
+/** The two places the CV email form lives on /work-with-alex. */
+export type CvSurface = Extract<AnalyticsSection, 'cv_banner' | 'cv_bubble'>;
+
+type EventParams = Record<string, string>;
+
+/** Which page a URL belongs to, as named in event names. */
+export function pageForPath(url: string): AnalyticsPage {
+  const [first = '', second] = url.split(/[?#]/)[0].split('/').filter(Boolean);
+  switch (first) {
+    case '':
+    case 'dashboard':
+      return 'landing';
+    case 'work-with-alex':
+      return 'alex';
+    case 'careers':
+      return second ? 'careers_job' : 'careers';
+    case 'contact':
+      return 'contact';
+    case 'calendar':
+      return 'calendar';
+    case 'call-confirmed':
+      return 'call_confirmed';
+    case 'privacy-policy':
+    case 'cookie-policy':
+    case 'terms':
+    case 'legal-notice':
+    case 'accessibility':
+      return 'legal';
+    default:
+      return 'not_found';
+  }
+}
 
 @Injectable({ providedIn: 'root' })
 export class AnalyticsService {
   private readonly attribution = inject(AttributionService);
-
-  trackCtaClick(label: CtaLabel): void {
-    this.send('cta_click', { event_category: 'engagement', event_label: label });
-  }
-
-  trackContactClick(label: ContactLabel): void {
-    this.send('contact_click', { event_category: 'engagement', event_label: label });
-  }
-
-  trackCareersApplyClick(opportunity: string): void {
-    this.send('careers_apply_click', { event_category: 'careers', event_label: opportunity });
-  }
-
-  trackCareersViewDetails(opportunity: string): void {
-    this.send('careers_view_details_click', { event_category: 'careers', event_label: opportunity });
-  }
-
-  trackCareersApplicationSubmit(opportunity: string): void {
-    this.send('careers_application_submit', { event_category: 'careers', event_label: opportunity });
-  }
-
-  /** The application request failed to send (network, CSP, blocker); the candidate can retry. */
-  trackCareersApplicationError(opportunity: string): void {
-    this.send('careers_application_error', { event_category: 'careers', event_label: opportunity });
-  }
-
-  trackCareersShare(opportunity: string, method: 'native_share' | 'copy_link'): void {
-    this.send('careers_share_click', { event_category: 'careers', event_label: opportunity, method });
-  }
-
-  /** A candidate filtered the open roles by technology (typed or via a quick-pick chip). */
-  trackCareersSearch(term: string, results: number, method: 'typed' | 'chip'): void {
-    this.send('careers_search', { event_category: 'careers', search_term: term, results_count: String(results), method });
-  }
-
-  /** Fires once when the Google Calendar iframe scrolls into the viewport. */
-  trackCalendarViewed(): void {
-    this.send('calendar_section_viewed', { event_category: 'calendar' });
-  }
+  private readonly router = inject(Router);
 
   /**
-   * Fires when the window loses focus because the user clicked into the iframe.
-   * This is the strongest trackable signal of booking intent.
+   * A visitor clicked a button or link: `<page>_<section>_<cta>_click`, e.g.
+   * `landing_pricing_free_call_click`. `label` carries the detail that tells
+   * clicks with the same name apart (desktop or mobile menu, which role).
    */
-  trackCalendarEngaged(): void {
-    this.send('calendar_engaged', { event_category: 'calendar' });
+  trackClick(
+    section: AnalyticsSection,
+    cta: AnalyticsCta,
+    label?: string,
+    params: EventParams = {},
+  ): void {
+    this.send(section, `${cta}_click`, { ...(label ? { event_label: label } : {}), ...params });
   }
 
-  /** Fires when the iframe finishes loading its content. */
-  trackCalendarIframeLoaded(): void {
-    this.send('calendar_iframe_loaded', { event_category: 'calendar' });
-  }
-
-  /** Fires when a visitor submits their email for the Quick Staffing Protocol PDF. */
-  trackLeadMagnetSubmit(): void {
-    this.send('lead_magnet_submit', { event_category: 'lead_magnet' });
-  }
-
-  /** Fires when a visitor clicks through to download the PDF after submitting. */
-  trackLeadMagnetDownload(lang: string): void {
-    this.send('lead_magnet_download', { event_category: 'lead_magnet', event_label: lang });
-  }
-
-  /** Fires when a visitor submits their email for Alex's CV PDF on /work-with-alex. */
-  trackCvLeadSubmit(): void {
-    this.send('cv_lead_submit', { event_category: 'cv_download' });
-  }
-
-  /** Fires when the generated CV PDF is downloaded. */
-  trackCvDownload(lang: string): void {
-    this.send('cv_download', { event_category: 'cv_download', event_label: lang });
+  /** Fires once per page view when a section first scrolls into view (see TrackSectionViewDirective): `<page>_<section>_view`. */
+  trackSectionView(section: AnalyticsSection): void {
+    this.send(section, 'view', { event_label: section });
   }
 
   /**
    * Fires once per page view as the visitor passes each scroll milestone (see
-   * ScrollDepthTracker). GA4's built-in `scroll` event only reports 90%, so this
-   * shows where people actually drop off.
+   * ScrollDepthTracker): `<page>_scroll_25` … `<page>_scroll_100`. GA4's built-in
+   * `scroll` event only reports 90%, so this shows where people actually drop off.
    */
   trackScrollDepth(percent: number, pagePath: string): void {
-    this.send('scroll_depth', {
-      event_category: 'engagement',
-      event_label: `${percent}%`,
-      percent_scrolled: String(percent),
-      page_path: pagePath,
+    this.send(
+      null,
+      `scroll_${percent}`,
+      { event_label: `${percent}%`, percent_scrolled: String(percent), page_path: pagePath },
+      pagePath,
+    );
+  }
+
+  /** A candidate filtered the open roles by technology (typed or via a quick-pick chip): `careers_openings_search`. */
+  trackCareersSearch(term: string, results: number, method: 'typed' | 'chip'): void {
+    this.send('openings', 'search', { search_term: term, results_count: String(results), method });
+  }
+
+  /** A role's own page showed that role, once per role per visit to the page: `careers_job_view`. */
+  trackJobView(opportunity: string): void {
+    this.send(null, 'view', { event_label: opportunity });
+  }
+
+  /**
+   * The "send your profile" form went through: `careers_apply_form_submit` or
+   * `careers_job_apply_form_submit`. `openedFrom` is the section whose button opened it.
+   */
+  trackApplyFormSubmit(opportunity: string, openedFrom: AnalyticsSection): void {
+    this.send('apply_form', 'submit', {
+      event_label: opportunity || 'general',
+      opened_from: openedFrom,
     });
   }
 
-  /** Fires once per page view when a section first scrolls into view (see TrackSectionViewDirective). */
-  trackSectionView(section: string, pagePath: string): void {
-    this.send('section_view', {
-      event_category: 'engagement',
-      event_label: section,
-      section_name: section,
-      page_path: pagePath,
+  /** The application request failed to send (network, CSP, blocker); the candidate can retry. */
+  trackApplyFormError(opportunity: string, openedFrom: AnalyticsSection): void {
+    this.send('apply_form', 'error', {
+      event_label: opportunity || 'general',
+      opened_from: openedFrom,
     });
+  }
+
+  /** Fires once when the booking calendar (the Google Calendar iframe) scrolls into the viewport: `contact_booking_view`. */
+  trackBookingView(): void {
+    this.send('booking', 'view', {});
+  }
+
+  /**
+   * Fires when the window loses focus because the visitor clicked into the booking
+   * calendar: `contact_booking_engaged`. This is the strongest trackable signal of booking intent.
+   */
+  trackBookingEngaged(): void {
+    this.send('booking', 'engaged', {});
+  }
+
+  /**
+   * Fires when the booking calendar iframe finishes loading: `contact_booking_load`,
+   * `calendar_booking_load`. An iframe also fires `load` for the empty about:blank
+   * document it holds before Angular sets its src; that one is skipped, so only the
+   * calendar itself counts.
+   */
+  trackBookingLoad(iframe: HTMLIFrameElement): void {
+    // The empty document is same-origin, so it's readable; Google Calendar's isn't (null).
+    if (iframe.contentDocument?.URL === 'about:blank') return;
+    this.send('booking', 'load', {});
+  }
+
+  /** Fires when a visitor submits their email for the Quick Staffing Protocol PDF: `landing_lead_magnet_submit`. */
+  trackLeadMagnetSubmit(): void {
+    this.send('lead_magnet', 'submit', {});
+  }
+
+  /** Fires when a visitor clicks through to download the PDF after submitting: `landing_lead_magnet_download`. */
+  trackLeadMagnetDownload(lang: string): void {
+    this.send('lead_magnet', 'download', { event_label: lang });
+  }
+
+  /** Fires when a visitor submits their email for Alex's CV PDF: `alex_cv_banner_lead_submit` / `alex_cv_bubble_lead_submit`. */
+  trackCvLeadSubmit(surface: CvSurface): void {
+    this.send(surface, 'lead_submit', {});
+  }
+
+  /** Fires when the generated CV PDF is downloaded: `alex_cv_banner_download` / `alex_cv_bubble_download`. */
+  trackCvDownload(surface: CvSurface, lang: string): void {
+    this.send(surface, 'download', { event_label: lang });
   }
 
   /**
    * Fires once per page view for each role in the /work-with-alex experience
    * timeline as it scrolls into view, so drop-off inside that long section shows
-   * up: `index` is the role's 1-based position on the page, oldest first.
+   * up: `alex_experience_entry_view`. `index` is the role's 1-based position on the
+   * page, oldest first.
    */
   trackExperienceEntryView(index: number, company: string): void {
-    this.send('experience_entry_view', {
-      event_category: 'experience',
+    this.send('experience', 'entry_view', {
       event_label: company,
       entry_index: String(index),
       entry_company: company,
@@ -155,25 +251,48 @@ export class AnalyticsService {
 
   /**
    * Fires for every photo shown in the "human behind the code" lightbox on
-   * /work-with-alex: `via` is how it got there (click on the thumbnail, or
-   * next/prev by button, arrow key or swipe).
+   * /work-with-alex: `alex_human_behind_photo_view`. `via` is how it got there (click
+   * on the thumbnail, or next/prev by button, arrow key or swipe).
    */
   trackPhotoView(photo: string, via: 'click' | 'next' | 'prev'): void {
-    this.send('photo_view', { event_category: 'human_behind', event_label: photo, photo_name: photo, via });
+    this.send('human_behind', 'photo_view', { event_label: photo, photo_name: photo, via });
   }
 
-  /** Fires when the lightbox closes, with how many photos were looked at in that session. */
+  /** Fires when the lightbox closes, with how many photos were looked at in that session: `alex_human_behind_lightbox_close`. */
   trackLightboxClose(photosViewed: number): void {
-    this.send('photo_lightbox_close', {
-      event_category: 'human_behind',
+    this.send('human_behind', 'lightbox_close', {
       event_label: String(photosViewed),
       photos_viewed: String(photosViewed),
     });
   }
 
-  private send(eventName: string, params: Record<string, string>): void {
+  /**
+   * Sends `<page>_<section>_<action>` (or `<page>_<action>` without a section).
+   * Reading the page at send time is safe for clicks on router links: Angular only
+   * moves to the new URL asynchronously, after the click handlers have run.
+   */
+  private send(
+    section: AnalyticsSection | null,
+    action: string,
+    params: EventParams,
+    path = this.router.url,
+  ): void {
     if (typeof gtag === 'undefined') return;
-    gtag('event', eventName, { ...params, ...this.attributionParams() });
+
+    const page = pageForPath(path);
+    const eventName = [page, section, action].filter(Boolean).join('_');
+    if (isDevMode() && eventName.length > MAX_EVENT_NAME_LENGTH) {
+      console.error(
+        `GA4 drops event names longer than ${MAX_EVENT_NAME_LENGTH} characters: ${eventName}`,
+      );
+    }
+
+    gtag('event', eventName, {
+      page_name: page,
+      ...(section ? { section_name: section } : {}),
+      ...params,
+      ...this.attributionParams(),
+    });
   }
 
   /**

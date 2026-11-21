@@ -39,7 +39,7 @@ export class CvDownloadBanner {
   readonly showForm = signal(false);
 
   protected onSubmit(): void {
-    this.cv.onSubmit();
+    this.cv.onSubmit('cv_banner');
   }
 
   protected dismiss(): void {

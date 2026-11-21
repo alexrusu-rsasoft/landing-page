@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AnalyticsService, type ContactLabel } from '../../core/analytics.service';
+import {
+  AnalyticsService,
+  type AnalyticsSection,
+  type ContactChannel,
+} from '../../core/analytics.service';
 import { Certifications } from '../work-with-alex/certifications/certifications';
 import { CONTACT_ALTERNATIVES } from '../../shared/ui/contact/contact-alternatives.config';
 
@@ -14,16 +18,14 @@ import { CONTACT_ALTERNATIVES } from '../../shared/ui/contact/contact-alternativ
 export class CallConfirmed {
   readonly #analytics = inject(AnalyticsService);
 
-  protected readonly emailChannel = CONTACT_ALTERNATIVES.find((c) => c.id === 'contact_email')!;
-  protected readonly whatsappChannel = CONTACT_ALTERNATIVES.find(
-    (c) => c.id === 'contact_whatsapp',
-  )!;
+  protected readonly emailChannel = CONTACT_ALTERNATIVES.find((c) => c.id === 'email')!;
+  protected readonly whatsappChannel = CONTACT_ALTERNATIVES.find((c) => c.id === 'whatsapp')!;
 
   protected trackReschedule(): void {
-    this.#analytics.trackCtaClick('call_confirmed_reschedule');
+    this.#analytics.trackClick('footer', 'reschedule');
   }
 
-  protected trackContact(label: ContactLabel): void {
-    this.#analytics.trackContactClick(label);
+  protected trackContact(section: AnalyticsSection, channel: ContactChannel): void {
+    this.#analytics.trackClick(section, channel);
   }
 }

@@ -44,7 +44,7 @@ export class CvDownloadMobile {
   private readonly closeButton = viewChild<ElementRef<HTMLButtonElement>>('closeButton');
 
   protected onSubmit(): void {
-    this.cv.onSubmit();
+    this.cv.onSubmit('cv_bubble');
   }
 
   protected openModal(): void {

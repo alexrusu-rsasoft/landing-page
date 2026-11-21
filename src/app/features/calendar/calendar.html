@@ -4,6 +4,6 @@
   <iframe #calendarIframe
     [src]="calendarSrc()"
     frameborder="0" [title]="'common.calendarIframeTitle' | transloco" [style.height]="'200vh'" width="100%"
-    (load)="onCalendarLoad()"></iframe>
+    (load)="onCalendarLoad(calendarIframe)"></iframe>
   <!-- end Google Calendar Appointment Scheduling -->
 </section>

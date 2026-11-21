@@ -25,7 +25,7 @@
 
       <div class="mt-auto pt-8">
         <app-free-call-cta [label]="'dashboard.services.projectCta' | transloco"
-          [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="services_project_call" variant="invert" />
+          [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsSection="services" analyticsCta="project_call" variant="invert" />
       </div>
     </article>
 
@@ -45,8 +45,8 @@
 
       <div class="mt-auto flex flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:gap-6">
         <app-free-call-cta [label]="'dashboard.services.teamCta' | transloco"
-          [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="services_team_call" />
-        <a [routerLink]="['/']" fragment="profiles" (click)="trackCta('services_view_profiles')"
+          [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsSection="services" analyticsCta="team_call" />
+        <a [routerLink]="['/']" fragment="profiles" (click)="trackClick('services', 'view_profiles')"
           class="text-sm font-semibold text-primary underline-offset-4 hover:underline">
           {{ 'dashboard.services.teamProfilesLink' | transloco }} →
         </a>
@@ -66,7 +66,7 @@
       </h2>
       <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg">{{ 'dashboard.projects.intro' | transloco }}</p>
     </div>
-    <a [routerLink]="['/work-with-alex']" (click)="trackCta('projects_view_cv')"
+    <a [routerLink]="['/work-with-alex']" (click)="trackClick('projects', 'view_cv')"
       class="shrink-0 text-sm font-semibold text-primary underline-offset-4 hover:underline">
       {{ 'dashboard.projects.cvLink' | transloco }} →
     </a>
@@ -199,7 +199,7 @@
 
   <div class="mt-8">
     <app-free-call-cta [label]="'dashboard.pricing.ctaLabel' | transloco"
-      [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="pricing_free_call" />
+      [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsSection="pricing" />
   </div>
 </section>
 
@@ -230,7 +230,7 @@
           {{ 'dashboard.founder.name' | transloco }}
           <span class="font-normal text-white/70">— {{ 'dashboard.founder.role' | transloco }}</span>
         </p>
-        <a [routerLink]="['/work-with-alex']" (click)="trackCta('founder_view_cv')"
+        <a [routerLink]="['/work-with-alex']" (click)="trackClick('founder', 'view_cv')"
           class="w-fit text-[11px] font-semibold underline decoration-white/40 underline-offset-4 hover:decoration-white sm:text-sm">
           {{ 'dashboard.founder.cvLink' | transloco }} →
         </a>
@@ -270,9 +270,9 @@
     <p class="mx-auto mt-4 max-w-xl text-base leading-8 text-slate-300">{{ 'dashboard.finalCta.subtitle' | transloco }}</p>
     <div class="mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8">
       <app-free-call-cta [label]="'dashboard.finalCta.ctaLabel' | transloco"
-        [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsLabel="final_free_call" variant="invert"
+        [confirmedLabel]="'common.ctaConfirmed' | transloco" analyticsSection="final_cta" variant="invert"
         size="lg" />
-      <a href="tel:+40747011397" (click)="trackCta('final_phone_call')"
+      <a href="tel:+40747011397" (click)="trackClick('final_cta', 'phone')"
         class="text-sm font-semibold text-slate-300 underline-offset-4 transition hover:text-white hover:underline">
         {{ 'dashboard.finalCta.phone' | transloco: { phone: '+40 747 011 397' } }}
       </a>

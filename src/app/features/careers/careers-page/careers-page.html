@@ -24,10 +24,10 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
       <a [routerLink]="[]" fragment="openings"
         class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950"
-        (click)="trackCta('careers_hero_view_roles')">
+        (click)="trackClick('hero', 'view_roles')">
         {{ 'careers.hero.ctaPrimary' | transloco }}
       </a>
-      <button type="button" (click)="openApply(); trackCta('careers_hero_send_profile')"
+      <button type="button" (click)="sendProfile('hero')"
         class="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 py-4 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-slate-950">
         {{ 'careers.hero.ctaSecondary' | transloco }}
       </button>
@@ -64,7 +64,7 @@
   } @else if (hasError()) {
   <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
     <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.errorText' | transloco }}</p>
-    <button type="button" (click)="openApply(); trackCta('careers_hero_send_profile')"
+    <button type="button" (click)="sendProfile('openings', 'error')"
       class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
       {{ 'careers.hero.ctaSecondary' | transloco }}
     </button>
@@ -72,7 +72,7 @@
   } @else if (openings().length === 0) {
   <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
     <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.emptyText' | transloco }}</p>
-    <button type="button" (click)="openApply(); trackCta('careers_hero_send_profile')"
+    <button type="button" (click)="sendProfile('openings', 'empty')"
       class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
       {{ 'careers.hero.ctaSecondary' | transloco }}
     </button>
@@ -128,7 +128,7 @@
         class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
         {{ 'careers.openings.searchShowAll' | transloco }}
       </button>
-      <button type="button" (click)="openApply(); trackCta('careers_search_send_profile')"
+      <button type="button" (click)="sendProfile('openings', 'no_results')"
         class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
         {{ 'careers.hero.ctaSecondary' | transloco }}
       </button>
@@ -182,7 +182,7 @@
           class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
           {{ 'careers.openings.viewDetailsCta' | transloco }}
         </a>
-        <button type="button" (click)="openApply(opening.opportunity)"
+        <button type="button" (click)="applyTo(opening.opportunity)"
           class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-950">
           {{ 'careers.openings.applyCta' | transloco }}
         </button>
@@ -203,7 +203,7 @@
       {{ 'careers.finalCta.subtitle' | transloco }}
     </p>
     <div class="mt-8 flex justify-center">
-      <button type="button" (click)="openApply(); trackCta('careers_final_send_profile')"
+      <button type="button" (click)="sendProfile('final_cta')"
         class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950">
         {{ 'careers.finalCta.cta' | transloco }}
       </button>

@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { AnalyticsService } from '../../../core/analytics.service';
+import { AnalyticsService, CvSurface } from '../../../core/analytics.service';
 import { LeadMagnetApi } from '../../dashboard/lead-magnet/lead-magnet-api';
 import { ExperienceService } from '../experience';
 import { buildCvPdfBlob } from './cv-pdf-builder';
@@ -37,7 +37,7 @@ export class CvDownloadService {
   readonly showError = signal(false);
   readonly generating = signal(false);
 
-  onSubmit(): void {
+  onSubmit(surface: CvSurface): void {
     if (this.company().trim()) {
       // Bot tripped the honeypot: show success without submitting or tracking,
       // so the bot has no signal that anything was rejected.
@@ -57,12 +57,12 @@ export class CvDownloadService {
     this.#api
       .submitLead({ email, lang: this.#activeLang(), source: 'work_with_alex_cv' })
       .subscribe({
-        next: () => this.handleSubmitted(),
-        error: () => this.handleSubmitted(),
+        next: () => this.handleSubmitted(surface),
+        error: () => this.handleSubmitted(surface),
       });
   }
 
-  async downloadCv(): Promise<void> {
+  async downloadCv(surface: CvSurface): Promise<void> {
     if (!isPlatformBrowser(this.#platformId) || this.generating()) return;
 
     const root = this.#document.getElementById(CAPTURE_ROOT_ID);
@@ -104,7 +104,7 @@ export class CvDownloadService {
       anchor.download = `alex-rusu-cv-${this.#activeLang()}.pdf`;
       anchor.click();
       URL.revokeObjectURL(url);
-      this.#analytics.trackCvDownload(this.#activeLang());
+      this.#analytics.trackCvDownload(surface, this.#activeLang());
     } finally {
       restoreOrder?.();
       restorePdfSwaps?.();
@@ -186,10 +186,10 @@ export class CvDownloadService {
     );
   }
 
-  private handleSubmitted(): void {
+  private handleSubmitted(surface: CvSurface): void {
     this.submitting.set(false);
     this.submitted.set(true);
-    this.#analytics.trackCvLeadSubmit();
-    void this.downloadCv();
+    this.#analytics.trackCvLeadSubmit(surface);
+    void this.downloadCv(surface);
   }
 }

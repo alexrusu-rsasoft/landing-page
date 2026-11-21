@@ -28,7 +28,7 @@
 } @else if (hasError()) {
 <div class="mt-8 max-w-xl rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
   <p class="text-base leading-7 text-slate-700">{{ 'careers.openings.errorText' | transloco }}</p>
-  <button type="button" (click)="openApply()"
+  <button type="button" (click)="sendProfile()"
     class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
     {{ 'careers.hero.ctaSecondary' | transloco }}
   </button>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="flex flex-wrap gap-3 pt-2">
-        <button type="button" (click)="openApply()"
+        <button type="button" (click)="apply('header')"
           class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-slate-950">
           {{ 'careers.openings.applyCta' | transloco }}
         </button>
@@ -121,7 +121,7 @@
     <div class="rounded-3xl bg-slate-950 px-8 py-10 text-center shadow-xl shadow-slate-950/10 sm:px-12">
       <h2 class="text-xl font-semibold text-white sm:text-2xl">{{ 'careers.detail.applyBannerTitle' | transloco }}</h2>
       <p class="mx-auto mt-2 max-w-md text-sm leading-7 text-slate-300">{{ 'careers.detail.applyBannerSubtitle' | transloco }}</p>
-      <button type="button" (click)="openApply()"
+      <button type="button" (click)="apply('apply_banner')"
         class="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-white hover:text-slate-950">
         {{ 'careers.openings.applyCta' | transloco }}
       </button>

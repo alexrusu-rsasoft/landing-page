@@ -13,6 +13,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AnalyticsService } from '../../../../core/analytics.service';
+import { CareersApplyModal } from '../../careers-apply-modal.service';
 import { AVAILABILITY_OPTIONS, COLLABORATION_OPTIONS } from '../apply-options';
 import { CareersApplyApi } from '../careers-apply-api';
 import { DEFAULT_LANGUAGE_LEVEL, LANGUAGE_LEVELS, LANGUAGE_OPTIONS } from '../language-options';
@@ -99,6 +100,7 @@ export class CareersApplyForm implements OnInit, OnDestroy {
 
   readonly #api = inject(CareersApplyApi);
   readonly #analytics = inject(AnalyticsService);
+  readonly #applyModal = inject(CareersApplyModal);
   readonly #transloco = inject(TranslocoService);
 
   protected readonly steps = STEPS;
@@ -357,7 +359,7 @@ export class CareersApplyForm implements OnInit, OnDestroy {
   private handleSubmitted(): void {
     this.submitting.set(false);
     this.submitted.set(true);
-    this.#analytics.trackCareersApplicationSubmit(this.targetRole());
+    this.#analytics.trackApplyFormSubmit(this.targetRole(), this.#applyModal.openedFrom());
   }
 
   // The request never left the browser (offline, blocked by CSP or an
@@ -365,6 +367,6 @@ export class CareersApplyForm implements OnInit, OnDestroy {
   private handleSubmitFailed(): void {
     this.submitting.set(false);
     this.submitError.set(true);
-    this.#analytics.trackCareersApplicationError(this.targetRole());
+    this.#analytics.trackApplyFormError(this.targetRole(), this.#applyModal.openedFrom());
   }
 }

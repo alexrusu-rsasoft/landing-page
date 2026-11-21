@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { AnalyticsService, CtaLabel } from '../../../core/analytics.service';
+import { AnalyticsCta, AnalyticsSection, AnalyticsService } from '../../../core/analytics.service';
 import { CareersApplyForm } from '../apply/careers-apply-form/careers-apply-form';
 import { CareersApplyModal } from '../careers-apply-modal.service';
 import { CareersService } from '../careers';
@@ -65,8 +65,8 @@ export class CareersPage {
     this.#analytics.trackCareersSearch(term, this.filteredOpenings().length, method);
   }
 
-  protected trackCta(label: CtaLabel): void {
-    this.#analytics.trackCtaClick(label);
+  protected trackClick(section: AnalyticsSection, cta: AnalyticsCta): void {
+    this.#analytics.trackClick(section, cta);
   }
 
   protected isUrgent(opening: CareerOpening): boolean {
@@ -91,9 +91,19 @@ export class CareersPage {
     return value;
   }
 
-  protected openApply(targetRole = ''): void {
-    this.#applyModal.open(targetRole);
-    this.#analytics.trackCareersApplyClick(targetRole || 'general');
+  /**
+   * Opens the general "send your profile" form: `careers_<section>_send_profile_click`.
+   * `state` tells apart the fallbacks shown in place of the roles list.
+   */
+  protected sendProfile(section: AnalyticsSection, state?: 'error' | 'empty' | 'no_results'): void {
+    this.#applyModal.open('', section);
+    this.#analytics.trackClick(section, 'send_profile', state);
+  }
+
+  /** Opens the form for one role from its card: `careers_openings_apply_click`, labelled with the role. */
+  protected applyTo(opportunity: string): void {
+    this.#applyModal.open(opportunity, 'openings');
+    this.#analytics.trackClick('openings', 'apply', opportunity);
   }
 
   protected closeApply(): void {

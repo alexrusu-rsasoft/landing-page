@@ -11,7 +11,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { AnalyticsService, type ContactLabel } from '../../../core/analytics.service';
+import {
+  AnalyticsService,
+  type AnalyticsSection,
+  type ContactChannel,
+} from '../../../core/analytics.service';
 import { CONTACT_ALTERNATIVES } from './contact-alternatives.config';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
@@ -88,16 +92,16 @@ export class Contact implements AfterViewInit, OnDestroy {
     }
   }
 
-  protected trackContact(label: ContactLabel): void {
-    this.#analytics.trackContactClick(label);
+  protected trackContact(section: AnalyticsSection, channel: ContactChannel): void {
+    this.#analytics.trackClick(section, channel);
   }
 
-  protected onCalendarLoad(): void {
-    this.#analytics.trackCalendarIframeLoaded();
+  protected onCalendarLoad(iframe: HTMLIFrameElement): void {
+    this.#analytics.trackBookingLoad(iframe);
   }
 
   /**
-   * Sets up an IntersectionObserver that fires `calendar_section_viewed`
+   * Sets up an IntersectionObserver that fires `contact_booking_view`
    * exactly once when at least 40% of the iframe enters the viewport.
    */
   private setupIntersectionObserver(): void {
@@ -109,7 +113,7 @@ export class Contact implements AfterViewInit, OnDestroy {
         const entry = entries[0];
         if (entry.isIntersecting && !this.#calendarViewed()) {
           this.#calendarViewed.set(true);
-          this.#analytics.trackCalendarViewed();
+          this.#analytics.trackBookingView();
           this.#intersectionObserver?.disconnect();
         }
       },
@@ -128,7 +132,7 @@ export class Contact implements AfterViewInit, OnDestroy {
   private handleWindowBlur(): void {
     if (this.#calendarViewed() && !this.#calendarEngaged()) {
       this.#calendarEngaged.set(true);
-      this.#analytics.trackCalendarEngaged();
+      this.#analytics.trackBookingEngaged();
     }
   }
 }
