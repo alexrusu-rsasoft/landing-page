@@ -765,6 +765,7 @@
       "submitCta": "Submit Application 🚀",
       "submittingCta": "Sending...",
       "requiredError": "Please complete the required fields to continue.",
+      "submitError": "We couldn't send your application. Please check your connection and try again.",
       "successTitle": "Application received!",
       "successBody": "Thank you for applying. Someone from RSA SOFT will review your profile and reach out shortly.",
       "closeCta": "Close"

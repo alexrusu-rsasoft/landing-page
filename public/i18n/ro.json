@@ -765,6 +765,7 @@
       "submitCta": "Trimite aplicația 🚀",
       "submittingCta": "Se trimite...",
       "requiredError": "Completează câmpurile obligatorii ca să continui.",
+      "submitError": "Nu am putut trimite aplicația. Verifică conexiunea și încearcă din nou.",
       "successTitle": "Aplicație primită!",
       "successBody": "Mulțumim pentru aplicație. Cineva de la RSA SOFT îți va analiza profilul și te va contacta în curând.",
       "closeCta": "Închide"

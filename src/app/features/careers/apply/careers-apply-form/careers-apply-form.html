@@ -308,6 +308,9 @@
       @if (attemptedNext() && !stepValid()) {
       <p class="mt-4 text-sm text-red-600">{{ 'careers.apply.requiredError' | transloco }}</p>
       }
+      @if (submitError()) {
+      <p class="mt-4 text-sm text-red-600" role="alert">{{ 'careers.apply.submitError' | transloco }}</p>
+      }
     </form>
 
     <!-- Navigation -->

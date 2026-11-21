@@ -63,6 +63,11 @@ export class AnalyticsService {
     this.send('careers_application_submit', { event_category: 'careers', event_label: opportunity });
   }
 
+  /** The application request failed to send (network, CSP, blocker); the candidate can retry. */
+  trackCareersApplicationError(opportunity: string): void {
+    this.send('careers_application_error', { event_category: 'careers', event_label: opportunity });
+  }
+
   trackCareersShare(opportunity: string, method: 'native_share' | 'copy_link'): void {
     this.send('careers_share_click', { event_category: 'careers', event_label: opportunity, method });
   }

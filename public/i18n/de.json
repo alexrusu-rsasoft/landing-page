@@ -765,6 +765,7 @@
       "submitCta": "Bewerbung absenden 🚀",
       "submittingCta": "Wird gesendet...",
       "requiredError": "Bitte füllen Sie die Pflichtfelder aus, um fortzufahren.",
+      "submitError": "Ihre Bewerbung konnte nicht gesendet werden. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
       "successTitle": "Bewerbung erhalten!",
       "successBody": "Danke für Ihre Bewerbung. Jemand von RSA SOFT prüft Ihr Profil und meldet sich in Kürze.",
       "closeCta": "Schließen"

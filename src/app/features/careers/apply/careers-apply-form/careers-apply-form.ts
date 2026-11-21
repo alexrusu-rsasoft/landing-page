@@ -142,6 +142,7 @@ export class CareersApplyForm implements OnInit, OnDestroy {
 
   protected readonly submitting = signal(false);
   protected readonly submitted = signal(false);
+  protected readonly submitError = signal(false);
   protected readonly showPrivacyNotice = signal(false);
 
   protected readonly phoneTouched = signal(false);
@@ -320,6 +321,7 @@ export class CareersApplyForm implements OnInit, OnDestroy {
     if (!this.stepValid()) return;
 
     this.submitting.set(true);
+    this.submitError.set(false);
 
     this.#api
       .submitApplication({
@@ -337,7 +339,7 @@ export class CareersApplyForm implements OnInit, OnDestroy {
       })
       .subscribe({
         next: () => this.handleSubmitted(),
-        error: () => this.handleSubmitted(),
+        error: () => this.handleSubmitFailed(),
       });
   }
 
@@ -356,5 +358,13 @@ export class CareersApplyForm implements OnInit, OnDestroy {
     this.submitting.set(false);
     this.submitted.set(true);
     this.#analytics.trackCareersApplicationSubmit(this.targetRole());
+  }
+
+  // The request never left the browser (offline, blocked by CSP or an
+  // extension), so keep the answers on screen and let the candidate retry.
+  private handleSubmitFailed(): void {
+    this.submitting.set(false);
+    this.submitError.set(true);
+    this.#analytics.trackCareersApplicationError(this.targetRole());
   }
 }
