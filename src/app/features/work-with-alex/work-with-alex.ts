@@ -5,6 +5,7 @@ import { ExperienceSection } from './experience-section/experience-section';
 import { AboutSection } from './about/about';
 import { SkillsSection } from './skills/skills';
 import { EducationSection } from './education/education';
+import { TestimonialsSection } from './testimonials/testimonials';
 import { WhyChooseMe } from './why-choose-me/why-choose-me';
 import { CvDownloadBanner } from './cv-download/cv-download-banner';
 import { CvDownloadMobile } from './cv-download/cv-download-mobile';
@@ -23,6 +24,7 @@ import { TrackSectionViewDirective } from '../../shared/analytics/track-section-
     SkillsSection,
     EducationSection,
     WhyChooseMe,
+    TestimonialsSection,
     CvDownloadBanner,
     CvDownloadMobile,
     TranslocoPipe,

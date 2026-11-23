@@ -48,6 +48,7 @@ export type AnalyticsSection =
   // /work-with-alex
   | 'why_choose_me'
   | 'featured_video'
+  | 'testimonials'
   | 'experience'
   | 'experience_end'
   | 'about'
@@ -86,6 +87,8 @@ export type AnalyticsCta =
   | 'apply'
   | 'share'
   | 'reschedule'
+  | 'next' // carousel arrows
+  | 'prev'
   | ContactChannel;
 
 export type ContactChannel = 'phone' | 'email' | 'whatsapp' | 'linkedin' | 'xing';

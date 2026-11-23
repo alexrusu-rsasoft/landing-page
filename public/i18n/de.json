@@ -134,6 +134,35 @@
         "cta": "Lassen Sie uns sprechen"
       }
     },
+    "testimonials": {
+      "badge": "💬 Empfehlungen",
+      "title": "Was Kunden und Kollegen sagen",
+      "subtitle": "Empfehlungen von Kunden, von Entwicklern, die ich geführt habe, und von Teamkollegen, mit denen ich Produkte gebaut habe.",
+      "note": "Screenshots von LinkedIn-Empfehlungen sowie das Feedback eines Kunden aus einem Projekt-Call (unter NDA). Namen, Fotos und Firmennamen sind aus Vertraulichkeitsgründen unkenntlich gemacht.",
+      "groups": {
+        "clients": "Kunden",
+        "colleagues": "Kollegen"
+      },
+      "items": {
+        "clientFounder": {
+          "quote": "Wir hatten das Glück, dass Alex als Front-End Software Engineer in eines unserer Kernprojekte eingestiegen ist und sofort mit voller Geschwindigkeit gearbeitet hat. […] Wir konnten die vereinbarte individuelle Softwareanwendung pünktlich liefern. Nach diesem ersten erfolgreich abgeschlossenen Projekt haben wir die Zusammenarbeit mit Alex fortgesetzt, denn er ist ein wirklich ausdauernder, verantwortungsbewusster Teamplayer mit starken technischen und Projektmanagement-Fähigkeiten."
+        },
+        "reportedColleague": {
+          "quote": "Seine Organisation, sein Fokus und sein Engagement waren entscheidend für den Erfolg unseres Teams im Projekt. Er hat die seltene Fähigkeit, sowohl das große Ganze als auch die Details zu sehen. […] Er sorgt dafür, dass sich jeder im Team wertgeschätzt und gehört fühlt, setzt klare Ziele und realistische Zeitpläne und gibt Feedback, das uns wirklich besser macht."
+        },
+        "fullstackColleague": {
+          "quote": "Alex und ich haben in einem Projekt für einen großen deutschen Automobilkonzern sehr gut zusammengearbeitet, in dem er Frontend Lead war. Alex war immer bereit zu unterstützen und hat in Code-Reviews gutes Feedback gegeben. Er war bei den neuesten Angular Best Practices immer auf dem aktuellen Stand und hat dafür gesorgt, dass diese Verbesserungen in unser Projekt eingeflossen sind."
+        },
+        "angularColleague": {
+          "quote": "Die Zusammenarbeit mit Alex in einem Projekt für eine deutsche Automobilmarke war eine tolle Erfahrung. Er ist ein versierter Angular-Entwickler, ein zuverlässiger Teamkollege und immer hilfsbereit. Besonders geschätzt habe ich seine professionelle Haltung, seine Liebe zum Detail und die Art, wie er Frontend-Herausforderungen angegangen ist."
+        },
+        "backendColleague": {
+          "quote": "Ich hatte das Vergnügen, mit Alex im selben Entwicklungsteam zu arbeiten: Ich war für das Backend zuständig, er hat das Frontend verantwortet. Von Anfang an war klar, dass Alex nicht nur ein Frontend-Entwickler ist, sondern ein echter Handwerker, der komplexe Anforderungen hervorragend in intuitive und benutzerfreundliche Designs umsetzt."
+        }
+      },
+      "prev": "Vorherige Empfehlung",
+      "next": "Nächste Empfehlung"
+    },
     "skills": {
       "badge": "🛠️ Fähigkeiten",
       "title": "Fähigkeiten & Tools",

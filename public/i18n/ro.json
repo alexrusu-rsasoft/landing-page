@@ -134,6 +134,35 @@
         "cta": "Hai să vorbim"
       }
     },
+    "testimonials": {
+      "badge": "💬 Recomandări",
+      "title": "Ce spun clienții și colegii",
+      "subtitle": "Recomandări de la clienți, de la developerii pe care i-am coordonat și de la colegii cu care am construit produse.",
+      "note": "Capturi ale recomandărilor de pe LinkedIn, plus feedback-ul unui client dintr-un call de proiect (sub NDA). Numele, pozele și numele firmelor sunt blurate din motive de confidențialitate.",
+      "groups": {
+        "clients": "Clienți",
+        "colleagues": "Colegi"
+      },
+      "items": {
+        "clientFounder": {
+          "quote": "Am avut norocul ca Alex să intre într-unul dintre proiectele noastre de bază ca Front-End Software Engineer și să lucreze la viteză maximă. […] Am reușit să livrăm la timp aplicația software personalizată la care ne-am angajat. După acest prim proiect livrat cu succes, am continuat colaborarea cu Alex, pentru că este cu adevărat perseverent, un coleg de echipă responsabil, cu abilități tehnice și de project management solide."
+        },
+        "reportedColleague": {
+          "quote": "Organizarea, concentrarea și dedicarea lui au fost esențiale pentru succesul echipei noastre în proiect. Are rara abilitate de a vedea atât imaginea de ansamblu, cât și detaliile. […] Se asigură că fiecare membru al echipei se simte apreciat și ascultat, stabilește obiective clare, termene realiste și oferă feedback care chiar ne ajută să ne îmbunătățim."
+        },
+        "fullstackColleague": {
+          "quote": "Alex și cu mine am colaborat foarte bine într-un proiect pentru o mare companie auto din Germania, unde el era Frontend Lead. Alex era mereu dispus să ajute când era nevoie și dădea feedback bun la code review. Era mereu la curent cu cele mai noi bune practici Angular și se asigura că acele îmbunătățiri ajung și în proiectul nostru."
+        },
+        "angularColleague": {
+          "quote": "Am avut o experiență foarte bună lucrând cu Alex la un proiect pentru un brand auto german. Este un developer Angular priceput, un coleg de încredere și mereu gata să ajute. Am apreciat mult atitudinea lui profesionistă, atenția la detalii și felul în care abordează provocările de frontend."
+        },
+        "backendColleague": {
+          "quote": "Am avut plăcerea să lucrez alături de Alex în aceeași echipă de dezvoltare: eu mă ocupam de backend, iar el de frontend. De la început a fost clar că Alex nu este doar un developer frontend, ci un adevărat meșteșugar, excelent în a transforma cerințe complexe în interfețe intuitive și ușor de folosit."
+        }
+      },
+      "prev": "Recomandarea anterioară",
+      "next": "Recomandarea următoare"
+    },
     "skills": {
       "badge": "🛠️ Competențe",
       "title": "Competențe & Unelte",

@@ -134,6 +134,35 @@
         "cta": "Let's talk"
       }
     },
+    "testimonials": {
+      "badge": "💬 Recommendations",
+      "title": "What clients and colleagues say",
+      "subtitle": "Recommendations from clients, the developers I led and teammates I built products with.",
+      "note": "Screenshots of LinkedIn recommendations, plus one client’s feedback from a project call (under NDA). Names, photos and company names are blurred for confidentiality.",
+      "groups": {
+        "clients": "Clients",
+        "colleagues": "Colleagues"
+      },
+      "items": {
+        "clientFounder": {
+          "quote": "We were lucky to have Alex jumping in one of our core projects as Front-End Software Engineer and perform at full speed. […] We were able to deliver on time the custom software application we signed up for. After this first successfully delivered project, we went on collaborating with Alex, as he is truly perseverant, responsible team player with strong technical and project management skills."
+        },
+        "reportedColleague": {
+          "quote": "His organization, focus, and dedication have been key to our team’s success on the project. He has this rare ability to see both the big picture and the finer details. […] He makes sure everyone on the team feels valued and heard, setting clear goals, realistic timelines, and offering feedback that genuinely helps us improve."
+        },
+        "fullstackColleague": {
+          "quote": "Alex and I had a very good collaboration while working together on a project for a big automotive company from Germany, where he was the Frontend Lead. Alex was always willing to offer support when needed and gave good feedback during code reviews. He was always up to date with the latest Angular best practices and made sure those improvements found their way into our project."
+        },
+        "angularColleague": {
+          "quote": "I had a great experience working with Alex while collaborating on a project for a German automotive brand. He is a skilled Angular developer, reliable teammate, and always ready to help when needed. I really appreciated his professional attitude, attention to detail, and the way he approached frontend development challenges."
+        },
+        "backendColleague": {
+          "quote": "I had the pleasure of working alongside Alex in the same development team, where I handled backend development, and he took charge of the front end. From the very beginning, it was clear that Alex is not just a front-end developer but a true craftsman who excels at transforming complex requirements into intuitive and user-friendly designs."
+        }
+      },
+      "prev": "Previous recommendation",
+      "next": "Next recommendation"
+    },
     "skills": {
       "badge": "🛠️ Skills",
       "title": "Skills & Tools",

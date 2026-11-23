@@ -69,9 +69,10 @@ free-call button.
 
 | Event | When |
 | --- | --- |
-| `alex_<section>_view` | A section scrolled into view: `hero`, `why_choose_me`, `featured_video`, `experience`, `experience_end`, `about`, `human_behind`, `human_behind_gallery`, `human_behind_books`, `human_behind_cta`, `skills`, `education` |
+| `alex_<section>_view` | A section scrolled into view: `hero`, `why_choose_me`, `featured_video`, `testimonials`, `experience`, `experience_end`, `about`, `human_behind`, `human_behind_gallery`, `human_behind_books`, `human_behind_cta`, `skills`, `education` |
 | `alex_experience_entry_view` | A role in the experience timeline scrolled into view. `event_label` / `entry_company`: company, `entry_index`: position (1 = oldest) |
 | `alex_experience_end_free_call_click` | Free-call button at the end of the experience timeline |
+| `alex_testimonials_next_click` / `alex_testimonials_prev_click` | Arrow under the colleagues carousel. `event_label`: the recommendation it moved to (`reportedColleague`, `fullstackColleague`, `angularColleague`, `backendColleague`) |
 | `alex_human_behind_photo_view` | A photo shown in the lightbox. `event_label`: photo, `via`: `click` / `next` / `prev` |
 | `alex_human_behind_lightbox_close` | Lightbox closed. `photos_viewed`: how many photos were seen |
 | `alex_human_behind_cta_free_call_click` | Free-call button in the "human behind the code" closing card |
