@@ -440,8 +440,7 @@
     },
     "projects": {
       "title": "Projects we've worked on",
-      "intro": "We can't name our clients, so we describe them by industry. Alex's projects, with dates and the full stack, are on a dedicated page.",
-      "cvLink": "See Alex's full CV",
+      "intro": "We can't name our clients, so we describe them by industry.",
       "durationLabel": "Duration",
       "teamLabel": "Team",
       "roleLabel": "Role",
@@ -545,8 +544,7 @@
       "name": "Alex-George Rusu",
       "role": "Founder, RSA SOFT",
       "line": "I'm Alex. I read every inquiry myself and run every first call personally, no hand-off to a sales team.",
-      "bio": "Has worked with Angular since 2017 on enterprise projects in automotive, banking and fintech, and has interviewed more than 50 developers.",
-      "cvLink": "See the CV"
+      "bio": "Has worked with Angular since 2017 on enterprise projects in automotive, banking and fintech, and has interviewed more than 50 developers."
     },
     "faq": {
       "title": "Frequently asked questions",

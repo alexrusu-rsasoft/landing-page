@@ -66,10 +66,6 @@
       </h2>
       <p class="mt-4 text-base leading-8 text-slate-600 sm:text-lg">{{ 'dashboard.projects.intro' | transloco }}</p>
     </div>
-    <a [routerLink]="['/work-with-alex']" (click)="trackClick('projects', 'view_cv')"
-      class="shrink-0 text-sm font-semibold text-primary underline-offset-4 hover:underline">
-      {{ 'dashboard.projects.cvLink' | transloco }} →
-    </a>
   </div>
 
   <article class="mt-10 grid gap-10 rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:grid-cols-[1.1fr_1fr]">
@@ -230,10 +226,6 @@
           {{ 'dashboard.founder.name' | transloco }}
           <span class="font-normal text-white/70">— {{ 'dashboard.founder.role' | transloco }}</span>
         </p>
-        <a [routerLink]="['/work-with-alex']" (click)="trackClick('founder', 'view_cv')"
-          class="w-fit text-[11px] font-semibold underline decoration-white/40 underline-offset-4 hover:decoration-white sm:text-sm">
-          {{ 'dashboard.founder.cvLink' | transloco }} →
-        </a>
       </div>
     </div>
   </div>

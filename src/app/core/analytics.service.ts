@@ -79,7 +79,6 @@ export type AnalyticsCta =
   | 'project_call'
   | 'team_call'
   | 'view_profiles'
-  | 'view_cv'
   | 'trust_badge'
   | 'profiles_stat'
   | 'careers'

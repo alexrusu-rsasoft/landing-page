@@ -440,8 +440,7 @@
     },
     "projects": {
       "title": "Proiecte la care am lucrat",
-      "intro": "Nu putem numi clienții, așa că îi descriem după industrie. Proiectele lui Alex apar, cu perioada și stack-ul complet, pe pagina dedicată.",
-      "cvLink": "Vezi CV-ul complet al lui Alex",
+      "intro": "Nu putem numi clienții, așa că îi descriem după industrie.",
       "durationLabel": "Durată",
       "teamLabel": "Echipă",
       "roleLabel": "Rol",
@@ -545,8 +544,7 @@
       "name": "Alex-George Rusu",
       "role": "Fondator, RSA SOFT",
       "line": "Sunt Alex. Citesc personal fiecare cerere și conduc chiar eu fiecare prim apel, fără să fie transferat unei echipe de vânzări.",
-      "bio": "Lucrează cu Angular din 2017, pe proiecte enterprise din automotive, banking și fintech, și a intervievat peste 50 de dezvoltatori.",
-      "cvLink": "Vezi CV-ul"
+      "bio": "Lucrează cu Angular din 2017, pe proiecte enterprise din automotive, banking și fintech, și a intervievat peste 50 de dezvoltatori."
     },
     "faq": {
       "title": "Întrebări frecvente",

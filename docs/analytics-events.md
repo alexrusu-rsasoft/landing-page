@@ -55,10 +55,8 @@ free-call button.
 | `landing_services_project_call_click` | Services: call button on the "project" card |
 | `landing_services_team_call_click` | Services: call button on the "team" card |
 | `landing_services_view_profiles_click` | Services: "see who is available" link |
-| `landing_projects_view_cv_click` | Projects: link to Alex's CV |
 | `landing_profiles_free_call_click` | Developer profiles: free-call button |
 | `landing_pricing_free_call_click` | Pricing: free-call button |
-| `landing_founder_view_cv_click` | Founder band: link to Alex's CV |
 | `landing_lead_magnet_submit` | Lead magnet: email for the staffing PDF sent to the leads Google Form |
 | `landing_lead_magnet_error` | Lead magnet: the email couldn't be sent (offline, blocked by an extension or proxy). The visitor still got the PDF, but the lead is missing from the sheet |
 | `landing_lead_magnet_download` | Lead magnet: PDF downloaded. `event_label`: language |
