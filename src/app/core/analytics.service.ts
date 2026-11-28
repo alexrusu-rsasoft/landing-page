@@ -81,6 +81,7 @@ export type AnalyticsCta =
   | 'view_profiles'
   | 'view_cv'
   | 'trust_badge'
+  | 'profiles_stat'
   | 'careers'
   | 'send_profile'
   | 'view_roles'

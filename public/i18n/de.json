@@ -18,7 +18,7 @@
   },
   "workWithAlex": {
     "hero": {
-      "badge": "Offen für neue Projekte",
+      "badge": "Prüft jeden RSA-SOFT-Entwickler",
       "avatarAlt": "Alex George Rusu - Avatar",
       "name": "Alex-George Rusu",
       "title": "Tech Lead Angular / Frontend",
@@ -129,8 +129,8 @@
       "current": "Aktuell",
       "techLabel": "Eingesetzte Technologien",
       "nextChapter": {
-        "title": "Ihr Projekt könnte der nächste Eintrag auf dieser Liste sein.",
-        "text": "Jede Station oben hat mit einem einfachen Gespräch begonnen. Erzählen Sie mir, woran Sie arbeiten, und wir schauen gemeinsam, ob wir zusammenpassen.",
+        "title": "Jeder Entwickler, den wir vorschlagen, erfüllt diesen Anspruch.",
+        "text": "Heute prüfe ich die Entwickler, die RSA SOFT vorschlägt. Jeder durchläuft ein technisches Interview, einen Deutsch- und Englisch-Check und eine Referenzprüfung, gemessen an Rollen wie den oben genannten. Nennen Sie mir die Rolle, und innerhalb einer Woche haben Sie geprüfte Profile oder eine klare Absage.",
         "cta": "Lassen Sie uns sprechen"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Überspringen Sie die Kalenderbuchung. Wenn Ihre Softwarelieferung blockiert ist und Sie zertifizierte",
     "urgentHighlight": "Senior Angular/Fullstack-Experten",
     "urgentMiddle": "sofort benötigen, umgehen Sie die Warteschlange.",
-    "urgentAfter": "Wir können ein autonomes Team in 24–48 Stunden einsatzbereit machen.",
+    "urgentAfter": "Erste geprüfte Senior-Profile erhalten Sie innerhalb einer Woche.",
     "callDirectly": "Alex direkt anrufen: {{phone}}",
     "calendarTransition": "Wählen Sie unten einen freien Termin für ein kostenloses, 30-minütiges Gespräch aus.",
     "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
@@ -392,8 +392,8 @@
   },
   "dashboard": {
     "hero": {
-      "title": "Enterprise-Software nach Maß und Teams aus Senior-Entwicklern.",
-      "subtitle": "Wir entwickeln Ihr Produkt von der Architektur bis zur Auslieferung oder verstärken Ihr Team mit geprüften Senior-Entwicklern.",
+      "title": "Geprüfte Senior-Entwickler für Ihr Software-Team.",
+      "subtitle": "Erste Profile innerhalb einer Woche, Deutsch und Englisch geprüft, zum Satz des Entwicklers plus einer festen, offen ausgewiesenen Marge.",
       "ctaNote": "30 Minuten · direkt mit dem Gründer · unverbindlich",
       "ctaSecondary": "Verfügbare Entwickler ansehen",
       "badge": "Für CTOs & Heads of Software · Automotive, Banking, Fintech · DACH",
@@ -401,12 +401,12 @@
       "slide1Alt": "Schrägseilbrücke von unten gegen einen klaren Himmel",
       "slide2Alt": "Geschwungener U-Bahn-Tunnel mit orangefarbenen Paneelen",
       "slide3Alt": "Glasbürotürme eines Finanzviertels von der Straße aus gesehen",
-      "stat1Label": "bis zur Besetzung",
-      "stat1Value": "48 Std.",
+      "stat1Label": "bis zu den ersten Profilen",
+      "stat1Value": "7 Tage",
       "stat2Label": "beim selben Enterprise-Kunden",
       "stat2Value": "3,5 Jahre",
-      "stat3Label": "in der Branche, listafirme.ro-Ranking",
-      "stat3Value": "Top 1",
+      "stat3Label": "geprüfte Profile pro Rolle, nicht 30",
+      "stat3Value": "2–3",
       "trustBadgeTitle": "Top-1-Unternehmen in seiner Branche",
       "trustBadgeSubtitle": "listafirme.ro-Ranking, basierend auf geprüften Finanzkennzahlen",
       "trustBadgeAlt": "listafirme.ro Top-Unternehmen-Abzeichen für RSA SOFT SRL",
@@ -430,9 +430,9 @@
       "teamTitle": "Wir verstärken Ihr Team",
       "teamText": "Ein Senior-Entwickler arbeitet in Ihrem Team, mit Ihren Prozessen und Tools, und bleibt so lange, wie das Projekt ihn braucht.",
       "teamSpeedLabel": "Tempo",
-      "teamSpeed": "Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert.",
+      "teamSpeed": "Erste Profile innerhalb einer Woche nach dem Scoping-Gespräch. Bisher am schnellsten: am selben Tag, für einen französischen Autobauer.",
       "teamBillingLabel": "Abrechnung",
-      "teamBilling": "Pro Stunde: der Satz des Entwicklers plus unsere feste Marge von 10 €/Stunde, beides getrennt ausgewiesen.",
+      "teamBilling": "Pro Stunde: der Satz des Entwicklers plus unsere feste Marge, beides getrennt ausgewiesen.",
       "teamVettingLabel": "Auswahl",
       "teamVetting": "Kennenlerngespräch, Sprachtest in Englisch und Deutsch, Prüfung der Referenzen.",
       "teamCta": "Profile anfragen",
@@ -511,9 +511,9 @@
       "step1Title": "Ein Kennenlerngespräch",
       "step1Text": "Wir verstehen, was Sie brauchen: das Produkt, das Sie bauen möchten, oder die Rollen, die Sie besetzen wollen, den Stack und den Zeitrahmen.",
       "step2Title": "Unser Angebot für Sie",
-      "step2Text": "Für ein Projekt: Team, Abrechnungsmodell und Schätzung. Für Ihr Team: Profile von Senior-Entwicklern, die Kennenlerngespräch, Sprachtest und Referenzprüfung bereits hinter sich haben.",
+      "step2Text": "Für ein Projekt: Team, Abrechnungsmodell und Schätzung. Für Ihr Team: innerhalb einer Woche Profile von Senior-Entwicklern, die Kennenlerngespräch, Sprachtest und Referenzprüfung bereits hinter sich haben.",
       "step3Title": "Start der Zusammenarbeit",
-      "step3Text": "Wir beginnen mit der Entwicklung Ihrer individuellen Software oder setzen die Entwickler in Ihrem Team ein. Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert."
+      "step3Text": "Wir beginnen mit der Entwicklung Ihrer individuellen Software, oder der Entwickler startet in Ihrem Team, sobald Ihre Seite bereit ist: Vertrag, Zugänge, Ausstattung."
     },
     "profiles": {
       "title": "Jetzt verfügbare Entwickler",
@@ -531,13 +531,13 @@
       "title": "Was es kostet",
       "teamTitle": "Senior-Entwickler im Team",
       "teamRate": "Satz des Entwicklers",
-      "teamMargin": "10 €/Stunde",
-      "teamText": "Sie sehen getrennt, was der Entwickler bekommt und was wir behalten. Die Marge bleibt gleich, egal wie lange die Suche dauert.",
+      "teamMargin": "feste Marge",
+      "teamText": "Sie sehen getrennt, was der Entwickler bekommt und was wir behalten. Die Marge pro Stunde steht im Angebot und bleibt gleich, egal wie lange die Suche dauert.",
       "teamNote": "Abrechnung pro Stunde. Sie können die Zusammenarbeit jederzeit ohne Vertragsstrafe beenden.",
       "projectTitle": "Individuelle Software",
       "projectModel": "Time & Material zum Stundensatz",
       "projectText": "Das genaue Modell hängt vom Projekt ab und steht vor dem Start im schriftlichen Angebot.",
-      "projectNote": "Zur Orientierung: Das Projekt, an dem Alex gerade arbeitet, wird mit 50 €/Stunde abgerechnet.",
+      "projectNote": "Projekte auf Anfrage. Unser Fokus: Senior-Entwickler in Ihrem Team.",
       "ctaLabel": "Kosten für Ihren Fall klären"
     },
     "founder": {
@@ -551,9 +551,9 @@
     "faq": {
       "title": "Häufige Fragen",
       "q1": "Sind Sie eine Agentur?",
-      "a1": "Bei der Vermittlung von Entwicklern ja: Wir vermitteln die Zusammenarbeit, aber unsere Marge ist fest und sichtbar, 10 €/Stunde über dem Satz des Entwicklers. Individuelle Software liefern wir mit unserem eigenen Team.",
+      "a1": "Bei der Vermittlung von Entwicklern ja: Wir vermitteln die Zusammenarbeit, aber unsere Marge ist ein fester Betrag pro Stunde über dem Satz des Entwicklers, getrennt auf der Rechnung ausgewiesen. Individuelle Software liefern wir mit unserem eigenen Team.",
       "q2": "Wie schnell kann jemand anfangen?",
-      "a2": "Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert. Bei Projekten steht das Startdatum im schriftlichen Angebot.",
+      "a2": "Die ersten geprüften Profile erhalten Sie innerhalb einer Woche nach dem ersten Gespräch. Am schnellsten ging es bisher am selben Tag. Das Startdatum hängt dann von Ihren Interviews und Ihrem Onboarding ab. Bei Projekten steht das Startdatum im schriftlichen Angebot.",
       "q3": "Wie wählen Sie die Entwickler aus?",
       "a3": "Jeder durchläuft ein Kennenlerngespräch, einen Sprachtest in Englisch und Deutsch und eine Prüfung der Referenzen.",
       "q4": "Auf welcher rechtlichen Grundlage arbeiten wir?",
@@ -568,7 +568,7 @@
       "title": "Das Staffing-Protokoll auf einer Seite",
       "subtitle": "Wie eine Besetzung abläuft und wie abgerechnet wird, als PDF, das Sie an Kollegen oder den Einkauf weitergeben können.",
       "item1": "Die Schritte einer Besetzung, vom ersten Gespräch bis zum Start.",
-      "item2": "Wie sich die Kosten berechnen: Satz des Entwicklers plus 10 €/Stunde.",
+      "item2": "Wie sich die Kosten berechnen: Satz des Entwicklers plus feste Marge.",
       "emailLabel": "Geschäftliche E-Mail",
       "emailPlaceholder": "sie@unternehmen.de",
       "emailError": "Geben Sie eine gültige E-Mail-Adresse ein, damit wir wissen, wohin das PDF gesendet werden soll.",
@@ -610,7 +610,7 @@
       "step2Title": "Passung, in beide Richtungen",
       "step2Text": "Ich sage Ihnen ehrlich, ob das zu dem passt, was wir tun. Falls nicht, sage ich das, statt den Call unnötig in die Länge zu ziehen.",
       "step3Title": "Ein klarer nächster Schritt",
-      "step3Text": "Passt es: wie ein Scope-Gespräch abläuft und der 24–48-Stunden-Zeitrahmen. Passt es nicht: kein Nachfass-Druck."
+      "step3Text": "Passt es: wie ein Scope-Gespräch abläuft und wann Sie die ersten Profile sehen. Passt es nicht: kein Nachfass-Druck."
     },
     "research": {
       "eyebrow": "Prüfen Sie selbst",
@@ -667,7 +667,7 @@
       "ctaPrimary": "Offene Stellen ansehen",
       "ctaSecondary": "Profil senden",
       "stat1Label": "Zeit bis zum ersten Match",
-      "stat1Value": "24 bis 48 Stunden",
+      "stat1Value": "Innerhalb einer Woche",
       "stat2Label": "Vertragsart",
       "stat2Value": "B2B-Freelance, remote-freundlich",
       "stat3Label": "Längster Einsatz",
@@ -677,9 +677,9 @@
       "panelLine2": "Ein Protokoll, das sich um Sie dreht.",
       "step1Time": "Tag 0",
       "step1Text": "Sie senden Ihr Profil, wir vereinbaren ein kurzes Gespräch",
-      "step2Time": "Tag 0-2",
+      "step2Time": "Tag 1-5",
       "step2Text": "Abgleich mit geprüften, aktiven DACH-Rollen",
-      "step3Time": "Ab Tag 2",
+      "step3Time": "Ab Tag 5",
       "step3Text": "Kundeninterview, dann Start, Satz vorab offengelegt",
       "imageAlt": "Zwei Kollegen schütteln sich nach einer erfolgreichen Zusammenarbeit die Hand"
     },

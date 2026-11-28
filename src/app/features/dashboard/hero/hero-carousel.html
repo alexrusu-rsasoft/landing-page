@@ -67,14 +67,15 @@
         <p class="mt-1 text-[11px] leading-4 text-white/70 sm:text-sm">{{ 'dashboard.hero.stat2Label' | transloco }}</p>
       </li>
       <li class="px-2 sm:px-6">
-        <a href="https://platform.listafirme.ro/top_2024/diploma_3774693.htm" target="_blank" rel="noopener noreferrer"
-          class="group block rounded-lg transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          (click)="trackClick('hero', 'trust_badge')">
-          <p class="text-xl font-bold tracking-tight sm:text-3xl">{{ 'dashboard.hero.stat3Value' | transloco }}</p>
-          <p class="mt-1 text-[11px] leading-4 text-white/70 underline decoration-white/30 underline-offset-2 group-hover:decoration-white sm:text-sm">
+        <!-- Selectivity is the proof: 2-3 vetted profiles per role. It jumps to the sample profiles. -->
+        <button type="button"
+          class="group block w-full rounded-lg transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          (click)="scrollToElement('profiles'); trackClick('hero', 'profiles_stat')">
+          <span class="block text-xl font-bold tracking-tight sm:text-3xl">{{ 'dashboard.hero.stat3Value' | transloco }}</span>
+          <span class="mt-1 block text-[11px] leading-4 text-white/70 underline decoration-white/30 underline-offset-2 group-hover:decoration-white sm:text-sm">
             {{ 'dashboard.hero.stat3Label' | transloco }}
-          </p>
-        </a>
+          </span>
+        </button>
       </li>
     </ul>
   </div>
