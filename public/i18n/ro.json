@@ -18,7 +18,7 @@
   },
   "workWithAlex": {
     "hero": {
-      "badge": "Deschis pentru colaborări",
+      "badge": "Verifică fiecare inginer RSA SOFT",
       "avatarAlt": "Alex George Rusu - Avatar",
       "name": "Alex-George Rusu",
       "title": "Tech Lead Angular / Frontend",
@@ -129,8 +129,8 @@
       "current": "Acum",
       "techLabel": "Tehnologii folosite",
       "nextChapter": {
-        "title": "Proiectul tău poate fi următorul pe această listă.",
-        "text": "Fiecare rol de mai sus a început cu o simplă discuție. Spune-mi la ce lucrezi și vedem împreună dacă ne potrivim.",
+        "title": "Fiecare inginer pe care îl propunem trece această ștachetă.",
+        "text": "Acum verific inginerii pe care RSA SOFT îi propune. Fiecare trece printr-un interviu tehnic, un test de germană și engleză și verificarea referințelor, la standardul rolurilor de mai sus. Spune-mi rolul și afli în 48 de ore dacă avem omul potrivit.",
         "cta": "Hai să vorbim"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Sari peste programarea în calendar. Dacă livrarea software-ului tău e blocată și ai nevoie de",
     "urgentHighlight": "experți Senior Angular/Fullstack",
     "urgentMiddle": "desfășurați imediat, sari peste coadă.",
-    "urgentAfter": "Putem integra o echipă autonomă în 24–48 de ore.",
+    "urgentAfter": "Primești profiluri senior verificate în cel mult 48 de ore.",
     "callDirectly": "Sună-l direct pe Alex: {{phone}}",
     "calendarTransition": "Alege un interval liber mai jos pentru un apel gratuit de 30 de minute.",
     "alternativesIntro": "Preferi un canal direct? Contactează-mă prin una dintre aceste alternative.",
@@ -392,8 +392,8 @@
   },
   "dashboard": {
     "hero": {
-      "title": "Software enterprise la comandă și echipe de dezvoltatori seniori.",
-      "subtitle": "Construim produsul tău de la arhitectură la livrare sau îți completăm echipa cu dezvoltatori seniori verificați.",
+      "title": "Ingineri seniori verificați pentru echipa ta de software.",
+      "subtitle": "Profiluri în 48 de ore, cu germana și engleza verificate, la tariful dezvoltatorului plus 10 €/oră, afișate separat.",
       "ctaNote": "30 de minute · direct cu fondatorul · fără obligații",
       "ctaSecondary": "Vezi dezvoltatori disponibili",
       "badge": "Pentru CTO și Heads of Software · automotive, banking, fintech · DACH",
@@ -405,8 +405,8 @@
       "stat1Value": "48 h",
       "stat2Label": "cu același client enterprise",
       "stat2Value": "3,5 ani",
-      "stat3Label": "în domeniu, clasament listafirme.ro",
-      "stat3Value": "Top 1",
+      "stat3Label": "marjă fixă, ambele tarife vizibile",
+      "stat3Value": "10 €/oră",
       "trustBadgeTitle": "Companie Top 1 în domeniul ei",
       "trustBadgeSubtitle": "Clasament listafirme.ro, pe baza performanței financiare verificate",
       "trustBadgeAlt": "Insignă Top Companii listafirme.ro pentru RSA SOFT SRL",
@@ -537,7 +537,7 @@
       "projectTitle": "Software la comandă",
       "projectModel": "Time & material, la tarif orar",
       "projectText": "Modelul exact depinde de proiect și intră în oferta scrisă, înainte de start.",
-      "projectNote": "Ca reper: proiectul la care lucrează acum Alex e facturat cu 50 €/oră.",
+      "projectNote": "Proiecte la cerere. Ne concentrăm pe dezvoltatori seniori în echipa ta.",
       "ctaLabel": "Află costul pentru cazul tău"
     },
     "founder": {

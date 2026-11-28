@@ -18,7 +18,7 @@
   },
   "workWithAlex": {
     "hero": {
-      "badge": "Offen für neue Projekte",
+      "badge": "Prüft jeden RSA-SOFT-Entwickler",
       "avatarAlt": "Alex George Rusu - Avatar",
       "name": "Alex-George Rusu",
       "title": "Tech Lead Angular / Frontend",
@@ -129,8 +129,8 @@
       "current": "Aktuell",
       "techLabel": "Eingesetzte Technologien",
       "nextChapter": {
-        "title": "Ihr Projekt könnte der nächste Eintrag auf dieser Liste sein.",
-        "text": "Jede Station oben hat mit einem einfachen Gespräch begonnen. Erzählen Sie mir, woran Sie arbeiten, und wir schauen gemeinsam, ob wir zusammenpassen.",
+        "title": "Jeder Entwickler, den wir vorschlagen, erfüllt diesen Anspruch.",
+        "text": "Heute prüfe ich die Entwickler, die RSA SOFT vorschlägt. Jeder durchläuft ein technisches Interview, einen Deutsch- und Englisch-Check und eine Referenzprüfung, gemessen an Rollen wie den oben genannten. Nennen Sie mir die Rolle, und Sie wissen innerhalb von 48 Stunden, ob wir die Person haben.",
         "cta": "Lassen Sie uns sprechen"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Überspringen Sie die Kalenderbuchung. Wenn Ihre Softwarelieferung blockiert ist und Sie zertifizierte",
     "urgentHighlight": "Senior Angular/Fullstack-Experten",
     "urgentMiddle": "sofort benötigen, umgehen Sie die Warteschlange.",
-    "urgentAfter": "Wir können ein autonomes Team in 24–48 Stunden einsatzbereit machen.",
+    "urgentAfter": "Geprüfte Senior-Profile erhalten Sie innerhalb von 48 Stunden.",
     "callDirectly": "Alex direkt anrufen: {{phone}}",
     "calendarTransition": "Wählen Sie unten einen freien Termin für ein kostenloses, 30-minütiges Gespräch aus.",
     "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
@@ -392,8 +392,8 @@
   },
   "dashboard": {
     "hero": {
-      "title": "Enterprise-Software nach Maß und Teams aus Senior-Entwicklern.",
-      "subtitle": "Wir entwickeln Ihr Produkt von der Architektur bis zur Auslieferung oder verstärken Ihr Team mit geprüften Senior-Entwicklern.",
+      "title": "Geprüfte Senior-Entwickler für Ihr Software-Team.",
+      "subtitle": "Profile innerhalb von 48 Stunden, Deutsch und Englisch geprüft, zum Satz des Entwicklers plus offen ausgewiesenen 10 € pro Stunde.",
       "ctaNote": "30 Minuten · direkt mit dem Gründer · unverbindlich",
       "ctaSecondary": "Verfügbare Entwickler ansehen",
       "badge": "Für CTOs & Heads of Software · Automotive, Banking, Fintech · DACH",
@@ -405,8 +405,8 @@
       "stat1Value": "48 Std.",
       "stat2Label": "beim selben Enterprise-Kunden",
       "stat2Value": "3,5 Jahre",
-      "stat3Label": "in der Branche, listafirme.ro-Ranking",
-      "stat3Value": "Top 1",
+      "stat3Label": "feste Marge, beide Sätze offen",
+      "stat3Value": "10 €/h",
       "trustBadgeTitle": "Top-1-Unternehmen in seiner Branche",
       "trustBadgeSubtitle": "listafirme.ro-Ranking, basierend auf geprüften Finanzkennzahlen",
       "trustBadgeAlt": "listafirme.ro Top-Unternehmen-Abzeichen für RSA SOFT SRL",
@@ -537,7 +537,7 @@
       "projectTitle": "Individuelle Software",
       "projectModel": "Time & Material zum Stundensatz",
       "projectText": "Das genaue Modell hängt vom Projekt ab und steht vor dem Start im schriftlichen Angebot.",
-      "projectNote": "Zur Orientierung: Das Projekt, an dem Alex gerade arbeitet, wird mit 50 €/Stunde abgerechnet.",
+      "projectNote": "Projekte auf Anfrage. Unser Fokus: Senior-Entwickler in Ihrem Team.",
       "ctaLabel": "Kosten für Ihren Fall klären"
     },
     "founder": {

@@ -51,7 +51,7 @@ free-call button.
 | `landing_<section>_view` | A section scrolled into view: `hero`, `services`, `projects`, `process`, `profiles`, `pricing`, `founder`, `faq`, `lead_magnet`, `final_cta` |
 | `landing_hero_free_call_click` | Hero: free-call button |
 | `landing_hero_view_profiles_click` | Hero: "see available developers" |
-| `landing_hero_trust_badge_click` | Hero: the Top 1 / listafirme.ro badge |
+| `landing_hero_margin_stat_click` | Hero: the €10/h fixed-margin stat (scrolls to pricing) |
 | `landing_services_project_call_click` | Services: call button on the "project" card |
 | `landing_services_team_call_click` | Services: call button on the "team" card |
 | `landing_services_view_profiles_click` | Services: "see who is available" link |

@@ -18,7 +18,7 @@
   },
   "workWithAlex": {
     "hero": {
-      "badge": "Open for opportunities",
+      "badge": "Vets every RSA SOFT engineer",
       "avatarAlt": "Alex George Rusu - Avatar",
       "name": "Alex-George Rusu",
       "title": "Tech Lead Angular / Frontend",
@@ -129,8 +129,8 @@
       "current": "Now",
       "techLabel": "Technologies used",
       "nextChapter": {
-        "title": "Your project could be the next entry on this list.",
-        "text": "Every role above started with a simple conversation. Tell me what you're working on and we'll see together whether we're a fit.",
+        "title": "Every engineer we put forward meets this bar.",
+        "text": "These days I vet the engineers RSA SOFT puts forward. Each one passes a technical interview, a German and English check and a reference check, measured against roles like the ones above. Tell me the role, and you'll know within 48 hours whether we have the person.",
         "cta": "Let's talk"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Skip the calendar booking. If your software delivery is blocked and you need certified",
     "urgentHighlight": "Senior Angular/Fullstack experts",
     "urgentMiddle": "deployed immediately, bypass the queue.",
-    "urgentAfter": "We can onboard an autonomous squad in 24–48 hours.",
+    "urgentAfter": "You get vetted senior profiles within 48 hours.",
     "callDirectly": "Call Alex Directly: {{phone}}",
     "calendarTransition": "Pick an open slot below for a free, 30-minute call.",
     "alternativesIntro": "Prefer a direct channel? Reach out through one of these alternatives.",
@@ -392,8 +392,8 @@
   },
   "dashboard": {
     "hero": {
-      "title": "Custom enterprise software and senior developer teams.",
-      "subtitle": "We build your product from architecture to delivery, or extend your team with vetted senior developers.",
+      "title": "Vetted senior engineers for your software team.",
+      "subtitle": "Profiles within 48 hours, German and English checked, at the developer's rate plus a visible €10 an hour.",
       "ctaNote": "30 minutes · directly with the founder · no obligation",
       "ctaSecondary": "See available developers",
       "badge": "For CTOs & Heads of Software · automotive, banking, fintech · DACH",
@@ -405,8 +405,8 @@
       "stat1Value": "48 h",
       "stat2Label": "with the same enterprise client",
       "stat2Value": "3.5 years",
-      "stat3Label": "in its field, listafirme.ro ranking",
-      "stat3Value": "Top 1",
+      "stat3Label": "fixed margin, both rates visible",
+      "stat3Value": "€10/h",
       "trustBadgeTitle": "Top 1 company in its field",
       "trustBadgeSubtitle": "listafirme.ro ranking, based on verified financial performance",
       "trustBadgeAlt": "listafirme.ro Top Companies badge for RSA SOFT SRL",
@@ -537,7 +537,7 @@
       "projectTitle": "Custom software",
       "projectModel": "Time & material, at an hourly rate",
       "projectText": "The exact model depends on the project and goes into the written offer before work starts.",
-      "projectNote": "For reference: the project Alex is working on now is billed at €50/hour.",
+      "projectNote": "Custom projects on request. Our focus is senior developers in your team.",
       "ctaLabel": "Find out the cost for your case"
     },
     "founder": {
