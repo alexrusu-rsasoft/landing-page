@@ -3,7 +3,7 @@
  *
  * Reads the developer pool sheet and returns only anonymized, non-identifying
  * fields for the 2-3 sample profiles shown on the public site (to make the
- * "you'll get a matching developer in 24-48h" promise tangible).
+ * "first vetted profiles within a week" promise tangible).
  *
  * HARD PRIVACY RULE: contact details, rates and documents must never leave
  * this script. The response never includes: Lead Name, Lead Email, Lead

@@ -130,7 +130,7 @@
       "techLabel": "Technologies used",
       "nextChapter": {
         "title": "Every engineer we put forward meets this bar.",
-        "text": "These days I vet the engineers RSA SOFT puts forward. Each one passes a technical interview, a German and English check and a reference check, measured against roles like the ones above. Tell me the role, and you'll know within 48 hours whether we have the person.",
+        "text": "These days I vet the engineers RSA SOFT puts forward. Each one passes a technical interview, a German and English check and a reference check, measured against roles like the ones above. Tell me the role, and within a week you'll have vetted profiles or a straight no.",
         "cta": "Let's talk"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Skip the calendar booking. If your software delivery is blocked and you need certified",
     "urgentHighlight": "Senior Angular/Fullstack experts",
     "urgentMiddle": "deployed immediately, bypass the queue.",
-    "urgentAfter": "You get vetted senior profiles within 48 hours.",
+    "urgentAfter": "You get your first vetted senior profiles within a week.",
     "callDirectly": "Call Alex Directly: {{phone}}",
     "calendarTransition": "Pick an open slot below for a free, 30-minute call.",
     "alternativesIntro": "Prefer a direct channel? Reach out through one of these alternatives.",
@@ -393,7 +393,7 @@
   "dashboard": {
     "hero": {
       "title": "Vetted senior engineers for your software team.",
-      "subtitle": "Profiles within 48 hours, German and English checked, at the developer's rate plus a visible €10 an hour.",
+      "subtitle": "First profiles within a week, German and English checked, at the developer's rate plus a visible €10 an hour.",
       "ctaNote": "30 minutes · directly with the founder · no obligation",
       "ctaSecondary": "See available developers",
       "badge": "For CTOs & Heads of Software · automotive, banking, fintech · DACH",
@@ -401,8 +401,8 @@
       "slide1Alt": "Cable-stayed bridge seen from below against a clear sky",
       "slide2Alt": "Curved orange-panelled metro tunnel leading into the distance",
       "slide3Alt": "Glass office towers of a financial district seen from street level",
-      "stat1Label": "to placement",
-      "stat1Value": "48 h",
+      "stat1Label": "to first profiles",
+      "stat1Value": "7 days",
       "stat2Label": "with the same enterprise client",
       "stat2Value": "3.5 years",
       "stat3Label": "fixed margin, both rates visible",
@@ -430,7 +430,7 @@
       "teamTitle": "We extend your team",
       "teamText": "A senior developer joins your team, works with your processes and tools, and stays as long as the project needs.",
       "teamSpeedLabel": "Speed",
-      "teamSpeed": "So far, every placement has taken at most 48 hours from the first call.",
+      "teamSpeed": "First profiles within a week of the scoping call. Fastest so far: the same day, for a French carmaker.",
       "teamBillingLabel": "Billing",
       "teamBilling": "Hourly: the developer's rate plus our fixed margin of €10/hour, both shown separately.",
       "teamVettingLabel": "Vetting",
@@ -511,9 +511,9 @@
       "step1Title": "An introductory conversation",
       "step1Text": "We understand what you need: the product you want to build or the roles you want to fill, the stack and the timeline.",
       "step2Title": "Our offer for you",
-      "step2Text": "For a project: the team, the billing model and the estimate. For your team: profiles of senior developers who have already passed the interview, language test and reference check.",
+      "step2Text": "For a project: the team, the billing model and the estimate. For your team: within a week, profiles of senior developers who have already passed the interview, language test and reference check.",
       "step3Title": "We start working together",
-      "step3Text": "We start building your custom software or place the developers in your team. So far, every placement has taken at most 48 hours from the first call."
+      "step3Text": "We start building your custom software, or the developer joins your team as soon as your side is ready: contract, access and equipment."
     },
     "profiles": {
       "title": "Developers available now",
@@ -553,7 +553,7 @@
       "q1": "Are you an agency?",
       "a1": "For staffing, yes: we broker the collaboration, but our margin is fixed and visible, €10/hour on top of the developer's rate. Custom software we deliver with our own team.",
       "q2": "How fast can someone start?",
-      "a2": "So far, every placement has taken at most 48 hours from the first call. For projects, the start date goes into the written offer.",
+      "a2": "You get the first vetted profiles within a week of the first call. The fastest so far went out the same day. After that, the start date depends on your interviews and onboarding. For projects, the start date goes into the written offer.",
       "q3": "How do you vet developers?",
       "a3": "Each one goes through an introductory interview, a language test in English and German, and a reference check.",
       "q4": "What's the legal basis for working together?",
@@ -610,7 +610,7 @@
       "step2Title": "Fit, both ways",
       "step2Text": "I'll tell you honestly if this matches what we do. If it doesn't, I'll say so instead of stringing the call along.",
       "step3Title": "A clear next step",
-      "step3Text": "If it's a fit: what a scope call looks like and the 24–48h timeline. If it's not: no follow-up pressure."
+      "step3Text": "If it's a fit: what a scope call looks like and when you'll see the first profiles. If it's not: no follow-up pressure."
     },
     "research": {
       "eyebrow": "Do your own research",
@@ -667,7 +667,7 @@
       "ctaPrimary": "View Open Roles",
       "ctaSecondary": "Send Us Your Profile",
       "stat1Label": "Time to first match",
-      "stat1Value": "24 to 48 hours",
+      "stat1Value": "Within a week",
       "stat2Label": "Contract type",
       "stat2Value": "B2B freelance, remote-friendly",
       "stat3Label": "Longest embed",
@@ -677,9 +677,9 @@
       "panelLine2": "A protocol built around you.",
       "step1Time": "Day 0",
       "step1Text": "You send your profile, we get on a short call",
-      "step2Time": "Day 0-2",
+      "step2Time": "Days 1-5",
       "step2Text": "Matched against vetted, active DACH roles",
-      "step3Time": "Day 2+",
+      "step3Time": "Day 5+",
       "step3Text": "Client interview, then start, rate disclosed upfront",
       "imageAlt": "Two colleagues shaking hands after a successful collaboration"
     },

@@ -130,7 +130,7 @@
       "techLabel": "Eingesetzte Technologien",
       "nextChapter": {
         "title": "Jeder Entwickler, den wir vorschlagen, erfüllt diesen Anspruch.",
-        "text": "Heute prüfe ich die Entwickler, die RSA SOFT vorschlägt. Jeder durchläuft ein technisches Interview, einen Deutsch- und Englisch-Check und eine Referenzprüfung, gemessen an Rollen wie den oben genannten. Nennen Sie mir die Rolle, und Sie wissen innerhalb von 48 Stunden, ob wir die Person haben.",
+        "text": "Heute prüfe ich die Entwickler, die RSA SOFT vorschlägt. Jeder durchläuft ein technisches Interview, einen Deutsch- und Englisch-Check und eine Referenzprüfung, gemessen an Rollen wie den oben genannten. Nennen Sie mir die Rolle, und innerhalb einer Woche haben Sie geprüfte Profile oder eine klare Absage.",
         "cta": "Lassen Sie uns sprechen"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Überspringen Sie die Kalenderbuchung. Wenn Ihre Softwarelieferung blockiert ist und Sie zertifizierte",
     "urgentHighlight": "Senior Angular/Fullstack-Experten",
     "urgentMiddle": "sofort benötigen, umgehen Sie die Warteschlange.",
-    "urgentAfter": "Geprüfte Senior-Profile erhalten Sie innerhalb von 48 Stunden.",
+    "urgentAfter": "Erste geprüfte Senior-Profile erhalten Sie innerhalb einer Woche.",
     "callDirectly": "Alex direkt anrufen: {{phone}}",
     "calendarTransition": "Wählen Sie unten einen freien Termin für ein kostenloses, 30-minütiges Gespräch aus.",
     "alternativesIntro": "Bevorzugen Sie einen direkten Kanal? Nutzen Sie eine dieser Alternativen.",
@@ -393,7 +393,7 @@
   "dashboard": {
     "hero": {
       "title": "Geprüfte Senior-Entwickler für Ihr Software-Team.",
-      "subtitle": "Profile innerhalb von 48 Stunden, Deutsch und Englisch geprüft, zum Satz des Entwicklers plus offen ausgewiesenen 10 € pro Stunde.",
+      "subtitle": "Erste Profile innerhalb einer Woche, Deutsch und Englisch geprüft, zum Satz des Entwicklers plus offen ausgewiesenen 10 € pro Stunde.",
       "ctaNote": "30 Minuten · direkt mit dem Gründer · unverbindlich",
       "ctaSecondary": "Verfügbare Entwickler ansehen",
       "badge": "Für CTOs & Heads of Software · Automotive, Banking, Fintech · DACH",
@@ -401,8 +401,8 @@
       "slide1Alt": "Schrägseilbrücke von unten gegen einen klaren Himmel",
       "slide2Alt": "Geschwungener U-Bahn-Tunnel mit orangefarbenen Paneelen",
       "slide3Alt": "Glasbürotürme eines Finanzviertels von der Straße aus gesehen",
-      "stat1Label": "bis zur Besetzung",
-      "stat1Value": "48 Std.",
+      "stat1Label": "bis zu den ersten Profilen",
+      "stat1Value": "7 Tage",
       "stat2Label": "beim selben Enterprise-Kunden",
       "stat2Value": "3,5 Jahre",
       "stat3Label": "feste Marge, beide Sätze offen",
@@ -430,7 +430,7 @@
       "teamTitle": "Wir verstärken Ihr Team",
       "teamText": "Ein Senior-Entwickler arbeitet in Ihrem Team, mit Ihren Prozessen und Tools, und bleibt so lange, wie das Projekt ihn braucht.",
       "teamSpeedLabel": "Tempo",
-      "teamSpeed": "Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert.",
+      "teamSpeed": "Erste Profile innerhalb einer Woche nach dem Scoping-Gespräch. Bisher am schnellsten: am selben Tag, für einen französischen Autobauer.",
       "teamBillingLabel": "Abrechnung",
       "teamBilling": "Pro Stunde: der Satz des Entwicklers plus unsere feste Marge von 10 €/Stunde, beides getrennt ausgewiesen.",
       "teamVettingLabel": "Auswahl",
@@ -511,9 +511,9 @@
       "step1Title": "Ein Kennenlerngespräch",
       "step1Text": "Wir verstehen, was Sie brauchen: das Produkt, das Sie bauen möchten, oder die Rollen, die Sie besetzen wollen, den Stack und den Zeitrahmen.",
       "step2Title": "Unser Angebot für Sie",
-      "step2Text": "Für ein Projekt: Team, Abrechnungsmodell und Schätzung. Für Ihr Team: Profile von Senior-Entwicklern, die Kennenlerngespräch, Sprachtest und Referenzprüfung bereits hinter sich haben.",
+      "step2Text": "Für ein Projekt: Team, Abrechnungsmodell und Schätzung. Für Ihr Team: innerhalb einer Woche Profile von Senior-Entwicklern, die Kennenlerngespräch, Sprachtest und Referenzprüfung bereits hinter sich haben.",
       "step3Title": "Start der Zusammenarbeit",
-      "step3Text": "Wir beginnen mit der Entwicklung Ihrer individuellen Software oder setzen die Entwickler in Ihrem Team ein. Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert."
+      "step3Text": "Wir beginnen mit der Entwicklung Ihrer individuellen Software, oder der Entwickler startet in Ihrem Team, sobald Ihre Seite bereit ist: Vertrag, Zugänge, Ausstattung."
     },
     "profiles": {
       "title": "Jetzt verfügbare Entwickler",
@@ -553,7 +553,7 @@
       "q1": "Sind Sie eine Agentur?",
       "a1": "Bei der Vermittlung von Entwicklern ja: Wir vermitteln die Zusammenarbeit, aber unsere Marge ist fest und sichtbar, 10 €/Stunde über dem Satz des Entwicklers. Individuelle Software liefern wir mit unserem eigenen Team.",
       "q2": "Wie schnell kann jemand anfangen?",
-      "a2": "Bisher hat jede Besetzung höchstens 48 Stunden ab dem ersten Gespräch gedauert. Bei Projekten steht das Startdatum im schriftlichen Angebot.",
+      "a2": "Die ersten geprüften Profile erhalten Sie innerhalb einer Woche nach dem ersten Gespräch. Am schnellsten ging es bisher am selben Tag. Das Startdatum hängt dann von Ihren Interviews und Ihrem Onboarding ab. Bei Projekten steht das Startdatum im schriftlichen Angebot.",
       "q3": "Wie wählen Sie die Entwickler aus?",
       "a3": "Jeder durchläuft ein Kennenlerngespräch, einen Sprachtest in Englisch und Deutsch und eine Prüfung der Referenzen.",
       "q4": "Auf welcher rechtlichen Grundlage arbeiten wir?",
@@ -610,7 +610,7 @@
       "step2Title": "Passung, in beide Richtungen",
       "step2Text": "Ich sage Ihnen ehrlich, ob das zu dem passt, was wir tun. Falls nicht, sage ich das, statt den Call unnötig in die Länge zu ziehen.",
       "step3Title": "Ein klarer nächster Schritt",
-      "step3Text": "Passt es: wie ein Scope-Gespräch abläuft und der 24–48-Stunden-Zeitrahmen. Passt es nicht: kein Nachfass-Druck."
+      "step3Text": "Passt es: wie ein Scope-Gespräch abläuft und wann Sie die ersten Profile sehen. Passt es nicht: kein Nachfass-Druck."
     },
     "research": {
       "eyebrow": "Prüfen Sie selbst",
@@ -667,7 +667,7 @@
       "ctaPrimary": "Offene Stellen ansehen",
       "ctaSecondary": "Profil senden",
       "stat1Label": "Zeit bis zum ersten Match",
-      "stat1Value": "24 bis 48 Stunden",
+      "stat1Value": "Innerhalb einer Woche",
       "stat2Label": "Vertragsart",
       "stat2Value": "B2B-Freelance, remote-freundlich",
       "stat3Label": "Längster Einsatz",
@@ -677,9 +677,9 @@
       "panelLine2": "Ein Protokoll, das sich um Sie dreht.",
       "step1Time": "Tag 0",
       "step1Text": "Sie senden Ihr Profil, wir vereinbaren ein kurzes Gespräch",
-      "step2Time": "Tag 0-2",
+      "step2Time": "Tag 1-5",
       "step2Text": "Abgleich mit geprüften, aktiven DACH-Rollen",
-      "step3Time": "Ab Tag 2",
+      "step3Time": "Ab Tag 5",
       "step3Text": "Kundeninterview, dann Start, Satz vorab offengelegt",
       "imageAlt": "Zwei Kollegen schütteln sich nach einer erfolgreichen Zusammenarbeit die Hand"
     },

@@ -130,7 +130,7 @@
       "techLabel": "Tehnologii folosite",
       "nextChapter": {
         "title": "Fiecare inginer pe care îl propunem trece această ștachetă.",
-        "text": "Acum verific inginerii pe care RSA SOFT îi propune. Fiecare trece printr-un interviu tehnic, un test de germană și engleză și verificarea referințelor, la standardul rolurilor de mai sus. Spune-mi rolul și afli în 48 de ore dacă avem omul potrivit.",
+        "text": "Acum verific inginerii pe care RSA SOFT îi propune. Fiecare trece printr-un interviu tehnic, un test de germană și engleză și verificarea referințelor, la standardul rolurilor de mai sus. Spune-mi rolul și într-o săptămână ai profiluri verificate sau un răspuns clar că nu avem omul.",
         "cta": "Hai să vorbim"
       }
     },
@@ -212,7 +212,7 @@
     "urgentBefore": "Sari peste programarea în calendar. Dacă livrarea software-ului tău e blocată și ai nevoie de",
     "urgentHighlight": "experți Senior Angular/Fullstack",
     "urgentMiddle": "desfășurați imediat, sari peste coadă.",
-    "urgentAfter": "Primești profiluri senior verificate în cel mult 48 de ore.",
+    "urgentAfter": "Primești primele profiluri senior verificate în cel mult o săptămână.",
     "callDirectly": "Sună-l direct pe Alex: {{phone}}",
     "calendarTransition": "Alege un interval liber mai jos pentru un apel gratuit de 30 de minute.",
     "alternativesIntro": "Preferi un canal direct? Contactează-mă prin una dintre aceste alternative.",
@@ -393,7 +393,7 @@
   "dashboard": {
     "hero": {
       "title": "Ingineri seniori verificați pentru echipa ta de software.",
-      "subtitle": "Profiluri în 48 de ore, cu germana și engleza verificate, la tariful dezvoltatorului plus 10 €/oră, afișate separat.",
+      "subtitle": "Primele profiluri într-o săptămână, cu germana și engleza verificate, la tariful dezvoltatorului plus 10 €/oră, afișate separat.",
       "ctaNote": "30 de minute · direct cu fondatorul · fără obligații",
       "ctaSecondary": "Vezi dezvoltatori disponibili",
       "badge": "Pentru CTO și Heads of Software · automotive, banking, fintech · DACH",
@@ -401,8 +401,8 @@
       "slide1Alt": "Pod hobanat văzut de jos, pe cer senin",
       "slide2Alt": "Tunel de metrou cu panouri portocalii curbate, care se pierde în depărtare",
       "slide3Alt": "Turnuri de birouri din sticlă dintr-un district financiar, văzute de la nivelul străzii",
-      "stat1Label": "până la plasare",
-      "stat1Value": "48 h",
+      "stat1Label": "până la primele profiluri",
+      "stat1Value": "7 zile",
       "stat2Label": "cu același client enterprise",
       "stat2Value": "3,5 ani",
       "stat3Label": "marjă fixă, ambele tarife vizibile",
@@ -430,7 +430,7 @@
       "teamTitle": "Îți completăm echipa",
       "teamText": "Un dezvoltator senior intră în echipa ta, lucrează pe procesele și uneltele voastre și rămâne cât are nevoie proiectul.",
       "teamSpeedLabel": "Viteză",
-      "teamSpeed": "Până acum, fiecare plasare a durat cel mult 48 de ore de la primul apel.",
+      "teamSpeed": "Primele profiluri într-o săptămână de la apelul de scoping. Cel mai rapid de până acum: în aceeași zi, pentru un producător auto francez.",
       "teamBillingLabel": "Facturare",
       "teamBilling": "Pe oră: tariful dezvoltatorului plus marja noastră fixă de 10 €/oră, ambele afișate separat.",
       "teamVettingLabel": "Selecție",
@@ -511,9 +511,9 @@
       "step1Title": "O discuție de cunoaștere",
       "step1Text": "Înțelegem ce ai nevoie: produsul pe care vrei să-l construiești sau rolurile pe care vrei să le acoperi, stack-ul și termenul.",
       "step2Title": "Oferta noastră pentru tine",
-      "step2Text": "Pentru un proiect: echipa, modelul de facturare și estimarea. Pentru echipa ta: profiluri de dezvoltatori seniori care au trecut deja prin interviu, test de limbă și verificarea referințelor.",
+      "step2Text": "Pentru un proiect: echipa, modelul de facturare și estimarea. Pentru echipa ta: într-o săptămână, profiluri de dezvoltatori seniori care au trecut deja prin interviu, test de limbă și verificarea referințelor.",
       "step3Title": "Start colaborare",
-      "step3Text": "Începem dezvoltarea software-ului la comandă sau plasăm dezvoltatorii în echipa ta. Până acum, fiecare plasare a durat cel mult 48 de ore de la primul apel."
+      "step3Text": "Începem dezvoltarea software-ului la comandă sau dezvoltatorul intră în echipa ta imediat ce partea ta e gata: contract, acces și echipament."
     },
     "profiles": {
       "title": "Dezvoltatori disponibili acum",
@@ -553,7 +553,7 @@
       "q1": "Sunteți o agenție?",
       "a1": "Pentru staffing, da: intermediem colaborarea, dar marja e fixă și o vezi, 10 €/oră peste tariful dezvoltatorului. Software-ul la comandă îl livrăm cu echipa noastră.",
       "q2": "Cât de repede poate începe cineva?",
-      "a2": "Până acum, fiecare plasare a durat cel mult 48 de ore de la primul apel. La proiecte, data de start intră în oferta scrisă.",
+      "a2": "Primele profiluri verificate le primești într-o săptămână de la primul apel. Cel mai rapid de până acum: în aceeași zi. Data de start depinde apoi de interviurile și onboarding-ul tău. La proiecte, data de start intră în oferta scrisă.",
       "q3": "Cum îi selectați pe dezvoltatori?",
       "a3": "Fiecare trece printr-un interviu de cunoaștere, un test de limbă în engleză și germană și verificarea referințelor.",
       "q4": "Pe ce bază legală lucrăm?",
@@ -610,7 +610,7 @@
       "step2Title": "Potrivire, în ambele sensuri",
       "step2Text": "Îți spun sincer dacă se potrivește cu ce facem. Dacă nu, spun asta direct, în loc să prelungesc apelul degeaba.",
       "step3Title": "Un pas următor clar",
-      "step3Text": "Dacă se potrivește: cum arată un apel de scoping și termenul de 24-48 de ore. Dacă nu: fără presiune de follow-up."
+      "step3Text": "Dacă se potrivește: cum arată un apel de scoping și când vezi primele profiluri. Dacă nu: fără presiune de follow-up."
     },
     "research": {
       "eyebrow": "Verifică singur",
@@ -667,7 +667,7 @@
       "ctaPrimary": "Vezi rolurile disponibile",
       "ctaSecondary": "Trimite-ți profilul",
       "stat1Label": "Timp până la primul match",
-      "stat1Value": "24 până la 48 de ore",
+      "stat1Value": "Într-o săptămână",
       "stat2Label": "Tip de contract",
       "stat2Value": "Freelance B2B, remote-friendly",
       "stat3Label": "Cea mai lungă colaborare",
@@ -677,9 +677,9 @@
       "panelLine2": "Un protocol construit în jurul tău.",
       "step1Time": "Ziua 0",
       "step1Text": "Trimiți profilul, avem un apel scurt",
-      "step2Time": "Ziua 0-2",
+      "step2Time": "Ziua 1-5",
       "step2Text": "Potrivire cu roluri DACH active, deja verificate",
-      "step3Time": "Din ziua 2",
+      "step3Time": "Din ziua 5",
       "step3Text": "Interviu cu clientul, apoi start, rata comunicată din start",
       "imageAlt": "Doi colegi dându-și mâna după o colaborare reușită"
     },
